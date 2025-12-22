@@ -1,7 +1,16 @@
 import React, { useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
-import { addXp, loadProgress, saveProgress, markActiveDay } from "../lib/progressStore.js";
+
+import {
+  addXp,
+  completeNode,
+  isNodeCompleted,
+  loadProgress,
+  saveProgress,
+  markActiveDay,
+} from "../lib/progressStore.js";
+
 import { getLessonContent } from "../data/lessons.mock.js";
 
 // Bonus review = mini quiz sur keyPoints
@@ -33,21 +42,17 @@ function buildBonusQuestions(content) {
   return base.map((kp, idx) => ({
     id: `bq_${idx}`,
     question: "Complète l’idée principale :",
-    options: [
-      kp,
-      "Une option piège (hors sujet)",
-      "Une autre option piège",
-    ],
+    options: [kp, "Une option piège (hors sujet)", "Une autre option piège"],
     correctIndex: 0,
     explanation: "On vise un rappel direct des points clés.",
   }));
 }
 
 export default function BonusReviewQuiz() {
-  const { bonusId } = useParams(); // r1 ou r2
+  const { bonusId } = useParams(); // r1, r2, r3...
   const navigate = useNavigate();
 
-  // Pour MVP : r1 = monde 1 => on prend l1/l2/l3/l4 comme base
+  // Pour MVP : mapping simple bonus -> lessons base
   const lessonIds = useMemo(() => {
     if (bonusId === "r2") return ["l5", "l6", "l7", "l8"];
     return ["l1", "l2", "l3", "l4"];
@@ -72,6 +77,7 @@ export default function BonusReviewQuiz() {
 
   const q = questions[i];
   const total = questions.length;
+
   const isCorrect = selected !== null && selected === q.correctIndex;
 
   function validate() {
@@ -88,15 +94,23 @@ export default function BonusReviewQuiz() {
     let p = loadProgress();
     p = markActiveDay(p);
 
-    // 🎁 Bonus XP si réussite
+    // ✅ On évite de redonner XP si déjà complété (anti-farming)
+    const alreadyDone = isNodeCompleted(p, bonusId);
+
     if (passed) {
-      p = addXp(p, 5);
+      // 🎁 Bonus XP si réussite
+      if (!alreadyDone) {
+        p = addXp(p, 5);
+        p = completeNode(p, bonusId); // ✅ IMPORTANT : marque la review comme terminée
+      }
       saveProgress(p);
       navigate("/map", { replace: true });
-    } else {
-      saveProgress(p);
-      navigate("/map", { replace: true });
+      return;
     }
+
+    // échec : pas de completion, pas de XP
+    saveProgress(p);
+    navigate("/map", { replace: true });
   }
 
   function next() {
@@ -104,6 +118,35 @@ export default function BonusReviewQuiz() {
     setShowFeedback(false);
     setSelected(null);
     setI((x) => x + 1);
+  }
+
+  if (!q) {
+    return (
+      <div className="min-h-screen bg-neutral-50 pb-6">
+        <div className="mx-auto max-w-md px-4 pt-6">
+          <button
+            onClick={() => navigate(-1)}
+            className="inline-flex items-center gap-2 text-sm text-neutral-700"
+          >
+            <ChevronLeft size={18} />
+            Retour
+          </button>
+
+          <div className="mt-4 rounded-2xl border bg-white p-4">
+            <p className="font-semibold">Bonus indisponible</p>
+            <p className="text-sm text-neutral-600 mt-1">
+              Il n’y a pas assez de points clés à réviser.
+            </p>
+            <button
+              onClick={() => navigate("/map")}
+              className="mt-4 w-full rounded-xl bg-neutral-900 text-white py-3 font-medium"
+            >
+              Retour à la map
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -147,21 +190,25 @@ export default function BonusReviewQuiz() {
           {!showFeedback ? (
             <button
               onClick={validate}
-              className="mt-4 w-full rounded-xl bg-neutral-900 text-white py-3 font-medium disabled:opacity-50"
+              className="mt-4 w-full rounded-xl bg-neutral-900 text-black py-3 font-medium disabled:opacity-50"
               disabled={selected === null}
             >
               Valider
             </button>
           ) : (
             <div className="mt-4 rounded-xl border p-3">
-              <p className={`text-sm font-medium ${isCorrect ? "text-emerald-700" : "text-red-700"}`}>
+              <p
+                className={`text-sm font-medium ${
+                  isCorrect ? "text-emerald-700" : "text-red-700"
+                }`}
+              >
                 {isCorrect ? "✅ Correct" : "❌ Incorrect"}
               </p>
               <p className="text-sm text-neutral-700 mt-1">{q.explanation}</p>
 
               <button
                 onClick={next}
-                className="mt-3 w-full rounded-xl bg-neutral-900 text-white py-2.5 font-medium"
+                className="mt-3 w-full rounded-xl bg-neutral-900 text-black py-2.5 font-medium"
               >
                 {i + 1 < total ? "Suivant" : "Terminer"}
               </button>

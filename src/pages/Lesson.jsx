@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getLessonById } from "../data/map.mock.js";
 import { getLessonContent } from "../data/lessons.mock.js";
-import { ChevronLeft, Headphones, BookOpen, CheckCircle2 } from "lucide-react";
+import { ChevronLeft, Headphones, BookOpen, Sparkles } from "lucide-react";
 
 export default function LessonPage() {
   const { lessonId } = useParams();
@@ -12,7 +12,6 @@ export default function LessonPage() {
   const content = useMemo(() => getLessonContent(lessonId), [lessonId]);
 
   const [mode, setMode] = useState("read"); // read | audio
-  const [microCheckDone, setMicroCheckDone] = useState(false);
 
   if (!lesson) {
     return (
@@ -25,9 +24,21 @@ export default function LessonPage() {
   }
 
   const title = content?.title || lesson.node.title;
+  const worldTitle = lesson.world?.title || "Monde";
+  const illustration = content?.illustration || null;
+
+  const storyBlocks = content?.storyBlocks?.length
+    ? content.storyBlocks
+    : (content?.story || []).map((t) => ({ type: "p", text: t }));
+
+  const keyPoints = content?.keyPoints?.length
+    ? content.keyPoints
+    : ["(MVP) Ajoute keyPoints[] dans lessons.mock.js"];
+
+  const cliffhanger = content?.cliffhanger || null;
 
   return (
-    <div className="min-h-screen bg-neutral-50 pb-6">
+    <div className="min-h-screen bg-neutral-50 pb-24">
       <div className="mx-auto max-w-md px-4 pt-4">
         <button
           onClick={() => navigate(-1)}
@@ -37,15 +48,30 @@ export default function LessonPage() {
           Retour
         </button>
 
-        <h1 className="mt-3 text-xl font-semibold">{title}</h1>
-        <p className="text-sm text-neutral-600">{lesson.world.title}</p>
+        {/* Illustration */}
+        {illustration ? (
+          <div className="mt-4 overflow-hidden rounded-3xl border bg-white">
+            <img
+              src={illustration}
+              alt=""
+              className="h-44 w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        ) : null}
 
+        <h1 className="mt-4 text-xl font-semibold">{title}</h1>
+        <p className="text-sm text-neutral-600">{worldTitle}</p>
+
+        {/* Mode */}
         <div className="mt-4 flex gap-2">
           <button
             onClick={() => setMode("read")}
             className={[
-              "flex-1 rounded-xl border px-3 py-2 text-sm font-medium",
-              mode === "read" ? "bg-neutral-900 text-black border-neutral-900" : "bg-white",
+              "flex-1 rounded-xl border px-3 py-2 text-sm font-medium transition",
+              mode === "read"
+                ? "bg-neutral-900 text-white border-neutral-900"
+                : "bg-white hover:border-neutral-300",
             ].join(" ")}
           >
             <span className="inline-flex items-center gap-2 justify-center">
@@ -56,8 +82,10 @@ export default function LessonPage() {
           <button
             onClick={() => setMode("audio")}
             className={[
-              "flex-1 rounded-xl border px-3 py-2 text-sm font-medium",
-              mode === "audio" ? "bg-neutral-900 text-black border-neutral-900" : "bg-white",
+              "flex-1 rounded-xl border px-3 py-2 text-sm font-medium transition",
+              mode === "audio"
+                ? "bg-neutral-900 text-white border-neutral-900"
+                : "bg-white hover:border-neutral-300",
             ].join(" ")}
           >
             <span className="inline-flex items-center gap-2 justify-center">
@@ -67,61 +95,59 @@ export default function LessonPage() {
         </div>
 
         {/* CONTENT */}
-        <div className="mt-4 space-y-3">
+        <div className="mt-4">
           {mode === "read" ? (
             <>
-              {(content?.story || ["(MVP) Ajoute le contenu de cette leçon dans lessons.mock.js"]).map(
-                (p, idx) => (
-                  <div key={idx} className="rounded-2xl border bg-white p-4">
-                    <p className="text-sm leading-6 text-neutral-800">{p}</p>
-                  </div>
-                )
-              )}
-
-              {/* Micro-check simple (pour donner du rythme) */}
-              <div className="rounded-2xl border bg-white p-4">
-                <p className="text-sm font-semibold">Mini-check (10 secondes)</p>
-                <p className="text-sm text-neutral-600 mt-1">
-                  Question : “Le contexte tribal influence-t-il fortement la vie sociale ?”
-                </p>
-
-                {!microCheckDone ? (
-                  <div className="mt-3 flex gap-2">
-                    <button
-                      onClick={() => setMicroCheckDone(true)}
-                      className="flex-1 rounded-xl bg-neutral-900 text-black py-2.5 font-medium"
-                    >
-                      Oui
-                    </button>
-                    <button
-                      onClick={() => setMicroCheckDone(true)}
-                      className="flex-1 rounded-xl border bg-white py-2.5 font-medium"
-                    >
-                      Non
-                    </button>
-                  </div>
-                ) : (
-                  <div className="mt-3 inline-flex items-center gap-2 text-sm text-emerald-700 font-medium">
-                    <CheckCircle2 size={18} />
-                    Bien vu — on retient l’essentiel.
-                  </div>
-                )}
+              {/* Story */}
+              <div className="rounded-3xl border bg-white p-5">
+                <div className="text-[15px] leading-7 text-neutral-800">
+                  {storyBlocks.map((b, idx) => {
+                    if (b.type === "subtitle") {
+                      return (
+                        <h2
+                          key={idx}
+                          className="mt-6 first:mt-0 text-base font-semibold text-neutral-900"
+                        >
+                          {b.text}
+                        </h2>
+                      );
+                    }
+                    return (
+                      <p key={idx} className="mt-3 first:mt-0">
+                        {b.text}
+                      </p>
+                    );
+                  })}
+                </div>
               </div>
 
-              {/* Points clés */}
-              <div className="rounded-2xl border bg-white p-4">
-                <p className="text-sm font-semibold">Points clés à retenir</p>
+              {/* Cliffhanger */}
+              {cliffhanger ? (
+                <div className="mt-4 rounded-3xl border bg-neutral-50 p-5">
+                  <p className="text-sm font-semibold inline-flex items-center gap-2">
+                    <Sparkles size={16} />
+                    Et ensuite…
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-neutral-700">
+                    {cliffhanger}
+                  </p>
+                </div>
+              ) : null}
+
+              {/* Key points */}
+              <div className="mt-4 rounded-3xl border bg-white p-5">
+                <p className="text-sm font-semibold">
+                  🔑 Points essentiels à retenir
+                </p>
                 <ul className="mt-2 list-disc pl-5 text-sm text-neutral-700 space-y-1">
-                  {(content?.keyPoints || ["(MVP) Ajoute keyPoints[] dans lessons.mock.js"]).map(
-                    (k, idx) => (
-                      <li key={idx}>{k}</li>
-                    )
-                  )}
+                  {keyPoints.map((k, idx) => (
+                    <li key={idx}>{k}</li>
+                  ))}
                 </ul>
               </div>
             </>
           ) : (
-            <div className="rounded-2xl border bg-white p-4">
+            <div className="rounded-3xl border bg-white p-5">
               <p className="text-sm text-neutral-700">
                 (Étape suivante) On va brancher un MP3 par leçon.
               </p>
@@ -134,7 +160,7 @@ export default function LessonPage() {
 
         <button
           onClick={() => navigate(`/quiz/${lesson.node.id}`)}
-          className="mt-4 w-full rounded-xl bg-neutral-900 text-black py-3 font-medium"
+          className="mt-5 w-full rounded-2xl bg-neutral-900 text-white py-3 font-medium"
         >
           Passer l’épreuve
         </button>

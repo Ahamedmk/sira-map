@@ -1,435 +1,767 @@
 // Contenu MVP (on étoffera monde par monde)
 // IMPORTANT : pas de représentation du Prophète ﷺ, on reste sur contexte/valeurs.
+import world1_l1 from "../assets/illustrations/worlds/world1-l1.png";
+import world1_l2 from "../assets/illustrations/worlds/world1-l2.png";
+import world1_l3 from "../assets/illustrations/worlds/world1-l3.png";
+import world1_l4 from "../assets/illustrations/worlds/world1-l4.png";
+import world2_l5 from "../assets/illustrations/worlds/world2-l5.png";
+import world2_l6 from "../assets/illustrations/worlds/world2-l6.png";
+import world2_l7 from "../assets/illustrations/worlds/world2-l7.png";
+import world2_l8 from "../assets/illustrations/worlds/world2-l8.png";
 
 export const LESSONS_CONTENT = {
-  l1: {
-    title: "Arabie : tribus et désert",
-    story: [
-      "L’Arabie est composée de tribus : l’appartenance au clan protège, donne une identité et fixe des alliances.",
-      "Le désert façonne les habitudes : endurance, sens de l’honneur, importance de la parole donnée.",
-      "Les routes commerciales relient les tribus, et la réputation d’un groupe compte autant que sa force.",
-    ],
-    keyPoints: [
-      "La tribu = protection + identité",
-      "Le désert influence le caractère et les valeurs",
-      "La réputation et la parole donnée sont centrales",
-    ],
-    reviewQuestions: [
-      {
-        id: "l1_q1",
-        type: "mcq",
-        question: "Dans ce contexte, à quoi sert principalement l’appartenance tribale ?",
-        options: [
-          "À apprendre une langue étrangère",
-          "À obtenir protection et identité",
-          "À voyager en Europe",
-          "À écrire des livres",
-        ],
-        correctIndex: 1,
-        explanation: "Dans l’Arabie tribale, la tribu protège et donne un statut social.",
-        difficulty: "easy",
-      },
-      {
-        id: "l1_q2",
-        type: "tf",
-        question: "Vrai/Faux : Le désert n’influence pas les valeurs sociales.",
-        options: ["Vrai", "Faux"],
-        correctIndex: 1,
-        explanation: "Faux : le désert influence l’endurance, l’honneur et l’organisation tribale.",
-        difficulty: "easy",
-      },
-      {
-        id: "l1_q3",
-        type: "mcq",
-        question: "Quel élément est particulièrement important dans une société tribale ?",
-        options: [
-          "La réputation et la parole donnée",
-          "Le nombre d’écrans par habitant",
-          "La météo de Paris",
-          "Les réseaux sociaux modernes",
-        ],
-        correctIndex: 0,
-        explanation: "La confiance et la réputation structurent les relations entre tribus.",
-        difficulty: "medium",
-      },
-    ],
-  },
+// --- WORLD 1 (avec sous-titres) ---
+l1: {
+  title: "Avant la naissance : une péninsule en attente",
+  illustration: world1_l1,
+  storyBlocks: [
+    { type: "subtitle", text: "🟤 Le silence avant le bouleversement" },
+    { type: "p", text: "L’Arabie n’est pas un empire. Elle n’a ni trône, ni armée centrale, ni capitale qui impose sa loi à tout le désert." },
+    { type: "p", text: "Et pourtant, elle n’est pas isolée. Des caravanes montent vers le Shām et redescendent vers le Yémen, portant marchandises, nouvelles… et visions du monde." },
+    { type: "p", text: "Ici, le désert n’est pas un décor : il impose son rythme. Il pèse sur les corps, il façonne les caractères. On y apprend la patience, la résistance, et l’art de survivre avec peu." },
 
-  l2: {
-    title: "La Mecque et la Kaaba",
-    story: [
-      "La Mecque occupe une place centrale, notamment grâce au pèlerinage et au rôle spirituel de la Kaaba.",
-      "Le commerce et l’accueil des visiteurs renforcent l’importance de la ville.",
-      "Les Quraysh jouent un rôle majeur dans l’organisation et l’influence de La Mecque.",
-    ],
-    keyPoints: [
-      "La Kaaba donne une centralité spirituelle",
-      "Le pèlerinage et le commerce renforcent l’importance de La Mecque",
-      "Quraysh = influence et organisation",
-    ],
-    reviewQuestions: [
-      {
-        id: "l2_q1",
-        type: "mcq",
-        question: "Pourquoi La Mecque est-elle centrale dans ce contexte ?",
-        options: [
-          "Uniquement pour son climat",
-          "Pour la Kaaba et le rôle spirituel",
-          "Parce qu’elle est au bord de la mer",
-          "Pour ses montagnes enneigées",
-        ],
-        correctIndex: 1,
-        explanation: "La Kaaba et le pèlerinage donnent à La Mecque une importance spirituelle.",
-        difficulty: "easy",
-      },
-      {
-        id: "l2_q2",
-        type: "mcq",
-        question: "Quel duo renforce aussi l’importance de la ville ?",
-        options: [
-          "Commerce + accueil des visiteurs",
-          "Cinéma + football",
-          "Neige + ski",
-          "Forêts + rivières",
-        ],
-        correctIndex: 0,
-        explanation: "Le commerce et l’accueil des pèlerins/visiteurs renforcent le poids de la Mecque.",
-        difficulty: "medium",
-      },
-      {
-        id: "l2_q3",
-        type: "tf",
-        question: "Vrai/Faux : Les Quraysh n’ont aucune influence à La Mecque.",
-        options: ["Vrai", "Faux"],
-        correctIndex: 1,
-        explanation: "Faux : les Quraysh ont un rôle majeur dans l’organisation et l’influence.",
-        difficulty: "easy",
-      },
-    ],
-  },
+    { type: "subtitle", text: "🏜️ La tribu : le vrai bouclier" },
+    { type: "p", text: "Dans un tel environnement, l’homme seul ne pèse pas lourd. Ce qui protège, ce n’est pas une institution : c’est la tribu." },
+    { type: "p", text: "La tribu donne un nom, une place, des alliances. Sans elle, on marche sans ombre. Avec elle, on existe, on est défendu, parfois même quand on a tort." },
+    { type: "p", text: "L’honneur est central. Une parole engage, un pacte relie, une trahison marque longtemps. Les équilibres tiennent autant à la réputation qu’à la force." },
 
-  l3: {
-    title: "Valeurs tribales et alliances",
-    story: [
-      "Dans une société tribale, les alliances déterminent qui protège qui, et comment les conflits se gèrent.",
-      "L’honneur et la solidarité sont des piliers : on défend le clan, parfois même au prix de sacrifices.",
-      "Comprendre ces codes aide à saisir pourquoi certains événements seront si difficiles… et si décisifs.",
-    ],
-    keyPoints: [
-      "Alliances = équilibre de pouvoir et protection",
-      "Honneur + solidarité = piliers sociaux",
-      "Ces codes expliquent des tensions futures",
-    ],
-    reviewQuestions: [
-      {
-        id: "l3_q1",
-        type: "mcq",
-        question: "À quoi servent les alliances tribales ?",
-        options: [
-          "À créer une monnaie numérique",
-          "À organiser protection et rapports de force",
-          "À choisir un sport",
-          "À écrire des poèmes uniquement",
-        ],
-        correctIndex: 1,
-        explanation: "Les alliances structurent la protection et l’équilibre entre groupes.",
-        difficulty: "easy",
-      },
-      {
-        id: "l3_q2",
-        type: "mcq",
-        question: "Quel couple de valeurs revient le plus dans ce monde ?",
-        options: [
-          "Honneur + solidarité",
-          "Vitesse + bruit",
-          "Mode + luxe",
-          "Hasard + oubli",
-        ],
-        correctIndex: 0,
-        explanation: "Honneur et solidarité guident les comportements tribaux.",
-        difficulty: "easy",
-      },
-      {
-        id: "l3_q3",
-        type: "tf",
-        question: "Vrai/Faux : Comprendre les codes tribaux aide à comprendre les grands tournants de la Sîra.",
-        options: ["Vrai", "Faux"],
-        correctIndex: 0,
-        explanation: "Vrai : le contexte social explique des choix, des oppositions et des alliances.",
-        difficulty: "medium",
-      },
-    ],
-  },
+    { type: "subtitle", text: "🌒 Grandeur et fragilité" },
+    { type: "p", text: "Ce monde n’est pas seulement rude. Il a ses grandeurs : hospitalité, générosité, courage, poésie. La langue y est déjà puissante, capable de porter des sens profonds." },
+    { type: "p", text: "Mais ces qualités cohabitent avec des fragilités : l’injustice peut devenir normale, les faibles peuvent être exploités, et la morale change selon le poids du clan." },
 
-  l4: {
-  title: "Religions présentes",
-  story: [
-    "Avant la révélation, différentes croyances coexistent : polythéisme dominant, mais aussi présence de communautés juives et chrétiennes dans certaines régions.",
-    "Cette diversité crée un paysage religieux complexe : pratiques héritées, traditions, et influences extérieures.",
-    "Comprendre ce contexte aide à saisir pourquoi l’appel à l’unicité bouleversera autant d’habitudes.",
+    { type: "subtitle", text: "🌑 Une attente invisible" },
+    { type: "p", text: "Personne ne le formule clairement. Mais quelque chose manque : une lumière stable, une guidance qui ne se tord pas selon l’intérêt." },
+    { type: "p", text: "Dans ce silence brûlant — comme un ciel chargé avant l’orage — un destin se prépare. Et il ne commencera pas par un palais… mais par une naissance." },
   ],
+  cliffhanger:
+    "Le décor est posé. Mais pourquoi La Mecque — plus que toute autre ville — va-t-elle devenir le centre du basculement ?",
   keyPoints: [
-    "Diversité religieuse : polythéisme + communautés monothéistes",
-    "Paysage spirituel complexe et varié",
-    "L’appel à l’unicité viendra bousculer des pratiques enracinées",
+    "La société est tribale : protection, identité, alliances.",
+    "Le désert façonne les mœurs : endurance, honneur, parole donnée.",
+    "Les routes commerciales relient l’Arabie aux régions voisines.",
+    "Valeurs fortes (hospitalité, poésie) mais fragilités (loi du plus fort).",
+    "Un climat d’attente silencieuse précède un changement majeur.",
   ],
+  sources: [{ label: "Sîra (classiques)", note: "Contexte tribal, social et routes commerciales" }],
   reviewQuestions: [
-    {
-      id: "l4_q1",
-      type: "mcq",
-      question: "Quel est l’élément clé du contexte religieux avant la révélation ?",
-      options: [
-        "Une seule croyance uniforme partout",
-        "Une diversité de croyances et influences",
-        "Aucune spiritualité",
-        "Une société athée",
-      ],
-      correctIndex: 1,
-      explanation: "On observe plusieurs croyances et influences selon les régions.",
-      difficulty: "easy",
-    },
-    {
-      id: "l4_q2",
-      type: "tf",
-      question: "Vrai/Faux : Comprendre ce contexte aide à comprendre l’impact de l’appel à l’unicité.",
-      options: ["Vrai", "Faux"],
-      correctIndex: 0,
-      explanation: "Vrai : le changement touche des habitudes profondes.",
-      difficulty: "easy",
-    },
-    {
-      id: "l4_q3",
-      type: "mcq",
-      question: "Pourquoi ce paysage est-il dit ‘complexe’ ?",
-      options: [
-        "Parce que tout le monde suivait la même pratique",
-        "Parce qu’il y avait plusieurs traditions et influences",
-        "Parce que personne ne croyait",
-        "Parce qu’il n’y avait aucune règle sociale",
-      ],
-      correctIndex: 1,
-      explanation: "Différentes traditions coexistent et s’influencent.",
-      difficulty: "medium",
-    },
+  {
+    id: "l1_q1",
+    question: "Pourquoi l’appartenance à une tribu est-elle essentielle dans l’Arabie préislamique ?",
+    options: [
+      "Parce qu’elle garantit richesse et pouvoir politique",
+      "Parce qu’elle assure protection, identité et alliances",
+      "Parce qu’elle permet de voyager librement en dehors du désert",
+      "Parce qu’elle remplace totalement la religion",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Dans un environnement rude sans État central, la tribu protège, donne une identité et permet de survivre.",
+  },
+  {
+    id: "l1_q2",
+    question: "Quel rôle joue le désert dans la formation des caractères des habitants ?",
+    options: [
+      "Il favorise uniquement le commerce",
+      "Il impose patience, endurance et adaptation",
+      "Il empêche toute forme de culture",
+      "Il rend la vie religieuse impossible",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Le désert impose un mode de vie dur qui façonne patience, résistance et sens de l’honneur.",
+  },
+  {
+    id: "l1_q3",
+    question: "Pourquoi peut-on dire que le monde préislamique est en attente ?",
+    options: [
+      "Parce qu’il est totalement isolé",
+      "Parce qu’il possède une guidance claire et stable",
+      "Parce qu’il fonctionne mais manque d’une lumière morale constante",
+      "Parce qu’il est dominé par un empire étranger",
+    ],
+    correctIndex: 2,
+    explanation:
+      "La société fonctionne, mais elle manque d’une guidance stable et universelle.",
+  },
+  {
+  id: "l1_boss_q1",
+  question:
+    "Quel élément rend la tribu indispensable dans l’Arabie préislamique ?",
+  options: [
+    "Elle garantit une armée centralisée",
+    "Elle remplace totalement la religion",
+    "Elle assure protection, identité et alliances",
+    "Elle donne des terres agricoles à tous",
   ],
+  correctIndex: 2,
+  explanation:
+    "Sans État central, la tribu protège, donne une identité et permet de survivre.",
+  difficulty: "boss",
+},
+{
+  id: "l1_boss_q2",
+  question:
+    "Pourquoi peut-on dire que ce monde 'fonctionne' tout en étant en attente d’un changement majeur ?",
+  options: [
+    "Parce qu’il est totalement isolé du monde",
+    "Parce qu’il possède une guidance universelle stable",
+    "Parce qu’il a des règles et des valeurs, mais sans boussole morale universelle",
+    "Parce qu’il est déjà un empire unifié",
+  ],
+  correctIndex: 2,
+  explanation:
+    "La société tient debout, mais manque d’une guidance universelle claire et constante.",
+  difficulty: "boss",
 },
 
-l5: {
-  title: "Naissance : contexte familial",
-  story: [
-    "Pour comprendre les débuts, il faut retenir une chose : la société est tribale, et la famille élargie joue un rôle majeur dans la protection.",
-    "Dans ce contexte, l’honneur du clan, la solidarité et le respect des liens familiaux ont une importance réelle, concrète, quotidienne.",
-    "L’environnement social façonne l’enfance : il peut protéger… ou exposer.",
+]
+
+},
+
+l2: {
+  title: "La Mecque : une ville sans trône, mais au cœur des cœurs",
+  illustration: world1_l2,
+  storyBlocks: [
+    { type: "subtitle", text: "🕋 Une ville debout au milieu du désert" },
+    { type: "p", text: "La Mecque n’est pas une capitale politique. Elle n’a ni roi, ni armée. Pourtant, son nom circule, respecté, cité, recherché." },
+    { type: "p", text: "La ville vit du commerce : elle accueille, négocie, organise des échanges. Mais sa puissance la plus profonde n’est pas économique." },
+
+    { type: "subtitle", text: "🕋 La Kaʿba : le centre de gravité" },
+    { type: "p", text: "Ce qui rend La Mecque unique, c’est la Kaʿba. Autour d’elle, les tribus convergent. On y vient pour marchander, mais aussi pour un sanctuaire ancien, honoré par les Arabes." },
+    { type: "p", text: "Au fil du temps, des idoles se sont multipliées autour du sanctuaire. Les pratiques se sont figées. Le rite est devenu habitude." },
+
+    { type: "subtitle", text: "💠 Prestige et influence" },
+    { type: "p", text: "Gérer l’accueil des visiteurs, c’est gérer l’honneur, la réputation… et une partie du pouvoir moral. Les Quraysh, au cœur de la ville, tiennent une place centrale dans cet équilibre." },
+    { type: "p", text: "La Mecque devient ainsi un centre : pas un centre d’empire, mais un centre de convergence. Et ce qui est au centre attire forcément les grands bouleversements." },
+
+    { type: "subtitle", text: "🌘 Quand l’histoire change d’axe" },
+    { type: "p", text: "Ce que peu comprennent encore, c’est que la Kaʿba ne sera bientôt plus seulement un lieu autour duquel on tourne… mais le point autour duquel l’histoire tournera." },
   ],
+  cliffhanger:
+    "Mais une ville bâtie sur l’honneur et les équilibres tribaux supporte mal ce qui dérange. Que se passera-t-il lorsqu’un message viendra briser l’ordre établi ?",
   keyPoints: [
-    "Famille/tribu = protection concrète",
-    "Solidarité et honneur structurent la société",
-    "Le contexte social influence directement l’enfance",
+    "La Mecque est un centre commercial important, sans royaume ni armée.",
+    "La Kaʿba donne un prestige religieux et social unique.",
+    "Les idoles se multiplient : rites présents, guidance affaiblie.",
+    "Les Quraysh jouent un rôle central dans l’équilibre mecquois.",
+    "La centralité de La Mecque prépare un basculement majeur.",
+  ],
+  sources: [{ label: "Sîra (classiques)", note: "Rôle de la Kaʿba, prestige de La Mecque, place des Quraysh" }],
+  reviewQuestions: [
+  {
+    id: "l2_q1",
+    question: "Pourquoi La Mecque occupe-t-elle une place centrale malgré l’absence de pouvoir politique ?",
+    options: [
+      "Grâce à son armée",
+      "Grâce à son roi",
+      "Grâce à son rôle commercial et religieux autour de la Kaʿba",
+      "Grâce à ses ressources agricoles",
+    ],
+    correctIndex: 2,
+    explanation:
+      "La Mecque est un centre commercial et surtout religieux grâce à la Kaʿba.",
+  },
+  {
+    id: "l2_q2",
+    question: "Quel est le rôle de la Kaʿba dans la société mecquoise ?",
+    options: [
+      "Un simple bâtiment ancien",
+      "Un centre de convergence religieuse et sociale",
+      "Un palais politique",
+      "Un lieu réservé à une seule tribu",
+    ],
+    correctIndex: 1,
+    explanation:
+      "La Kaʿba attire les tribus et donne à La Mecque un prestige unique.",
+  },
+  {
+    id: "l2_q3",
+    question: "Pourquoi la centralité de La Mecque la rend-elle vulnérable au changement ?",
+    options: [
+      "Parce qu’elle est isolée du reste du monde",
+      "Parce que tout changement remet en cause ses équilibres et son prestige",
+      "Parce qu’elle manque de routes commerciales",
+      "Parce qu’elle dépend des empires voisins",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Un centre attire les bouleversements, surtout lorsqu’il repose sur des équilibres fragiles.",
+  },
+  {
+  id: "l2_boss_q1",
+  question:
+    "Pourquoi La Mecque est-elle puissante malgré l’absence d’un pouvoir politique central ?",
+  options: [
+    "Parce qu’elle contrôle un grand empire militaire",
+    "Parce qu’elle combine centre commercial et prestige religieux autour de la Kaʿba",
+    "Parce qu’elle possède des ressources agricoles immenses",
+    "Parce qu’elle dépend d’un empire voisin",
+  ],
+  correctIndex: 1,
+  explanation:
+    "Sa centralité vient du commerce et surtout du prestige religieux de la Kaʿba.",
+  difficulty: "boss",
+},
+{
+  id: "l2_boss_q2",
+  question:
+    "Pourquoi cette centralité rend-elle La Mecque vulnérable lorsqu’un message nouveau apparaît ?",
+  options: [
+    "Parce qu’elle est isolée des routes commerciales",
+    "Parce que tout changement menace prestige, rites et équilibres sociaux",
+    "Parce qu’elle manque d’habitants",
+    "Parce qu’elle n’a aucun intérêt économique à préserver",
+  ],
+  correctIndex: 1,
+  explanation:
+    "Un centre vit d’équilibres : le bouleversement remet en cause prestige, intérêts et ordre social.",
+  difficulty: "boss",
+},
+
+]
+
+},
+
+l3: {
+  title: "L’honneur, la protection et le prix de la tribu",
+  illustration: world1_l3,
+  storyBlocks: [
+    { type: "subtitle", text: "🛡️ La protection n’est pas un droit : c’est un privilège" },
+    { type: "p", text: "Dans ce monde, la sécurité n’est pas garantie par une loi neutre. Elle dépend d’un nom, d’une tribu, d’un pacte." },
+    { type: "p", text: "Avoir un clan, c’est avoir un bouclier. Ne pas en avoir, c’est devenir une proie facile, exposée à l’arbitraire." },
+
+    { type: "subtitle", text: "⚖️ Honneur et vengeance : la logique d’un équilibre" },
+    { type: "p", text: "Lorsqu’un homme est agressé, ce n’est pas seulement lui qu’on touche : c’est son clan. L’honneur devient un territoire qu’on défend." },
+    { type: "p", text: "La vengeance apparaît comme un mécanisme social : elle vise à rétablir une balance d’honneur, là où la justice indépendante n’existe pas." },
+
+    { type: "subtitle", text: "🤝 Alliances : paix ou incendie" },
+    { type: "p", text: "Les alliances sont vitales. Elles protègent des routes commerciales, sécurisent des familles, évitent des guerres… ou les déclenchent." },
+    { type: "p", text: "La parole donnée est précieuse. Mais une trahison peut fermer toutes les portes et condamner un homme à l’isolement." },
+
+    { type: "subtitle", text: "🌋 Une question inévitable" },
+    { type: "p", text: "Alors une question se pose : que se passe-t-il quand un message dépasse les clans ? Quand il appelle à une vérité qui ne se négocie pas ?" },
+    { type: "p", text: "Dans une ville d’équilibres, la vérité peut devenir une menace… et certains préfèrent briser l’homme plutôt que d’écouter le message." },
+  ],
+  cliffhanger:
+    "Car si la Mecque protège ceux qui entrent dans son système… elle peut se montrer implacable envers celui qui le bouscule. Et très bientôt, quelqu’un va le bousculer.",
+  keyPoints: [
+    "La protection dépend du clan, pas d’un État.",
+    "L’honneur structure les pactes, les conflits et la réputation.",
+    "La vengeance fonctionne comme mécanisme social d’équilibre.",
+    "Les alliances assurent commerce et sécurité, mais peuvent déclencher des guerres.",
+    "Un message universel mettra en crise la logique tribale.",
+  ],
+  sources: [{ label: "Sîra (classiques)", note: "Système tribal : protection, honneur, alliances, vulnérabilité des faibles" }],
+  reviewQuestions: [
+  {
+    id: "l3_q1",
+    question: "Dans l’Arabie tribale, de quoi dépend principalement la sécurité d’un individu ?",
+    options: [
+      "Des lois écrites",
+      "De la richesse personnelle",
+      "De l’appartenance à un clan",
+      "De la religion",
+    ],
+    correctIndex: 2,
+    explanation:
+      "La sécurité dépend du clan, pas d’un État ou d’une loi neutre.",
+  },
+  {
+    id: "l3_q2",
+    question: "Pourquoi la vengeance est-elle perçue comme un mécanisme social ?",
+    options: [
+      "Parce qu’elle encourage la violence gratuite",
+      "Parce qu’elle remplace la justice indépendante inexistante",
+      "Parce qu’elle est imposée par la religion",
+      "Parce qu’elle garantit la richesse",
+    ],
+    correctIndex: 1,
+    explanation:
+      "En l’absence de justice neutre, la vengeance sert à rétablir l’honneur.",
+  },
+  {
+    id: "l3_q3",
+    question: "Pourquoi un message universel menace-t-il l’ordre tribal ?",
+    options: [
+      "Parce qu’il supprime le commerce",
+      "Parce qu’il dépasse les clans et leurs intérêts",
+      "Parce qu’il favorise une seule tribu",
+      "Parce qu’il rejette toute valeur morale",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Un message universel remet en cause les alliances et hiérarchies tribales.",
+  },
+  {
+  id: "l3_boss_q1",
+  question:
+    "Pourquoi la vengeance joue-t-elle un rôle social dans un système tribal ?",
+  options: [
+    "Parce qu’elle est encouragée pour le plaisir",
+    "Parce qu’elle remplace une justice neutre inexistante et vise à rétablir l’honneur",
+    "Parce qu’elle est imposée par une loi écrite centrale",
+    "Parce qu’elle supprime les alliances",
+  ],
+  correctIndex: 1,
+  explanation:
+    "Dans l’absence d’autorité neutre, elle sert de mécanisme d’équilibre et de dissuasion.",
+  difficulty: "boss",
+},
+{
+  id: "l3_boss_q2",
+  question:
+    "Pourquoi un message universel dépasse-t-il naturellement la logique tribale ?",
+  options: [
+    "Parce qu’il favorise une seule tribu",
+    "Parce qu’il cherche à renforcer les rivalités",
+    "Parce qu’il appelle à une vérité au-dessus des clans et des intérêts",
+    "Parce qu’il vise uniquement l’économie",
+  ],
+  correctIndex: 2,
+  explanation:
+    "Un message universel n’obéit pas aux alliances : il remet en cause hiérarchies et intérêts tribaux.",
+  difficulty: "boss",
+},
+
+]
+
+},
+
+l4: {
+  title: "Un paysage religieux fragmenté… et une vérité oubliée",
+  illustration: world1_l4,
+  storyBlocks: [
+    { type: "subtitle", text: "🧭 Une Arabie religieuse, mais désorientée" },
+    { type: "p", text: "Parler de l’Arabie avant l’islam comme d’un désert spirituel est une erreur. Les croyances existent — nombreuses — mais la guidance est fragmentée." },
+    { type: "p", text: "Le polythéisme domine chez beaucoup de tribus. Mais ailleurs, on trouve aussi des communautés juives et chrétiennes, avec des Écritures et une vision du monde structurée." },
+
+    { type: "subtitle", text: "📜 Des Écritures connues… sans transformation" },
+    { type: "p", text: "Ces communautés parlent d’un Dieu unique, de responsabilité morale, de prophètes. Elles portent une mémoire religieuse forte." },
+    { type: "p", text: "Pourtant, au cœur de La Mecque, ces influences restent limitées. Elles sont connues, parfois discutées, rarement suivies par la majorité." },
+
+    { type: "subtitle", text: "🕋 Le rite sans la lumière" },
+    { type: "p", text: "La Mecque demeure centrée sur ses rites et son prestige. Des idoles entourent la Kaʿba, et beaucoup admettent Allah tout en s’accrochant à des intermédiaires." },
+    { type: "p", text: "Un souvenir subsiste pourtant : celui d’une voie ancienne liée à Ibrāhīm عليه السلام. Mais ce souvenir s’est affaibli, recouvert par les habitudes." },
+
+    { type: "subtitle", text: "🌙 Le rappel approche" },
+    { type: "p", text: "Quand une société a des rites sans boussole, elle finit par confondre spiritualité et tradition. Le décor est posé." },
+    { type: "p", text: "Et très bientôt, La Mecque va entendre une parole qu’elle n’a jamais entendue auparavant — une parole qui ne flattera pas ses idoles, mais réveillera sa conscience." },
+  ],
+  cliffhanger:
+    "Le monde est prêt… mais l’événement déclencheur arrive. Et il commence par une naissance dont la Mecque ne mesure pas encore la portée.",
+  keyPoints: [
+    "Le polythéisme domine, mais d’autres religions existent dans certaines régions.",
+    "La Mecque reste attachée à ses rites et à son prestige.",
+    "La notion d’Allah existe, mais souvent avec des intermédiaires (association).",
+    "Le souvenir d’une voie d’Ibrāhīm subsiste, mais affaibli.",
+    "Le contexte est prêt pour un rappel majeur.",
+  ],
+  sources: [{ label: "Sîra (classiques)", note: "Pluralité religieuse, rites mecquois, souvenir d’Ibrāhīm" }],
+  reviewQuestions: [
+  {
+    id: "l4_q1",
+    question: "Pourquoi l’Arabie préislamique n’est-elle pas spirituellement vide ?",
+    options: [
+      "Parce qu’elle est entièrement monothéiste",
+      "Parce qu’elle abrite différentes croyances et religions",
+      "Parce qu’elle suit une seule Écriture",
+      "Parce qu’elle rejette toute forme de religion",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Plusieurs croyances coexistent : polythéisme, judaïsme, christianisme.",
+  },
+  {
+    id: "l4_q2",
+    question: "Quel est le problème principal du paysage religieux mecquois ?",
+    options: [
+      "L’absence totale de rites",
+      "La domination d’un empire religieux",
+      "La présence de rites sans guidance claire",
+      "Le rejet de toute spiritualité",
+    ],
+    correctIndex: 2,
+    explanation:
+      "Les rites existent, mais sans boussole morale stable.",
+  },
+  {
+    id: "l4_q3",
+    question: "Quel souvenir religieux subsiste malgré le polythéisme ?",
+    options: [
+      "Celui d’un empire ancien",
+      "Celui d’une voie liée à Ibrāhīm عليه السلام",
+      "Celui d’un prophète romain",
+      "Celui d’un roi mecquois",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Le souvenir de la voie d’Ibrāhīm subsiste, mais affaibli.",
+  },
+  {
+  id: "l4_boss_q1",
+  question:
+    "Quel est le problème central du paysage religieux mecquois avant l’islam ?",
+  options: [
+    "L’absence totale de rites et de croyances",
+    "La domination exclusive d’une seule religion révélée",
+    "La présence de rites et croyances sans guidance claire transformant la morale",
+    "Le rejet complet de l’idée de Dieu",
+  ],
+  correctIndex: 2,
+  explanation:
+    "Il existe des rites et une religiosité, mais la guidance est fragmentée et ne transforme pas durablement la morale.",
+  difficulty: "boss",
+},
+{
+  id: "l4_boss_q2",
+  question:
+    "Quel type de message était nécessaire pour transformer durablement ce monde ?",
+  options: [
+    "Un message tribal qui renforce les alliances existantes",
+    "Un message politique fondé sur la force",
+    "Un message universel dépassant clans, rites et intérêts",
+    "Un message uniquement commercial",
+  ],
+  correctIndex: 2,
+  explanation:
+    "Seul un message universel pouvait dépasser les logiques tribales et restaurer une guidance stable.",
+  difficulty: "boss",
+},
+
+]
+
+},
+
+
+
+l5: {
+  title: "La lignée : un nom qui pèse avant même la naissance",
+  illustration: world2_l5,
+  storyBlocks: [
+    { type: "subtitle", text: "🧬 Un monde où le nom est une armure" },
+    { type: "p", text: "Dans une société tribale, la lignée n’est pas un détail. C’est une carte d’identité, un bouclier, une histoire." },
+    { type: "p", text: "Elle dit d’où tu viens, qui te protège, avec qui tu peux t’allier… et qui te refusera l’accès." },
+
+    { type: "subtitle", text: "🕋 Quraysh : le cœur de La Mecque" },
+    { type: "p", text: "Le Prophète ﷺ naîtra au sein de Quraysh, la tribu qui tient une place centrale à La Mecque." },
+    { type: "p", text: "Et dans Quraysh, son appartenance à Banû Hâshim n’est pas un détail : c’est une branche respectée, connue pour son rôle et sa dignité." },
+
+    { type: "subtitle", text: "🤝 Honneur, service et responsabilité" },
+    { type: "p", text: "À La Mecque, certains rôles liés à l’accueil des pèlerins et au prestige social renforcent la réputation d’un clan." },
+    { type: "p", text: "Dans ce monde, la réputation ne se gagne pas avec des mots, mais avec des actes répétés… sur des générations." },
+
+    { type: "subtitle", text: "🌙 Le destin commence souvent par un contexte" },
+    { type: "p", text: "Avant même que la prophétie ne commence, Allah prépare un contexte : un lieu, une société, une lignée." },
+    { type: "p", text: "Non pas parce que la vérité dépend du sang… mais parce que la société, elle, réagit au nom, au clan, à l’équilibre." },
+  ],
+  cliffhanger:
+    "Mais derrière la lignée, il y a une histoire familiale précise… et une naissance entourée d’événements marquants. Qui sont les parents du futur Prophète ﷺ ?",
+  keyPoints: [
+    "Dans une société tribale, la lignée protège et positionne socialement.",
+    "Le Prophète ﷺ naît chez Quraysh, au cœur de La Mecque.",
+    "Il appartient à Banû Hâshim, clan respecté parmi Quraysh.",
+    "Le prestige social est lié à des rôles de service et à la réputation.",
+    "Allah prépare un contexte historique que la société comprend et respecte.",
   ],
   reviewQuestions: [
     {
       id: "l5_q1",
-      type: "mcq",
-      question: "Dans une société tribale, quel est le rôle principal de la famille élargie ?",
+      question: "Dans la société tribale, pourquoi la lignée est-elle si importante ?",
       options: [
-        "Organiser des jeux vidéo",
-        "Offrir protection et soutien",
-        "Faire de la météo",
-        "Créer une banque",
+        "Parce qu’elle remplace la foi",
+        "Parce qu’elle donne protection, identité et alliances",
+        "Parce qu’elle garantit un royaume",
+        "Parce qu’elle empêche toute injustice",
       ],
       correctIndex: 1,
-      explanation: "La famille/clan protège et soutient face aux difficultés.",
-      difficulty: "easy",
+      explanation: "La lignée donne un cadre social : protection, statut, alliances.",
     },
     {
       id: "l5_q2",
-      type: "tf",
-      question: "Vrai/Faux : L’honneur et la solidarité n’ont aucun impact sur la vie quotidienne.",
-      options: ["Vrai", "Faux"],
+      question: "Le Prophète ﷺ naît au sein de quelle tribu mecquoise ?",
+      options: ["Hudhayl", "Quraysh", "Thaqîf", "Aws"],
       correctIndex: 1,
-      explanation: "Faux : ce sont des piliers sociaux.",
-      difficulty: "easy",
+      explanation: "Il naît au sein de Quraysh, tribu centrale à La Mecque.",
     },
     {
       id: "l5_q3",
-      type: "mcq",
-      question: "Pourquoi le contexte social est important pour comprendre l’enfance ?",
+      question: "Pourquoi le contexte (lignée/lieu/société) compte-t-il, même si la vérité ne dépend pas du sang ?",
       options: [
-        "Parce qu’il détermine uniquement la nourriture",
-        "Parce qu’il peut protéger ou exposer",
-        "Parce qu’il interdit toute relation",
-        "Parce qu’il supprime les règles",
+        "Parce que la vérité change selon les clans",
+        "Parce que la société réagit aux équilibres tribaux et au prestige",
+        "Parce que la Kaʿba interdit toute réforme",
+        "Parce qu’il n’y a jamais eu de changement historique à La Mecque",
       ],
       correctIndex: 1,
-      explanation: "L’environnement social a un effet direct sur la sécurité et le soutien.",
-      difficulty: "medium",
+      explanation:
+        "La vérité est universelle, mais la société est tribale : elle réagit au nom et aux équilibres.",
+    },
+
+    // Boss-eligible (pour alimenter b2)
+    {
+      id: "l5_boss_q1",
+      question: "Pourquoi la mention de la lignée est-elle stratégique dans une société tribale ?",
+      options: [
+        "Parce qu’elle rend la prophétie héréditaire",
+        "Parce qu’elle facilite l’écoute ou le rejet selon le statut social",
+        "Parce qu’elle remplace le message",
+        "Parce qu’elle supprime la nécessité de preuves",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Dans une société tribale, le statut influence l’accueil du message, même si le message est universel.",
+      difficulty: "boss",
     },
   ],
 },
 
+
 l6: {
-  title: "Orphelinage et protection",
-  story: [
-    "Dans une société où la protection dépend beaucoup du clan, perdre un soutien proche peut changer l’équilibre d’une vie.",
-    "La protection passe alors par des figures de référence : membres de la famille, responsables du clan, personnes qui ‘portent’ l’enfant.",
-    "Ces étapes montrent une chose : la force d’un avenir ne dépend pas seulement de confort, mais aussi de valeurs, de soutien, et de résilience.",
+  title: "Les parents : une histoire courte, mais décisive",
+  illustration: world2_l6,
+  storyBlocks: [
+    { type: "subtitle", text: "👣 Avant la mission, une vie humaine" },
+    { type: "p", text: "Avant d’être Messager, il y a une histoire humaine : un père, une mère, une famille." },
+    { type: "p", text: "La Sîra nous montre un Prophète ﷺ qui connaît très tôt l’épreuve : l’enfance ne commence pas toujours par la stabilité." },
+
+    { type: "subtitle", text: "🧔 ʿAbdullâh : le père" },
+    { type: "p", text: "ʿAbdullâh, père du Prophète ﷺ, fait partie de cette lignée de Quraysh et de Banû Hâshim." },
+    { type: "p", text: "Et très tôt, la famille est touchée par la perte : le Prophète ﷺ naît orphelin de père — un fait central et unanimement connu dans la Sîra." },
+
+    { type: "subtitle", text: "👩 Âminah : la mère" },
+    { type: "p", text: "Âminah bint Wahb est la mère du Prophète ﷺ. Elle porte la responsabilité d’une naissance qui aura un impact sur l’histoire." },
+    { type: "p", text: "La Sîra rapporte aussi que la perte la touche ensuite : elle décède alors qu’il est encore enfant." },
+
+    { type: "subtitle", text: "🌙 Une leçon silencieuse" },
+    { type: "p", text: "Dans une société où la protection dépend du clan, grandir sans père puis perdre sa mère, c’est traverser très tôt la fragilité humaine." },
+    { type: "p", text: "Et pourtant, c’est aussi là que se forge une sensibilité unique : comprendre l’épreuve… avant d’appeler les autres à la patience." },
   ],
+  cliffhanger:
+    "Après la perte, une question devient urgente : qui protège l’enfant ? Et comment grandit-on dans une Mecque tribale quand on est orphelin ?",
   keyPoints: [
-    "La protection est liée aux liens familiaux",
-    "Des figures de référence assurent la stabilité",
-    "Résilience : les épreuves peuvent forger",
+    "Le Prophète ﷺ naît orphelin de père (fait central de la Sîra).",
+    "Sa mère Âminah le porte et l’élève au début, puis décède alors qu’il est encore enfant.",
+    "Dans une société tribale, l’orphelinat accentue la vulnérabilité sociale.",
+    "Ces épreuves précoces façonnent une profondeur humaine et morale.",
   ],
   reviewQuestions: [
     {
       id: "l6_q1",
-      type: "mcq",
-      question: "Dans ce contexte, pourquoi la protection est-elle si importante ?",
+      question: "Quel fait est unanimement connu concernant la naissance du Prophète ﷺ ?",
       options: [
-        "Parce qu’elle remplace le commerce",
-        "Parce qu’elle dépend du clan et structure la sécurité",
-        "Parce qu’elle empêche toute alliance",
-        "Parce qu’elle supprime l’honneur",
+        "Il naît roi de La Mecque",
+        "Il naît orphelin de père",
+        "Il naît dans un autre pays",
+        "Il naît après avoir voyagé",
       ],
       correctIndex: 1,
-      explanation: "Dans une société tribale, la sécurité est très liée au clan.",
-      difficulty: "easy",
+      explanation: "Il naît orphelin de père : un fait majeur dans la Sîra.",
     },
     {
       id: "l6_q2",
-      type: "mcq",
-      question: "Qui peut jouer un rôle de stabilisation pour un enfant ?",
+      question: "Pourquoi l’orphelinat est-il particulièrement lourd dans une société tribale ?",
       options: [
-        "Des figures de référence dans la famille/clan",
-        "Uniquement des inconnus",
-        "Seulement des voyageurs",
-        "Uniquement des marchands",
+        "Parce que l’agriculture devient impossible",
+        "Parce que la protection dépend souvent du clan et des tuteurs",
+        "Parce que la Mecque interdit les orphelins",
+        "Parce que les alliances n’existent pas",
       ],
-      correctIndex: 0,
-      explanation: "La stabilité vient souvent de figures proches et reconnues.",
-      difficulty: "easy",
+      correctIndex: 1,
+      explanation:
+        "Sans État, la protection est liée aux tuteurs et à la structure tribale.",
     },
     {
       id: "l6_q3",
-      type: "tf",
-      question: "Vrai/Faux : Les épreuves peuvent développer la résilience.",
-      options: ["Vrai", "Faux"],
-      correctIndex: 0,
-      explanation: "Vrai : les difficultés peuvent forger la solidité intérieure.",
-      difficulty: "medium",
+      question: "Quelle idée centrale cette leçon veut faire ressentir ?",
+      options: [
+        "La richesse familiale",
+        "La fragilité humaine et l’épreuve précoce",
+        "La domination militaire",
+        "L’absence de relations familiales",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La Sîra montre des épreuves précoces qui façonnent une profondeur humaine.",
+    },
+
+    // Boss-eligible
+    {
+      id: "l6_boss_q1",
+      question: "Dans l’Arabie tribale, quelle conséquence sociale peut renforcer l’orphelinat ?",
+      options: [
+        "Une protection automatique par l’État",
+        "Une vulnérabilité accrue sans tuteur fort",
+        "Une nomination politique immédiate",
+        "Un accès garanti au pouvoir",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Sans tuteur fort, l’orphelin peut devenir plus exposé dans une société tribale.",
+      difficulty: "boss",
     },
   ],
 },
 
+
 l7: {
-  title: "Jeunesse : confiance et réputation",
-  story: [
-    "Dans une société où la parole donnée vaut beaucoup, la confiance devient un capital.",
-    "La réputation se construit lentement : honnêteté, droiture, respect des engagements.",
-    "Une bonne réputation ouvre des portes : relations, opportunités, crédibilité.",
+  title: "Après la perte : la question du protecteur",
+  illustration: world2_l7,
+  storyBlocks: [
+    { type: "subtitle", text: "🛡️ La protection : un besoin immédiat" },
+    { type: "p", text: "Dans ce monde, on ne demande pas d’abord : 'Qui aime cet enfant ?' On demande : 'Qui le protège ?'." },
+    { type: "p", text: "Un enfant, surtout orphelin, a besoin d’un tuteur : un adulte, un clan, un cercle." },
+
+    { type: "subtitle", text: "👨‍👦 La prise en charge familiale" },
+    { type: "p", text: "La Sîra décrit une prise en charge progressive par la famille proche : l’enfant n’est pas abandonné." },
+    { type: "p", text: "Chaque étape rappelle une réalité : la miséricorde d’Allah passe aussi par les mains de personnes concrètes." },
+
+    { type: "subtitle", text: "🏛️ Une enfance qui se construit malgré la fragilité" },
+    { type: "p", text: "Le Prophète ﷺ grandit dans un environnement où l’honneur et les liens familiaux sont réels." },
+    { type: "p", text: "Mais la fragilité reste là, comme une ombre : ce n’est pas l’enfance d’un prince, c’est l’enfance d’un futur guide, formée par l’épreuve et la protection." },
+
+    { type: "subtitle", text: "🌙 Quand la société observe" },
+    { type: "p", text: "La Mecque observe. Les clans observent. Dans une société tribale, chaque enfance est un récit public." },
+    { type: "p", text: "Et parfois, les gens ne comprennent pas encore… qu’ils regardent grandir quelqu’un qui changera leur histoire." },
   ],
+  cliffhanger:
+    "Mais il manque une pièce essentielle : la période de nourrice et l’environnement du désert, qui marquera profondément l’enfance. Pourquoi confier l’enfant hors de La Mecque ?",
   keyPoints: [
-    "La confiance est un capital social",
-    "La réputation se construit par la droiture",
-    "La crédibilité ouvre des portes",
+    "Dans une société tribale, la protection (tuteur/clan) est vitale.",
+    "La prise en charge de l’enfant se fait dans le cadre familial.",
+    "L’enfance du Prophète ﷺ n’est pas celle d’un prince : elle est marquée par l’épreuve et la protection.",
+    "La société observe et juge selon les liens et l’honneur.",
   ],
   reviewQuestions: [
     {
       id: "l7_q1",
-      type: "mcq",
-      question: "Dans une société où la parole donnée compte, que représente la confiance ?",
+      question: "Dans la logique tribale, quelle est la première question après une perte familiale ?",
       options: [
-        "Un détail sans valeur",
-        "Un capital social",
-        "Un jeu",
-        "Un mythe",
+        "Qui va devenir roi ?",
+        "Qui va protéger l’enfant ?",
+        "Qui va quitter la Mecque ?",
+        "Qui va écrire un poème ?",
       ],
       correctIndex: 1,
-      explanation: "La confiance a une valeur sociale immense.",
-      difficulty: "easy",
+      explanation:
+        "La protection est centrale dans un monde où l’État n’existe pas.",
     },
     {
       id: "l7_q2",
-      type: "mcq",
-      question: "Comment se construit la réputation ?",
+      question: "Quelle idée la leçon insiste-t-elle sur le plan humain ?",
       options: [
-        "En changeant d’avis souvent",
-        "Par honnêteté et respect des engagements",
-        "Par hasard uniquement",
-        "En évitant toute responsabilité",
+        "La célébrité",
+        "La miséricorde d’Allah passe aussi par des personnes et des moyens concrets",
+        "La domination militaire",
+        "La richesse automatique",
       ],
       correctIndex: 1,
-      explanation: "La droiture et la constance construisent la réputation.",
-      difficulty: "easy",
+      explanation:
+        "Allah soutient par des causes : famille, tuteurs, protection.",
     },
     {
       id: "l7_q3",
-      type: "mcq",
-      question: "Quel effet peut avoir une bonne réputation ?",
+      question: "Pourquoi dit-on que l’enfance du Prophète ﷺ n’est pas une enfance de 'prince' ?",
       options: [
-        "Fermer toutes les portes",
-        "Créer de la crédibilité et des opportunités",
-        "Supprimer les alliances",
-        "Isoler totalement",
+        "Parce qu’il n’a jamais vécu à La Mecque",
+        "Parce qu’elle est marquée par la fragilité et l’épreuve",
+        "Parce qu’il a grandi dans un palais",
+        "Parce qu’il a été chef militaire enfant",
       ],
       correctIndex: 1,
-      explanation: "Une réputation solide crée des opportunités et de la crédibilité.",
-      difficulty: "medium",
+      explanation:
+        "La Sîra présente une enfance marquée par des épreuves réelles.",
     },
   ],
 },
 
+
 l8: {
-  title: "Avant la révélation : quête de sens",
-  story: [
-    "Avant les grands tournants, il y a souvent une phase silencieuse : réflexion, observation, recherche intérieure.",
-    "Le contexte social et spirituel est chargé : pratiques installées, habitudes collectives, et questions existentielles.",
-    "Cette quête de sens prépare le cœur à recevoir un message qui transformera tout.",
+  title: "Le désert et la nourrice : une enfance qui façonne",
+  illustration: world2_l8,
+  storyBlocks: [
+    { type: "subtitle", text: "🏜️ Pourquoi quitter La Mecque ?" },
+    { type: "p", text: "Dans les usages arabes, des familles confiaient parfois leurs enfants à une nourrice dans le désert." },
+    { type: "p", text: "Ce n’était pas une fuite : c’était une pratique connue, liée à l’air, au cadre, à la langue, au renforcement." },
+
+    { type: "subtitle", text: "🗣️ Une langue plus pure, un caractère plus solide" },
+    { type: "p", text: "Le désert était associé à une langue arabe plus directe, plus robuste, loin des mélanges urbains." },
+    { type: "p", text: "Et la vie y forgeait le corps et l’esprit : patience, endurance, simplicité." },
+
+    { type: "subtitle", text: "🤲 Une étape qui laisse une empreinte" },
+    { type: "p", text: "Cette période n’est pas un détail décoratif dans la Sîra : elle explique des aspects de force, de clarté, et de présence." },
+    { type: "p", text: "Le futur Prophète ﷺ grandit dans un cadre où l’on apprend le courage sans arrogance, et la dignité sans brutalité." },
+
+    { type: "subtitle", text: "🌙 Le début d’un chemin" },
+    { type: "p", text: "Tout cela arrive avant les grands événements publics. Avant la Révélation, avant les foules, avant les oppositions." },
+    { type: "p", text: "Mais c’est ici qu’on comprend un principe : Allah prépare, étape par étape, longtemps avant que les gens ne voient quoi que ce soit." },
   ],
+  cliffhanger:
+    "Et bientôt, l’enfant reviendra à La Mecque… puis grandira jusqu’à devenir un jeune homme connu pour une qualité qui surprendra même ses ennemis. Quelle qualité ?",
   keyPoints: [
-    "La quête de sens précède souvent les grands tournants",
-    "Contexte spirituel chargé et questions profondes",
-    "Préparation intérieure avant le changement majeur",
+    "Confier un enfant à une nourrice du désert était une pratique connue.",
+    "Le désert est associé à endurance, simplicité et renforcement du caractère.",
+    "La langue du désert était considérée comme plus directe et robuste.",
+    "Allah prépare les étapes longtemps avant l’apparition publique du message.",
   ],
   reviewQuestions: [
     {
       id: "l8_q1",
-      type: "mcq",
-      question: "Que précède souvent les grands tournants ?",
+      question: "Pourquoi des enfants pouvaient-ils être confiés au désert dans les usages arabes ?",
       options: [
-        "Une phase de réflexion et recherche",
-        "Une phase de distraction permanente",
-        "Une absence totale de questions",
-        "Une rupture de toutes les relations",
+        "Pour devenir rois",
+        "Pour renforcer langue et caractère dans un cadre différent",
+        "Pour fuir La Mecque par peur",
+        "Parce que La Mecque l’interdisait",
       ],
-      correctIndex: 0,
-      explanation: "Une période de réflexion et de recherche intérieure précède souvent un tournant.",
-      difficulty: "easy",
+      correctIndex: 1,
+      explanation:
+        "C’était une pratique connue, associée à l’environnement, la langue et le renforcement.",
     },
     {
       id: "l8_q2",
-      type: "tf",
-      question: "Vrai/Faux : Un contexte spirituel ‘chargé’ peut susciter des questions existentielles.",
-      options: ["Vrai", "Faux"],
-      correctIndex: 0,
-      explanation: "Vrai : quand les pratiques sont installées, les questions peuvent émerger fortement.",
-      difficulty: "easy",
+      question: "Quel est l’effet recherché associé au désert dans cette leçon ?",
+      options: [
+        "Mélange des dialectes urbains",
+        "Endurance, simplicité, robustesse",
+        "Vie politique centralisée",
+        "Richesse agricole",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le désert forge endurance et simplicité, et une langue plus directe.",
     },
     {
       id: "l8_q3",
-      type: "mcq",
-      question: "Pourquoi la ‘préparation intérieure’ est-elle importante ?",
+      question: "Quel message pédagogique se répète dans cette leçon ?",
       options: [
-        "Parce qu’elle empêche toute évolution",
-        "Parce qu’elle prépare à accueillir un changement majeur",
-        "Parce qu’elle remplace l’apprentissage",
-        "Parce qu’elle supprime les émotions",
+        "Allah prépare étape par étape avant que les gens ne voient",
+        "La vérité dépend des clans",
+        "La Mecque est isolée du monde",
+        "Le commerce est la prophétie",
+      ],
+      correctIndex: 0,
+      explanation:
+        "La Sîra montre une préparation progressive avant l’apparition publique de la mission.",
+    },
+
+    // Boss-eligible
+    {
+      id: "l8_boss_q1",
+      question: "Quel lien logique fait la Sîra entre enfance au désert et mission future ?",
+      options: [
+        "Aucun lien : c’est purement décoratif",
+        "Un lien de préparation : langue, endurance, caractère",
+        "Un lien politique : conquête militaire",
+        "Un lien économique : commerce uniquement",
       ],
       correctIndex: 1,
-      explanation: "La préparation intérieure facilite l’accueil d’un changement profond.",
-      difficulty: "medium",
+      explanation:
+        "La leçon souligne une préparation progressive : langue, endurance et caractère.",
+      difficulty: "boss",
     },
   ],
 },
+
 
 // -------------------- MONDE 3 --------------------
 l9: {
