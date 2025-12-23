@@ -15,14 +15,22 @@ import {
   CheckCircle2,
   Sparkles,
   Flame,
+  Star,
+  Trophy,
+  Zap,
 } from "lucide-react";
 
 /* ------------------ Icons ------------------ */
 function NodeIcon({ type, locked }) {
-  const base = locked ? "text-neutral-400" : "text-neutral-900";
-  if (type === "lesson") return <BookOpen className={base} size={18} />;
-  if (type === "review") return <Brain className={base} size={18} />;
-  if (type === "boss") return <Crown className={base} size={18} />;
+  const base = locked ? "text-neutral-400" : "";
+  const iconProps = { size: 20, strokeWidth: 2 };
+  
+  if (type === "lesson") 
+    return <BookOpen className={`${base} ${!locked && "text-blue-600"}`} {...iconProps} />;
+  if (type === "review") 
+    return <Brain className={`${base} ${!locked && "text-purple-600"}`} {...iconProps} />;
+  if (type === "boss") 
+    return <Crown className={`${base} ${!locked && "text-amber-600"}`} {...iconProps} />;
   return null;
 }
 
@@ -33,6 +41,7 @@ export default function MapPage() {
   const [progress, setProgress] = useState(() => loadProgress());
   const [sheetOpen, setSheetOpen] = useState(false);
   const [selectedNode, setSelectedNode] = useState(null);
+  const [pulseNode, setPulseNode] = useState(null);
 
   useEffect(() => {
     setProgress(loadProgress());
@@ -49,6 +58,15 @@ export default function MapPage() {
   );
 
   const next = nextPack?.node || null;
+
+  // Pulse effect sur le prochain nœud
+  useEffect(() => {
+    if (next) {
+      setPulseNode(next.id);
+      const timer = setTimeout(() => setPulseNode(null), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [next]);
 
   /* ------------------ Helpers ------------------ */
   function openNode(node) {
@@ -72,163 +90,206 @@ export default function MapPage() {
     return required.every((n) => n.status === "done");
   }
 
+  function getNodeGradient(type, locked) {
+    if (locked) return "from-neutral-100 to-neutral-50";
+    if (type === "lesson") return "from-blue-50 to-blue-100/50";
+    if (type === "review") return "from-purple-50 to-purple-100/50";
+    if (type === "boss") return "from-amber-50 to-amber-100/50";
+    return "from-neutral-50 to-neutral-100";
+  }
+
   /* ------------------ Render ------------------ */
   return (
-    <div className="h-screen flex flex-col bg-neutral-50">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-neutral-50 via-blue-50/20 to-purple-50/20">
+      {/* ================= ANIMATED BACKGROUND ================= */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 right-10 w-64 h-64 bg-blue-200/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-purple-200/20 rounded-full blur-3xl animate-pulse delay-1000" />
+      </div>
+
       {/* ================= STICKY HEADER ================= */}
-      <div className="sticky top-0 z-30 bg-neutral-50/90 backdrop-blur border-b">
-        <div className="mx-auto max-w-md px-4 pt-5 pb-4">
+      <div className="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-neutral-200/50 shadow-sm">
+        <div className="mx-auto max-w-md px-5 pt-6 pb-5">
           {/* Header */}
-          <div className="flex items-start justify-between gap-3">
-            <div>
-              <h1 className="text-xl font-semibold">Sîra Map</h1>
-              <p className="text-sm text-neutral-600">
-                Avance monde par monde, comme Duolingo.
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex-1">
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-transparent">
+                Sîra Map
+              </h1>
+              <p className="text-sm text-neutral-600 mt-0.5">
+                Progresse monde par monde 🚀
               </p>
             </div>
 
-            <div className="text-right space-y-1">
-              <div className="inline-flex items-center gap-2 text-sm justify-end">
-                <Flame size={16} />
-                <span className="font-semibold">{progress.streak}</span>
-                <span className="text-neutral-500">streak</span>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl border border-orange-200/50 shadow-sm">
+                <Flame size={18} className="text-orange-500" />
+                <span className="font-bold text-orange-700">{progress.streak}</span>
+                <span className="text-xs text-orange-600/80">jours</span>
               </div>
-              <div className="inline-flex items-center gap-2 text-sm justify-end">
-                <Sparkles size={16} />
-                <span className="font-semibold">{progress.xpToday}</span>
-                <span className="text-neutral-500">XP</span>
+              <div className="flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-xl border border-amber-200/50 shadow-sm">
+                <Sparkles size={18} className="text-amber-500" />
+                <span className="font-bold text-amber-700">{progress.xpToday}</span>
+                <span className="text-xs text-amber-600/80">XP</span>
               </div>
             </div>
           </div>
 
-          {/* Active World Card */}
-          <div className="mt-4 rounded-2xl bg-white border p-4">
-            <div className="flex items-center justify-between">
-              <p className="font-medium">{currentWorld?.title}</p>
-              <p className="text-sm text-neutral-600">
-                {currentWorld?.progressPct ?? 0}%
+          {/* Active World Card avec animation */}
+          <div className="mt-5 rounded-3xl bg-gradient-to-br from-white via-white to-neutral-50 border border-neutral-200/50 p-5 shadow-lg shadow-neutral-200/50 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+            {/* Effet de brillance au survol */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+            
+            <div className="relative z-10">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <Trophy size={18} className="text-neutral-700" />
+                  <p className="font-bold text-neutral-900">{currentWorld?.title}</p>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-1 bg-neutral-100 rounded-full">
+                  <Star size={14} className="text-neutral-600" />
+                  <span className="text-sm font-bold text-neutral-700">
+                    {currentWorld?.progressPct ?? 0}%
+                  </span>
+                </div>
+              </div>
+
+              <div className="relative h-3 w-full bg-neutral-100 rounded-full overflow-hidden shadow-inner">
+                <div
+                  className="h-full bg-gradient-to-r from-neutral-700 via-neutral-800 to-neutral-900 rounded-full transition-all duration-700 ease-out relative overflow-hidden"
+                  style={{ width: `${currentWorld?.progressPct ?? 0}%` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
+                </div>
+              </div>
+
+              <button
+                className="mt-4 w-full rounded-2xl bg-gradient-to-r from-neutral-900 to-neutral-800 text-white py-3.5 font-bold disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-neutral-900/20 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2"
+                disabled={!next}
+                onClick={() => openNode(next)}
+              >
+                <Zap size={18} />
+                Continuer l'aventure
+              </button>
+
+              <p className="mt-3 text-xs text-neutral-500 text-center flex items-center justify-center gap-1.5">
+                <Sparkles size={12} />
+                XP total : <span className="font-semibold text-neutral-700">{progress.xp}</span>
               </p>
             </div>
-
-            <div className="mt-2 h-2 w-full bg-neutral-100 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-neutral-900"
-                style={{ width: `${currentWorld?.progressPct ?? 0}%` }}
-              />
-            </div>
-
-            <button
-              className="mt-3 w-full rounded-xl bg-neutral-900 text-black py-2.5 font-medium disabled:opacity-50"
-              disabled={!next}
-              onClick={() => openNode(next)}
-            >
-              Continuer
-            </button>
-
-            <p className="mt-2 text-xs text-neutral-500">
-              XP total : {progress.xp}
-            </p>
           </div>
         </div>
       </div>
 
       {/* ================= SCROLLABLE CONTENT ================= */}
-      <div className="flex-1 overflow-y-auto">
-        <main className="mx-auto max-w-md px-4 space-y-6 pt-4 pb-32">
+      <div className="flex-1 overflow-y-auto relative z-10">
+        <main className="mx-auto max-w-md px-5 space-y-8 pt-6 pb-32">
           {worldsUI.map((w) => {
             const worldCompleted = isWorldCompleted(w);
 
             return (
-              <section key={w.id}>
-                <div className="flex items-center justify-between mb-2">
-                  <h2 className="text-sm font-semibold text-neutral-800">
+              <section key={w.id} className="animate-fadeIn">
+                <div className="flex items-center justify-between mb-4 px-1">
+                  <h2 className="text-base font-bold text-neutral-800 flex items-center gap-2">
+                    {w.unlocked && <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />}
                     {w.title}
                   </h2>
-                  <span className="text-xs text-neutral-500">
-                    {w.unlocked ? `${w.progressPct}%` : "🔒"}
+                  <span className={`text-xs font-semibold px-3 py-1 rounded-full ${
+                    w.unlocked 
+                      ? "bg-emerald-100 text-emerald-700" 
+                      : "bg-neutral-100 text-neutral-500"
+                  }`}>
+                    {w.unlocked ? `${w.progressPct}%` : "🔒 Verrouillé"}
                   </span>
                 </div>
 
-                <div className={`space-y-3 ${w.unlocked ? "" : "opacity-70"}`}>
+                <div className={`space-y-4 ${w.unlocked ? "" : "opacity-60"}`}>
                   {w.nodes.map((node, idx) => {
                     const locked = node.status === "locked";
+                    const isNext = next?.id === node.id;
+                    const isPulsing = pulseNode === node.id;
 
                     return (
                       <button
                         key={node.id}
                         onClick={() => openNode(node)}
                         className={[
-                          "w-full text-left rounded-2xl border bg-white p-4",
-                          "transition active:scale-[0.99]",
+                          "w-full text-left rounded-3xl border bg-white p-5 relative overflow-hidden group",
+                          "transition-all duration-300",
                           locked
-                            ? "opacity-70"
-                            : "hover:border-neutral-300",
+                            ? "opacity-60 cursor-not-allowed"
+                            : "hover:shadow-xl hover:scale-[1.02] hover:border-neutral-300 active:scale-[0.98] shadow-md shadow-neutral-200/50",
+                          isNext && !locked && "ring-2 ring-neutral-900 ring-offset-2",
+                          isPulsing && "animate-pulse-slow"
                         ].join(" ")}
                       >
-                        <div className="flex items-start justify-between gap-3">
-                          <div className="flex items-center gap-3">
-                            <div className="h-10 w-10 rounded-xl bg-neutral-50 border flex items-center justify-center">
+                        {/* Effet de fond gradient */}
+                        {!locked && (
+                          <div className={`absolute inset-0 bg-gradient-to-br ${getNodeGradient(node.type, locked)} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                        )}
+                        
+                        {/* Effet de brillance */}
+                        {!locked && (
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                        )}
+
+                        <div className="flex items-start justify-between gap-4 relative z-10">
+                          <div className="flex items-center gap-4 flex-1">
+                            <div className={`h-12 w-12 rounded-2xl bg-gradient-to-br ${getNodeGradient(node.type, locked)} border-2 ${
+                              locked ? "border-neutral-200" : "border-neutral-300"
+                            } flex items-center justify-center shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
                               {locked ? (
-                                <Lock
-                                  size={18}
-                                  className="text-neutral-400"
-                                />
+                                <Lock size={20} className="text-neutral-400" />
                               ) : (
-                                <NodeIcon
-                                  type={node.type}
-                                  locked={locked}
-                                />
+                                <NodeIcon type={node.type} locked={locked} />
                               )}
                             </div>
 
-                            <div>
-                              <p className="font-medium">
+                            <div className="flex-1 min-w-0">
+                              <p className="font-bold text-neutral-900 mb-1">
                                 {idx + 1}. {node.title}
                               </p>
-                              <p className="text-xs text-neutral-600">
-                                ≈ {node.estMin} min •{" "}
-                                {node.required
-                                  ? "Obligatoire"
-                                  : "Optionnel"}
-                              </p>
+                              <div className="flex items-center gap-2 text-xs text-neutral-600">
+                                <span className="flex items-center gap-1">
+                                  ⏱️ {node.estMin} min
+                                </span>
+                                <span className="text-neutral-400">•</span>
+                                <span className={`font-medium ${
+                                  node.required ? "text-orange-600" : "text-neutral-500"
+                                }`}>
+                                  {node.required ? "Obligatoire" : "Optionnel"}
+                                </span>
+                              </div>
                             </div>
                           </div>
 
-                          <div className="flex items-center gap-2">
+                          <div className="flex flex-col items-end gap-2">
                             {node.status === "done" && (
-                              <CheckCircle2
-                                className="text-emerald-600"
-                                size={18}
-                              />
+                              <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-100">
+                                <CheckCircle2 className="text-emerald-600" size={14} />
+                                <span className="text-[10px] font-bold text-emerald-700">
+                                  Terminé
+                                </span>
+                              </div>
                             )}
 
-                            <span
-                              className={[
-                                "text-[11px] px-2 py-1 rounded-full",
-                                node.status === "done" &&
-                                  "bg-emerald-100 text-emerald-800",
-                                node.status === "available" &&
-                                  "bg-blue-100 text-blue-800",
-                                node.status === "locked" &&
-                                  "bg-neutral-100 text-neutral-500",
-                              ]
-                                .filter(Boolean)
-                                .join(" ")}
-                            >
-                              {node.status === "done"
-                                ? "Terminé"
-                                : node.status === "available"
-                                ? "Disponible"
-                                : "Verrouillé"}
-                            </span>
+                            {node.status === "available" && (
+                              <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-blue-100 text-blue-700">
+                                Disponible
+                              </span>
+                            )}
 
-                            {worldCompleted &&
-                              node.type === "review" &&
-                              !node.required && (
-                                <span className="text-[11px] px-2 py-1 rounded-full bg-amber-100 text-amber-800">
-                                  🎁 BONUS
-                                </span>
-                              )}
+                            {node.status === "locked" && (
+                              <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-neutral-100 text-neutral-500">
+                                Verrouillé
+                              </span>
+                            )}
+
+                            {worldCompleted && node.type === "review" && !node.required && (
+                              <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-700 animate-pulse">
+                                🎁 BONUS
+                              </span>
+                            )}
                           </div>
                         </div>
                       </button>
@@ -250,39 +311,37 @@ export default function MapPage() {
           selectedNode
             ? `≈ ${selectedNode.estMin} min • ${
                 selectedNode.type === "boss"
-                  ? "Boss Quiz"
+                  ? "Boss Quiz 👑"
                   : selectedNode.type === "review"
-                  ? "Révision"
-                  : "Leçon"
+                  ? "Révision 🧠"
+                  : "Leçon 📖"
               }`
             : ""
         }
       >
         {selectedNode && (
-          <div className="space-y-3">
-            <div className="rounded-2xl border bg-neutral-50 p-3 text-sm text-neutral-700">
-              Récompense estimée :{" "}
-              <span className="font-semibold">
-                +
-                {selectedNode.type === "boss"
-                  ? 60
-                  : selectedNode.type === "review"
-                  ? 10
-                  : 30}{" "}
-                XP
-              </span>
+          <div className="space-y-4">
+            <div className="rounded-2xl border-2 border-dashed border-amber-300 bg-gradient-to-br from-amber-50 to-yellow-50 p-4 text-sm">
+              <div className="flex items-center gap-2 justify-center">
+                <Sparkles size={18} className="text-amber-600" />
+                <span className="text-neutral-700">Récompense estimée :</span>
+                <span className="font-bold text-lg text-amber-700">
+                  +{selectedNode.type === "boss" ? 60 : selectedNode.type === "review" ? 10 : 30} XP
+                </span>
+              </div>
             </div>
 
             <button
               onClick={startNode}
-              className="w-full rounded-xl bg-neutral-900 text-black py-3 font-medium"
+              className="w-full rounded-2xl bg-gradient-to-r from-neutral-900 to-neutral-800 text-white py-4 font-bold shadow-xl shadow-neutral-900/30 hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2"
             >
-              Démarrer
+              <Zap size={20} />
+              Démarrer maintenant
             </button>
 
             <button
               onClick={() => setSheetOpen(false)}
-              className="w-full rounded-xl border bg-white py-3 font-medium"
+              className="w-full rounded-2xl border-2 border-neutral-200 bg-white py-4 font-bold hover:bg-neutral-50 active:scale-[0.98] transition-all duration-200"
             >
               Plus tard
             </button>
@@ -291,6 +350,33 @@ export default function MapPage() {
       </BottomSheet>
 
       <BottomNav />
+
+      <style>{`
+        @keyframes shimmer {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse-slow {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.02); }
+        }
+        .animate-shimmer {
+          animation: shimmer 2s infinite;
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.5s ease-out;
+        }
+        .animate-pulse-slow {
+          animation: pulse-slow 2s ease-in-out 3;
+        }
+        .delay-1000 {
+          animation-delay: 1s;
+        }
+      `}</style>
     </div>
   );
 }

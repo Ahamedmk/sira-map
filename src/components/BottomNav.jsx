@@ -8,29 +8,107 @@ function Tab({ to, label, Icon }) {
       to={to}
       className={({ isActive }) =>
         [
-          "flex flex-col items-center justify-center gap-1",
-          "px-3 py-2 rounded-xl transition",
-          isActive ? "text-black bg-neutral-100" : "text-neutral-600",
+          "relative flex flex-col items-center justify-center gap-1.5",
+          "px-4 py-3 rounded-2xl transition-all duration-300",
+          "group",
+          isActive 
+            ? "text-white" 
+            : "text-neutral-500 hover:text-neutral-700 hover:bg-neutral-50",
         ].join(" ")
       }
     >
-      <Icon size={20} />
-      <span className="text-[11px]">{label}</span>
+      {({ isActive }) => (
+        <>
+          {/* Fond gradient animé pour l'onglet actif */}
+          {isActive && (
+            <>
+              <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 rounded-2xl shadow-lg shadow-neutral-900/30" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-shimmer rounded-2xl" />
+            </>
+          )}
+
+          {/* Indicateur de point actif */}
+          {isActive && (
+            <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-white rounded-full shadow-lg shadow-white/50 animate-pulse" />
+          )}
+
+          {/* Icône avec animation */}
+          <div className={`relative z-10 transition-all duration-300 ${
+            isActive 
+              ? "scale-110" 
+              : "group-hover:scale-110 group-hover:-translate-y-0.5"
+          }`}>
+            <Icon 
+              size={22} 
+              strokeWidth={isActive ? 2.5 : 2}
+              className="transition-all duration-300"
+            />
+            
+            {/* Halo lumineux derrière l'icône active */}
+            {isActive && (
+              <div className="absolute inset-0 bg-white/30 blur-lg rounded-full scale-150 animate-pulse-slow" />
+            )}
+          </div>
+
+          {/* Label avec animation */}
+          <span className={`relative z-10 text-[10px] font-semibold transition-all duration-300 ${
+            isActive 
+              ? "opacity-100 translate-y-0" 
+              : "opacity-80 group-hover:opacity-100"
+          }`}>
+            {label}
+          </span>
+
+          {/* Effet de ripple au clic */}
+          {!isActive && (
+            <div className="absolute inset-0 rounded-2xl bg-neutral-900/5 scale-0 group-active:scale-100 transition-transform duration-200" />
+          )}
+        </>
+      )}
     </NavLink>
   );
 }
 
 export default function BottomNav() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-[9999]">
-      <nav className="mx-auto max-w-md border-t bg-white shadow-[0_-6px_20px_rgba(0,0,0,0.08)]">
-        <div className="px-3 py-2 grid grid-cols-4 gap-2">
-          <Tab to="/map" label="Map" Icon={Map} />
-          <Tab to="/review" label="Réviser" Icon={Brain} />
-          <Tab to="/leaderboard" label="Classement" Icon={Trophy} />
-          <Tab to="/profile" label="Profil" Icon={User} />
-        </div>
-      </nav>
+    <div className="fixed inset-x-0 bottom-0 z-[9999] pointer-events-none">
+      <div className="pointer-events-auto mx-auto max-w-md px-4 pb-4">
+        <nav className="relative rounded-[28px] bg-white/95 backdrop-blur-xl border border-neutral-200/50 shadow-[0_-8px_32px_rgba(0,0,0,0.12)] overflow-hidden">
+          {/* Effet de lueur en haut */}
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent" />
+          
+          {/* Fond dégradé subtil */}
+          <div className="absolute inset-0 bg-gradient-to-b from-neutral-50/50 to-transparent pointer-events-none" />
+          
+          {/* Grille de navigation */}
+          <div className="relative px-3 py-3 grid grid-cols-4 gap-2">
+            <Tab to="/map" label="Map" Icon={Map} />
+            <Tab to="/review" label="Réviser" Icon={Brain} />
+            <Tab to="/leaderboard" label="Classement" Icon={Trophy} />
+            <Tab to="/profile" label="Profil" Icon={User} />
+          </div>
+
+          {/* Indicateur de sécurité iOS style */}
+          <div className="h-1 bg-neutral-900/5 rounded-full mx-auto w-32 mb-2" />
+        </nav>
+      </div>
+
+      <style>{`
+        @keyframes shimmer {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(200%); }
+        }
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 0.8; }
+          50% { opacity: 1; }
+        }
+        .animate-shimmer {
+          animation: shimmer 3s infinite;
+        }
+        .animate-pulse-slow {
+          animation: pulse-slow 2s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 }
