@@ -1,17 +1,22 @@
 // Contenu MVP (on étoffera monde par monde)
 // IMPORTANT : pas de représentation du Prophète ﷺ, on reste sur contexte/valeurs.
-import world1_l1 from "../assets/illustrations/worlds/world1-l1.png";
-import world1_l2 from "../assets/illustrations/worlds/world1-l2.png";
-import world1_l3 from "../assets/illustrations/worlds/world1-l3.png";
-import world1_l4 from "../assets/illustrations/worlds/world1-l4.png";
-import world2_l5 from "../assets/illustrations/worlds/world2-l5.png";
-import world2_l6 from "../assets/illustrations/worlds/world2-l6.png";
-import world2_l7 from "../assets/illustrations/worlds/world2-l7.png";
-import world2_l8 from "../assets/illustrations/worlds/world2-l8.png";
-import world3_l9 from "../assets/illustrations/worlds/world3-l9.png";
-import world3_l10 from "../assets/illustrations/worlds/world3-l10.png";
-import world3_l11 from "../assets/illustrations/worlds/world3-l11.png";
-import world3_l12 from "../assets/illustrations/worlds/world3-l12.png";
+import world1_l1 from "../assets/illustrations/worlds/world1_l1.png";
+import world1_l2 from "../assets/illustrations/worlds/world1_l2.png";
+import world1_l3 from "../assets/illustrations/worlds/world1_l3.png";
+import world1_l4 from "../assets/illustrations/worlds/world1_l4.png";
+import world2_l5 from "../assets/illustrations/worlds/world2_l5.png";
+import world2_l6 from "../assets/illustrations/worlds/world2_l6.png";
+import world2_l7 from "../assets/illustrations/worlds/world2_l7.png";
+import world2_l8 from "../assets/illustrations/worlds/world2_l8.png";
+import world3_l9 from "../assets/illustrations/worlds/world3_l9.png";
+import world3_l10 from "../assets/illustrations/worlds/world3_l10.png";
+import world3_l11 from "../assets/illustrations/worlds/world3_l11.png";
+import world3_l12 from "../assets/illustrations/worlds/world3_l12.png";
+import world4_l13 from "../assets/illustrations/worlds/world4_l13.png";
+import world4_l14 from "../assets/illustrations/worlds/world4_l14.png";
+import world4_l15 from "../assets/illustrations/worlds/world4_l15.png";
+import world4_l16 from "../assets/illustrations/worlds/world4_l16.png";
+
 
 export const LESSONS_CONTENT = {
 // --- WORLD 1 (avec sous-titres) ---
@@ -1129,76 +1134,288 @@ l12: {
 
 // -------------------- MONDE 4 --------------------
 l13: {
-  title: "Pourquoi l’opposition ?",
-  story: [
-    "L’opposition n’est pas seulement religieuse : elle est sociale, économique, symbolique.",
-    "Le message remet en cause des hiérarchies et des habitudes.",
-    "Quand un système se sent menacé, il réagit."
+  title: "La première Révélation — ‘Iqraʾ’ (≈ 610)",
+  illustration: world4_l13,
+  storyBlocks: [
+    { type: "subtitle", text: "📅 Un tournant daté par la tradition de la Sîra" },
+    { type: "p", text: "Vers l’année 610 (approximation classique), Muḥammad ﷺ a environ quarante ans. La Mecque est prospère, mais l’atmosphère morale est lourde : idolâtrie, injustices sociales, rapports de force tribaux." },
+    { type: "p", text: "Dans ce contexte, il prend l’habitude de se retirer pour méditer. Ce retrait n’est pas une fuite : c’est une quête de vérité." },
+
+    { type: "subtitle", text: "🏔️ Ḥirāʾ : solitude et préparation" },
+    { type: "p", text: "Les récits de Sîra décrivent un endroit retiré : la grotte de Ḥirāʾ. Un lieu où l’homme est face à lui-même, loin du bruit du marché, loin des idoles, loin des jeux d’influence." },
+    { type: "p", text: "Le contraste est saisissant : La Mecque en bas, une ville qui vit au rythme des caravanes et des rites; et, plus haut, une solitude qui oblige à regarder la vie autrement." },
+
+    { type: "subtitle", text: "🌙 La nuit où l’Histoire change" },
+    { type: "p", text: "C’est dans ce cadre que survient l’événement fondateur : l’ange Jibrīl (Gabriel) vient à lui. La Sîra rapporte une scène d’une indication forte : la surprise, la pression, l’intensité du moment. Rien n’est ‘confortable’ dans cette première rencontre." },
+    { type: "p", text: "Les premiers mots révélés sont connus : « Iqraʾ » — “Lis / Récite”. Et la réponse humaine, immédiate, rapportée dans les récits : « Je ne sais pas lire ». Ce n’est pas un détail : c’est une rupture entre ce que l’homme peut faire… et ce qui le dépasse." },
+
+    { type: "subtitle", text: "📜 Les premiers versets (Sourate al-ʿAlaq, 96:1–5)" },
+    { type: "p", text: "La tradition la plus répandue rapporte que les premiers versets révélés sont les cinq premiers de la sourate al-ʿAlaq : un appel à la récitation, au Nom du Seigneur, à la création de l’homme, et au savoir transmis par la plume." },
+    { type: "p", text: "Le message commence par un principe : la connaissance, la conscience de Dieu, et la dignité de l’être humain." },
+
+    { type: "subtitle", text: "🏃 Retour à la Mecque : l’homme tremble, la mission commence" },
+    { type: "p", text: "Après cet événement, il redescend, bouleversé. La Sîra rapporte qu’il cherche un refuge immédiat. L’expérience n’a rien d’une ‘idée inspirante’ : elle est lourde, réelle, et profondément déstabilisante." },
+    { type: "p", text: "Le premier réflexe n’est pas l’annonce publique : c’est le besoin d’être rassuré… par quelqu’un qui le connaît vraiment." },
   ],
+  cliffhanger:
+    "Et ce quelqu’un, c’est Khadījah. Comment va-t-elle réagir face à un homme qui vient d’entendre ce que personne n’a entendu avant lui ?",
   keyPoints: [
-    "Opposition multi-facteurs (social/éco)",
-    "Remise en cause des hiérarchies",
-    "Un système menacé réagit"
+    "La première Révélation est traditionnellement située vers 610, à l’âge d’environ 40 ans.",
+    "Le lieu associé est la grotte de Ḥirāʾ, dans un contexte de retraite et de méditation.",
+    "L’ange Jibrīl transmet l’ordre « Iqraʾ » (récite/lis).",
+    "Les 1ers versets souvent rapportés : al-ʿAlaq (96:1–5).",
+    "Le retour est marqué par un bouleversement humain réel : la mission commence dans le tremblement, pas dans la mise en scène.",
   ],
   reviewQuestions: [
-    { id:"l13_q1", type:"mcq", question:"L’opposition est surtout…", options:["Uniquement météo","Sociale + économique + symbolique","Un jeu","Sans raison"], correctIndex:1, explanation:"Elle touche plusieurs intérêts.", difficulty:"easy" },
-    { id:"l13_q2", type:"tf", question:"Vrai/Faux : Remettre en cause un système peut déclencher une réaction.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : c’est une dynamique classique.", difficulty:"easy" },
-    { id:"l13_q3", type:"mcq", question:"Qu’est-ce qui est visé par le message ?", options:["Le cœur et les valeurs","Le sport","La mode","Le hasard"], correctIndex:0, explanation:"Il transforme les valeurs.", difficulty:"medium" }
-  ]
+    {
+      id: "l13_q1",
+      question: "À quelle période la première Révélation est-elle traditionnellement située ?",
+      options: ["Vers 570", "Vers 610", "Vers 632", "Après l’Hégire"],
+      correctIndex: 1,
+      explanation: "La tradition situe le début de la Révélation vers 610.",
+    },
+    {
+      id: "l13_q2",
+      question: "Où est associée la première rencontre avec Jibrīl selon les récits de Sîra ?",
+      options: ["Au marché de La Mecque", "Dans la grotte de Ḥirāʾ", "À Médine", "À Ṭāʾif"],
+      correctIndex: 1,
+      explanation: "Les récits l’associent à Ḥirāʾ.",
+    },
+    {
+      id: "l13_q3",
+      question: "Quels versets sont le plus souvent cités comme premiers révélés ?",
+      options: ["Al-Fātiḥa (1:1–7)", "Al-Ikhlāṣ (112)", "Al-ʿAlaq (96:1–5)", "Al-Baqara (2:1–5)"],
+      correctIndex: 2,
+      explanation: "La tradition la plus répandue cite al-ʿAlaq (96:1–5).",
+    },
+    {
+  id: "l13_boss_q1",
+  question:
+    "Pourquoi la première Révélation ne peut-elle pas être comprise comme une simple ‘expérience spirituelle personnelle’ ?",
+  options: [
+    "Parce qu’elle est immédiatement accompagnée d’un message structuré",
+    "Parce qu’elle est suivie d’une fuite définitive de La Mecque",
+    "Parce qu’elle supprime toute émotion humaine",
+    "Parce qu’elle est accueillie par une foule",
+  ],
+  correctIndex: 0,
+  explanation:
+    "La Révélation s’accompagne immédiatement d’un message clair et structuré (Iqraʾ), orienté vers une mission.",
+  difficulty: "boss",
+},
+
+  ],
 },
 l14: {
-  title: "Persécutions et constance",
-  story: [
-    "La pression vise à faire reculer : moquerie, isolement, intimidation.",
-    "La constance se construit par la solidarité et la patience.",
-    "Quand on ne peut pas choisir les épreuves, on choisit la réponse."
+  title: "Khadījah : la première à croire, le premier refuge",
+  illustration: world4_l14,
+  storyBlocks: [
+    { type: "subtitle", text: "🏠 Le retour : chercher un refuge humain" },
+    { type: "p", text: "Après l’événement de Ḥirāʾ, le Prophète ﷺ revient profondément bouleversé. Les récits décrivent l’intensité émotionnelle : ce n’est pas un récit héroïque fabriqué, c’est une réaction humaine." },
+    { type: "p", text: "Il se tourne vers Khadījah bint Khuwaylid : son épouse, connue pour sa sagesse, sa dignité, et sa solidité." },
+
+    { type: "subtitle", text: "🤲 Une réponse qui construit au lieu de briser" },
+    { type: "p", text: "La Sîra rapporte que Khadījah ne répond pas par la panique. Elle répond par la lucidité. Elle évoque des qualités concrètes : le lien avec la famille, l’attention aux faibles, l’honnêteté, le respect du dépôt." },
+    { type: "p", text: "Elle ne lui promet pas ‘une vie facile’. Elle l’ancre dans un constat : un homme qui vit ainsi ne sera pas abandonné." },
+
+    { type: "subtitle", text: "📜 Waraqah ibn Nawfal : une lecture du phénomène" },
+    { type: "p", text: "Khadījah l’emmène voir Waraqah ibn Nawfal, un parent âgé, connu dans les récits pour sa connaissance des Écritures." },
+    { type: "p", text: "Les récits rapportent un échange où l’événement est interprété comme une visitation angélique, et annoncent que ce message rencontrera opposition. C’est un point clé : dès le départ, on comprend que la mission ne sera pas accueillie comme un simple discours moral." },
+
+    { type: "subtitle", text: "🌙 La foi commence souvent dans le cercle le plus proche" },
+    { type: "p", text: "Le premier soutien n’est pas une foule. C’est une personne. Une maison. Une confiance." },
+    { type: "p", text: "Et dans la Sîra, Khadījah occupe cette place unique : elle est la première à croire et à soutenir, au tout début du chemin." },
   ],
+  cliffhanger:
+    "Mais après ce premier choc… il y aura une période de silence, puis un nouvel ordre. Quand le message reviendra, il ne dira plus seulement ‘lis’… il dira : ‘lève-toi’.",
   keyPoints: [
-    "Pression = faire reculer",
-    "Constance = solidarité + patience",
-    "Choisir sa réponse"
+    "Khadījah est le premier refuge humain après la première Révélation.",
+    "Elle répond par la lucidité : elle cite des qualités morales concrètes.",
+    "Waraqah ibn Nawfal est consulté et interprète l’événement comme une visitation liée à la Révélation.",
+    "Dès le départ, les récits annoncent que l’opposition viendra.",
+    "Le début de la mission se construit dans l’intimité : maison, soutien, confiance.",
   ],
   reviewQuestions: [
-    { id:"l14_q1", type:"mcq", question:"But de la pression ?", options:["Encourager","Faire reculer","Récompenser","Informer"], correctIndex:1, explanation:"Elle cherche à stopper l’avancée.", difficulty:"easy" },
-    { id:"l14_q2", type:"tf", question:"Vrai/Faux : Solidarité aide à tenir.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : elle donne force.", difficulty:"easy" },
-    { id:"l14_q3", type:"mcq", question:"La constance dépend surtout…", options:["Du hasard","D’une réponse choisie","De la mode","Du silence"], correctIndex:1, explanation:"On choisit sa posture.", difficulty:"medium" }
-  ]
+    {
+      id: "l14_q1",
+      question: "Qui est la première personne à soutenir le Prophète ﷺ après Ḥirāʾ ?",
+      options: ["Abū Jahl", "Khadījah", "Abū Lahab", "ʿUmar"],
+      correctIndex: 1,
+      explanation: "La Sîra rapporte que Khadījah est son premier soutien.",
+    },
+    {
+      id: "l14_q2",
+      question: "Pourquoi Waraqah ibn Nawfal est-il consulté dans les récits ?",
+      options: [
+        "Pour organiser un voyage",
+        "Pour interpréter l’événement à la lumière des Écritures",
+        "Pour faire un commerce",
+        "Pour choisir un chef tribal",
+      ],
+      correctIndex: 1,
+      explanation: "Il est consulté pour comprendre l’événement et sa nature.",
+    },
+    {
+      id: "l14_q3",
+      question: "Quel thème apparaît très tôt dans l’interprétation de l’événement ?",
+      options: ["La mission sera facile", "La mission rencontrera opposition", "La Mecque se convertira immédiatement", "Le commerce cessera"],
+      correctIndex: 1,
+      explanation: "Les récits annoncent tôt que l’opposition viendra.",
+    },
+    {
+  id: "l14_boss_q1",
+  question:
+    "Pourquoi la réaction de Khadījah est-elle considérée comme décisive dans le début de la mission prophétique ?",
+  options: [
+    "Parce qu’elle minimise l’événement",
+    "Parce qu’elle transforme la peur en lucidité et en soutien concret",
+    "Parce qu’elle impose une interprétation politique",
+    "Parce qu’elle conseille l’isolement définitif",
+  ],
+  correctIndex: 1,
+  explanation:
+    "Khadījah apporte une lecture lucide, fondée sur les qualités morales reconnues du Prophète ﷺ, et un soutien concret.",
+  difficulty: "boss",
+},
+
+  ],
 },
 l15: {
-  title: "Migration en Abyssinie",
-  story: [
-    "Face à l’oppression, une solution : chercher un lieu de sécurité.",
-    "La migration enseigne : protéger la foi et la dignité peut nécessiter mouvement et sacrifice.",
-    "C’est une stratégie : survivre pour continuer."
+  title: "La pause, puis l’ordre : ‘Lève-toi et avertis’",
+  illustration: world4_l15,
+  storyBlocks: [
+    { type: "subtitle", text: "⏳ La ‘fatra’ : une pause rapportée, une durée discutée" },
+    { type: "p", text: "Après la première Révélation, les récits rapportent une période de pause (fatra) avant la reprise de la Révélation." },
+    { type: "p", text: "La Sîra mentionne ce silence comme une épreuve intérieure : l’homme qui vient d’être traversé par un événement immense se retrouve, un temps, dans l’attente." },
+
+    { type: "subtitle", text: "🌙 La Révélation reprend : une mission, pas une contemplation" },
+    { type: "p", text: "La reprise de la Révélation marque un changement de registre : il ne s’agit pas seulement de recevoir. Il s’agit d’agir." },
+    { type: "p", text: "Dans les récits, l’ordre se formule dans un sens clair : se lever et avertir. La mission sort de l’intime et se dirige vers la société." },
+
+    { type: "subtitle", text: "🔥 Le message devient responsabilité" },
+    { type: "p", text: "À partir de là, la Sîra change de rythme. L’homme ‘al-Amīn’, respecté pour sa fiabilité, devient porteur d’un appel qui remet en cause les équilibres." },
+    { type: "p", text: "Ce passage est important : ce n’est pas un ‘projet personnel’, c’est une mission qui va toucher les croyances, les intérêts économiques, l’honneur tribal, et la hiérarchie sociale." },
+
+    { type: "subtitle", text: "🧠 Un tournant psychologique : de la peur à l’obéissance" },
+    { type: "p", text: "Le basculement n’est pas un changement de personnalité. C’est un déplacement de posture : accepter le poids d’une responsabilité supérieure, malgré la peur humaine." },
+    { type: "p", text: "La Sîra nous apprend ici une règle : ce n’est pas l’absence de peur qui fait avancer, c’est la fidélité à l’ordre reçu." },
   ],
+  cliffhanger:
+    "Mais comment commencer à avertir sans déclencher immédiatement une guerre sociale ? La mission va d’abord démarrer… en secret.",
   keyPoints: [
-    "Migration = protection",
-    "Sacrifice pour préserver la foi",
-    "Stratégie de continuité"
+    "Les récits rapportent une pause (fatra) après la première Révélation; sa durée exacte varie selon les transmissions.",
+    "La reprise de la Révélation oriente vers l’action : se lever et avertir.",
+    "La mission devient publique dans son intention, même si elle commence par une phase discrète.",
+    "Le message touche les équilibres religieux, sociaux et économiques de La Mecque.",
+    "Le courage n’est pas l’absence de peur : c’est l’obéissance malgré la peur.",
   ],
   reviewQuestions: [
-    { id:"l15_q1", type:"mcq", question:"La migration vise surtout à…", options:["S’amuser","Se protéger","Devenir riche vite","Éviter toute règle"], correctIndex:1, explanation:"Elle protège des persécutions.", difficulty:"easy" },
-    { id:"l15_q2", type:"tf", question:"Vrai/Faux : Bouger peut être une stratégie de survie.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : pour continuer la mission.", difficulty:"easy" },
-    { id:"l15_q3", type:"mcq", question:"Quel principe ressort ?", options:["La dignité et la foi","Le luxe","Le bruit","La paresse"], correctIndex:0, explanation:"Préserver la dignité et la foi.", difficulty:"medium" }
-  ]
+    {
+      id: "l15_q1",
+      question: "Que désigne ‘fatra’ dans le contexte du début de la Révélation ?",
+      options: ["Une migration", "Une pause/silence avant reprise", "Une bataille", "Un commerce"],
+      correctIndex: 1,
+      explanation: "La fatra désigne une période de pause rapportée entre révélations.",
+    },
+    {
+      id: "l15_q2",
+      question: "Quel changement de registre apparaît après la reprise de la Révélation ?",
+      options: [
+        "De l’action vers la contemplation uniquement",
+        "De la réception vers la mission et l’avertissement",
+        "Du commerce vers l’agriculture",
+        "De La Mecque vers Médine immédiatement",
+      ],
+      correctIndex: 1,
+      explanation: "La reprise oriente vers l’action : avertir et porter le message.",
+    },
+
+    // Boss-eligible
+    {
+      id: "l15_boss_q1",
+      question: "Pourquoi la reprise de la Révélation est-elle un tournant stratégique ?",
+      options: [
+        "Parce qu’elle met fin au commerce mecquois",
+        "Parce qu’elle transforme une expérience intime en mission sociale",
+        "Parce qu’elle rend la prophétie héréditaire",
+        "Parce qu’elle supprime toute opposition",
+      ],
+      correctIndex: 1,
+      explanation: "Elle transforme l’intime en responsabilité envers la société.",
+      difficulty: "boss",
+    },
+  ],
 },
 l16: {
-  title: "Le boycott social",
-  story: [
-    "Quand la force brute ne suffit pas, un système utilise l’isolement : couper liens, commerce, soutien.",
-    "Le boycott teste la cohésion : qui reste loyal, qui cède ?",
-    "L’endurance collective devient un acte de foi."
+  title: "Les débuts en secret : premiers croyants, premières tensions",
+  illustration: world4_l16,
+  storyBlocks: [
+    { type: "subtitle", text: "🤫 Pourquoi commencer discrètement ?" },
+    { type: "p", text: "Au début, l’appel se fait de manière discrète. Ce choix correspond à une réalité : la Mecque est un système tribal où un appel frontal peut déclencher une réaction violente avant même que le message ne soit compris." },
+    { type: "p", text: "La Sîra montre une stratégie graduelle : construire une base de foi, former des cœurs, puis affronter l’orage." },
+
+    { type: "subtitle", text: "🌱 Les premiers croyants : une base réelle, pas une légende" },
+    { type: "p", text: "Les récits de Sîra mentionnent très tôt des figures connues parmi les premiers croyants : Khadījah en tête. Puis d’autres personnes proches et dignes de confiance, qui entrent dans l’islam à ce stade initial." },
+    { type: "p", text: "Ce point est important : le message ne commence pas par une majorité. Il commence par une poignée de personnes convaincues, prêtes à tenir." },
+
+    { type: "subtitle", text: "🕋 Le message touche le cœur de la Mecque" },
+    { type: "p", text: "Le message de l’unicité (tawḥīd) n’est pas une simple opinion spirituelle dans ce contexte. Il remet en cause le système de représentation, l’honneur des ancêtres, et les intérêts liés aux rites." },
+    { type: "p", text: "Même avant l’annonce publique totale, les tensions se préparent : la Mecque comprend vite qu’il ne s’agit pas d’une “nouvelle poésie” ou d’un simple discours moral." },
+
+    { type: "subtitle", text: "⚠️ Le point de non-retour" },
+    { type: "p", text: "À partir de là, la Sîra entre dans une phase où le message va progressivement s’exposer, et l’opposition va progressivement s’organiser." },
+    { type: "p", text: "Ce n’est pas une histoire d’‘idées’. C’est une histoire de société qui refuse de se laisser transformer." },
   ],
+  cliffhanger:
+    "Et quand l’appel quittera le secret pour entrer dans l’espace public, La Mecque ne répondra pas par un débat… mais par une pression. Qui sera visé en premier ?",
   keyPoints: [
-    "Boycott = isolement social/éco",
-    "Test de cohésion",
-    "Endurance collective"
+    "L’appel commence discrètement pour construire une base solide dans un système tribal sensible.",
+    "Les premiers croyants sont peu nombreux au départ, mais déterminants.",
+    "Le tawḥīd touche les intérêts et l’identité de la Mecque.",
+    "Les tensions se forment avant même l’affrontement public total.",
+    "La Sîra passe de l’intime au social : l’opposition devient inévitable.",
   ],
   reviewQuestions: [
-    { id:"l16_q1", type:"mcq", question:"Le boycott sert à…", options:["Renforcer l’entraide","Isoler et affaiblir","Apprendre","Récompenser"], correctIndex:1, explanation:"Il coupe soutien et ressources.", difficulty:"easy" },
-    { id:"l16_q2", type:"tf", question:"Vrai/Faux : Le boycott teste la cohésion.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : il révèle les loyautés.", difficulty:"easy" },
-    { id:"l16_q3", type:"mcq", question:"Quelle force est centrale ?", options:["Endurance collective","Hasard","Ornement","Oubli"], correctIndex:0, explanation:"Tenir ensemble est clé.", difficulty:"medium" }
-  ]
+    {
+      id: "l16_q1",
+      question: "Pourquoi l’appel commence-t-il de manière discrète au départ ?",
+      options: [
+        "Parce que le Prophète ﷺ refuse toute mission sociale",
+        "Pour éviter une réaction brutale immédiate et former une base",
+        "Parce que La Mecque était vide",
+        "Parce qu’il n’y avait personne à convaincre",
+      ],
+      correctIndex: 1,
+      explanation: "La Sîra montre une progression : base solide avant l’exposition totale.",
+    },
+    {
+      id: "l16_q2",
+      question: "Pourquoi le message du tawḥīd touche-t-il le cœur du système mecquois ?",
+      options: [
+        "Parce qu’il parle de commerce uniquement",
+        "Parce qu’il remet en cause rites, ancêtres et intérêts liés aux idoles",
+        "Parce qu’il impose une langue nouvelle",
+        "Parce qu’il supprime les tribus",
+      ],
+      correctIndex: 1,
+      explanation: "Le tawḥīd remet en cause le système religieux et social en place.",
+    },
+
+    // Boss-eligible
+    {
+      id: "l16_boss_q1",
+      question: "Quel est le point stratégique de la phase secrète dans la Sîra ?",
+      options: [
+        "Gagner une majorité immédiate",
+        "Construire des individus solides avant la confrontation sociale",
+        "Éviter toute opposition pour toujours",
+        "Transformer La Mecque sans effort",
+      ],
+      correctIndex: 1,
+      explanation: "Construire une base de foi solide avant l’exposition et l’opposition.",
+      difficulty: "boss",
+    },
+  ],
 },
 
 // -------------------- MONDE 5 --------------------

@@ -10,7 +10,12 @@ export default function LessonPage() {
 
   const lesson = useMemo(() => getLessonById(lessonId), [lessonId]);
   const content = useMemo(() => getLessonContent(lessonId), [lessonId]);
+  const hasSeenCinematic =
+  lessonId === "l13" && localStorage.getItem("cinematic_l13_seen") === "1";
 
+const [showIntro, setShowIntro] = useState(
+  lessonId === "l13" && !hasSeenCinematic
+);
   const [mode, setMode] = useState("read"); // read | audio
 
   if (!lesson) {
@@ -55,6 +60,15 @@ export default function LessonPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-blue-50/20 to-purple-50/20 pb-32">
+      {showIntro && (
+  <CinematicIntro
+    onFinish={() => {
+      localStorage.setItem("cinematic_l13_seen", "1");
+      setShowIntro(false);
+    }}
+  />
+)}
+
       {/* Fond animé */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-10 w-72 h-72 bg-blue-200/20 rounded-full blur-3xl animate-pulse" />

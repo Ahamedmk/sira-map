@@ -61,7 +61,6 @@ export const WORLDS = [
     },
   ],
 },
-
 {
   id: "world-3",
   title: "Monde 3 — Naissance, enfance et jeunesse",
@@ -97,13 +96,13 @@ export const WORLDS = [
     },
 
     // Bonus review (optionnel)
-    {
-      id: "r3",
-      type: "review",
-      title: "Révision rapide — Monde 3",
-      estMin: 5,
-      required: false,
-    },
+    // {
+    //   id: "r3",
+    //   type: "review",
+    //   title: "Révision rapide — Monde 3",
+    //   estMin: 5,
+    //   required: false,
+    // },
 
     // Boss (validation du monde)
     {
@@ -115,17 +114,21 @@ export const WORLDS = [
     },
   ],
 },
-
 {
   id: "world-4",
-  title: "Monde 4 — La Mecque : opposition et persécutions",
+  title: "Monde 4 — La première Révélation et les débuts",
+  description: "De Ḥirāʾ à la phase discrète : le message commence (≈ 610).",
   nodes: [
-    { id: "l13", type: "lesson", title: "Pourquoi l’opposition ?", estMin: 6, required: true },
-    { id: "l14", type: "lesson", title: "Persécutions et constance", estMin: 6, required: true },
-    { id: "r4", type: "review", title: "Bonus — Résister à la pression", estMin: 2, required: false },
-    { id: "l15", type: "lesson", title: "Migration en Abyssinie", estMin: 5, required: true },
-    { id: "l16", type: "lesson", title: "Le boycott social", estMin: 6, required: true },
-    { id: "b4", type: "boss", title: "Boss Quiz — Monde 4", estMin: 9, required: true },
+    { id: "l13", type: "lesson", title: "La première Révélation — ‘Iqraʾ’", estMin: 18, required: true },
+    { id: "l14", type: "lesson", title: "Khadījah et Waraqah : le premier refuge", estMin: 18, required: true },
+    { id: "l15", type: "lesson", title: "La pause puis l’ordre : ‘Lève-toi et avertis’", estMin: 18, required: true },
+    { id: "l16", type: "lesson", title: "Débuts en secret : premiers croyants, premières tensions", estMin: 18, required: true },
+
+    // Bonus review (optionnel)
+    // { id: "r4", type: "review", title: "Révision rapide — Monde 4", estMin: 6, required: false },
+
+    // Boss (validation du monde)
+    { id: "b4", type: "boss", title: "Boss Quiz — Monde 4", estMin: 8, required: true },
   ],
 },
 {
