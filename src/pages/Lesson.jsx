@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getLessonById } from "../data/map.mock.js";
 import { getLessonContent } from "../data/lessons.mock.js";
 import { ChevronLeft, Headphones, BookOpen, Sparkles, Play, Zap, Trophy, ArrowRight } from "lucide-react";
-
+import CinematicIntro  from "../components/CinematicIntro.jsx";
 export default function LessonPage() {
   const { lessonId } = useParams();
   const navigate = useNavigate();
