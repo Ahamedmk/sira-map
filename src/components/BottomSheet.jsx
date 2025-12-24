@@ -16,7 +16,7 @@ export default function BottomSheet({
         <Dialog.Overlay className="fixed inset-0 z-50 bg-black/40" />
         <Dialog.Content
           className={cn(
-            "fixed z-50 left-1/2 -translate-x-1/2 bottom-0 w-full max-w-md",
+            "fixed z-10050 left-1/2 -translate-x-1/2 bottom-0 w-full max-w-md",
             "rounded-t-3xl border bg-white shadow-lg",
             "p-4 pb-6 outline-none"
           )}

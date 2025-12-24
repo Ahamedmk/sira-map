@@ -8,6 +8,10 @@ import world2_l5 from "../assets/illustrations/worlds/world2-l5.png";
 import world2_l6 from "../assets/illustrations/worlds/world2-l6.png";
 import world2_l7 from "../assets/illustrations/worlds/world2-l7.png";
 import world2_l8 from "../assets/illustrations/worlds/world2-l8.png";
+import world3_l9 from "../assets/illustrations/worlds/world3-l9.png";
+import world3_l10 from "../assets/illustrations/worlds/world3-l10.png";
+import world3_l11 from "../assets/illustrations/worlds/world3-l11.png";
+import world3_l12 from "../assets/illustrations/worlds/world3-l12.png";
 
 export const LESSONS_CONTENT = {
 // --- WORLD 1 (avec sous-titres) ---
@@ -765,76 +769,362 @@ l8: {
 
 // -------------------- MONDE 3 --------------------
 l9: {
-  title: "La grotte et la première révélation",
-  story: [
-    "Un moment de solitude et de réflexion prépare un tournant décisif.",
-    "La première révélation marque le début d’une mission : transmettre, éveiller, transformer.",
-    "C’est un choc spirituel : ce n’est pas une simple idée, c’est un appel."
+  title: "La naissance — L’Année de l’Éléphant",
+  illustration: world3_l9,
+  storyBlocks: [
+    { type: "subtitle", text: "📅 Une naissance située dans l’Histoire" },
+    { type: "p", text: "La naissance du Prophète ﷺ n’est pas placée dans un flou historique. Elle est traditionnellement située autour de l’année 570 de l’ère chrétienne, connue chez les Arabes comme ‘l’Année de l’Éléphant’." },
+    { type: "p", text: "Cette datation repose sur un événement majeur survenu peu avant : l’expédition d’Abraha contre La Mecque." },
+
+    { type: "subtitle", text: "🐘 L’expédition d’Abraha" },
+    { type: "p", text: "Abraha, gouverneur d’origine abyssinienne au Yémen, cherche à détourner le pèlerinage arabe vers un sanctuaire qu’il a fait construire à Sanʿāʾ." },
+    { type: "p", text: "Devant l’échec de cette stratégie, il marche vers La Mecque avec une armée, comprenant au moins un éléphant de guerre — fait marquant pour les Arabes." },
+
+    { type: "subtitle", text: "🕋 La Mecque sans armée" },
+    { type: "p", text: "La Mecque ne dispose pas d’armée capable de résister à une telle expédition. Les Quraysh se retirent, conscients de leur faiblesse militaire." },
+    { type: "p", text: "L’événement est resté dans les mémoires arabes comme un signe de protection exceptionnelle de la Kaʿba." },
+
+    { type: "subtitle", text: "👶 Une naissance dans un monde qui observe" },
+    { type: "p", text: "C’est dans cette même année que naît Muḥammad ﷺ, au sein de Quraysh, dans le clan des Banû Hâshim." },
+    { type: "p", text: "La société n’y voit encore qu’une naissance parmi d’autres… mais l’Histoire, elle, a déjà commencé." },
   ],
+  cliffhanger:
+    "Mais naître dans une année marquante ne signifie pas grandir dans le confort. Comment se déroule l’enfance d’un enfant orphelin dans la Mecque tribale ?",
   keyPoints: [
-    "Tournant : début de la mission",
-    "Révélation = responsabilité, pas seulement émotion",
-    "Avant l’action : réflexion et purification intérieure"
+    "La naissance du Prophète ﷺ est située vers 570 (Année de l’Éléphant).",
+    "L’expédition d’Abraha est un événement historique majeur.",
+    "La Mecque n’avait pas de force militaire équivalente.",
+    "La naissance s’inscrit dans un contexte historique observé par toute l’Arabie.",
   ],
   reviewQuestions: [
-    { id:"l9_q1", type:"mcq", question:"Quel est le sens principal de ce moment ?", options:["Un simple voyage","Le début d’une mission","Une fête tribale","Un commerce"], correctIndex:1, explanation:"C’est le début d’une mission de transmission.", difficulty:"easy" },
-    { id:"l9_q2", type:"tf", question:"Vrai/Faux : La révélation implique une responsabilité.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : elle oblige à agir et transmettre.", difficulty:"easy" },
-    { id:"l9_q3", type:"mcq", question:"Quel élément précède souvent les grands tournants ?", options:["Distraction totale","Solitude et réflexion","Pression sociale","Bruit permanent"], correctIndex:1, explanation:"La réflexion prépare le cœur.", difficulty:"medium" }
-  ]
+  {
+    id: "l9_q1",
+    question:
+      "À quelle période est traditionnellement située la naissance du Prophète ﷺ ?",
+    options: [
+      "Vers l’an 600",
+      "Vers l’an 570, l’Année de l’Éléphant",
+      "Vers l’an 610",
+      "Après la conquête de La Mecque",
+    ],
+    correctIndex: 1,
+    explanation:
+      "La naissance est traditionnellement située autour de 570, appelée l’Année de l’Éléphant.",
+  },
+  {
+    id: "l9_q2",
+    question:
+      "Pourquoi l’expédition d’Abraha est-elle restée marquante pour les Arabes ?",
+    options: [
+      "Parce qu’elle a détruit la Kaʿba",
+      "Parce qu’elle impliquait une armée avec des éléphants",
+      "Parce qu’elle a duré plusieurs années",
+      "Parce qu’elle a converti Quraysh",
+    ],
+    correctIndex: 1,
+    explanation:
+      "La présence d’éléphants de guerre était exceptionnelle pour les Arabes.",
+  },
+  {
+    id: "l9_q3",
+    question:
+      "Quel lien est fait entre l’Année de l’Éléphant et la naissance du Prophète ﷺ ?",
+    options: [
+      "Un lien religieux direct",
+      "Un lien militaire",
+      "Un repère historique pour dater la naissance",
+      "Un lien politique imposé",
+    ],
+    correctIndex: 2,
+    explanation:
+      "L’événement sert de repère chronologique dans la mémoire arabe.",
+  },
+],
+
 },
 l10: {
-  title: "Les premiers croyants",
-  story: [
-    "Au début, la force ne vient pas du nombre mais de la sincérité.",
-    "Les premiers croyants forment un noyau : confiance, patience, entraide.",
-    "Le message change les priorités : vérité avant confort."
+  title: "Grandir orphelin à La Mecque",
+  illustration: world3_l10,
+  storyBlocks: [
+    { type: "subtitle", text: "👶 Une enfance marquée par la perte" },
+    { type: "p", text: "Le Prophète ﷺ perd son père avant sa naissance. Puis, vers l’âge de six ans, il perd également sa mère, Âminah." },
+    { type: "p", text: "Ces dates sont unanimement rapportées dans la Sîra et constituent un socle fondamental de son enfance." },
+
+    { type: "subtitle", text: "🧓 La protection dʿAbd al-Muṭṭalib" },
+    { type: "p", text: "Après la perte de sa mère, l’enfant est pris en charge par son grand-père, ʿAbd al-Muṭṭalib, figure respectée de Quraysh." },
+    { type: "p", text: "Cette protection est déterminante dans une société où l’enfant orphelin est particulièrement exposé." },
+
+    { type: "subtitle", text: "⚖️ Une société qui observe l’orphelin" },
+    { type: "p", text: "Dans la Mecque tribale, chacun sait qui protège qui. Être orphelin n’est pas une simple situation familiale, c’est une position sociale." },
+    { type: "p", text: "Le jeune Muḥammad ﷺ grandit sous le regard d’une société attentive aux équilibres et aux lignées." },
+
+    { type: "subtitle", text: "🌙 Une sensibilité qui se forge" },
+    { type: "p", text: "Cette enfance forge une compréhension profonde de la vulnérabilité humaine." },
+    { type: "p", text: "Ce n’est pas une enfance idéalisée, mais une enfance réelle, marquée par la dépendance et la protection." },
   ],
+  cliffhanger:
+    "Après le grand-père, une autre figure prend le relais. Comment cette protection façonnera-t-elle la jeunesse du futur Prophète ﷺ ?",
   keyPoints: [
-    "Noyau initial = sincérité et cohésion",
-    "Entraide et patience",
-    "La vérité demande parfois des sacrifices"
+    "Le Prophète ﷺ perd ses deux parents très jeune.",
+    "Son grand-père ʿAbd al-Muṭṭalib assure sa protection.",
+    "L’orphelinat est une réalité sociale lourde dans la Mecque tribale.",
+    "Cette période façonne une grande sensibilité humaine.",
   ],
   reviewQuestions: [
-    { id:"l10_q1", type:"mcq", question:"Au début, qu’est-ce qui compte le plus ?", options:["Le nombre","La sincérité","La richesse","La popularité"], correctIndex:1, explanation:"La sincérité construit les fondations.", difficulty:"easy" },
-    { id:"l10_q2", type:"tf", question:"Vrai/Faux : L’entraide fait partie des piliers du groupe.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : la cohésion est vitale.", difficulty:"easy" },
-    { id:"l10_q3", type:"mcq", question:"Quel est le vrai test au début ?", options:["Gagner vite","Rester constant malgré la pression","Se faire aimer","Se cacher toujours"], correctIndex:1, explanation:"La constance est le test majeur.", difficulty:"medium" }
-  ]
+  {
+    id: "l10_q1",
+    question:
+      "Quel est le fait central concernant l’enfance du Prophète ﷺ ?",
+    options: [
+      "Il grandit dans un palais",
+      "Il perd ses deux parents très jeune",
+      "Il est élevé hors de La Mecque toute sa vie",
+      "Il devient chef tribal enfant",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Il perd son père avant sa naissance et sa mère vers l’âge de six ans.",
+  },
+  {
+    id: "l10_q2",
+    question:
+      "Qui assure la protection du Prophète ﷺ après la mort de sa mère ?",
+    options: [
+      "Un roi étranger",
+      "Son oncle uniquement",
+      "Son grand-père ʿAbd al-Muṭṭalib",
+      "Un gouverneur mecquois",
+    ],
+    correctIndex: 2,
+    explanation:
+      "Son grand-père ʿAbd al-Muṭṭalib prend en charge sa protection.",
+  },
+  {
+    id: "l10_q3",
+    question:
+      "Pourquoi l’orphelinat est-il socialement lourd dans la Mecque tribale ?",
+    options: [
+      "Parce qu’il empêche toute activité économique",
+      "Parce que la protection dépend du clan et du tuteur",
+      "Parce que les orphelins sont bannis",
+      "Parce que la loi l’interdit",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Dans une société sans État, la protection est liée au clan et au tuteur.",
+  },
+],
+
 },
 l11: {
-  title: "Les premiers messages : tawḥīd et responsabilité",
-  story: [
-    "Le cœur du message : l’unicité d’Allah et la purification des valeurs.",
-    "Cela implique une responsabilité : justice, vérité, cohérence.",
-    "Ce n’est pas un slogan : c’est un changement de vie."
+  title: "La jeunesse — le travail et la réputation",
+  illustration: world3_l11,
+  storyBlocks: [
+    { type: "subtitle", text: "🐑 Un jeune homme qui travaille" },
+    { type: "p", text: "Comme beaucoup de jeunes de son époque, Muḥammad ﷺ travaille très tôt. Les sources rapportent qu’il garde des troupeaux dans sa jeunesse." },
+    { type: "p", text: "Ce travail est courant et valorisé : il enseigne patience, responsabilité et autonomie." },
+
+    { type: "subtitle", text: "🤝 Le commerce et la confiance" },
+    { type: "p", text: "Avec le temps, il participe également au commerce, activité centrale à La Mecque." },
+    { type: "p", text: "Dans un monde où la parole donnée vaut contrat, sa réputation se distingue." },
+
+    { type: "subtitle", text: "⭐ Al-Amīn — le digne de confiance" },
+    { type: "p", text: "Avant même la Révélation, les Mecquois le surnomment ‘al-Amīn’, le digne de confiance." },
+    { type: "p", text: "Ce surnom n’est pas symbolique : il est le fruit d’années de comportement constant et honnête." },
+
+    { type: "subtitle", text: "🧠 Une morale avant le message" },
+    { type: "p", text: "Ce respect ne repose pas sur une proclamation religieuse, mais sur des actes visibles et répétés." },
+    { type: "p", text: "La société reconnaît une droiture avant même de comprendre la mission future." },
   ],
+  cliffhanger:
+    "Mais cette droiture ne se limite pas au commerce. Que se passe-t-il quand la société elle-même traverse une crise morale ?",
   keyPoints: [
-    "Tawḥīd : unicité et recentrage",
-    "Responsabilité morale et sociale",
-    "Changement concret de comportements"
+    "Le Prophète ﷺ travaille dès sa jeunesse.",
+    "Il participe au commerce mecquois.",
+    "Il est surnommé al-Amīn pour sa fiabilité.",
+    "Sa réputation précède la Révélation.",
   ],
   reviewQuestions: [
-    { id:"l11_q1", type:"mcq", question:"Quel est le cœur du message ?", options:["Tribu","Tawḥīd","Commerce","Loisir"], correctIndex:1, explanation:"L’unicité est au centre.", difficulty:"easy" },
-    { id:"l11_q2", type:"mcq", question:"Quel effet attend-on du message ?", options:["Rester identique","Changer les valeurs et actes","Devenir célèbre","Éviter toute règle"], correctIndex:1, explanation:"C’est un changement de vie.", difficulty:"easy" },
-    { id:"l11_q3", type:"tf", question:"Vrai/Faux : La foi implique aussi une responsabilité.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : justice et cohérence.", difficulty:"medium" }
-  ]
+  {
+    id: "l11_q1",
+    question:
+      "Quel type de travail le Prophète ﷺ exerce-t-il dans sa jeunesse ?",
+    options: [
+      "Chef militaire",
+      "Berger et activités liées au travail",
+      "Dirigeant politique",
+      "Prêtre du sanctuaire",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Les sources rapportent qu’il garde des troupeaux dans sa jeunesse.",
+  },
+  {
+    id: "l11_q2",
+    question:
+      "Quelle activité est centrale à La Mecque et marque sa jeunesse ?",
+    options: [
+      "L’agriculture",
+      "Le commerce",
+      "La navigation",
+      "La métallurgie",
+    ],
+    correctIndex: 1,
+    explanation:
+      "La Mecque est un centre commercial majeur.",
+  },
+  {
+    id: "l11_q3",
+    question:
+      "Pourquoi les Mecquois surnomment-ils Muḥammad ﷺ ‘al-Amīn’ ?",
+    options: [
+      "Pour sa richesse",
+      "Pour sa force physique",
+      "Pour sa fiabilité et son honnêteté",
+      "Pour son statut politique",
+    ],
+    correctIndex: 2,
+    explanation:
+      "Ce surnom reflète une réputation construite sur la confiance.",
+  },
+  {
+  id: "l11_boss_q1",
+  question:
+    "Quel lien la Sîra établit-elle entre le travail précoce du Prophète ﷺ et sa formation personnelle ?",
+  options: [
+    "Aucun lien, c’est un détail anecdotique",
+    "Un lien économique uniquement",
+    "Un lien éducatif : patience, responsabilité et fiabilité",
+    "Un lien militaire direct",
+  ],
+  correctIndex: 2,
+  explanation:
+    "Le travail forge patience, responsabilité et fiabilité, qualités reconnues avant la Révélation.",
+  difficulty: "boss",
+},
+{
+  id: "l11_boss_q2",
+  question:
+    "Pourquoi le surnom ‘al-Amīn’ est-il central dans la compréhension de la jeunesse du Prophète ﷺ ?",
+  options: [
+    "Parce qu’il lui est donné après la Révélation",
+    "Parce qu’il résulte d’un décret tribal",
+    "Parce qu’il reflète une confiance acquise avant toute mission prophétique",
+    "Parce qu’il désigne un rôle politique",
+  ],
+  correctIndex: 2,
+  explanation:
+    "La société mecquoise reconnaît sa fiabilité avant même la mission prophétique.",
+  difficulty: "boss",
+},
+
+],
+
 },
 l12: {
-  title: "L’annonce publique",
-  story: [
-    "Passer du privé au public change tout : la pression augmente.",
-    "Les réactions varient : curiosité, rejet, peur du changement.",
-    "Un message public révèle qui cherche la vérité… et qui protège ses intérêts."
+  title: "Avant la Révélation — la quête de vérité",
+  illustration: world3_l12,
+  storyBlocks: [
+    { type: "subtitle", text: "🧠 Une société agitée" },
+    { type: "p", text: "La Mecque est prospère, mais moralement instable : injustices, idolâtrie, inégalités sociales." },
+    { type: "p", text: "Certains individus ressentent un malaise face à cet état du monde." },
+
+    { type: "subtitle", text: "🏔️ Le retrait et la réflexion" },
+    { type: "p", text: "Avant la Révélation, Muḥammad ﷺ se retire régulièrement pour réfléchir et méditer." },
+    { type: "p", text: "Ces retraits ne sont pas une rupture sociale, mais une recherche de sens." },
+
+    { type: "subtitle", text: "⏳ Une préparation silencieuse" },
+    { type: "p", text: "Rien n’est encore public. Rien n’est encore proclamé." },
+    { type: "p", text: "Mais intérieurement, une préparation profonde est en cours." },
+
+    { type: "subtitle", text: "🌙 Le seuil d’un bouleversement" },
+    { type: "p", text: "À l’approche de la quarantaine, l’histoire personnelle et l’histoire du monde s’apprêtent à se croiser." },
+    { type: "p", text: "Un événement va bientôt transformer non seulement une vie… mais le cours de l’Histoire." },
   ],
+  cliffhanger:
+    "Une nuit, dans un lieu retiré, une parole va être prononcée pour la première fois. Que va-t-il se passer ?",
   keyPoints: [
-    "Annonce publique = hausse de pression",
-    "Réactions variées",
-    "Le changement menace les intérêts établis"
+    "La Mecque traverse une crise morale.",
+    "Le Prophète ﷺ se retire pour réfléchir avant la Révélation.",
+    "Cette période est une préparation intérieure.",
+    "La Révélation approche.",
   ],
   reviewQuestions: [
-    { id:"l12_q1", type:"tf", question:"Vrai/Faux : Annoncer publiquement augmente la pression.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : l’opposition devient visible.", difficulty:"easy" },
-    { id:"l12_q2", type:"mcq", question:"Pourquoi certains rejettent-ils ?", options:["Ils aiment changer","Ils craignent de perdre leurs intérêts","Ils veulent apprendre","Ils cherchent la justice"], correctIndex:1, explanation:"Le changement menace des équilibres.", difficulty:"medium" },
-    { id:"l12_q3", type:"mcq", question:"Quel est un effet du public ?", options:["Tout devient facile","Les positions se clarifient","Personne ne réagit","Le message disparaît"], correctIndex:1, explanation:"Le public révèle les positions.", difficulty:"easy" }
-  ]
+  {
+    id: "l12_q1",
+    question:
+      "Quel est le contexte moral de La Mecque avant la Révélation ?",
+    options: [
+      "Une société parfaitement juste",
+      "Une société prospère mais moralement instable",
+      "Une société sans croyance",
+      "Une société gouvernée par un État fort",
+    ],
+    correctIndex: 1,
+    explanation:
+      "La Mecque est prospère, mais marquée par des injustices et l’idolâtrie.",
+  },
+  {
+    id: "l12_q2",
+    question:
+      "Comment comprendre les périodes de retrait avant la Révélation ?",
+    options: [
+      "Comme une rupture totale avec la société",
+      "Comme une recherche de sens et de vérité",
+      "Comme une stratégie politique",
+      "Comme une obligation tribale",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Ces retraits traduisent une quête intérieure, pas une fuite.",
+  },
+  {
+    id: "l12_q3",
+    question:
+      "À quel âge approximatif commence la Révélation ?",
+    options: [
+      "Vers 25 ans",
+      "Vers 30 ans",
+      "Vers 40 ans",
+      "Vers 60 ans",
+    ],
+    correctIndex: 2,
+    explanation:
+      "La Révélation débute autour de l’âge de 40 ans.",
+  },
+  {
+  id: "l12_boss_q1",
+  question:
+    "Comment comprendre les périodes de retrait et de méditation du Prophète ﷺ avant la Révélation ?",
+  options: [
+    "Comme un rejet complet de la société",
+    "Comme une fuite politique",
+    "Comme une recherche de sens et une préparation intérieure",
+    "Comme une pratique religieuse institutionnelle",
+  ],
+  correctIndex: 2,
+  explanation:
+    "Ces retraits traduisent une quête de vérité et une préparation intérieure, non une rupture sociale.",
+  difficulty: "boss",
+},
+{
+  id: "l12_boss_q2",
+  question:
+    "Quel est le fil conducteur du Monde 3 dans la Sîra ?",
+  options: [
+    "Une enfance privilégiée et protégée",
+    "Une préparation progressive humaine et morale avant la Révélation",
+    "Une domination politique précoce",
+    "Une rupture soudaine sans contexte",
+  ],
+  correctIndex: 1,
+  explanation:
+    "La Sîra montre une construction progressive avant la mission prophétique.",
+  difficulty: "boss",
+},
+
+],
+
 },
 
 // -------------------- MONDE 4 --------------------

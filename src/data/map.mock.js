@@ -10,7 +10,7 @@ export const WORLDS = [
     nodes: [
       { id: "l1", type: "lesson", title: "Arabie : tribus et désert", estMin: 3, required: true },
       { id: "l2", type: "lesson", title: "La Mecque et la Kaaba", estMin: 3, required: true },
-      { id: "r1", type: "review", title: "Révision (rapide)", estMin: 2, required: false },
+      // { id: "r1", type: "review", title: "Révision (rapide)", estMin: 2, required: false },
       { id: "l3", type: "lesson", title: "Valeurs tribales et alliances", estMin: 4, required: true },
       { id: "l4", type: "lesson", title: "Religions présentes", estMin: 4, required: true },
       { id: "b1", type: "boss", title: "Boss Quiz — Monde 1", estMin: 6, required: true },
@@ -19,29 +19,103 @@ export const WORLDS = [
 
   {
   id: "world-2",
-  title: "Monde 2 — Enfance & jeunesse",
+  title: "Monde 2 — La lignée et les parents",
+  description: "Comprendre la lignée, les parents et l’enfance qui façonne.",
   nodes: [
-    { id: "l5", type: "lesson", title: "Naissance : contexte familial", estMin: 4, required: true },
-    { id: "l6", type: "lesson", title: "Orphelinage et protection", estMin: 4, required: true },
-    { id: "r2", type: "review", title: "Révision (Monde 2)", estMin: 2, required: false },
-    { id: "l7", type: "lesson", title: "Jeunesse : confiance et réputation", estMin: 5, required: true },
-    { id: "l8", type: "lesson", title: "Avant la révélation : quête de sens", estMin: 5, required: true },
-    { id: "b2", type: "boss", title: "Boss Quiz — Monde 2", estMin: 7, required: true },
+    {
+      id: "l5",
+      type: "lesson",
+      title: "La lignée : un nom qui pèse",
+      estMin: 10,
+      required: true,
+    },
+    {
+      id: "l6",
+      type: "lesson",
+      title: "Les parents : une histoire décisive",
+      estMin: 12,
+      required: true,
+    },
+    {
+      id: "l7",
+      type: "lesson",
+      title: "Après la perte : la question du protecteur",
+      estMin: 10,
+      required: true,
+    },
+    {
+      id: "l8",
+      type: "lesson",
+      title: "Le désert et la nourrice : une empreinte",
+      estMin: 12,
+      required: true,
+    },
+
+    // Boss (validation du monde)
+    {
+      id: "b2",
+      type: "boss",
+      title: "Boss Quiz — Monde 2",
+      estMin: 6,
+      required: true,
+    },
   ],
 },
 
 {
   id: "world-3",
-  title: "Monde 3 — Début de la Révélation",
+  title: "Monde 3 — Naissance, enfance et jeunesse",
+  description: "De l’Année de l’Éléphant à la veille de la Révélation (≈ 570 → 610).",
   nodes: [
-    { id: "l9", type: "lesson", title: "La grotte et la première révélation", estMin: 6, required: true },
-    { id: "l10", type: "lesson", title: "Les premiers croyants", estMin: 5, required: true },
-    { id: "r3", type: "review", title: "Bonus — Début de la Révélation", estMin: 2, required: false },
-    { id: "l11", type: "lesson", title: "Les premiers messages : tawḥīd et responsabilité", estMin: 6, required: true },
-    { id: "l12", type: "lesson", title: "L’annonce publique", estMin: 5, required: true },
-    { id: "b3", type: "boss", title: "Boss Quiz — Monde 3", estMin: 8, required: true },
+    {
+      id: "l9",
+      type: "lesson",
+      title: "La naissance — l’Année de l’Éléphant",
+      estMin: 14,
+      required: true,
+    },
+    {
+      id: "l10",
+      type: "lesson",
+      title: "Grandir orphelin à La Mecque",
+      estMin: 16,
+      required: true,
+    },
+    {
+      id: "l11",
+      type: "lesson",
+      title: "La jeunesse — travail et al-Amīn",
+      estMin: 16,
+      required: true,
+    },
+    {
+      id: "l12",
+      type: "lesson",
+      title: "Avant la Révélation — la quête de vérité",
+      estMin: 18,
+      required: true,
+    },
+
+    // Bonus review (optionnel)
+    {
+      id: "r3",
+      type: "review",
+      title: "Révision rapide — Monde 3",
+      estMin: 5,
+      required: false,
+    },
+
+    // Boss (validation du monde)
+    {
+      id: "b3",
+      type: "boss",
+      title: "Boss Quiz — Monde 3",
+      estMin: 7,
+      required: true,
+    },
   ],
 },
+
 {
   id: "world-4",
   title: "Monde 4 — La Mecque : opposition et persécutions",
