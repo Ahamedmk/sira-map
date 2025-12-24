@@ -133,13 +133,18 @@ export const WORLDS = [
 },
 {
   id: "world-5",
-  title: "Monde 5 — Tournants : Ṭāʾif et l’Isrāʾ & Miʿrāj",
+  title: "Monde 5 — L’annonce publique et la persécution",
+  description: "Du passage au public aux premières persécutions et à l’Hijra vers l’Abyssinie (≈ 613 → 615).",
   nodes: [
-    { id: "l17", type: "lesson", title: "L’année de tristesse : pertes et épreuve", estMin: 6, required: true },
-    { id: "l18", type: "lesson", title: "Ṭāʾif : rejet et dignité", estMin: 6, required: true },
-    { id: "r5", type: "review", title: "Bonus — Patience & reliance", estMin: 2, required: false },
-    { id: "l19", type: "lesson", title: "Isrāʾ & Miʿrāj : sens et impact", estMin: 7, required: true },
-    { id: "l20", type: "lesson", title: "Pledges : ouverture vers Médine", estMin: 6, required: true },
+    { id: "l17", type: "lesson", title: "L’appel public : le jour où tout change", estMin: 18, required: true },
+    { id: "l18", type: "lesson", title: "Moquerie, négociation, pression : la réponse de Quraysh", estMin: 18, required: true },
+    { id: "l19", type: "lesson", title: "Quand la foi coûte : les premières persécutions", estMin: 20, required: true },
+    { id: "l20", type: "lesson", title: "Hijra vers l’Abyssinie : le premier refuge", estMin: 20, required: true },
+
+    // Bonus review (optionnel)
+    // { id: "r5", type: "review", title: "Révision rapide — Monde 5", estMin: 7, required: false },
+
+    // Boss (validation du monde)
     { id: "b5", type: "boss", title: "Boss Quiz — Monde 5", estMin: 9, required: true },
   ],
 },

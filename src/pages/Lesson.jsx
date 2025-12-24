@@ -10,6 +10,8 @@ export default function LessonPage() {
 
   const lesson = useMemo(() => getLessonById(lessonId), [lessonId]);
   const content = useMemo(() => getLessonContent(lessonId), [lessonId]);
+  const audioSrc = content?.audio || null;
+
   const hasSeenCinematic =
   lessonId === "l13" && localStorage.getItem("cinematic_l13_seen") === "1";
 
@@ -252,9 +254,21 @@ const [showIntro, setShowIntro] = useState(
                   </div>
                   <span className="text-xs font-mono">0:00</span>
                 </div>
-                <p className="text-xs text-center text-neutral-500">
-                  Un lecteur audio sera intégré prochainement 🎧
-                </p>
+                {audioSrc ? (
+  <audio
+    controls
+    controlsList="nodownload"
+    className="w-full mt-4 rounded-xl"
+  >
+    <source src={audioSrc} type="audio/mpeg" />
+    Ton navigateur ne supporte pas l’audio.
+  </audio>
+) : (
+  <p className="text-xs text-center text-neutral-500">
+    Audio non disponible pour cette leçon 🎧
+  </p>
+)}
+
               </div>
             </div>
           )}

@@ -16,6 +16,10 @@ import world4_l13 from "../assets/illustrations/worlds/world4_l13.png";
 import world4_l14 from "../assets/illustrations/worlds/world4_l14.png";
 import world4_l15 from "../assets/illustrations/worlds/world4_l15.png";
 import world4_l16 from "../assets/illustrations/worlds/world4_l16.png";
+import world5_l17 from "../assets/illustrations/worlds/world5_l17.png";
+import world5_l18 from "../assets/illustrations/worlds/world5_l18.png";
+import world5_l19 from "../assets/illustrations/worlds/world5_l19.png";
+import world5_l20 from "../assets/illustrations/worlds/world5_l20.png";
 
 
 export const LESSONS_CONTENT = {
@@ -23,6 +27,7 @@ export const LESSONS_CONTENT = {
 l1: {
   title: "Avant la naissance : une péninsule en attente",
   illustration: world1_l1,
+  audio: "/audio/lessons/l1.mp3",
   storyBlocks: [
     { type: "subtitle", text: "🟤 Le silence avant le bouleversement" },
     { type: "p", text: "L’Arabie n’est pas un empire. Elle n’a ni trône, ni armée centrale, ni capitale qui impose sa loi à tout le désert." },
@@ -1420,77 +1425,267 @@ l16: {
 
 // -------------------- MONDE 5 --------------------
 l17: {
-  title: "L’année de tristesse : pertes et épreuve",
-  story: [
-    "Certaines années enlèvent des appuis : pertes, chagrin, fatigue.",
-    "Mais l’épreuve peut clarifier : ce qui est essentiel tient au cœur et à la reliance.",
-    "La mission continue même quand l’émotion pèse."
+  title: "L’appel public : le jour où tout change (≈ 613)",
+  illustration: world5_l17,
+  storyBlocks: [
+    { type: "subtitle", text: "📅 De la phase discrète à l’annonce publique" },
+    { type: "p", text: "Après une période où l’appel se construit discrètement, la Sîra rapporte un basculement vers l’annonce publique. Les repères classiques situent cette étape autour de l’année 613 (approx.)." },
+    { type: "p", text: "Ce passage est crucial : l’islam ne reste plus une conviction intérieure. Il devient un message qui s’adresse à la société entière." },
+
+    { type: "subtitle", text: "🕋 La Mecque : une ville où tout est lié" },
+    { type: "p", text: "À La Mecque, religion, économie et honneur tribal sont imbriqués. Remettre en cause l’idolâtrie, ce n’est pas seulement critiquer un rituel : c’est toucher l’identité des clans et les intérêts liés au pèlerinage." },
+    { type: "p", text: "Les Quraysh ne vont pas entendre un simple “discours moral”. Ils vont entendre une remise en cause de leur ordre." },
+
+    { type: "subtitle", text: "📣 Une parole qui traverse la ville" },
+    { type: "p", text: "L’annonce publique fait sortir le message de la maison et de petits cercles. La Sîra décrit l’appel à l’unicité d’Allah, à la responsabilité morale, et à l’abandon des idoles." },
+    { type: "p", text: "À partir de là, les réactions ne sont plus individuelles. Elles deviennent collectives." },
+
+    { type: "subtitle", text: "⚠️ Premier choc : la société se braque" },
+    { type: "p", text: "Les Quraysh comprennent vite que le message ne cherche pas une place à côté des idoles : il les renverse. Et quand un message renverse, il déclenche un mécanisme connu : moquerie, pression, puis violence." },
   ],
+  cliffhanger:
+    "Au début, la Mecque rit. Puis elle s’inquiète. Et quand elle s’inquiète… elle attaque. Qui sera frappé en premier ?",
   keyPoints: [
-    "Perte d’appuis = épreuve",
-    "Reliance et clarté",
-    "Continuité malgré la douleur"
+    "Le basculement vers l’annonce publique est généralement situé vers 613 (approx.).",
+    "À La Mecque, religion, économie et honneur tribal sont liés.",
+    "Le tawḥīd remet en cause le système des idoles et les intérêts associés.",
+    "L’opposition évolue : moquerie → pression → violence.",
   ],
   reviewQuestions: [
-    { id:"l17_q1", type:"mcq", question:"Que révèle souvent l’épreuve ?", options:["Le superficiel","L’essentiel","Le hasard","La vitesse"], correctIndex:1, explanation:"Elle clarifie les priorités.", difficulty:"easy" },
-    { id:"l17_q2", type:"tf", question:"Vrai/Faux : La douleur peut coexister avec la mission.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : on avance malgré tout.", difficulty:"easy" },
-    { id:"l17_q3", type:"mcq", question:"L’appui le plus solide est…", options:["La réputation","La reliance (tawakkul)","Le luxe","L’orgueil"], correctIndex:1, explanation:"La reliance stabilise.", difficulty:"medium" }
-  ]
+    {
+      id: "l17_q1",
+      question: "Vers quelle période l’appel devient-il public selon les repères classiques de la Sîra ?",
+      options: ["Vers 570", "Vers 610", "Vers 613", "Vers 632"],
+      correctIndex: 2,
+      explanation: "La phase publique est souvent située autour de 613 (approx.).",
+    },
+    {
+      id: "l17_q2",
+      question: "Pourquoi l’annonce du tawḥīd dérange-t-elle fortement Quraysh ?",
+      options: [
+        "Parce qu’elle parle d’agriculture",
+        "Parce qu’elle remet en cause l’ordre religieux, social et économique",
+        "Parce qu’elle interdit le commerce uniquement",
+        "Parce qu’elle concerne seulement Médine",
+      ],
+      correctIndex: 1,
+      explanation: "Le tawḥīd touche les idoles, l’honneur tribal et les intérêts liés au pèlerinage.",
+    },
+    {
+  id: "l17_boss_q1",
+  question:
+    "Pourquoi l’annonce publique du message marque-t-elle un point de non-retour à La Mecque ?",
+  options: [
+    "Parce qu’elle transforme une foi privée en remise en cause de l’ordre social",
+    "Parce qu’elle attire immédiatement des armées",
+    "Parce qu’elle supprime toute opposition",
+    "Parce qu’elle concerne uniquement la famille du Prophète ﷺ",
+  ],
+  correctIndex: 0,
+  explanation:
+    "L’annonce publique transforme un message discret en remise en cause directe du système religieux, social et économique.",
+  difficulty: "boss",
+}
+
+  ],
 },
 l18: {
-  title: "Ṭāʾif : rejet et dignité",
-  story: [
-    "Quand une porte se ferme, la dignité reste : répondre avec hauteur et patience.",
-    "Le rejet n’est pas la fin : c’est une étape qui affine la confiance en Allah.",
-    "Le cœur apprend à ne pas dépendre de l’approbation des gens."
+  title: "Moquerie, négociation, pression : la réponse de Quraysh",
+  illustration: world5_l18,
+  storyBlocks: [
+    { type: "subtitle", text: "😏 La moquerie : première arme d’un système menacé" },
+    { type: "p", text: "Quand un message bouleverse les habitudes, la première défense est souvent le ridicule. La Sîra rapporte que le Prophète ﷺ et les croyants sont tournés en dérision." },
+    { type: "p", text: "Le but est clair : isoler socialement, décourager, et empêcher le message d’être pris au sérieux." },
+
+    { type: "subtitle", text: "🤝 La négociation : tenter de contrôler le message" },
+    { type: "p", text: "Après la moquerie, vient la tentative de compromis : faire taire l’appel ou le diluer. Les récits rapportent des démarches visant à obtenir une “cohabitation” avec les idoles ou une réduction de l’impact du message." },
+    { type: "p", text: "Ce n’est pas un débat honnête : c’est une stratégie de maintien de l’ordre." },
+
+    { type: "subtitle", text: "ضغط اجتماعي : la pression du clan" },
+    { type: "p", text: "À La Mecque, l’individu est protégé (ou exposé) par son clan. Quraysh utilise donc la pression tribale : menaces, ruptures, humiliations, boycott social informel." },
+    { type: "p", text: "Les croyants les plus faibles socialement deviennent les cibles les plus faciles." },
+
+    { type: "subtitle", text: "⚠️ Le passage au concret" },
+    { type: "p", text: "À ce stade, on passe de la parole aux actes. La persécution n’est pas un accident : c’est une phase du conflit." },
   ],
+  cliffhanger:
+    "Quand la pression ne suffit plus, la violence commence. Et ce sont souvent les plus vulnérables qui paient en premier.",
   keyPoints: [
-    "Rejet ≠ fin",
-    "Dignité + patience",
-    "Indépendance vis-à-vis de l’approbation"
+    "Quraysh commence par ridiculiser et isoler socialement.",
+    "Puis tente le compromis pour contrôler l’impact du message.",
+    "La pression tribale est un outil central à La Mecque.",
+    "Les plus vulnérables socialement sont les plus exposés.",
   ],
   reviewQuestions: [
-    { id:"l18_q1", type:"tf", question:"Vrai/Faux : Le rejet peut être une étape, pas une fin.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : il forge et redirige.", difficulty:"easy" },
-    { id:"l18_q2", type:"mcq", question:"La dignité se voit dans…", options:["La réaction","La colère brute","Le mépris","Le silence total"], correctIndex:0, explanation:"La réaction choisie est clé.", difficulty:"easy" },
-    { id:"l18_q3", type:"mcq", question:"Quel piège évite-t-on ?", options:["Chercher l’approbation à tout prix","Apprendre","Réviser","Comprendre"], correctIndex:0, explanation:"On ne dépend pas des gens.", difficulty:"medium" }
-  ]
+    {
+      id: "l18_q1",
+      question: "Quelle est souvent la première réaction d’un système menacé ?",
+      options: ["La prière", "La moquerie", "L’acceptation immédiate", "La migration"],
+      correctIndex: 1,
+      explanation: "Les récits montrent le ridicule comme première arme sociale.",
+    },
+    {
+      id: "l18_q2",
+      question: "Pourquoi la pression tribale est-elle si efficace à La Mecque ?",
+      options: [
+        "Parce que l’État protège tout le monde",
+        "Parce que la protection dépend du clan",
+        "Parce que personne ne vit en tribu",
+        "Parce que La Mecque est isolée",
+      ],
+      correctIndex: 1,
+      explanation: "La sécurité et l’honneur passent par le clan.",
+    },
+    {
+  id: "l18_boss_q1",
+  question:
+    "Pourquoi Quraysh passe-t-elle de la moquerie à la pression puis à la persécution ?",
+  options: [
+    "Parce que le message accepte le compromis",
+    "Parce que le ridicule échoue à faire taire l’appel",
+    "Parce que Médine intervient",
+    "Parce que les musulmans attaquent en premier",
+  ],
+  correctIndex: 1,
+  explanation:
+    "Quand la moquerie et la pression échouent, le système menacé recourt à la violence.",
+  difficulty: "boss",
+}
+
+  ],
 },
 l19: {
-  title: "Isrāʾ & Miʿrāj : sens et impact",
-  story: [
-    "Un événement extraordinaire renforce le cœur dans une période difficile.",
-    "Il rappelle : la mission a une dimension céleste, pas seulement terrestre.",
-    "L’impact : réancrer la prière et la confiance comme piliers."
+  title: "Quand la foi coûte : les premières persécutions (≈ 613–615)",
+  illustration: world5_l19,
+  storyBlocks: [
+    { type: "subtitle", text: "⚠️ La violence n’arrive pas par hasard" },
+    { type: "p", text: "La Sîra décrit une montée : moquerie, pression, puis violence. Quand le message refuse le compromis, le système cherche à casser les porteurs du message." },
+    { type: "p", text: "Cette phase est souvent située autour de 613–615 (approx.) pour les persécutions les plus visibles." },
+
+    { type: "subtitle", text: "🧱 Qui est le plus visé ?" },
+    { type: "p", text: "Les croyants sans protection tribale forte sont les plus vulnérables. Dans une société de clans, être “sans bouclier” expose à l’abus." },
+    { type: "p", text: "Les récits de Sîra mentionnent des actes de torture et d’humiliation contre certains premiers musulmans, précisément parce qu’ils n’avaient pas de clan capable de riposter." },
+
+    { type: "subtitle", text: "🧠 Une foi qui n’est plus théorique" },
+    { type: "p", text: "À ce moment-là, la foi n’est plus une idée. Elle devient une endurance. Une capacité à tenir, à répéter l’unicité malgré la douleur et la pression sociale." },
+    { type: "p", text: "Et c’est ici que la communauté naissante se forge : par la patience et la solidarité." },
+
+    { type: "subtitle", text: "🌙 Le Prophète ﷺ n’a pas le pouvoir, mais il a la constance" },
+    { type: "p", text: "Le Prophète ﷺ ne répond pas avec une armée. Il répond par l’appel, la formation, la constance, et le soutien aux croyants. C’est une stratégie de construction, pas de domination." },
   ],
+  cliffhanger:
+    "La Mecque devient un étau. Alors une question apparaît : faut-il rester… ou partir pour sauver la foi ?",
   keyPoints: [
-    "Renforcement du cœur",
-    "Dimension spirituelle forte",
-    "Prière et confiance comme piliers"
+    "La persécution suit une logique : moquerie → pression → violence.",
+    "Les plus vulnérables socialement sont les plus ciblés.",
+    "La foi devient endurance et constance.",
+    "La communauté se forge par patience et solidarité.",
   ],
   reviewQuestions: [
-    { id:"l19_q1", type:"mcq", question:"Quel effet principal sur le cœur ?", options:["Affaiblir","Renforcer","Divertir","Endormir"], correctIndex:1, explanation:"C’est un soutien spirituel.", difficulty:"easy" },
-    { id:"l19_q2", type:"tf", question:"Vrai/Faux : La mission n’est pas uniquement terrestre.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : dimension spirituelle.", difficulty:"easy" },
-    { id:"l19_q3", type:"mcq", question:"Deux piliers mis en avant :", options:["Prière + confiance","Mode + luxe","Bruit + vitesse","Colère + orgueil"], correctIndex:0, explanation:"Prière et confiance.", difficulty:"medium" }
-  ]
+    {
+      id: "l19_q1",
+      question: "Qui est le plus vulnérable face à la persécution à La Mecque ?",
+      options: [
+        "Les personnes sans protection tribale forte",
+        "Les plus riches uniquement",
+        "Les voyageurs étrangers uniquement",
+        "Les chefs de clans uniquement",
+      ],
+      correctIndex: 0,
+      explanation: "Dans un système tribal, la protection dépend du clan.",
+    },
+    {
+      id: "l19_q2",
+      question: "Pourquoi cette phase rend-elle la foi 'non théorique' ?",
+      options: [
+        "Parce qu’elle devient une simple culture",
+        "Parce qu’elle exige endurance, patience et constance",
+        "Parce qu’elle supprime toute difficulté",
+        "Parce qu’elle n’a plus de sens",
+      ],
+      correctIndex: 1,
+      explanation: "La foi devient tenue réelle sous pression.",
+    },
+    {
+      id: "l19_boss_q1",
+      question: "Quel mécanisme de confrontation la Sîra met-elle en évidence dans cette phase ?",
+      options: [
+        "Acceptation immédiate du message par Quraysh",
+        "Moquerie → pression → violence quand le compromis échoue",
+        "Migration immédiate de toute la communauté",
+        "Guerre militaire directe dès le début",
+      ],
+      correctIndex: 1,
+      explanation: "La progression de l’opposition est un schéma récurrent dans les récits.",
+      difficulty: "boss",
+    },
+  ],
 },
 l20: {
-  title: "Pledges : ouverture vers Médine",
-  story: [
-    "Quand un blocage persiste, Allah ouvre une autre voie.",
-    "Une nouvelle terre peut accueillir le message : c’est une transition stratégique.",
-    "Les alliances et promesses fondent une future société."
+  title: "Le premier refuge : l’Hijra vers l’Abyssinie (≈ 615)",
+  illustration: world5_l20,
+  storyBlocks: [
+    { type: "subtitle", text: "📅 Un repère : la migration avant Médine" },
+    { type: "p", text: "Avant l’Hégire vers Médine, la Sîra rapporte une première migration : vers l’Abyssinie (Habasha), généralement située vers 615 (approx.)." },
+    { type: "p", text: "Ce choix montre une réalité : quand la persécution écrase, l’islam n’exige pas le suicide social. Il ouvre une porte : chercher un refuge." },
+
+    { type: "subtitle", text: "🛡️ Pourquoi l’Abyssinie ?" },
+    { type: "p", text: "Les récits mentionnent un souverain connu pour sa justice (le Négus / Najāshī). C’est un point central : la communauté cherche une terre où l’injustice ne domine pas." },
+    { type: "p", text: "Ce n’est pas une migration de confort. C’est une migration de survie spirituelle." },
+
+    { type: "subtitle", text: "🌊 Quitter La Mecque : un arrachement" },
+    { type: "p", text: "Pour une société tribale, quitter sa terre, c’est perdre un bouclier. C’est s’exposer au monde. Mais c’est parfois le prix pour préserver la foi." },
+    { type: "p", text: "La Sîra présente cette hijra comme une preuve : l’islam ne s’est pas construit sur une facilité, mais sur des sacrifices réels." },
+
+    { type: "subtitle", text: "⚠️ Quraysh ne lâche pas" },
+    { type: "p", text: "La Mecque ne voit pas cette migration comme un détail. Car elle comprend : si les croyants trouvent un refuge, le message ne s’éteindra pas." },
+    { type: "p", text: "Et quand Quraysh comprend cela… elle tente d’étouffer l’affaire." },
   ],
+  cliffhanger:
+    "Quraysh va envoyer des émissaires. Et un discours va être prononcé devant un roi. Que dira-t-on de l’islam… face à la justice ?",
   keyPoints: [
-    "Ouverture après blocage",
-    "Transition stratégique",
-    "Promesses = fondations"
+    "Première hijra vers l’Abyssinie généralement située vers 615 (approx.).",
+    "Motif : refuge face à la persécution.",
+    "L’Abyssinie est choisie pour la réputation de justice du souverain (Najāshī).",
+    "Quitter La Mecque est un arrachement dans un système tribal.",
+    "Quraysh tente d’empêcher la stabilisation du refuge.",
   ],
   reviewQuestions: [
-    { id:"l20_q1", type:"mcq", question:"Que signifie l’ouverture vers Médine ?", options:["Un hasard","Une transition stratégique","Une fin","Une distraction"], correctIndex:1, explanation:"C’est une voie nouvelle.", difficulty:"easy" },
-    { id:"l20_q2", type:"tf", question:"Vrai/Faux : Les promesses fondent la confiance.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : elles structurent l’avenir.", difficulty:"easy" },
-    { id:"l20_q3", type:"mcq", question:"Quand un blocage persiste, on…", options:["Abandonne","Cherche la voie qu’Allah ouvre","Insulte","Oublie"], correctIndex:1, explanation:"On suit les ouvertures d’Allah.", difficulty:"medium" }
-  ]
+    {
+      id: "l20_q1",
+      question: "Quelle est la première migration rapportée avant l’Hégire vers Médine ?",
+      options: ["Vers Ṭāʾif", "Vers l’Abyssinie (Habasha)", "Vers la Perse", "Vers le Shām"],
+      correctIndex: 1,
+      explanation: "La Sîra rapporte une hijra vers l’Abyssinie avant Médine.",
+    },
+    {
+      id: "l20_q2",
+      question: "Pourquoi l’Abyssinie est-elle choisie selon les récits ?",
+      options: [
+        "Parce qu’elle est la plus proche",
+        "Pour la justice reconnue du souverain",
+        "Parce qu’elle est riche en or",
+        "Parce que Quraysh y gouverne",
+      ],
+      correctIndex: 1,
+      explanation: "Les récits mentionnent un roi connu pour sa justice.",
+    },
+    {
+      id: "l20_boss_q1",
+      question: "Quel message stratégique la hijra vers l’Abyssinie envoie-t-elle ?",
+      options: [
+        "Que l’islam est un projet de domination militaire",
+        "Que préserver la foi peut exiger un sacrifice et un déplacement",
+        "Que La Mecque accepte le message",
+        "Que l’opposition est terminée",
+      ],
+      correctIndex: 1,
+      explanation: "La hijra montre que la foi se protège parfois par un sacrifice réel.",
+      difficulty: "boss",
+    },
+  ],
 },
+
 
 // -------------------- MONDE 6 --------------------
 l21: {
