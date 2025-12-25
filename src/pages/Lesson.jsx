@@ -2,8 +2,20 @@ import React, { useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getLessonById } from "../data/map.mock.js";
 import { getLessonContent } from "../data/lessons.mock.js";
-import { ChevronLeft, Headphones, BookOpen, Sparkles, Play, Zap, Trophy, ArrowRight } from "lucide-react";
-import CinematicIntro  from "../components/CinematicIntro.jsx";
+import {
+  ChevronLeft,
+  Headphones,
+  BookOpen,
+  Sparkles,
+  Play,
+  Zap,
+  Trophy,
+  ArrowRight,
+} from "lucide-react";
+
+import CinematicIntro from "../components/CinematicIntro.jsx";
+import { CINEMATICS } from "../data/cinematics.mock.js";
+
 export default function LessonPage() {
   const { lessonId } = useParams();
   const navigate = useNavigate();
@@ -12,12 +24,27 @@ export default function LessonPage() {
   const content = useMemo(() => getLessonContent(lessonId), [lessonId]);
   const audioSrc = content?.audio || null;
 
-  const hasSeenCinematic =
-  lessonId === "l13" && localStorage.getItem("cinematic_l13_seen") === "1";
+  // ✅ Mapping : cinématique seulement pour les moments stratégiques
+  const cinematicKey = useMemo(() => {
+    if (lessonId === "l1") return "world1_intro";
+    if (lessonId === "l13") return "world4_revelation";
+    if (lessonId === "l21") return "world6_boycott";
+    if (lessonId === "l25") return "world7_sorrow";
+    return null;
+  }, [lessonId]);
 
-const [showIntro, setShowIntro] = useState(
-  lessonId === "l13" && !hasSeenCinematic
-);
+  const cinematic = cinematicKey ? CINEMATICS[cinematicKey] : null;
+
+  // ✅ "seen" par eventKey (safe)
+  const [showIntro, setShowIntro] = useState(() => {
+    if (!cinematic) return false;
+    try {
+      return localStorage.getItem(`cinematic_${cinematic.eventKey}_seen`) !== "1";
+    } catch {
+      return true; // si storage indispo, on montre 1 fois
+    }
+  });
+
   const [mode, setMode] = useState("read"); // read | audio
 
   if (!lesson) {
@@ -32,7 +59,7 @@ const [showIntro, setShowIntro] = useState(
               <p className="font-bold text-red-900">Leçon introuvable</p>
             </div>
             <p className="text-sm text-red-700">
-              Cette leçon n'existe pas ou n'est plus disponible.
+              Cette leçon n&apos;existe pas ou n&apos;est plus disponible.
             </p>
             <button
               onClick={() => navigate("/map")}
@@ -62,14 +89,17 @@ const [showIntro, setShowIntro] = useState(
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-blue-50/20 to-purple-50/20 pb-32">
-      {showIntro && (
+      {/* ✅ Cinématique stratégique (rare) */}
+      {showIntro && cinematic ? (
   <CinematicIntro
-    onFinish={() => {
-      localStorage.setItem("cinematic_l13_seen", "1");
-      setShowIntro(false);
-    }}
+    eventKey={cinematic.eventKey}
+    slides={cinematic.slides}
+    slideMs={13000}     // tu peux ajuster
+    outroMs={1000}      // petit fondu final
+    onFinish={() => setShowIntro(false)}
   />
-)}
+) : null}
+
 
       {/* Fond animé */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -78,7 +108,7 @@ const [showIntro, setShowIntro] = useState(
       </div>
 
       <div className="relative z-10 mx-auto max-w-md px-5 pt-6">
-        {/* Header avec bouton retour stylisé */}
+        {/* Header */}
         <div className="flex items-center justify-between mb-5">
           <button
             onClick={() => navigate(-1)}
@@ -93,7 +123,7 @@ const [showIntro, setShowIntro] = useState(
           </div>
         </div>
 
-        {/* Illustration avec effet de profondeur */}
+        {/* Illustration */}
         {illustration ? (
           <div className="relative overflow-hidden rounded-3xl border-2 border-neutral-200/50 bg-white shadow-xl shadow-neutral-200/50 group hover:shadow-2xl transition-all duration-300">
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10" />
@@ -103,7 +133,6 @@ const [showIntro, setShowIntro] = useState(
               className="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
             />
-            {/* Badge flottant */}
             <div className="absolute top-4 right-4 z-20 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-sm border border-neutral-200/50 text-xs font-bold text-neutral-800 shadow-lg">
               ✨ Illustration
             </div>
@@ -121,7 +150,7 @@ const [showIntro, setShowIntro] = useState(
           </div>
         </div>
 
-        {/* Sélecteur de mode stylisé */}
+        {/* Mode */}
         <div className="relative p-1.5 flex gap-2 rounded-2xl bg-neutral-100 border border-neutral-200/50 shadow-inner mb-6">
           <button
             onClick={() => setMode("read")}
@@ -164,10 +193,10 @@ const [showIntro, setShowIntro] = useState(
         <div className="space-y-5">
           {mode === "read" ? (
             <>
-              {/* Story avec typographie améliorée */}
+              {/* Story */}
               <div className="relative rounded-3xl border border-neutral-200/50 bg-white/90 backdrop-blur-sm p-6 shadow-lg overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+
                 <div className="relative z-10 text-[15px] leading-[1.8] text-neutral-800">
                   {storyBlocks.map((b, idx) => {
                     if (b.type === "subtitle") {
@@ -190,11 +219,11 @@ const [showIntro, setShowIntro] = useState(
                 </div>
               </div>
 
-              {/* Cliffhanger avec style mystérieux */}
+              {/* Cliffhanger */}
               {cliffhanger ? (
                 <div className="relative rounded-3xl border-2 border-purple-200/50 bg-gradient-to-br from-purple-50 to-pink-50 p-6 shadow-lg overflow-hidden">
                   <div className="absolute top-0 right-0 text-7xl opacity-10">✨</div>
-                  
+
                   <div className="relative z-10">
                     <p className="text-sm font-bold inline-flex items-center gap-2 text-purple-900 mb-3">
                       <Sparkles size={18} className="animate-pulse" />
@@ -207,10 +236,10 @@ const [showIntro, setShowIntro] = useState(
                 </div>
               ) : null}
 
-              {/* Key points avec design attrayant */}
+              {/* Key points */}
               <div className="relative rounded-3xl border-2 border-amber-200/50 bg-gradient-to-br from-amber-50 to-yellow-50 p-6 shadow-lg overflow-hidden">
                 <div className="absolute bottom-0 left-0 text-7xl opacity-10">🔑</div>
-                
+
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-amber-200 to-amber-300 flex items-center justify-center shadow-md">
@@ -220,7 +249,7 @@ const [showIntro, setShowIntro] = useState(
                       Points essentiels à retenir
                     </p>
                   </div>
-                  
+
                   <ul className="space-y-3">
                     {keyPoints.map((k, idx) => (
                       <li key={idx} className="flex items-start gap-3">
@@ -242,7 +271,9 @@ const [showIntro, setShowIntro] = useState(
                 </div>
                 <div>
                   <p className="text-sm font-bold text-neutral-900">Mode Audio</p>
-                  <p className="text-xs text-neutral-600">Bientôt disponible</p>
+                  <p className="text-xs text-neutral-600">
+                    {audioSrc ? "Disponible" : "Non disponible pour cette leçon"}
+                  </p>
                 </div>
               </div>
 
@@ -254,27 +285,27 @@ const [showIntro, setShowIntro] = useState(
                   </div>
                   <span className="text-xs font-mono">0:00</span>
                 </div>
-                {audioSrc ? (
-  <audio
-    controls
-    controlsList="nodownload"
-    className="w-full mt-4 rounded-xl"
-  >
-    <source src={audioSrc} type="audio/mpeg" />
-    Ton navigateur ne supporte pas l’audio.
-  </audio>
-) : (
-  <p className="text-xs text-center text-neutral-500">
-    Audio non disponible pour cette leçon 🎧
-  </p>
-)}
 
+                {audioSrc ? (
+                  <audio
+                    controls
+                    controlsList="nodownload"
+                    className="w-full mt-4 rounded-xl"
+                  >
+                    <source src={audioSrc} type="audio/mpeg" />
+                    Ton navigateur ne supporte pas l’audio.
+                  </audio>
+                ) : (
+                  <p className="text-xs text-center text-neutral-500">
+                    Audio non disponible pour cette leçon 🎧
+                  </p>
+                )}
               </div>
             </div>
           )}
         </div>
 
-        {/* CTA Button avec design attractif */}
+        {/* CTA */}
         <div className="mt-8 space-y-3">
           <button
             onClick={() => navigate(`/quiz/${lesson.node.id}`)}
@@ -283,8 +314,11 @@ const [showIntro, setShowIntro] = useState(
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             <span className="relative z-10 flex items-center justify-center gap-2">
               <Trophy size={20} />
-              Passer l'épreuve
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-200" />
+              Passer l&apos;épreuve
+              <ArrowRight
+                size={20}
+                className="group-hover:translate-x-1 transition-transform duration-200"
+              />
             </span>
           </button>
 

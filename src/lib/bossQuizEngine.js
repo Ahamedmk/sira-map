@@ -21,7 +21,7 @@ export function getWorldByBossId(bossId) {
 /**
  * Génère les questions boss à partir des reviewQuestions des leçons required du monde.
  * Stratégie:
- * 1) On prend d'abord difficulty="boss"
+ * 1) On prend d'abord difficulty="boss" (priorité absolue)
  * 2) Si pas assez, on complète avec "hard"
  * 3) Si pas assez, on complète avec "medium"
  *
@@ -51,22 +51,28 @@ export function buildBossQuiz(bossId, lessonsContent, opts = {}) {
   const lessonIds = lessonNodes.map((n) => n.id);
 
   // Collecter les questions par "niveau" (boss/hard/medium)
+  // ✅ MODIF: boss est explicitement filtré (c’est la source de vérité)
   const bossPool = [];
   const hardPool = [];
   const mediumPool = [];
 
   for (const lid of lessonIds) {
-    const c = lessonsContent[lid];
-    const qs = c?.reviewQuestions || [];
+    const c = lessonsContent?.[lid];
+    const qs = Array.isArray(c?.reviewQuestions) ? c.reviewQuestions : [];
 
     for (const q of qs) {
+      if (!q || !q.question || !Array.isArray(q.options) || !Number.isInteger(q.correctIndex)) {
+        // on ignore les questions mal formées pour éviter de casser le quiz
+        continue;
+      }
+
       const wrapped = {
         ...q,
         _sourceLessonId: lid,
       };
 
-      if (q?.difficulty === "boss") bossPool.push(wrapped);
-      else if (q?.difficulty === "hard") hardPool.push(wrapped);
+      if (q.difficulty === "boss") bossPool.push(wrapped);
+      else if (q.difficulty === "hard") hardPool.push(wrapped);
       else mediumPool.push(wrapped);
     }
   }
@@ -75,11 +81,18 @@ export function buildBossQuiz(bossId, lessonsContent, opts = {}) {
   const picked = [];
   const seen = new Set();
 
+  function getStableKey(q) {
+    // priorité à un id stable si fourni
+    if (q.id) return String(q.id);
+    // fallback stable (attention aux questions identiques)
+    return `${q._sourceLessonId}::${q.question}::${(q.options || []).join("|")}`;
+  }
+
   function pickFrom(pool) {
     for (const q of shuffle(pool)) {
-      const id = q.id || `${q._sourceLessonId}_${q.question}`;
-      if (seen.has(id)) continue;
-      seen.add(id);
+      const key = getStableKey(q);
+      if (seen.has(key)) continue;
+      seen.add(key);
       picked.push(q);
       if (picked.length >= count) break;
     }

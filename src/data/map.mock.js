@@ -150,28 +150,32 @@ export const WORLDS = [
 },
 {
   id: "world-6",
-  title: "Monde 6 — Hijra et construction à Médine",
+  title: "Monde 6 — Le boycott et l’épreuve",
+  description:
+    "Trois années d’isolement, de faim et de résistance collective au Shiʿb Abī Ṭālib (≈ 616–619).",
   nodes: [
-    { id: "l21", type: "lesson", title: "Hijra : stratégie et confiance", estMin: 7, required: true },
-    { id: "l22", type: "lesson", title: "Médine : fraternité et cohésion", estMin: 6, required: true },
-    { id: "r6", type: "review", title: "Bonus — Nouvelle société", estMin: 2, required: false },
-    { id: "l23", type: "lesson", title: "La mosquée : centre de vie", estMin: 5, required: true },
-    { id: "l24", type: "lesson", title: "La charte : règles et coexistence", estMin: 7, required: true },
+    { id: "l21", type: "lesson", title: "Le boycott : une décision froide", estMin: 22, required: true },
+    { id: "l22", type: "lesson", title: "Le pacte dans la Kaʿba : sceller l’injustice", estMin: 20, required: true },
+    { id: "l23", type: "lesson", title: "Le Shiʿb Abī Ṭālib : survivre enfermés", estMin: 24, required: true },
+    { id: "l24", type: "lesson", title: "La fin du boycott : l’injustice se fissure (≈ 619)", estMin: 22, required: true },
     { id: "b6", type: "boss", title: "Boss Quiz — Monde 6", estMin: 10, required: true },
   ],
 },
+
 {
   id: "world-7",
-  title: "Monde 7 — Conflits majeurs et maturité de la communauté",
+  title: "Monde 7 — ʿĀm al-Ḥuzn : l’Année de la Tristesse",
+  description:
+    "Perdre ses piliers, affronter l’abandon, puis chercher une porte ailleurs (≈ 619–620).",
   nodes: [
-    { id: "l25", type: "lesson", title: "Badr : une victoire fondatrice", estMin: 7, required: true },
-    { id: "l26", type: "lesson", title: "Uḥud : leçons de discipline", estMin: 7, required: true },
-    { id: "r7", type: "review", title: "Bonus — Discipline & intentions", estMin: 2, required: false },
-    { id: "l27", type: "lesson", title: "Al-Aḥzāb : unité sous pression", estMin: 7, required: true },
-    { id: "l28", type: "lesson", title: "Ḥudaybiyya : victoire sans bataille", estMin: 7, required: true },
+    { id: "l25", type: "lesson", title: "Quand les piliers tombent (≈ 619)", estMin: 24, required: true },
+    { id: "l26", type: "lesson", title: "La perte d’Abū Ṭālib : la protection s’effondre (≈ 619)", estMin: 26, required: true },
+    { id: "l27", type: "lesson", title: "La perte de Khadījah : le refuge s’éteint (≈ 619)", estMin: 28, required: true },
+    { id: "l28", type: "lesson", title: "Ṭāʾif : la porte fermée… et le retour (≈ 620)", estMin: 30, required: true },
     { id: "b7", type: "boss", title: "Boss Quiz — Monde 7", estMin: 10, required: true },
   ],
 },
+
 {
   id: "world-8",
   title: "Monde 8 — Conquête, pardon et fin de mission",

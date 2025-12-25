@@ -24,13 +24,19 @@ import {
 function NodeIcon({ type, locked }) {
   const base = locked ? "text-neutral-400" : "";
   const iconProps = { size: 20, strokeWidth: 2 };
-  
-  if (type === "lesson") 
-    return <BookOpen className={`${base} ${!locked && "text-blue-600"}`} {...iconProps} />;
-  if (type === "review") 
-    return <Brain className={`${base} ${!locked && "text-purple-600"}`} {...iconProps} />;
-  if (type === "boss") 
-    return <Crown className={`${base} ${!locked && "text-amber-600"}`} {...iconProps} />;
+
+  if (type === "lesson")
+    return (
+      <BookOpen className={`${base} ${!locked && "text-blue-600"}`} {...iconProps} />
+    );
+  if (type === "review")
+    return (
+      <Brain className={`${base} ${!locked && "text-purple-600"}`} {...iconProps} />
+    );
+  if (type === "boss")
+    return (
+      <Crown className={`${base} ${!locked && "text-amber-600"}`} {...iconProps} />
+    );
   return null;
 }
 
@@ -69,19 +75,40 @@ export default function MapPage() {
   }, [next]);
 
   /* ------------------ Helpers ------------------ */
+  function scrollTopInstant() {
+    // ✅ remonte en haut à chaque clic (UX propre)
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+
+  function gotoNode(node) {
+    if (!node) return;
+    scrollTopInstant();
+
+    if (node.type === "lesson") navigate(`/lesson/${node.id}`);
+    if (node.type === "review") navigate(`/bonus/${node.id}`);
+    if (node.type === "boss") navigate(`/quiz/${node.id}`);
+  }
+
   function openNode(node) {
     if (!node || node.status === "locked") return;
+
+    // ✅ si déjà terminé => ouverture directe (pas de BottomSheet, pas de récompense)
+    if (node.status === "done") {
+      gotoNode(node);
+      return;
+    }
+
+    // sinon => bottom sheet
     setSelectedNode(node);
     setSheetOpen(true);
   }
 
   function startNode() {
     if (!selectedNode) return;
-    setSheetOpen(false);
 
-    if (selectedNode.type === "lesson") navigate(`/lesson/${selectedNode.id}`);
-    if (selectedNode.type === "review") navigate(`/bonus/${selectedNode.id}`);
-    if (selectedNode.type === "boss") navigate(`/quiz/${selectedNode.id}`);
+    // on ferme le sheet puis on navigue + scroll top
+    setSheetOpen(false);
+    gotoNode(selectedNode);
   }
 
   function isWorldCompleted(world) {
@@ -137,9 +164,8 @@ export default function MapPage() {
 
           {/* Active World Card avec animation */}
           <div className="mt-5 rounded-3xl bg-gradient-to-br from-white via-white to-neutral-50 border border-neutral-200/50 p-5 shadow-lg shadow-neutral-200/50 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
-            {/* Effet de brillance au survol */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-            
+
             <div className="relative z-10">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
@@ -174,7 +200,8 @@ export default function MapPage() {
 
               <p className="mt-3 text-xs text-neutral-500 text-center flex items-center justify-center gap-1.5">
                 <Sparkles size={12} />
-                XP total : <span className="font-semibold text-neutral-700">{progress.xp}</span>
+                XP total :{" "}
+                <span className="font-semibold text-neutral-700">{progress.xp}</span>
               </p>
             </div>
           </div>
@@ -191,14 +218,18 @@ export default function MapPage() {
               <section key={w.id} className="animate-fadeIn">
                 <div className="flex items-center justify-between mb-4 px-1">
                   <h2 className="text-base font-bold text-neutral-800 flex items-center gap-2">
-                    {w.unlocked && <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />}
+                    {w.unlocked && (
+                      <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+                    )}
                     {w.title}
                   </h2>
-                  <span className={`text-xs font-semibold px-3 py-1 rounded-full ${
-                    w.unlocked 
-                      ? "bg-emerald-100 text-emerald-700" 
-                      : "bg-neutral-100 text-neutral-500"
-                  }`}>
+                  <span
+                    className={`text-xs font-semibold px-3 py-1 rounded-full ${
+                      w.unlocked
+                        ? "bg-emerald-100 text-emerald-700"
+                        : "bg-neutral-100 text-neutral-500"
+                    }`}
+                  >
                     {w.unlocked ? `${w.progressPct}%` : "🔒 Verrouillé"}
                   </span>
                 </div>
@@ -220,24 +251,32 @@ export default function MapPage() {
                             ? "opacity-60 cursor-not-allowed"
                             : "hover:shadow-xl hover:scale-[1.02] hover:border-neutral-300 active:scale-[0.98] shadow-md shadow-neutral-200/50",
                           isNext && !locked && "ring-2 ring-neutral-900 ring-offset-2",
-                          isPulsing && "animate-pulse-slow"
+                          isPulsing && "animate-pulse-slow",
                         ].join(" ")}
                       >
-                        {/* Effet de fond gradient */}
                         {!locked && (
-                          <div className={`absolute inset-0 bg-gradient-to-br ${getNodeGradient(node.type, locked)} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                          <div
+                            className={`absolute inset-0 bg-gradient-to-br ${getNodeGradient(
+                              node.type,
+                              locked
+                            )} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                          />
                         )}
-                        
-                        {/* Effet de brillance */}
+
                         {!locked && (
                           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                         )}
 
                         <div className="flex items-start justify-between gap-4 relative z-10">
                           <div className="flex items-center gap-4 flex-1">
-                            <div className={`h-12 w-12 rounded-2xl bg-gradient-to-br ${getNodeGradient(node.type, locked)} border-2 ${
-                              locked ? "border-neutral-200" : "border-neutral-300"
-                            } flex items-center justify-center shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                            <div
+                              className={`h-12 w-12 rounded-2xl bg-gradient-to-br ${getNodeGradient(
+                                node.type,
+                                locked
+                              )} border-2 ${
+                                locked ? "border-neutral-200" : "border-neutral-300"
+                              } flex items-center justify-center shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}
+                            >
                               {locked ? (
                                 <Lock size={20} className="text-neutral-400" />
                               ) : (
@@ -254,9 +293,11 @@ export default function MapPage() {
                                   ⏱️ {node.estMin} min
                                 </span>
                                 <span className="text-neutral-400">•</span>
-                                <span className={`font-medium ${
-                                  node.required ? "text-orange-600" : "text-neutral-500"
-                                }`}>
+                                <span
+                                  className={`font-medium ${
+                                    node.required ? "text-orange-600" : "text-neutral-500"
+                                  }`}
+                                >
                                   {node.required ? "Obligatoire" : "Optionnel"}
                                 </span>
                               </div>
@@ -285,11 +326,13 @@ export default function MapPage() {
                               </span>
                             )}
 
-                            {worldCompleted && node.type === "review" && !node.required && (
-                              <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-700 animate-pulse">
-                                🎁 BONUS
-                              </span>
-                            )}
+                            {worldCompleted &&
+                              node.type === "review" &&
+                              !node.required && (
+                                <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-700 animate-pulse">
+                                  🎁 BONUS
+                                </span>
+                              )}
                           </div>
                         </div>
                       </button>
@@ -321,30 +364,60 @@ export default function MapPage() {
       >
         {selectedNode && (
           <div className="space-y-4">
-            <div className="rounded-2xl border-2 border-dashed border-amber-300 bg-gradient-to-br from-amber-50 to-yellow-50 p-4 text-sm">
-              <div className="flex items-center gap-2 justify-center">
-                <Sparkles size={18} className="text-amber-600" />
-                <span className="text-neutral-700">Récompense estimée :</span>
-                <span className="font-bold text-lg text-amber-700">
-                  +{selectedNode.type === "boss" ? 60 : selectedNode.type === "review" ? 10 : 30} XP
-                </span>
-              </div>
-            </div>
+            {selectedNode.status !== "done" ? (
+              <>
+                <div className="rounded-2xl border-2 border-dashed border-amber-300 bg-gradient-to-br from-amber-50 to-yellow-50 p-4 text-sm">
+                  <div className="flex items-center gap-2 justify-center">
+                    <Sparkles size={18} className="text-amber-600" />
+                    <span className="text-neutral-700">Récompense estimée :</span>
+                    <span className="font-bold text-lg text-amber-700">
+                      +
+                      {selectedNode.type === "boss"
+                        ? 60
+                        : selectedNode.type === "review"
+                        ? 10
+                        : 30}{" "}
+                      XP
+                    </span>
+                  </div>
+                </div>
 
-            <button
-              onClick={startNode}
-              className="w-full rounded-2xl bg-gradient-to-r from-neutral-900 to-neutral-800 text-white py-4 font-bold shadow-xl shadow-neutral-900/30 hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2"
-            >
-              <Zap size={20} />
-              Démarrer maintenant
-            </button>
+                <button
+                  onClick={startNode}
+                  className="w-full rounded-2xl bg-gradient-to-r from-neutral-900 to-neutral-800 text-white py-4 font-bold shadow-xl shadow-neutral-900/30 hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2"
+                >
+                  <Zap size={20} />
+                  Démarrer maintenant
+                </button>
 
-            <button
-              onClick={() => setSheetOpen(false)}
-              className="w-full rounded-2xl border-2 border-neutral-200 bg-white py-4 font-bold hover:bg-neutral-50 active:scale-[0.98] transition-all duration-200"
-            >
-              Plus tard
-            </button>
+                <button
+                  onClick={() => setSheetOpen(false)}
+                  className="w-full rounded-2xl border-2 border-neutral-200 bg-white py-4 font-bold hover:bg-neutral-50 active:scale-[0.98] transition-all duration-200"
+                >
+                  Plus tard
+                </button>
+              </>
+            ) : (
+              <>
+                <div className="rounded-2xl border bg-emerald-50 p-4 text-sm text-emerald-800">
+                  ✅ Déjà validé. Tu peux relire sans regagner de récompense.
+                </div>
+
+                <button
+                  onClick={startNode}
+                  className="w-full rounded-2xl bg-neutral-900 text-white py-4 font-bold"
+                >
+                  Ouvrir
+                </button>
+
+                <button
+                  onClick={() => setSheetOpen(false)}
+                  className="w-full rounded-2xl border-2 border-neutral-200 bg-white py-4 font-bold hover:bg-neutral-50"
+                >
+                  Fermer
+                </button>
+              </>
+            )}
           </div>
         )}
       </BottomSheet>

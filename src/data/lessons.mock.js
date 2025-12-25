@@ -20,6 +20,14 @@ import world5_l17 from "../assets/illustrations/worlds/world5_l17.png";
 import world5_l18 from "../assets/illustrations/worlds/world5_l18.png";
 import world5_l19 from "../assets/illustrations/worlds/world5_l19.png";
 import world5_l20 from "../assets/illustrations/worlds/world5_l20.png";
+import world6_l21 from "../assets/illustrations/worlds/world6_l21.png";
+import world6_l22 from "../assets/illustrations/worlds/world6_l22.png";
+import world6_l23 from "../assets/illustrations/worlds/world6_l23.png";
+import world6_l24 from "../assets/illustrations/worlds/world6_l24.png";
+import world7_l25 from "../assets/illustrations/worlds/world7_l25.png";
+import world7_l26 from "../assets/illustrations/worlds/world7_l26.png";
+import world7_l27 from "../assets/illustrations/worlds/world7_l27.png";
+import world7_l28 from "../assets/illustrations/worlds/world7_l28.png";
 
 
 export const LESSONS_CONTENT = {
@@ -1689,152 +1697,546 @@ l20: {
 
 // -------------------- MONDE 6 --------------------
 l21: {
-  title: "Hijra : stratégie et confiance",
-  story: [
-    "La Hijra combine deux forces : planification et tawakkul.",
-    "Ce n’est pas fuir : c’est construire un futur viable.",
-    "Elle enseigne que la foi agit, organise, avance."
+  title: "Le boycott : une décision froide (≈ 616)",
+  illustration: world6_l21,
+  storyBlocks: [
+    { type: "subtitle", text: "🕋 Une Mecque qui n’arrive plus à étouffer" },
+    { type: "p", text: "Vers 616 (approx.), Quraysh constate une vérité qui l’irrite : malgré la moquerie, malgré les pressions, malgré les humiliations… le message ne s’éteint pas. Les croyants ne disparaissent pas. Et surtout, le Prophète ﷺ est toujours protégé par son clan." },
+    { type: "p", text: "Dans une société tribale, la protection n’est pas un détail : c’est la frontière entre la vie et la mort. Tant que Banū Hāshim tient, Quraysh ne peut pas agir ouvertement." },
+
+    { type: "subtitle", text: "🧊 La stratégie qui ne fait pas de bruit" },
+    { type: "p", text: "Alors Quraysh bascule vers une arme silencieuse : l’asphyxie. Pas une bataille, pas une attaque frontale. Un étranglement lent : social, économique, familial." },
+    { type: "p", text: "Ils veulent isoler Banū Hāshim et Banū al-Muṭṭalib, musulman ou non, et les pousser à livrer le Prophète ﷺ — ou à le faire taire." },
+
+    { type: "subtitle", text: "🤝 Quand la tribu devient une prison" },
+    { type: "p", text: "Ce boycott vise un point précis : la loyauté tribale. Quraysh sait que la communauté ne vit pas seulement de foi… elle vit de liens. Elle vit du commerce. Elle vit des alliances. Elle vit des mariages." },
+    { type: "p", text: "Coupe les liens… et tu coupes l’air." },
+
+    { type: "subtitle", text: "⏳ Une décision qui annonce une longue nuit" },
+    { type: "p", text: "Ce choix marque un tournant. Quraysh ne cherche plus à convaincre, ni même à ridiculiser. Elle veut briser. Lentement." },
   ],
+  cliffhanger:
+    "Mais pour que l’injustice devienne totale, Quraysh doit l’écrire… et l’exposer au cœur même de la Kaʿba.",
   keyPoints: [
-    "Planification + tawakkul",
-    "Construire un futur viable",
-    "Foi = action"
+    "Le boycott est généralement situé vers 616 (approx.).",
+    "Quraysh passe à une stratégie d’asphyxie économique et sociale.",
+    "Le boycott vise Banū Hāshim et Banū al-Muṭṭalib collectivement.",
+    "L’objectif est de briser la protection tribale et isoler la communauté.",
   ],
   reviewQuestions: [
-    { id:"l21_q1", type:"mcq", question:"La Hijra combine…", options:["Hasard + peur","Planification + tawakkul","Bruit + vitesse","Orgueil + colère"], correctIndex:1, explanation:"Les deux ensemble.", difficulty:"easy" },
-    { id:"l21_q2", type:"tf", question:"Vrai/Faux : Ce n’est pas une fuite, c’est une construction.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : c’est un projet.", difficulty:"easy" },
-    { id:"l21_q3", type:"mcq", question:"La foi authentique…", options:["Reste passive","Agit et s’organise","Ignore la réalité","Rejette toute cause"], correctIndex:1, explanation:"Action avec reliance.", difficulty:"medium" }
-  ]
+    {
+      id: "l21_q1",
+      question: "Quel est l’objectif principal du boycott décidé par Quraysh ?",
+      options: [
+        "Convaincre par le débat",
+        "Asphyxier socialement et économiquement",
+        "Créer une alliance militaire",
+        "Accélérer les échanges commerciaux",
+      ],
+      correctIndex: 1,
+      explanation: "Le boycott vise l’isolement total : commerce, relations, alliances.",
+    },
+    {
+      id: "l21_q2",
+      question: "Pourquoi la protection tribale est-elle centrale à ce moment ?",
+      options: [
+        "Parce qu’elle remplace la foi",
+        "Parce qu’elle détermine la sécurité et la survie",
+        "Parce qu’elle garantit la richesse",
+        "Parce qu’elle supprime l’opposition",
+      ],
+      correctIndex: 1,
+      explanation: "Dans l’Arabie tribale, la protection est le bouclier essentiel.",
+    },
+    {
+      id: "l21_boss_q1",
+      question: "Pourquoi Quraysh choisit-elle l’asphyxie plutôt qu’une attaque directe ?",
+      options: [
+        "Parce qu’elle est faible militairement",
+        "Parce que la protection clanique empêche une attaque ouverte",
+        "Parce qu’elle veut fuir la Mecque",
+        "Parce qu’elle accepte l’islam",
+      ],
+      correctIndex: 1,
+      explanation: "Le clan protège le Prophète ﷺ : Quraysh contourne par la pression collective.",
+      difficulty: "boss",
+    },
+  ],
 },
 l22: {
-  title: "Médine : fraternité et cohésion",
-  story: [
-    "Une nouvelle société a besoin de liens : fraternité, justice, respect.",
-    "On transforme les rivalités en unité par des principes clairs.",
-    "Une communauté forte = une communauté solidaire."
+  title: "Le pacte dans la Kaʿba : sceller l’injustice",
+  illustration: world6_l22,
+  storyBlocks: [
+    { type: "subtitle", text: "📜 Quand l’injustice devient officielle" },
+    { type: "p", text: "Le boycott n’est pas seulement une idée : il devient un texte. Un pacte écrit, détaillé, assumé. Il interdit le commerce, les mariages, les relations sociales et le soutien à Banū Hāshim et Banū al-Muṭṭalib." },
+    { type: "p", text: "Dans une ville où les liens font vivre, c’est une condamnation." },
+
+    { type: "subtitle", text: "🕋 Le choix du lieu : un message" },
+    { type: "p", text: "Le pacte est suspendu dans la Kaʿba. Ce détail frappe : on accroche l’injustice dans le lieu le plus sacré de la cité." },
+    { type: "p", text: "Quraysh veut graver l’hostilité dans le marbre. Faire du boycott une norme." },
+
+    { type: "subtitle", text: "⚠️ Une punition collective assumée" },
+    { type: "p", text: "Ce qui rend l’épreuve plus dure encore : elle touche aussi des non-musulmans du clan, simplement parce qu’ils protègent. La logique est froide : “Vous protégez ? Alors vous payez.”" },
+    { type: "p", text: "C’est la force brutale du système tribal retournée contre ceux qui y vivent." },
+
+    { type: "subtitle", text: "🌑 Un climat de peur silencieuse" },
+    { type: "p", text: "À partir de là, chaque achat devient suspect, chaque aide devient une trahison, chaque relation devient un risque." },
+    { type: "p", text: "Quraysh ne veut pas seulement affamer : elle veut isoler psychologiquement." },
   ],
+  cliffhanger:
+    "Une fois le pacte scellé, il ne reste qu’une étape : enfermer les familles… et attendre que la faim fasse son œuvre.",
   keyPoints: [
-    "Fraternité = base sociale",
-    "Unité par principes",
-    "Solidarité = force"
+    "Le boycott est écrit et officialisé par un pacte.",
+    "Le pacte est suspendu dans la Kaʿba (symbolique forte).",
+    "La punition vise aussi des non-musulmans du clan protecteur.",
+    "L’isolement est économique, social et psychologique.",
   ],
   reviewQuestions: [
-    { id:"l22_q1", type:"mcq", question:"Base sociale à Médine :", options:["Fraternité","Divisions","Mépris","Isolement"], correctIndex:0, explanation:"Fraternité et liens.", difficulty:"easy" },
-    { id:"l22_q2", type:"tf", question:"Vrai/Faux : Les principes peuvent transformer les rivalités.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : ils unifient.", difficulty:"easy" },
-    { id:"l22_q3", type:"mcq", question:"Communauté forte =", options:["Solidaire","Froide","Égoïste","Désorganisée"], correctIndex:0, explanation:"Solidarité.", difficulty:"medium" }
-  ]
+    {
+      id: "l22_q1",
+      question: "Quels aspects le pacte de boycott interdit-il principalement ?",
+      options: [
+        "Uniquement les prières",
+        "Commerce, relations sociales, mariages",
+        "La migration vers Médine",
+        "Les voyages vers le Shām",
+      ],
+      correctIndex: 1,
+      explanation: "Le boycott vise commerce + relations + alliances.",
+    },
+    {
+      id: "l22_q2",
+      question: "Pourquoi suspendre le pacte dans la Kaʿba est-il symboliquement fort ?",
+      options: [
+        "Parce que c’est un lieu de stockage",
+        "Parce que cela sacralise et publicise la décision",
+        "Parce que cela empêche les gens de lire",
+        "Parce que cela rend le pacte secret",
+      ],
+      correctIndex: 1,
+      explanation: "Le lieu rend la décision visible et “normalisée” aux yeux de la cité.",
+    },
+    {
+      id: "l22_boss_q1",
+      question: "Pourquoi le boycott touche-t-il aussi des non-musulmans du clan ?",
+      options: [
+        "Parce qu’ils sont tous convertis",
+        "Parce qu’ils protègent le Prophète ﷺ par loyauté tribale",
+        "Parce qu’ils sont étrangers",
+        "Parce qu’ils attaquent Quraysh",
+      ],
+      correctIndex: 1,
+      explanation: "Le boycott cible la protection, pas seulement la croyance.",
+      difficulty: "boss",
+    },
+  ],
 },
 l23: {
-  title: "La mosquée : centre de vie",
-  story: [
-    "La mosquée n’est pas seulement un lieu de prière : elle structure la vie.",
-    "On y apprend, on s’organise, on renforce l’unité.",
-    "Un centre clair évite la dispersion."
+  title: "Le Shiʿb Abī Ṭālib : survivre enfermés (≈ 616–619)",
+  illustration: world6_l23,
+  storyBlocks: [
+    { type: "subtitle", text: "⛰️ Un ravin étroit, un horizon fermé" },
+    { type: "p", text: "Sous la pression du boycott, Banū Hāshim et Banū al-Muṭṭalib se replient dans un ravin : le Shiʿb Abī Ṭālib. Ce n’est pas un choix de confort. C’est un enfermement forcé." },
+    { type: "p", text: "La vie y devient immédiatement rude : peu d’espace, peu de ressources, et une hostilité tout autour." },
+
+    { type: "subtitle", text: "🍞 La faim devient une arme" },
+    { type: "p", text: "Les vivres se raréfient. Le commerce est coupé. Les pleurs des enfants, rapportés dans les récits, se font entendre jusque dans la ville." },
+    { type: "p", text: "Dans cette épreuve, le quotidien se résume parfois à une question simple : ‘Qu’est-ce qu’on mange aujourd’hui ?’ — et souvent, la réponse est : presque rien." },
+
+    { type: "subtitle", text: "🌙 Des nuits de vigilance" },
+    { type: "p", text: "Abū Ṭālib redouble de prudence. On rapporte qu’il changeait parfois la place du Prophète ﷺ la nuit, craignant une attaque surprise." },
+    { type: "p", text: "L’épreuve n’est pas seulement la faim. C’est l’attente, la peur, l’incertitude." },
+
+    { type: "subtitle", text: "🧱 Une résistance invisible" },
+    { type: "p", text: "Il n’y a pas d’épée brandie. Il y a des corps qui tiennent, des cœurs qui refusent de céder, des familles qui restent unies." },
+    { type: "p", text: "C’est une résistance qui ne fait pas de bruit… mais qui forge une communauté." },
   ],
+  cliffhanger:
+    "Trois années passent. Et à La Mecque, certains commencent à se demander : “Jusqu’où ira cette injustice ?”",
   keyPoints: [
-    "Mosquée = centre de vie",
-    "Apprentissage + organisation",
-    "Unité et clarté"
+    "Le Shiʿb Abī Ṭālib devient un lieu d’enfermement.",
+    "Le boycott cause une faim sévère et une grande souffrance.",
+    "La protection du Prophète ﷺ reste une priorité vitale.",
+    "La communauté résiste par patience et solidarité.",
   ],
   reviewQuestions: [
-    { id:"l23_q1", type:"tf", question:"Vrai/Faux : La mosquée structure aussi l’organisation.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : rôle social.", difficulty:"easy" },
-    { id:"l23_q2", type:"mcq", question:"Pourquoi un centre est utile ?", options:["Pour disperser","Pour éviter la dispersion","Pour ignorer","Pour compliquer"], correctIndex:1, explanation:"Il centralise et unit.", difficulty:"easy" },
-    { id:"l23_q3", type:"mcq", question:"On y renforce surtout…", options:["L’unité","Le chaos","L’orgueil","La paresse"], correctIndex:0, explanation:"Unité et cohésion.", difficulty:"medium" }
-  ]
+    {
+      id: "l23_q1",
+      question: "Pourquoi les familles se regroupent-elles dans le Shiʿb Abī Ṭālib ?",
+      options: [
+        "Pour une retraite spirituelle volontaire",
+        "Pour fuir une guerre extérieure",
+        "À cause du boycott et de l’isolement imposés",
+        "Pour lancer le commerce vers Médine",
+      ],
+      correctIndex: 2,
+      explanation: "Le boycott force l’isolement et coupe les ressources.",
+    },
+    {
+      id: "l23_q2",
+      question: "Quelle est une dimension majeure de l’épreuve dans le Shiʿb ?",
+      options: [
+        "Le luxe",
+        "La faim et la peur",
+        "La conquête",
+        "La fête annuelle",
+      ],
+      correctIndex: 1,
+      explanation: "Les récits décrivent une souffrance liée à la faim et à l’insécurité.",
+    },
+    {
+      id: "l23_boss_q1",
+      question: "Quel est l’objectif profond de l’enfermement dans le Shiʿb ?",
+      options: [
+        "Former des savants",
+        "Briser la communauté par asphyxie progressive",
+        "Créer une nouvelle économie",
+        "Préparer l’Hégire",
+      ],
+      correctIndex: 1,
+      explanation: "Quraysh vise à briser par l’épuisement social et économique.",
+      difficulty: "boss",
+    },
+  ],
 },
 l24: {
-  title: "La charte : règles et coexistence",
-  story: [
-    "Une société a besoin de règles : droits, devoirs, sécurité.",
-    "La coexistence demande justice et engagement : chacun connaît sa place.",
-    "Un cadre protège la communauté et réduit les conflits."
+  title: "La fin du boycott : l’injustice se fissure (≈ 619)",
+  illustration: world6_l24,
+  storyBlocks: [
+    { type: "subtitle", text: "🧠 Une injustice trop lourde même pour ses auteurs" },
+    { type: "p", text: "Avec le temps, l’injustice du boycott devient difficile à porter, même pour certains Quraysh. Les liens de sang sont piétinés, des enfants souffrent, des familles sont brisées." },
+    { type: "p", text: "Dans une société tribale, couper la parenté est un acte violent. Et plus le boycott dure, plus la conscience de certains s’agite." },
+
+    { type: "subtitle", text: "📜 Le pacte remis en cause" },
+    { type: "p", text: "Les récits rapportent que le pacte suspendu dans la Kaʿba est retrouvé détérioré, rongé, sauf ce qui mentionne le nom d’Allah." },
+    { type: "p", text: "Que l’on insiste sur le symbole ou sur le fait historique, l’idée est claire : l’injustice n’est pas éternelle. Elle se fissure." },
+
+    { type: "subtitle", text: "🚪 Sortir… mais sortir brisés" },
+    { type: "p", text: "Vers 619 (approx.), le boycott est levé. Les familles sortent du ravin. Le corps est affaibli. Les traces sont visibles. Les cœurs sont marqués." },
+    { type: "p", text: "Mais la communauté n’a pas cédé. Elle a tenu." },
+
+    { type: "subtitle", text: "🌑 Une fin qui annonce une autre épreuve" },
+    { type: "p", text: "Et pourtant… à peine cette épreuve terminée, une autre arrive. Car deux piliers vont tomber, et l’année qui suit portera un nom lourd : l’Année de la Tristesse." },
   ],
+  cliffhanger:
+    "Ils sortent du ravin… mais ce n’est pas la délivrance. C’est la transition vers une tristesse plus intime encore.",
   keyPoints: [
-    "Règles = stabilité",
-    "Justice pour coexistence",
-    "Cadre réduit conflits"
+    "Le boycott est levé vers 619 (approx.).",
+    "L’opposition interne à l’injustice grandit à La Mecque.",
+    "La sortie du Shiʿb laisse la communauté affaiblie mais intacte dans sa foi.",
+    "La suite mène vers l’Année de la Tristesse (perte des piliers).",
   ],
   reviewQuestions: [
-    { id:"l24_q1", type:"mcq", question:"Pourquoi des règles ?", options:["Pour créer du chaos","Pour la stabilité","Pour ignorer les droits","Pour diviser"], correctIndex:1, explanation:"Stabilité et sécurité.", difficulty:"easy" },
-    { id:"l24_q2", type:"tf", question:"Vrai/Faux : La justice aide la coexistence.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : elle pacifie.", difficulty:"easy" },
-    { id:"l24_q3", type:"mcq", question:"Un cadre sert à…", options:["Augmenter conflits","Réduire conflits","Éteindre la foi","Supprimer l’apprentissage"], correctIndex:1, explanation:"Il protège et limite les tensions.", difficulty:"medium" }
-  ]
+    {
+      id: "l24_q1",
+      question: "Pourquoi le boycott finit-il par être levé ?",
+      options: [
+        "À cause d’une victoire militaire",
+        "À cause de fissures morales et sociales au sein de Quraysh",
+        "À cause d’un commerce nouveau",
+        "À cause d’un traité avec Rome",
+      ],
+      correctIndex: 1,
+      explanation: "L’injustice prolongée finit par créer des oppositions internes.",
+    },
+    {
+      id: "l24_q2",
+      question: "Quel état décrit la sortie du Shiʿb ?",
+      options: [
+        "Une richesse retrouvée immédiatement",
+        "Un triomphe militaire",
+        "Une faiblesse physique mais une foi intacte",
+        "Une disparition totale de la communauté",
+      ],
+      correctIndex: 2,
+      explanation: "Ils sortent affaiblis, mais sans avoir cédé.",
+    },
+    {
+      id: "l24_boss_q1",
+      question: "Quelle leçon centrale ressort de la fin du boycott ?",
+      options: [
+        "La violence est la seule voie",
+        "L’endurance collective peut fissurer l’injustice",
+        "La fuite est préférable",
+        "Le commerce domine tout",
+      ],
+      correctIndex: 1,
+      explanation: "La solidarité et la patience permettent de tenir jusqu’à la rupture de l’injustice.",
+      difficulty: "boss",
+    },
+  ],
 },
 
 // -------------------- MONDE 7 --------------------
 l25: {
-  title: "Badr : une victoire fondatrice",
-  story: [
-    "Badr marque un tournant : une victoire qui consolide l’identité et la confiance.",
-    "Mais la victoire n’est pas juste militaire : elle est morale et communautaire.",
-    "Elle enseigne : unité, discipline, reliance."
+  title: "Quand les piliers tombent (≈ 619)",
+  illustration: world7_l25,
+  storyBlocks: [
+    { type: "subtitle", text: "🌑 Après le boycott : sortir… sans respirer" },
+    { type: "p", text: "Le boycott a été levé (≈ 619), mais la communauté ne sort pas d’un tunnel vers la lumière. Elle sort vers une autre forme d’obscurité : l’épuisement, les blessures invisibles, la fragilité." },
+    { type: "p", text: "La Mecque n’a pas changé. Les regards sont toujours durs. Les pressions reprennent, parfois plus cruelles, parce que Quraysh comprend que la stratégie lente n’a pas éteint le message." },
+
+    { type: "subtitle", text: "🧱 Deux piliers : protection et refuge" },
+    { type: "p", text: "Dans la réalité mecquoise, le Prophète ﷺ tient sur deux piliers fondamentaux : la protection tribale (qui empêche l’assassinat ouvert) et le refuge intime (qui répare le cœur). Ces deux piliers ont des noms. Et bientôt… ils vont tomber." },
+    { type: "p", text: "Ce monde n’est pas seulement une suite d’événements. C’est une bascule intérieure : comment porter la mission quand la terre retire tout appui ?" },
+
+    { type: "subtitle", text: "⏳ ʿĀm al-Ḥuzn : un nom qui dit tout" },
+    { type: "p", text: "Les sources appellent cette période l’« Année de la Tristesse » (ʿĀm al-Ḥuzn). Le mot n’est pas décoratif. Il décrit une succession de pertes et de pressions, dans un contexte où l’opposition se sent plus libre que jamais." },
+    { type: "p", text: "Et quand les ennemis sentent une faille… ils s’y engouffrent." },
+
+    { type: "subtitle", text: "⚠️ Le danger devient plus concret" },
+    { type: "p", text: "Plus les protections faiblissent, plus la violence se rapproche. Les limites tribales, autrefois frein, deviennent moins sûres. La mission continue, mais la marge de sécurité se réduit." },
   ],
+  cliffhanger:
+    "Le premier pilier tombe bientôt : celui qui, même sans accepter l’islam, protégeait le Prophète ﷺ face à Quraysh…",
   keyPoints: [
-    "Tournant fondateur",
-    "Victoire morale et communautaire",
-    "Unité + discipline + reliance"
+    "Après la levée du boycott (≈ 619), la pression ne disparaît pas.",
+    "La protection tribale et le refuge intime sont deux piliers majeurs.",
+    "ʿĀm al-Ḥuzn (Année de la Tristesse) désigne une période de pertes et d’épreuves.",
+    "Le danger se rapproche quand la protection sociale s’affaiblit.",
   ],
   reviewQuestions: [
-    { id:"l25_q1", type:"mcq", question:"Badr est surtout…", options:["Un détail","Un tournant fondateur","Un festival","Une rumeur"], correctIndex:1, explanation:"C’est un tournant.", difficulty:"easy" },
-    { id:"l25_q2", type:"tf", question:"Vrai/Faux : La victoire est aussi morale.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : elle renforce la communauté.", difficulty:"easy" },
-    { id:"l25_q3", type:"mcq", question:"Trois leçons :", options:["Unité, discipline, reliance","Mode, luxe, vitesse","Colère, orgueil, peur","Bruit, chaos, oubli"], correctIndex:0, explanation:"Unité, discipline, reliance.", difficulty:"medium" }
-  ]
+    {
+      id: "l25_q1",
+      question: "Pourquoi la fin du boycott ne signifie-t-elle pas la fin des épreuves ?",
+      options: [
+        "Parce que Quraysh devient soudainement musulmane",
+        "Parce que la pression et l’hostilité reprennent rapidement",
+        "Parce que la Mecque est détruite",
+        "Parce que le Prophète ﷺ quitte immédiatement la ville",
+      ],
+      correctIndex: 1,
+      explanation: "La levée du boycott ne change pas l’hostilité de fond de Quraysh.",
+    },
+    {
+      id: "l25_q2",
+      question: "Que symbolise l’expression ʿĀm al-Ḥuzn ?",
+      options: [
+        "Une année de commerce prospère",
+        "Une année de pertes et de tristesse profonde",
+        "Une année de conquêtes militaires",
+        "Une année sans opposition",
+      ],
+      correctIndex: 1,
+      explanation: "Elle décrit une période marquée par de lourdes pertes et une pression accrue.",
+    },
+    {
+      id: "l25_boss_q1",
+      question: "Pourquoi la protection tribale est-elle vitale à La Mecque à cette période ?",
+      options: [
+        "Parce qu’elle remplace la foi",
+        "Parce qu’elle empêche une agression ouverte sans conséquences",
+        "Parce qu’elle assure des richesses",
+        "Parce qu’elle rend Quraysh neutre",
+      ],
+      correctIndex: 1,
+      explanation: "Dans un système tribal, la protection du clan est un bouclier contre l’attaque directe.",
+      difficulty: "boss",
+    },
+  ],
 },
 l26: {
-  title: "Uḥud : leçons de discipline",
-  story: [
-    "Uḥud montre que l’indiscipline coûte cher.",
-    "Même une bonne cause exige règles et constance.",
-    "L’épreuve éduque : revenir aux principes."
+  title: "La perte d’Abū Ṭālib : la protection s’effondre (≈ 619)",
+  illustration: world7_l26,
+  storyBlocks: [
+    { type: "subtitle", text: "🛡️ Un bouclier… même sans conversion" },
+    { type: "p", text: "Abū Ṭālib n’est pas simplement un proche. Il est le chef de clan qui, par loyauté familiale et tribale, a protégé le Prophète ﷺ des attaques directes. Tant qu’il tient, Quraysh hésite : une agression ouverte serait un conflit tribal." },
+    { type: "p", text: "Cette protection n’est pas un luxe : c’est une ligne rouge." },
+
+    { type: "subtitle", text: "⚠️ Le vide qui attire les prédateurs" },
+    { type: "p", text: "Quand Abū Ṭālib meurt (≈ 619), un changement immédiat se produit : Quraysh se sent plus libre. Les limites se déplacent. La violence devient plus possible, plus proche, plus arrogante." },
+    { type: "p", text: "Le Prophète ﷺ n’a pas seulement perdu un oncle. Il a perdu un bouclier social visible." },
+
+    { type: "subtitle", text: "🏙️ La Mecque devient plus étroite" },
+    { type: "p", text: "Ce n’est pas que les rues changent. C’est que l’atmosphère change. Les regards se durcissent. Les provocations deviennent plus directes. La marge de sécurité se réduit." },
+    { type: "p", text: "Dans cette ville, le poids d’un nom et d’un clan protège. Quand ce poids disparaît, la réalité devient brutale." },
+
+    { type: "subtitle", text: "🧠 Une leçon historique" },
+    { type: "p", text: "La Sîra nous montre ici une vérité : la mission est divine, mais elle traverse des structures humaines. Et parfois, Allah fait passer Son messager ﷺ par des pertes qui semblent insoutenables — non pour l’écraser, mais pour préparer une ouverture ailleurs." },
   ],
+  cliffhanger:
+    "Mais le second pilier tombe à son tour : celui qui n’était pas un bouclier social… mais un refuge intérieur. Et la douleur devient plus silencieuse encore.",
   keyPoints: [
-    "Indiscipline = conséquence",
-    "Règles + constance",
-    "Retour aux principes"
+    "Abū Ṭālib assure une protection tribale cruciale.",
+    "Sa mort (≈ 619) affaiblit la sécurité sociale du Prophète ﷺ à La Mecque.",
+    "Quraysh devient plus agressive lorsque la protection clanique disparaît.",
+    "La Sîra montre l’interaction entre mission divine et contexte humain.",
   ],
   reviewQuestions: [
-    { id:"l26_q1", type:"mcq", question:"Uḥud enseigne surtout…", options:["La distraction","La discipline","La paresse","Le hasard"], correctIndex:1, explanation:"Discipline et obéissance aux principes.", difficulty:"easy" },
-    { id:"l26_q2", type:"tf", question:"Vrai/Faux : Une bonne cause suffit sans règles.", options:["Vrai","Faux"], correctIndex:1, explanation:"Faux : il faut constance et règles.", difficulty:"easy" },
-    { id:"l26_q3", type:"mcq", question:"Après l’épreuve, on…", options:["Abandonne","Revient aux principes","Se moque","Ignore"], correctIndex:1, explanation:"Revenir aux principes.", difficulty:"medium" }
-  ]
+    {
+      id: "l26_q1",
+      question: "Quel rôle majeur jouait Abū Ṭālib dans la période mecquoise ?",
+      options: [
+        "Chef militaire de Médine",
+        "Protecteur tribal du Prophète ﷺ",
+        "Roi du Shām",
+        "Chef d’une armée étrangère",
+      ],
+      correctIndex: 1,
+      explanation: "Il protégeait le Prophète ﷺ via la structure tribale.",
+    },
+    {
+      id: "l26_q2",
+      question: "Que se passe-t-il socialement après la mort d’Abū Ṭālib ?",
+      options: [
+        "Quraysh devient plus prudente",
+        "La pression s’intensifie et les limites reculent",
+        "La Mecque devient musulmane",
+        "Le boycott recommence automatiquement",
+      ],
+      correctIndex: 1,
+      explanation: "La protection s’affaiblit, Quraysh se sent plus libre d’attaquer.",
+    },
+    {
+      id: "l26_boss_q1",
+      question: "Pourquoi la mort d’un protecteur tribal change-t-elle la nature du danger ?",
+      options: [
+        "Parce que la foi diminue",
+        "Parce que les représailles tribales deviennent moins probables",
+        "Parce que l’économie s’effondre",
+        "Parce que Médine attaque",
+      ],
+      correctIndex: 1,
+      explanation: "Sans bouclier tribal, l’agression directe devient moins coûteuse pour Quraysh.",
+      difficulty: "boss",
+    },
+  ],
 },
 l27: {
-  title: "Al-Aḥzāb : unité sous pression",
-  story: [
-    "Quand plusieurs forces s’allient contre toi, la cohésion devient vitale.",
-    "La pression révèle la solidité interne : confiance, organisation, patience.",
-    "La communauté apprend à tenir ensemble."
+  title: "La perte de Khadījah : le refuge s’éteint (≈ 619)",
+  illustration: world7_l27,
+  storyBlocks: [
+    { type: "subtitle", text: "🤍 Le premier soutien… dès le premier choc" },
+    { type: "p", text: "Khadījah (رضي الله عنها) n’est pas un personnage secondaire dans la Sîra : elle est le premier refuge. Dans les débuts, quand le Prophète ﷺ revient bouleversé, c’est elle qui apaise, confirme, rassure, soutient." },
+    { type: "p", text: "Elle porte la mission avec une discrétion immense : par le cœur, par la parole, par la stabilité." },
+
+    { type: "subtitle", text: "🌑 Une perte qui ne fait pas de bruit… mais qui vide une maison" },
+    { type: "p", text: "Quand Khadījah meurt (≈ 619), la douleur n’est pas politique. Elle est intime. Elle traverse la maison, les silences, les habitudes. On peut être entouré… et sentir un vide immense." },
+    { type: "p", text: "À la Mecque, l’hostilité est publique. Mais ici, c’est autre chose : c’est l’absence de celle qui comprenait sans expliquer." },
+
+    { type: "subtitle", text: "🧠 Quand l’épreuve devient intérieure" },
+    { type: "p", text: "Le Prophète ﷺ affronte désormais une double réalité : plus de protection tribale forte… et plus de refuge intérieur au quotidien." },
+    { type: "p", text: "La mission continue, mais le cœur porte plus lourd." },
+
+    { type: "subtitle", text: "🌱 Et pourtant… la mission ne s’arrête pas" },
+    { type: "p", text: "C’est ici que la Sîra enseigne une endurance rare : continuer sans les piliers habituels. Ne pas confondre tristesse et arrêt. La douleur existe… mais la mission continue." },
   ],
+  cliffhanger:
+    "À La Mecque, l’étau se resserre. Alors une idée se forme : chercher un appui ailleurs. Une ville va être visitée… et la porte va claquer violemment.",
   keyPoints: [
-    "Pression externe forte",
-    "Cohésion vitale",
-    "Organisation + patience"
+    "Khadījah (ra) est un refuge et un soutien majeur dès les débuts.",
+    "Sa mort (≈ 619) est une perte intime, profonde et structurante.",
+    "La période combine perte de protection sociale et perte de soutien personnel.",
+    "La mission continue malgré la douleur.",
   ],
   reviewQuestions: [
-    { id:"l27_q1", type:"tf", question:"Vrai/Faux : La cohésion devient vitale sous pression.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : sans unité, on casse.", difficulty:"easy" },
-    { id:"l27_q2", type:"mcq", question:"Sous pression, on a besoin de…", options:["Organisation","Désordre","Moqueries","Oubli"], correctIndex:0, explanation:"Organisation et patience.", difficulty:"easy" },
-    { id:"l27_q3", type:"mcq", question:"La pression révèle…", options:["Le style","La solidité interne","Le luxe","La météo"], correctIndex:1, explanation:"Elle teste la solidité.", difficulty:"medium" }
-  ]
+    {
+      id: "l27_q1",
+      question: "Quel rôle central Khadījah (ra) joue-t-elle dans la mission au début ?",
+      options: [
+        "Opposante principale",
+        "Premier refuge et soutien",
+        "Chef d’armée",
+        "Ambassadrice de Médine",
+      ],
+      correctIndex: 1,
+      explanation: "Elle soutient dès les premiers moments et apaise le Prophète ﷺ.",
+    },
+    {
+      id: "l27_q2",
+      question: "Pourquoi sa perte est-elle décrite comme une épreuve intérieure ?",
+      options: [
+        "Parce qu’elle concerne la politique de Quraysh",
+        "Parce qu’elle touche le foyer, le quotidien et le cœur",
+        "Parce qu’elle déclenche une bataille",
+        "Parce qu’elle provoque l’Hégire immédiate",
+      ],
+      correctIndex: 1,
+      explanation: "C’est une perte personnelle qui change la stabilité du quotidien.",
+    },
+    {
+      id: "l27_boss_q1",
+      question: "Quel est l’impact combiné des pertes d’Abū Ṭālib et de Khadījah (≈ 619) ?",
+      options: [
+        "Plus de richesse et de prestige",
+        "Affaiblissement social ET blessure intime",
+        "Fin immédiate de l’opposition",
+        "Début des grandes batailles",
+      ],
+      correctIndex: 1,
+      explanation: "La protection sociale diminue et le refuge personnel disparaît : double épreuve.",
+      difficulty: "boss",
+    },
+  ],
 },
 l28: {
-  title: "Ḥudaybiyya : victoire sans bataille",
-  story: [
-    "Parfois, la victoire vient par la patience et la diplomatie.",
-    "Un accord intelligent peut ouvrir des portes fermées depuis longtemps.",
-    "Le résultat : une expansion plus profonde que la confrontation."
+  title: "Ṭāʾif : la porte fermée… et le retour (≈ 620)",
+  illustration: world7_l28,
+  storyBlocks: [
+    { type: "subtitle", text: "🚶‍♂️ Chercher une terre qui écoute" },
+    { type: "p", text: "Après les pertes de ≈ 619, la réalité mecquoise devient plus dangereuse. L’idée d’une ouverture ailleurs prend une dimension urgente. Ṭāʾif apparaît comme une possibilité : une ville, une influence, des alliances potentielles." },
+    { type: "p", text: "Le Prophète ﷺ ne cherche pas un confort. Il cherche un espace où le message peut être entendu et protégé." },
+
+    { type: "subtitle", text: "🧊 Une réception dure, sans douceur" },
+    { type: "p", text: "À Ṭāʾif, l’accueil ne ressemble pas à une discussion. Le refus devient humiliant, blessant. Et l’hostilité se transforme en violence : le Prophète ﷺ est repoussé brutalement." },
+    { type: "p", text: "Ce moment est l’un des plus douloureux de la période mecquoise : la porte ne se ferme pas poliment. Elle claque." },
+
+    { type: "subtitle", text: "💔 La douleur et la dignité" },
+    { type: "p", text: "Il y a une douleur physique, une douleur morale, et une solitude immense. Après avoir perdu ses piliers, il cherche une ouverture… et se heurte à un rejet violent." },
+    { type: "p", text: "Mais la mission ne se transforme pas en colère. Elle reste guidée." },
+
+    { type: "subtitle", text: "🌙 Le retour : La Mecque n’est pas sûre" },
+    { type: "p", text: "Revenir à La Mecque n’est pas simple. Sans protection forte, l’entrée elle-même est un risque. La situation exige prudence, stratégie, et protection de fait." },
+    { type: "p", text: "Et c’est dans ce contexte, après l’une des nuits les plus lourdes… qu’une réponse du ciel se prépare." },
   ],
+  cliffhanger:
+    "Après Ṭāʾif, il semble n’y avoir aucune porte… mais c’est justement là que le ciel s’ouvre : Al-Isrāʾ wa-l-Miʿrāj arrive.",
   keyPoints: [
-    "Patience + stratégie",
-    "Accord = ouverture",
-    "Victoire par sagesse"
+    "Ṭāʾif est recherché comme ouverture possible après ≈ 619.",
+    "L’accueil y est hostile et violent : une épreuve majeure.",
+    "Le retour vers La Mecque est dangereux sans protection forte.",
+    "La suite mène directement vers Al-Isrāʾ wa-l-Miʿrāj (≈ 620).",
   ],
   reviewQuestions: [
-    { id:"l28_q1", type:"mcq", question:"Ḥudaybiyya montre que…", options:["Se battre toujours","La patience peut être victoire","La force brute suffit","La diplomatie est inutile"], correctIndex:1, explanation:"Patience et stratégie.", difficulty:"easy" },
-    { id:"l28_q2", type:"tf", question:"Vrai/Faux : Un accord peut ouvrir des portes.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : stratégie long terme.", difficulty:"easy" },
-    { id:"l28_q3", type:"mcq", question:"La victoire ici est surtout…", options:["Symbolique et stratégique","Un hasard","Une distraction","Une défaite"], correctIndex:0, explanation:"Stratégique et profonde.", difficulty:"medium" }
-  ]
+    {
+      id: "l28_q1",
+      question: "Pourquoi le Prophète ﷺ se rend-il vers Ṭāʾif ?",
+      options: [
+        "Pour fuir définitivement la mission",
+        "Pour chercher une ouverture et un soutien hors de La Mecque",
+        "Pour commercer uniquement",
+        "Pour déclencher une guerre",
+      ],
+      correctIndex: 1,
+      explanation: "Il cherche un espace d’écoute et de protection pour la mission.",
+    },
+    {
+      id: "l28_q2",
+      question: "Quelle caractéristique décrit le mieux l’accueil à Ṭāʾif ?",
+      options: [
+        "Chaleureux et immédiat",
+        "Neutre et silencieux",
+        "Hostile, humiliant et violent",
+        "Respectueux et politique",
+      ],
+      correctIndex: 2,
+      explanation: "Les sources décrivent un rejet très dur.",
+    },
+    {
+      id: "l28_boss_q1",
+      question: "Pourquoi le retour à La Mecque après Ṭāʾif est-il particulièrement risqué ?",
+      options: [
+        "Parce que Médine attaque La Mecque",
+        "Parce que la protection tribale est affaiblie après ≈ 619",
+        "Parce que Quraysh s’est convertie",
+        "Parce que le boycott reprend automatiquement",
+      ],
+      correctIndex: 1,
+      explanation: "La protection clanique a été fragilisée, la violence devient plus probable.",
+      difficulty: "boss",
+    },
+  ],
 },
-
 // -------------------- MONDE 8 --------------------
 l29: {
   title: "Conquête de la Mecque : pardon et grandeur",
