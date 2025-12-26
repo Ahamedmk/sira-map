@@ -166,7 +166,7 @@ export default function LessonPage() {
               Lecture
             </span>
             {mode === "read" && (
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer rounded-xl" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-xl" />
             )}
           </button>
 
@@ -184,7 +184,7 @@ export default function LessonPage() {
               Audio
             </span>
             {mode === "audio" && (
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer rounded-xl" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-xl" />
             )}
           </button>
         </div>
