@@ -28,6 +28,14 @@ import world7_l25 from "../assets/illustrations/worlds/world7_l25.png";
 import world7_l26 from "../assets/illustrations/worlds/world7_l26.png";
 import world7_l27 from "../assets/illustrations/worlds/world7_l27.png";
 import world7_l28 from "../assets/illustrations/worlds/world7_l28.png";
+import world8_l29 from "../assets/illustrations/worlds/world8_l29.png";
+import world8_l30 from "../assets/illustrations/worlds/world8_l30.png";
+import world8_l31 from "../assets/illustrations/worlds/world8_l31.png";
+import world8_l32 from "../assets/illustrations/worlds/world8_l32.png";
+import world9_l33 from "../assets/illustrations/worlds/world9_l33.png";
+import world9_l34 from "../assets/illustrations/worlds/world9_l34.png";
+import world9_l35 from "../assets/illustrations/worlds/world9_l35.png";
+import world9_l36 from "../assets/illustrations/worlds/world9_l36.png";
 
 
 export const LESSONS_CONTENT = {
@@ -2239,76 +2247,682 @@ l28: {
 },
 // -------------------- MONDE 8 --------------------
 l29: {
-  title: "Conquête de la Mecque : pardon et grandeur",
-  story: [
-    "Quand la victoire arrive, le vrai test est la manière de l’utiliser.",
-    "Le pardon transforme une victoire militaire en victoire morale.",
-    "La grandeur se voit quand on pourrait se venger… mais qu’on choisit la miséricorde."
+  title: "La nuit d’Al-Isrāʾ : de La Mecque à Jérusalem (≈ 620)",
+  illustration: world8_l29,
+  storyBlocks: [
+    { type: "subtitle", text: "🌙 Après Ṭāʾif : quand la terre se ferme" },
+    {
+      type: "p",
+      text:
+        "Le contexte est lourd. Nous sommes autour de l’an ≈ 620. Après l’Année de la Tristesse (≈ 619), après Ṭāʾif et son rejet violent, La Mecque n’offre plus de respiration. La mission continue, mais l’étau se resserre. C’est dans cette période, précisément quand les portes humaines semblent se refermer, qu’Allah ouvre une porte que personne ne peut verrouiller.",
+    },
+    {
+      type: "p",
+      text:
+        "Al-Isrāʾ wa-l-Miʿrāj n’est pas présenté comme un “moment de confort”. C’est une réponse : une preuve, un renforcement, une consolation, et aussi une préparation pour ce qui vient.",
+    },
+
+    { type: "subtitle", text: "🕋 → 🕌 Al-Aqṣā : le Voyage Nocturne" },
+    {
+      type: "p",
+      text:
+        "Le récit du Voyage Nocturne (Al-Isrāʾ) évoque un déplacement de la Mosquée Sacrée à La Mecque vers Al-Masjid al-Aqṣā, à Jérusalem. La Sîra et les récits transmis décrivent un événement extraordinaire, survenu en une nuit : ce qui est humainement impossible devient possible par la permission d’Allah.",
+    },
+    {
+      type: "p",
+      text:
+        "Le lien entre La Mecque et Jérusalem n’est pas anodin : Jérusalem représente une terre de prophéties, un héritage spirituel ancien. Al-Isrāʾ n’est pas seulement un déplacement : c’est un pont entre la mission finale et la chaîne prophétique.",
+    },
+
+    { type: "subtitle", text: "🧭 Une dimension de “signe”" },
+    {
+      type: "p",
+      text:
+        "Dans une période où Quraysh se moque, attaque et accuse, cet événement devient un signe. Mais il devient aussi un test : qui croit quand la vérité dépasse l’habitude ? Qui s’accroche quand l’explication rationnelle ne suffit plus ?",
+    },
+    {
+      type: "p",
+      text:
+        "Ici, on n’est pas dans la “légende”. On est dans la logique de la Révélation : Allah élève, éprouve, puis guide. Al-Isrāʾ introduit l’étape suivante : Al-Miʿrāj.",
+    },
   ],
+  cliffhanger:
+    "Le voyage ne s’arrête pas à Jérusalem… la nuit continue, et l’élévation commence : une rencontre au-dessus du monde.",
   keyPoints: [
-    "Victoire = test moral",
-    "Pardon = transformation",
-    "Grandeur = miséricorde"
+    "Al-Isrāʾ survient autour de ≈ 620, après une période d’épreuves lourdes.",
+    "Le Voyage Nocturne relie La Mecque à Al-Masjid al-Aqṣā (Jérusalem).",
+    "L’événement sert de consolation, de signe et aussi de test de foi.",
+    "La suite immédiate est Al-Miʿrāj (l’ascension).",
   ],
   reviewQuestions: [
-    { id:"l29_q1", type:"mcq", question:"Le vrai test après la victoire ?", options:["Le bruit","La manière d’agir","La mode","La vitesse"], correctIndex:1, explanation:"Le comportement après victoire.", difficulty:"easy" },
-    { id:"l29_q2", type:"tf", question:"Vrai/Faux : Le pardon peut transformer l’histoire.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : il change les cœurs.", difficulty:"easy" },
-    { id:"l29_q3", type:"mcq", question:"La grandeur se voit quand…", options:["On se venge","On choisit la miséricorde","On humilie","On détruit"], correctIndex:1, explanation:"Choix de la miséricorde.", difficulty:"medium" }
-  ]
+    {
+      id: "l29_q1",
+      question: "Dans quel contexte survient Al-Isrāʾ wa-l-Miʿrāj (≈ 620) ?",
+      options: [
+        "Pendant une période de conquêtes militaires",
+        "Après une période d’épreuves, de pertes et de rejet",
+        "Après l’Hégire à Médine",
+        "Après la bataille de Badr",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le récit se situe après l’Année de la Tristesse (≈ 619) et les difficultés, dans une phase mecquoise très dure.",
+    },
+    {
+      id: "l29_q2",
+      question: "Quel lien symbolique majeur représente Jérusalem dans ce récit ?",
+      options: [
+        "Une simple ville commerciale",
+        "Un héritage prophétique et spirituel ancien",
+        "Un lieu sans signification religieuse",
+        "Un lieu de bataille à cette époque",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Jérusalem est associée à l’histoire des prophètes et à un héritage spirituel.",
+    },
+    {
+      id: "l29_boss_q1",
+      question: "Pourquoi Al-Isrāʾ est-il aussi un “test” pour la communauté ?",
+      options: [
+        "Parce qu’il impose une taxe",
+        "Parce qu’il confronte à l’acceptation d’un événement extraordinaire",
+        "Parce qu’il annonce une bataille",
+        "Parce qu’il supprime la prière",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Il teste la sincérité de la foi lorsque l’événement dépasse les habitudes.",
+      difficulty: "boss",
+    },
+  ],
 },
 l30: {
-  title: "Unification et stabilité",
-  story: [
-    "Après les grands conflits, la priorité devient : stabiliser, enseigner, unifier.",
-    "L’unification demande justice et pédagogie, pas seulement force.",
-    "La stabilité durable se construit sur des valeurs."
+  title: "Al-Miʿrāj : l’élévation et la rencontre des Prophètes",
+  illustration: world8_l30,
+  storyBlocks: [
+    { type: "subtitle", text: "⬆️ L’Ascension : au-delà des repères" },
+    {
+      type: "p",
+      text:
+        "Après Al-Isrāʾ, le récit évoque Al-Miʿrāj : l’ascension. Ce passage est décrit comme une élévation exceptionnelle, qui place le Prophète ﷺ face à une réalité que personne ne peut “fabriquer” par effort humain. Ici, ce n’est pas une performance : c’est un honneur accordé.",
+    },
+    {
+      type: "p",
+      text:
+        "La Sîra rapporte une dimension centrale : la rencontre avec des prophètes. Ce point est essentiel, car il montre que la mission de Muhammad ﷺ n’est pas une rupture isolée, mais l’aboutissement d’une continuité.",
+    },
+
+    { type: "subtitle", text: "🤝 Continuité prophétique" },
+    {
+      type: "p",
+      text:
+        "La rencontre des prophètes, telle qu’elle est transmise dans les récits, souligne un message : la foi n’est pas un phénomène local, ni un projet tribal. C’est une voie portée de génération en génération. Et ce soir-là, cette chaîne est rappelée avec force.",
+    },
+    {
+      type: "p",
+      text:
+        "Pour une communauté humiliée et pressée à La Mecque, cette nuit n’est pas une “échappée”. C’est une réorientation : ce qui se passe sur terre ne résume pas la vérité.",
+    },
+
+    { type: "subtitle", text: "🧠 Consolation et préparation" },
+    {
+      type: "p",
+      text:
+        "Al-Miʿrāj est une consolation après Ṭāʾif, mais aussi une préparation : il va en sortir une obligation majeure. Une pratique quotidienne qui deviendra le centre de la vie musulmane : la Ṣalāh.",
+    },
   ],
+  cliffhanger:
+    "Dans cette élévation, un ordre va être donné : d’abord lourd… puis transformé en miséricorde. Et c’est là que l’Histoire bascule encore.",
   keyPoints: [
-    "Stabiliser et enseigner",
-    "Justice + pédagogie",
-    "Valeurs = stabilité durable"
+    "Al-Miʿrāj est l’ascension décrite après Al-Isrāʾ (≈ 620).",
+    "Le récit souligne la continuité prophétique : la mission s’inscrit dans une chaîne.",
+    "L’événement est consolation et préparation, pas simple “échappée”.",
+    "Il mène directement à l’obligation de la Ṣalāh.",
   ],
   reviewQuestions: [
-    { id:"l30_q1", type:"mcq", question:"Après conflits, priorité :", options:["Diviser","Stabiliser et enseigner","Ignorer","Recommencer"], correctIndex:1, explanation:"Stabiliser et enseigner.", difficulty:"easy" },
-    { id:"l30_q2", type:"tf", question:"Vrai/Faux : L’unité se construit seulement par la force.", options:["Vrai","Faux"], correctIndex:1, explanation:"Faux : justice et pédagogie.", difficulty:"easy" },
-    { id:"l30_q3", type:"mcq", question:"Stabilité durable =", options:["Valeurs","Hasard","Bruit","Vengeance"], correctIndex:0, explanation:"Valeurs et justice.", difficulty:"medium" }
-  ]
+    {
+      id: "l30_q1",
+      question: "Quel message central renforce la rencontre des prophètes lors d’Al-Miʿrāj ?",
+      options: [
+        "Que la mission est isolée et locale",
+        "Que la mission s’inscrit dans une continuité prophétique",
+        "Que la foi dépend des tribus",
+        "Que la prière disparaît",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Les récits mettent en avant la continuité : même voie, même origine, même appel à Dieu.",
+    },
+    {
+      id: "l30_q2",
+      question: "Al-Miʿrāj est décrit comme…",
+      options: [
+        "Une performance sportive",
+        "Un honneur accordé et un signe",
+        "Une simple rumeur politique",
+        "Un événement après Badr",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le récit souligne un honneur divin et un signe, pas un exploit humain.",
+    },
+    {
+      id: "l30_boss_q1",
+      question: "Pourquoi Al-Miʿrāj prépare-t-il la communauté pour l’avenir ?",
+      options: [
+        "Parce qu’il annonce une richesse immédiate",
+        "Parce qu’il ancre une obligation centrale : la Ṣalāh",
+        "Parce qu’il supprime l’opposition de Quraysh",
+        "Parce qu’il impose une migration immédiate",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La Ṣalāh deviendra l’axe quotidien : un socle de stabilité et de lien avec Allah.",
+      difficulty: "boss",
+    },
+  ],
 },
 l31: {
-  title: "Adieux : valeurs finales et priorité du cœur",
-  story: [
-    "Les derniers messages insistent sur l’essentiel : foi, justice, dignité, liens.",
-    "Une fin de mission rappelle : ce qui compte, c’est ce qu’on laisse dans les cœurs.",
-    "Le message final recentre la communauté sur les principes."
+  title: "Les 50 prières réduites à 5 : le cadeau et la miséricorde",
+  illustration: world8_l31,
+  storyBlocks: [
+    { type: "subtitle", text: "🕊️ Une obligation révélée… puis allégée" },
+    {
+      type: "p",
+      text:
+        "Parmi les éléments les plus marquants rapportés dans les récits d’Al-Miʿrāj : l’obligation de la prière. Le récit évoque un nombre initial très élevé (50), puis une réduction progressive jusqu’à 5, tout en gardant la récompense comme si elles étaient 50.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce passage est central parce qu’il montre deux choses à la fois : la grandeur de la Ṣalāh (elle est donnée dans un contexte unique) et la miséricorde (Allah n’écrase pas la communauté).",
+    },
+
+    { type: "subtitle", text: "🤝 Dialogue, retour, réduction" },
+    {
+      type: "p",
+      text:
+        "Le récit transmis mentionne un échange et des retours successifs, jusqu’à ce que le nombre soit réduit. Ici, le cœur du message n’est pas “la quantité” : c’est l’idée que la Ṣalāh est un lien vital, quotidien, et que la miséricorde d’Allah accompagne l’obligation.",
+    },
+
+    { type: "subtitle", text: "🧭 La Ṣalāh : un pilier pour survivre aux tempêtes" },
+    {
+      type: "p",
+      text:
+        "Si tu replaces cela dans le contexte (≈ 620), c’est puissant : la communauté subit pressions et humiliations. Et Allah offre un acte répété chaque jour, qui recentre, purifie, stabilise. Comme si la réponse au chaos n’était pas seulement une stratégie sociale… mais un rendez-vous avec le ciel.",
+    },
   ],
+  cliffhanger:
+    "Mais quand le Prophète ﷺ revient parler de cette nuit… La Mecque ne répond pas par l’écoute. Elle répond par la moquerie. Et là, un homme va devenir un symbole : As-Siddīq.",
   keyPoints: [
-    "Essentiels : justice, dignité, liens",
-    "Héritage = ce qui reste dans les cœurs",
-    "Recentrage sur principes"
+    "Les récits d’Al-Miʿrāj mentionnent l’obligation initiale de 50 prières puis réduction à 5.",
+    "La Ṣalāh est présentée comme un lien central, donné dans un contexte unique.",
+    "Le passage souligne la miséricorde d’Allah et l’allègement pour la communauté.",
+    "Dans le contexte mecquois, la Ṣalāh devient un socle de stabilité.",
   ],
   reviewQuestions: [
-    { id:"l31_q1", type:"mcq", question:"Les messages finaux insistent sur…", options:["Le luxe","L’essentiel (justice, liens)","La mode","Le hasard"], correctIndex:1, explanation:"Essentiels : justice et liens.", difficulty:"easy" },
-    { id:"l31_q2", type:"tf", question:"Vrai/Faux : L’héritage le plus fort est dans les cœurs.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : valeurs transmises.", difficulty:"easy" },
-    { id:"l31_q3", type:"mcq", question:"Le but final :", options:["Disperser","Recentrer sur principes","Diviser","Oublier"], correctIndex:1, explanation:"Recentrage sur principes.", difficulty:"medium" }
-  ]
+    {
+      id: "l31_q1",
+      question: "Quel est le message majeur derrière la réduction de 50 à 5 prières ?",
+      options: [
+        "La prière est secondaire",
+        "La miséricorde accompagne l’obligation",
+        "La prière doit être abandonnée",
+        "La prière dépend de Quraysh",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le récit souligne à la fois l’importance de la Ṣalāh et la miséricorde pour la communauté.",
+    },
+    {
+      id: "l31_q2",
+      question: "Dans le contexte mecquois (≈ 620), la Ṣalāh sert aussi à…",
+      options: [
+        "Remplacer la foi",
+        "Stabiliser et recentrer la communauté au quotidien",
+        "Gagner de l’argent",
+        "Annuler l’opposition",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La Ṣalāh est un rendez-vous régulier qui renforce le lien avec Allah.",
+    },
+    {
+      id: "l31_boss_q1",
+      question: "Pourquoi l’obligation de la Ṣalāh est-elle considérée comme un “cadeau” dans ce contexte ?",
+      options: [
+        "Parce qu’elle supprime les difficultés",
+        "Parce qu’elle crée un lien quotidien avec Allah au cœur de l’épreuve",
+        "Parce qu’elle rend la Mecque musulmane",
+        "Parce qu’elle évite toute critique",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Elle apporte un ancrage quotidien et un lien vivant avec Allah dans une période de pression.",
+      difficulty: "boss",
+    },
+  ],
 },
 l32: {
-  title: "Derniers jours et héritage",
-  story: [
-    "Les derniers jours rappellent la fragilité humaine et la permanence du message.",
-    "La communauté doit apprendre à continuer : principes, cohésion, responsabilité.",
-    "La mission se termine, mais l’héritage commence dans la vie des croyants."
+  title: "Retour à La Mecque : choc, accusations… et certitude",
+  illustration: world8_l32,
+  storyBlocks: [
+    { type: "subtitle", text: "🗣️ Le récit devient une épreuve publique" },
+    {
+      type: "p",
+      text:
+        "Le retour à La Mecque ne se transforme pas en triomphe. Il se transforme en débat, en moquerie, en accusation. Quraysh cherche à utiliser l’événement contre lui : “Comment croire une chose pareille ?”",
+    },
+    {
+      type: "p",
+      text:
+        "Et c’est là que la Sîra montre une réalité : certaines vérités ne seront jamais “acceptées” par ceux qui ont décidé de refuser. L’enjeu devient donc : la foi est-elle conditionnée par l’approbation des gens ?",
+    },
+
+    { type: "subtitle", text: "⭐ As-Siddīq : la loyauté dans l’impossible" },
+    {
+      type: "p",
+      text:
+        "Dans les récits, Abū Bakr (رضي الله عنه) devient une figure majeure : sa réaction face à l’annonce incarne la certitude et la confiance. Ce moment marque un repère : la foi ne dépend pas du ridicule des autres, mais de la vérité et de la confiance en Allah et en Son Messager ﷺ.",
+    },
+
+    { type: "subtitle", text: "🧭 Préparer la sortie : chercher un autre horizon" },
+    {
+      type: "p",
+      text:
+        "Cette nuit n’efface pas l’opposition de Quraysh. Mais elle prépare quelque chose : la mission ne restera pas enfermée à La Mecque. Les saisons du pèlerinage approchent, les tribus viennent, et la recherche d’un appui ailleurs va prendre une tournure décisive.",
+    },
   ],
+  cliffhanger:
+    "Bientôt, au milieu des tribus venues au pèlerinage, des cœurs vont écouter autrement… et une ville va changer le destin : Yathrib se profile.",
   keyPoints: [
-    "Fragilité humaine, message permanent",
-    "Continuer par principes",
-    "Héritage vivant"
+    "Le retour à La Mecque entraîne moquerie et accusations de Quraysh.",
+    "La foi devient un test public : croire même face au ridicule.",
+    "Abū Bakr (ra) incarne la certitude (As-Siddīq dans les récits).",
+    "La suite prépare la recherche d’un appui ailleurs : Yathrib (Médine) arrive.",
   ],
   reviewQuestions: [
-    { id:"l32_q1", type:"tf", question:"Vrai/Faux : Le message reste, même si la mission terrestre se termine.", options:["Vrai","Faux"], correctIndex:0, explanation:"Vrai : l’héritage continue.", difficulty:"easy" },
-    { id:"l32_q2", type:"mcq", question:"Que doit apprendre la communauté ?", options:["Abandonner","Continuer par principes","Se diviser","Oublier"], correctIndex:1, explanation:"Continuer par principes.", difficulty:"easy" },
-    { id:"l32_q3", type:"mcq", question:"Héritage vivant =", options:["Valeurs appliquées","Souvenir vide","Mode","Hasard"], correctIndex:0, explanation:"Valeurs mises en pratique.", difficulty:"medium" }
-  ]
+    {
+      id: "l32_q1",
+      question: "Quelle est la réaction de Quraysh face au récit d’Al-Isrāʾ wa-l-Miʿrāj ?",
+      options: [
+        "Acceptation immédiate",
+        "Moquerie et accusation",
+        "Alliance politique",
+        "Migration vers Médine",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Quraysh utilise l’événement pour ridiculiser et attaquer le Prophète ﷺ.",
+    },
+    {
+      id: "l32_q2",
+      question: "Que symbolise la certitude d’Abū Bakr (ra) dans ce moment ?",
+      options: [
+        "Une foi conditionnée par l’opinion publique",
+        "Une confiance et une loyauté face à l’impossible",
+        "Un rejet total",
+        "Une neutralité politique",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La Sîra met en avant la certitude et la loyauté, même quand les gens se moquent.",
+    },
+    {
+      id: "l32_boss_q1",
+      question: "Quel est l’enjeu spirituel principal lorsque Quraysh ridiculise cet événement ?",
+      options: [
+        "Gagner un débat",
+        "Conditionner la foi à l’approbation sociale",
+        "Abolir la prière",
+        "Préparer Badr",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le test est : la foi dépend-elle de l’opinion des gens ou de la vérité ?",
+      difficulty: "boss",
+    },
+  ],
+},
+l33: {
+  title: "Les saisons du pèlerinage : chercher des cœurs (≈ 620–621)",
+  illustration: world9_l33,
+  storyBlocks: [
+    { type: "subtitle", text: "🕋 Un rendez-vous annuel… et une stratégie de survie" },
+    {
+      type: "p",
+      text:
+        "À La Mecque, l’opposition ne faiblit pas. Les années passent, et Quraysh maintient la pression. Dans ce contexte, les saisons du pèlerinage deviennent plus qu’un événement religieux et commercial : elles deviennent une opportunité. Les tribus arabes arrivent, écoutent, discutent, évaluent. Et le Prophète ﷺ se présente à elles — non pas comme un chef cherchant un trône, mais comme un Messager porteur d’un appel.",
+    },
+    {
+      type: "p",
+      text:
+        "Les sources de Sîra rapportent que ces démarches existent : rencontrer les tribus, exposer le message, demander protection (nusrah) afin que l’appel puisse être transmis librement. C’est une période où l’effort est constant : convaincre sans flatter, appeler sans céder, rester digne face aux refus.",
+    },
+
+    { type: "subtitle", text: "🗣️ La parole face au rejet" },
+    {
+      type: "p",
+      text:
+        "Il ne s’agit pas de quelques tentatives isolées. L’idée est claire : La Mecque est devenue un espace étroit, et le message ne peut pas rester enfermé. Mais la plupart des tribus hésitent : peur de Quraysh, peur de l’isolement, peur de l’engagement. L’Arabie tribale calcule. Et c’est précisément là que le contraste apparaît : la foi demande parfois un saut que la prudence refuse.",
+    },
+    {
+      type: "p",
+      text:
+        "Dans cette foule, certains viennent écouter par curiosité… et repartent. D’autres écoutent et se taisent… comme s’ils étaient en train de mesurer les conséquences. Mais un petit groupe, venu d’une ville au nord, va entendre autrement. Cette ville, c’est Yathrib.",
+    },
+
+    { type: "subtitle", text: "🌱 Un détail qui annonce une bascule" },
+    {
+      type: "p",
+      text:
+        "Les récits montrent un motif récurrent dans la Sîra : Allah prépare les tournants avant qu’ils ne deviennent visibles. Sur le moment, personne ne voit “la carte du futur”. Mais les rencontres du pèlerinage vont devenir la porte d’entrée d’un nouveau chapitre : la sortie de La Mecque.",
+    },
+  ],
+  cliffhanger:
+    "Mais pourquoi Yathrib serait-elle différente ? Qu’est-ce qu’une ville divisée peut chercher… au point d’écouter un homme que Quraysh veut faire taire ?",
+  keyPoints: [
+    "Les saisons du pèlerinage deviennent un moment clé pour rencontrer des tribus.",
+    "Le Prophète ﷺ cherche un appui (nusrah) pour protéger la transmission du message.",
+    "Beaucoup refusent par peur des conséquences tribales et politiques.",
+    "Un groupe venu de Yathrib va écouter différemment : début d’un tournant.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l33_q1",
+      question: "Pourquoi les saisons du pèlerinage deviennent-elles cruciales dans cette période ?",
+      options: [
+        "Pour organiser une armée",
+        "Pour rencontrer des tribus et présenter le message",
+        "Pour quitter immédiatement La Mecque",
+        "Pour éviter toute discussion",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Les tribus viennent au pèlerinage : c’est une occasion d’exposer le message et de chercher protection.",
+    },
+    {
+      id: "l33_q2",
+      question: "Pourquoi de nombreuses tribus hésitent-elles à s’engager ?",
+      options: [
+        "Parce qu’elles ignorent Quraysh",
+        "Par peur des conséquences et des représailles",
+        "Parce qu’elles veulent la guerre",
+        "Parce que la Mecque est déjà paisible",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Dans un monde tribal, soutenir le message implique des risques politiques et sociaux.",
+    },
+    {
+      id: "l33_boss_q1",
+      question: "Quel est l’objectif de la demande de “nusrah” (protection) dans ce contexte ?",
+      options: [
+        "Imposer une religion par la force",
+        "Permettre au message d’être transmis sans étouffement",
+        "Supprimer le pèlerinage",
+        "Créer une alliance commerciale uniquement",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La protection vise à permettre la transmission du message face à l’étouffement de Quraysh.",
+      difficulty: "boss",
+    },
+  ],
+},
+l34: {
+  title: "Yathrib : une ville divisée, un besoin de paix (≈ 620–621)",
+  illustration: world9_l34,
+  storyBlocks: [
+    { type: "subtitle", text: "🏘️ Yathrib : pas un paradis… une ville qui saigne" },
+    {
+      type: "p",
+      text:
+        "Yathrib (future Médine) n’est pas décrite comme une ville “parfaite”. Au contraire : les sources de Sîra évoquent une société fracturée. Deux grandes tribus arabes y dominent : Aws et Khazraj. Et leur rivalité a produit des cycles de tensions, jusqu’à des affrontements majeurs — dont la bataille de Buʿāth, survenue peu avant l’Hégire (souvent située vers ≈ 617).",
+    },
+    {
+      type: "p",
+      text:
+        "Cette réalité change tout : une ville fatiguée par la division cherche une issue. Les élites n’ont pas réussi à stabiliser durablement. Les rancunes existent, les alliances sont fragiles. Yathrib a besoin d’une figure qui peut rassembler — ou d’un projet plus grand que les querelles.",
+    },
+
+    { type: "subtitle", text: "📜 Un terrain préparé… même sans le savoir" },
+    {
+      type: "p",
+      text:
+        "Les récits rapportent aussi la présence de communautés juives à Yathrib. Cela compte dans l’atmosphère : on y entend parler de prophétie, d’Écriture, d’attente. Sans entrer dans des détails non sûrs, l’idée générale est claire : le vocabulaire religieux et la notion d’un messager attendu ne sont pas inconnus.",
+    },
+    {
+      type: "p",
+      text:
+        "Et c’est là que le contraste apparaît : à La Mecque, Quraysh se moque et étouffe. À Yathrib, certains cœurs sont prêts à écouter, parce qu’ils sont blessés par la division et ouverts à une solution qui dépasse la tribu.",
+    },
+
+    { type: "subtitle", text: "👂 Écouter autrement" },
+    {
+      type: "p",
+      text:
+        "Quand un petit groupe de Yathrib rencontre le Prophète ﷺ, ce n’est pas seulement de la curiosité. C’est une recherche. Une ville divisée entend l’appel à l’unicité et à la justice… et y perçoit peut-être la seule chose qui peut dépasser Aws et Khazraj : un lien plus haut que le sang.",
+    },
+  ],
+  cliffhanger:
+    "Et si cet accord naissait dans l’ombre, loin des regards de Quraysh ? Dans un lieu précis… une colline… un rendez-vous secret : ʿAqabah.",
+  keyPoints: [
+    "Yathrib est marquée par la rivalité Aws/Khazraj et des conflits anciens.",
+    "La bataille de Buʿāth (≈ 617) fait partie des événements marquants avant l’Hégire.",
+    "La ville est fatiguée des divisions et cherche une solution unificatrice.",
+    "Le climat religieux (présence de communautés juives) rend l’idée prophétique moins étrangère.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l34_q1",
+      question: "Pourquoi Yathrib est-elle décrite comme “fatiguée” avant l’Hégire ?",
+      options: [
+        "Parce qu’elle est trop riche",
+        "À cause des divisions et conflits internes",
+        "Parce qu’elle refuse toute spiritualité",
+        "Parce qu’elle est contrôlée par Quraysh",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Les tensions entre Aws et Khazraj et les conflits ont fragilisé la ville.",
+    },
+    {
+      id: "l34_q2",
+      question: "Quel événement est souvent mentionné comme conflit majeur avant l’Hégire ?",
+      options: ["Badr", "Buʿāth", "Khandaq", "Hunayn"],
+      correctIndex: 1,
+      explanation:
+        "La bataille de Buʿāth est souvent située avant l’Hégire et liée au contexte de division.",
+    },
+    {
+      id: "l34_boss_q1",
+      question: "Pourquoi ce contexte rend-il certains habitants plus réceptifs au message ?",
+      options: [
+        "Parce qu’ils veulent une guerre immédiate",
+        "Parce qu’ils cherchent un projet unificateur au-delà des tribus",
+        "Parce qu’ils veulent renverser Quraysh",
+        "Parce qu’ils refusent toute morale",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Une ville divisée peut être prête à entendre un appel qui dépasse les rivalités tribales.",
+      difficulty: "boss",
+    },
+  ],
+},
+l35: {
+  title: "La 1ʳᵉ ʿAqabah : l’engagement qui change tout (≈ 621)",
+  illustration: world9_l35,
+  storyBlocks: [
+    { type: "subtitle", text: "🌌 Une rencontre discrète… un engagement immense" },
+    {
+      type: "p",
+      text:
+        "Autour de ≈ 621, les récits évoquent un moment décisif : un engagement pris à ʿAqabah, près de Minā, pendant la saison du pèlerinage. Ce n’est pas une scène publique. C’est presque l’inverse : un rendez-vous discret, loin des regards, parce que Quraysh surveille et cherche à étouffer toute ouverture.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce qui se joue ici n’est pas “un accord politique classique”. C’est un engagement religieux et moral. La Sîra rapporte que ce pacte (la 1ʳᵉ ʿAqabah) marque un tournant : des hommes de Yathrib se lient à l’islam et s’engagent sur des principes.",
+    },
+
+    { type: "subtitle", text: "📌 Un pacte de foi et de conduite" },
+    {
+      type: "p",
+      text:
+        "Les récits rapportent que l’engagement inclut des principes : ne pas associer, ne pas voler, ne pas commettre l’adultère, ne pas tuer leurs enfants, ne pas mentir, et obéir dans le bien. Ce n’est pas un détail : c’est la preuve que la première base est morale et spirituelle, avant d’être “institutionnelle”.",
+    },
+    {
+      type: "p",
+      text:
+        "La mission trouve enfin un espace où le message peut respirer. Une ville commence à se dessiner comme refuge — non pas parce que ses habitants sont parfaits, mais parce qu’ils sont prêts à se lier à un principe plus grand.",
+    },
+
+    { type: "subtitle", text: "🌱 Le début d’un déplacement du centre" },
+    {
+      type: "p",
+      text:
+        "À La Mecque, le message est bloqué. À Yathrib, il peut s’enraciner. Et quand la foi s’enracine, elle crée une communauté. C’est à partir de là que tout s’accélère : enseignement, transmission, consolidation.",
+    },
+  ],
+  cliffhanger:
+    "Mais un engagement moral ne suffit pas face à Quraysh… bientôt, une demande plus lourde apparaîtra : protéger le Prophète ﷺ comme on protège sa propre famille.",
+  keyPoints: [
+    "La 1ʳᵉ ʿAqabah a lieu autour de ≈ 621 pendant la saison du pèlerinage.",
+    "Rendez-vous discret, car Quraysh surveille et combat toute ouverture.",
+    "Le pacte met l’accent sur foi + conduite morale (principes concrets).",
+    "Il marque le début d’un basculement : Yathrib devient un refuge possible.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l35_q1",
+      question: "Pourquoi la rencontre de ʿAqabah est-elle discrète ?",
+      options: [
+        "Pour éviter les tribus de Yathrib",
+        "Parce que Quraysh surveille et cherche à étouffer l’appel",
+        "Parce que La Mecque est déjà musulmane",
+        "Parce que ce n’est pas important",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Quraysh surveille et combat toute ouverture : la discrétion protège la démarche.",
+    },
+    {
+      id: "l35_q2",
+      question: "Quel est le cœur de la 1ʳᵉ ʿAqabah ?",
+      options: [
+        "Un pacte commercial",
+        "Un engagement religieux et moral",
+        "Un pacte militaire complet",
+        "Une déclaration de conquête",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Les récits mettent en avant un engagement de foi et de conduite morale.",
+    },
+    {
+      id: "l35_boss_q1",
+      question: "Pourquoi ce pacte est-il un tournant stratégique pour la mission ?",
+      options: [
+        "Parce qu’il garantit une armée immédiate",
+        "Parce qu’il ouvre une ville prête à accueillir et transmettre le message",
+        "Parce qu’il supprime Quraysh",
+        "Parce qu’il annule la prière",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Yathrib devient un espace où le message peut respirer et s’enraciner.",
+      difficulty: "boss",
+    },
+  ],
+},
+l36: {
+  title: "La 2ᵉ ʿAqabah : une protection au prix fort (≈ 622)",
+  illustration: world9_l36,
+  storyBlocks: [
+    { type: "subtitle", text: "🛡️ Un pacte plus lourd : protéger comme sa propre famille" },
+    {
+      type: "p",
+      text:
+        "Autour de ≈ 622, les récits mentionnent une 2ᵉ rencontre à ʿAqabah. L’enjeu est plus lourd : ce n’est plus seulement s’engager moralement. C’est offrir protection (nusrah) — une protection réelle, concrète, risquée. Dans un monde tribal, protéger quelqu’un, c’est accepter les conséquences : conflits, représailles, rupture d’alliances.",
+    },
+    {
+      type: "p",
+      text:
+        "C’est là qu’on mesure la gravité de l’instant. Ceux qui s’engagent savent que Quraysh ne laissera pas faire. Et pourtant, ils choisissent de porter ce risque. Pas pour une richesse, pas pour un pouvoir, mais pour une foi et une mission.",
+    },
+
+    { type: "subtitle", text: "🌃 Une nuit, un pacte… et un futur qui s’ouvre" },
+    {
+      type: "p",
+      text:
+        "La Sîra rapporte que ce pacte implique de défendre le Prophète ﷺ comme on défend ses proches. Cette formulation est puissante, parce qu’elle transforme la mission : ce n’est plus une voix isolée à La Mecque. C’est une communauté prête à porter un coût.",
+    },
+    {
+      type: "p",
+      text:
+        "À partir d’ici, l’horizon change. Les musulmans auront bientôt une direction, une ville, un refuge. Et Quraysh, en comprenant que le message peut s’échapper de La Mecque, va durcir encore son plan.",
+    },
+
+    { type: "subtitle", text: "⚡ Le danger se précise" },
+    {
+      type: "p",
+      text:
+        "C’est souvent ici que la tension monte : si la protection est acceptée, alors la sortie de La Mecque devient plausible. Mais ce pas est aussi une alarme pour Quraysh. Et quand Quraysh se sent menacée, elle ne discute plus : elle complote.",
+    },
+  ],
+  cliffhanger:
+    "Le piège se referme : Quraysh prépare un plan… et la route vers Yathrib va devenir une course contre la mort. Le Monde 10 commence.",
+  keyPoints: [
+    "La 2ᵉ ʿAqabah (≈ 622) porte sur une protection réelle (nusrah), à haut risque.",
+    "Dans le monde tribal, protéger = accepter représailles et conflits possibles.",
+    "Ce pacte transforme la mission : une communauté se prépare à accueillir et défendre.",
+    "Quraysh comprend le danger et durcit sa stratégie : le complot approche.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l36_q1",
+      question: "Quel est l’enjeu principal de la 2ᵉ ʿAqabah (≈ 622) ?",
+      options: [
+        "Un pacte de commerce",
+        "Une protection réelle et risquée (nusrah)",
+        "Une conquête militaire immédiate",
+        "La suppression de la prière",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le cœur de la 2ᵉ ʿAqabah est l’offre de protection concrète, au prix fort.",
+    },
+    {
+      id: "l36_q2",
+      question: "Pourquoi cet engagement est-il risqué dans la logique tribale ?",
+      options: [
+        "Parce qu’il annule les alliances automatiquement",
+        "Parce qu’il implique des représailles et conflits possibles",
+        "Parce que Quraysh ne s’en soucie pas",
+        "Parce que Yathrib est une île",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Protéger quelqu’un signifie accepter la réaction de ses ennemis et l’impact social.",
+    },
+    {
+      id: "l36_boss_q1",
+      question: "Quel est l’effet stratégique immédiat de ce pacte sur Quraysh ?",
+      options: [
+        "Quraysh se convertit",
+        "Quraysh comprend que le message peut sortir et durcit son plan",
+        "Quraysh ignore totalement",
+        "Quraysh annule le pèlerinage",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le pacte ouvre une sortie réelle : Quraysh durcit sa stratégie et le complot approche.",
+      difficulty: "boss",
+    },
+  ],
 },
 
 

@@ -161,7 +161,6 @@ export const WORLDS = [
     { id: "b6", type: "boss", title: "Boss Quiz — Monde 6", estMin: 10, required: true },
   ],
 },
-
 {
   id: "world-7",
   title: "Monde 7 — ʿĀm al-Ḥuzn : l’Année de la Tristesse",
@@ -175,19 +174,82 @@ export const WORLDS = [
     { id: "b7", type: "boss", title: "Boss Quiz — Monde 7", estMin: 10, required: true },
   ],
 },
-
 {
   id: "world-8",
-  title: "Monde 8 — Conquête, pardon et fin de mission",
+  title: "Monde 8 — Al-Isrāʾ wa-l-Miʿrāj : quand le ciel répond (≈ 620)",
+  description:
+    "Après Ṭāʾif et l’Année de la Tristesse, une ouverture vient d’en haut : le Voyage Nocturne et l’Ascension.",
   nodes: [
-    { id: "l29", type: "lesson", title: "Conquête de la Mecque : pardon et grandeur", estMin: 7, required: true },
-    { id: "l30", type: "lesson", title: "Unification et stabilité", estMin: 6, required: true },
-    { id: "r8", type: "review", title: "Bonus — Pardon & vision", estMin: 2, required: false },
-    { id: "l31", type: "lesson", title: "Adieux : valeurs finales et priorité du cœur", estMin: 7, required: true },
-    { id: "l32", type: "lesson", title: "Derniers jours et héritage", estMin: 7, required: true },
-    { id: "b8", type: "boss", title: "Boss Quiz — Monde 8", estMin: 12, required: true },
+    {
+      id: "l29",
+      type: "lesson",
+      title: "La nuit d’Al-Isrāʾ : de La Mecque à Jérusalem (≈ 620)",
+      estMin: 30,
+      required: true,
+    },
+    {
+      id: "l30",
+      type: "lesson",
+      title: "Al-Miʿrāj : l’élévation et la rencontre des Prophètes",
+      estMin: 32,
+      required: true,
+    },
+    {
+      id: "l31",
+      type: "lesson",
+      title: "Les 50 prières réduites à 5 : le cadeau et la miséricorde",
+      estMin: 34,
+      required: true,
+    },
+    {
+      id: "l32",
+      type: "lesson",
+      title: "Retour à La Mecque : choc, accusations… et certitude",
+      estMin: 28,
+      required: true,
+    },
+    { id: "b8", type: "boss", title: "Boss Quiz — Monde 8", estMin: 10, required: true },
   ],
 },
+{
+  id: "world-9",
+  title: "Monde 9 — ʿAqabah : quand une ville tend la main (≈ 620–622)",
+  description:
+    "Saisons du pèlerinage, rencontres tribales, Yathrib (Médine) écoute… puis promet. Un tournant silencieux qui va sauver la mission.",
+  nodes: [
+    {
+      id: "l33",
+      type: "lesson",
+      title: "Les saisons du pèlerinage : chercher des cœurs (≈ 620–621)",
+      estMin: 34,
+      required: true,
+    },
+    {
+      id: "l34",
+      type: "lesson",
+      title: "Yathrib : une ville divisée, un besoin de paix (≈ 620–621)",
+      estMin: 36,
+      required: true,
+    },
+    {
+      id: "l35",
+      type: "lesson",
+      title: "La 1ʳᵉ ʿAqabah : l’engagement qui change tout (≈ 621)",
+      estMin: 38,
+      required: true,
+    },
+    {
+      id: "l36",
+      type: "lesson",
+      title: "La 2ᵉ ʿAqabah : une protection au prix fort (≈ 622)",
+      estMin: 42,
+      required: true,
+    },
+    { id: "b9", type: "boss", title: "Boss Quiz — Monde 9", estMin: 10, required: true },
+  ],
+}
+
+
 
 
 
