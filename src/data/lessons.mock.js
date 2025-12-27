@@ -36,6 +36,14 @@ import world9_l33 from "../assets/illustrations/worlds/world9_l33.png";
 import world9_l34 from "../assets/illustrations/worlds/world9_l34.png";
 import world9_l35 from "../assets/illustrations/worlds/world9_l35.png";
 import world9_l36 from "../assets/illustrations/worlds/world9_l36.png";
+import world10_l37 from "../assets/illustrations/worlds/world10_l37.png";
+import world10_l38 from "../assets/illustrations/worlds/world10_l38.png";
+import world10_l39 from "../assets/illustrations/worlds/world10_l39.png";
+import world10_l40 from "../assets/illustrations/worlds/world10_l40.png";
+import world11_l41 from "../assets/illustrations/worlds/world11_l41.png";
+import world11_l42 from "../assets/illustrations/worlds/world11_l42.png";
+import world11_l43 from "../assets/illustrations/worlds/world11_l43.png";
+import world11_l44 from "../assets/illustrations/worlds/world11_l44.png";
 
 
 export const LESSONS_CONTENT = {
@@ -151,6 +159,7 @@ l1: {
 l2: {
   title: "La Mecque : une ville sans trône, mais au cœur des cœurs",
   illustration: world1_l2,
+  audio: "/audio/lessons/l2.mp3",
   storyBlocks: [
     { type: "subtitle", text: "🕋 Une ville debout au milieu du désert" },
     { type: "p", text: "La Mecque n’est pas une capitale politique. Elle n’a ni roi, ni armée. Pourtant, son nom circule, respecté, cité, recherché." },
@@ -251,10 +260,10 @@ l2: {
 ]
 
 },
-
 l3: {
   title: "L’honneur, la protection et le prix de la tribu",
   illustration: world1_l3,
+  audio: "/audio/lessons/l3.mp3",
   storyBlocks: [
     { type: "subtitle", text: "🛡️ La protection n’est pas un droit : c’est un privilège" },
     { type: "p", text: "Dans ce monde, la sécurité n’est pas garantie par une loi neutre. Elle dépend d’un nom, d’une tribu, d’un pacte." },
@@ -360,6 +369,7 @@ l3: {
 l4: {
   title: "Un paysage religieux fragmenté… et une vérité oubliée",
   illustration: world1_l4,
+  audio: "/audio/lessons/l4.mp3",
   storyBlocks: [
     { type: "subtitle", text: "🧭 Une Arabie religieuse, mais désorientée" },
     { type: "p", text: "Parler de l’Arabie avant l’islam comme d’un désert spirituel est une erreur. Les croyances existent — nombreuses — mais la guidance est fragmentée." },
@@ -2920,6 +2930,719 @@ l36: {
       correctIndex: 1,
       explanation:
         "Le pacte ouvre une sortie réelle : Quraysh durcit sa stratégie et le complot approche.",
+      difficulty: "boss",
+    },
+  ],
+},
+l37: {
+  title: "Le complot : une nuit décisive à La Mecque (≈ 622)",
+  illustration: world10_l37,
+  storyBlocks: [
+    { type: "subtitle", text: "🕯️ Quand Quraysh comprend que l’étau se desserre" },
+    {
+      type: "p",
+      text:
+        "Autour de ≈ 622, après les engagements de ʿAqabah, Quraysh réalise un danger : le message ne restera plus enfermé à La Mecque. Yathrib (Médine) peut devenir un refuge. Et si cela arrive, la mission gagne un espace où elle peut respirer, s’organiser, s’étendre.",
+    },
+    {
+      type: "p",
+      text:
+        "Les récits de Sîra rapportent alors une escalade : Quraysh passe du harcèlement à un plan radical. L’idée : frapper au cœur, avant que la sortie ne devienne irréversible.",
+    },
+
+    { type: "subtitle", text: "⚔️ Le plan : neutraliser d’un seul coup" },
+    {
+      type: "p",
+      text:
+        "Le complot rapporté vise à tuer le Prophète ﷺ de manière à répartir la responsabilité entre plusieurs clans, pour que Banū Hāshim ne puisse pas se venger d’un seul groupe. C’est la logique tribale utilisée comme arme : diluer le sang pour éviter la guerre totale.",
+    },
+    {
+      type: "p",
+      text:
+        "À ce stade, le danger n’est plus “moral” ou “social”. Il devient physique. Et c’est là que l’Hégire prend une autre couleur : ce n’est pas un voyage. C’est une sortie sous menace.",
+    },
+
+    { type: "subtitle", text: "🌙 La nuit de la sortie" },
+    {
+      type: "p",
+      text:
+        "La Sîra évoque que le Prophète ﷺ quitte La Mecque alors que des hommes sont postés. Et dans ce moment, un rôle crucial apparaît : ʿAlī ibn Abī Ṭālib (رضي الله عنه), qui reste derrière pour des raisons mentionnées par les récits (notamment liées aux dépôts/biens confiés), assumant un risque réel.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce moment est une leçon : la foi n’est pas seulement un discours. Elle devient courage, planification, confiance en Allah… et sacrifice humain.",
+    },
+  ],
+  cliffhanger:
+    "Mais sortir de La Mecque n’est que la première étape. Quraysh lance la chasse… et la route commence par un endroit inattendu : une grotte.",
+  keyPoints: [
+    "Vers ≈ 622, Quraysh comprend le danger d’un refuge à Yathrib.",
+    "Les récits rapportent un complot visant à tuer le Prophète ﷺ en diluant la responsabilité tribale.",
+    "La sortie de La Mecque se fait sous menace réelle : ce n’est pas un simple voyage.",
+    "ʿAlī (ra) joue un rôle important dans la nuit de la sortie (selon les récits de Sîra).",
+  ],
+  reviewQuestions: [
+    {
+      id: "l37_q1",
+      question: "Pourquoi Quraysh durcit-elle sa stratégie vers ≈ 622 ?",
+      options: [
+        "Parce que La Mecque devient musulmane",
+        "Parce qu’un refuge à Yathrib rend la mission difficile à étouffer",
+        "Parce qu’il n’y a plus de pèlerinage",
+        "Parce que Quraysh veut déménager",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le refuge à Yathrib ouvre un espace de protection et d’organisation : Quraysh veut empêcher cette bascule.",
+    },
+    {
+      id: "l37_q2",
+      question: "Quel est le principe du complot rapporté (logique tribale) ?",
+      options: [
+        "Confier le meurtre à un seul clan",
+        "Répartir la responsabilité entre plusieurs clans",
+        "Demander la paix officiellement",
+        "Quitter la ville",
+      ],
+      correctIndex: 1,
+      explanation:
+        "L’idée est de diluer la responsabilité pour éviter une vengeance tribale ciblée.",
+    },
+    {
+      id: "l37_boss_q1",
+      question: "Pourquoi l’Hégire n’est-elle pas un simple déplacement géographique dans ce contexte ?",
+      options: [
+        "Parce qu’elle n’a pas de destination",
+        "Parce qu’elle est une sortie sous menace et une bascule historique",
+        "Parce qu’elle supprime la prière",
+        "Parce qu’elle interdit le commerce",
+      ],
+      correctIndex: 1,
+      explanation:
+        "C’est une sortie sous menace, qui transforme l’histoire de la communauté.",
+      difficulty: "boss",
+    },
+  ],
+},
+l38: {
+  title: "Thawr : la grotte et la poursuite (≈ 622)",
+  illustration: world10_l38,
+  storyBlocks: [
+    { type: "subtitle", text: "🏔️ Une direction surprenante" },
+    {
+      type: "p",
+      text:
+        "Quand la poursuite commence, l’itinéraire ne suit pas forcément l’attente immédiate d’une route “directe”. Les récits mentionnent la grotte de Thawr (Jabal Thawr) comme étape : un refuge temporaire alors que la pression monte.",
+    },
+    {
+      type: "p",
+      text:
+        "Dans cette période, Quraysh ne cherche pas seulement à retrouver une personne. Elle cherche à stopper une bascule. Et quand une bascule menace un ordre social, la traque devient féroce.",
+    },
+
+    { type: "subtitle", text: "👣 Les poursuivants au plus près" },
+    {
+      type: "p",
+      text:
+        "Le récit évoque que les poursuivants s’approchent de la grotte. C’est l’un de ces moments où l’histoire devient presque silencieuse : pas de bataille, pas de discours… juste l’instant où une vie tient à un souffle.",
+    },
+    {
+      type: "p",
+      text:
+        "Là, la leçon est double : (1) les moyens sont utilisés (planification, refuge), (2) la confiance en Allah demeure. Cette combinaison revient souvent dans la Sîra : effort réel + reliance réelle.",
+    },
+
+    { type: "subtitle", text: "🧠 Une fuite… mais pas une panique" },
+    {
+      type: "p",
+      text:
+        "L’Hégire n’est pas un abandon. C’est une stratégie sous contrainte. Elle montre que parfois, préserver la mission passe par quitter un endroit, pour sauver l’avenir.",
+    },
+  ],
+  cliffhanger:
+    "La grotte n’est qu’un répit. La route vers Yathrib est encore longue… et Quraysh met un prix sur la tête du Prophète ﷺ. Un nom va surgir : Suraqah.",
+  keyPoints: [
+    "Les récits mentionnent un passage par la grotte de Thawr pendant la poursuite.",
+    "Les poursuivants s’en approchent : moment de tension extrême rapporté par la Sîra.",
+    "La leçon récurrente : efforts concrets + confiance en Allah.",
+    "L’Hégire est une stratégie sous contrainte, pas une fuite panique.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l38_q1",
+      question: "Pourquoi la grotte (Thawr) est-elle importante dans le récit ?",
+      options: [
+        "Parce que c’est la destination finale",
+        "Parce qu’elle sert de refuge temporaire pendant la traque",
+        "Parce qu’elle est à Jérusalem",
+        "Parce que Quraysh y vit",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Les récits la décrivent comme un refuge temporaire alors que la traque se resserre.",
+    },
+    {
+      id: "l38_q2",
+      question: "Quelle leçon ressort du passage par Thawr ?",
+      options: [
+        "Aucun effort n’est nécessaire",
+        "Efforts concrets + confiance en Allah",
+        "Se battre immédiatement",
+        "Ne jamais planifier",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La Sîra montre souvent la combinaison : moyens + tawakkul.",
+    },
+    {
+      id: "l38_boss_q1",
+      question: "Pourquoi la traque de Quraysh est-elle si intense à ce moment ?",
+      options: [
+        "Parce qu’elle veut un débat public",
+        "Parce qu’elle veut empêcher la bascule vers un refuge à Yathrib",
+        "Parce que Médine est déjà conquise",
+        "Parce que le pèlerinage est annulé",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Quraysh comprend qu’un refuge rend la mission impossible à étouffer : elle veut stopper la bascule.",
+      difficulty: "boss",
+    },
+  ],
+},
+l39: {
+  title: "Sur la route : Suraqah, promesse et protection (≈ 622)",
+  illustration: world10_l39,
+  storyBlocks: [
+    { type: "subtitle", text: "💰 Une prime… et une chasse" },
+    {
+      type: "p",
+      text:
+        "Les récits rapportent que Quraysh offre une récompense importante pour capturer le Prophète ﷺ (et son compagnon). Dans une société tribale et commerçante, une prime n’est pas un détail : elle transforme des hommes en poursuivants.",
+    },
+    {
+      type: "p",
+      text:
+        "C’est dans ce contexte que la Sîra mentionne Suraqah ibn Mālik : un homme qui s’engage dans la poursuite, attiré par la récompense. La route devient alors une course où chaque bruit, chaque trace, peut être décisif.",
+    },
+
+    { type: "subtitle", text: "⚡ Quand la poursuite se retourne" },
+    {
+      type: "p",
+      text:
+        "Le récit de Suraqah est marquant parce qu’il montre un renversement. Là où l’homme pense maîtriser la situation, il se heurte à une réalité qui le dépasse. Et ce renversement ne se termine pas par une vengeance, mais par une forme de garantie et, dans les récits, une promesse.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce passage est souvent retenu comme preuve d’un futur qui s’écrit déjà : au moment même où la mission semble la plus fragile, la Sîra rapporte des paroles qui portent vers l’avenir. Comme si l’histoire te disait : 'Ce n’est pas la fin. Ce n’est même pas le sommet. Ce n’est que le début.'",
+    },
+
+    { type: "subtitle", text: "🧭 La route continue" },
+    {
+      type: "p",
+      text:
+        "Après cet épisode, la route vers Yathrib continue. Et plus on se rapproche, plus l’Histoire change de rythme : on ne parle plus seulement d’endurer. On parle de construire.",
+    },
+  ],
+  cliffhanger:
+    "À l’horizon, un village apparaît : Qubāʾ. Et là, pour la première fois, la communauté va poser les fondations d’un nouveau monde.",
+  keyPoints: [
+    "Quraysh met une récompense importante : la poursuite devient une chasse.",
+    "La Sîra mentionne l’épisode de Suraqah ibn Mālik pendant la route.",
+    "Le récit souligne un renversement et une dimension de promesse/avenir.",
+    "Après la tension, la route mène vers Qubāʾ puis Médine : début d’une nouvelle ère.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l39_q1",
+      question: "Quel effet a la prime de Quraysh dans cette période ?",
+      options: [
+        "Aucun effet",
+        "Elle transforme la poursuite en chasse motivée par l’argent",
+        "Elle annule la migration",
+        "Elle convertit immédiatement les tribus",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Une prime attire des poursuivants : c’est un moteur puissant dans ce contexte.",
+    },
+    {
+      id: "l39_q2",
+      question: "Pourquoi l’épisode de Suraqah est-il marquant dans les récits ?",
+      options: [
+        "Parce qu’il n’y a aucune tension",
+        "Parce qu’il montre un renversement et une dimension de promesse",
+        "Parce que c’est une bataille",
+        "Parce qu’il se déroule à Jérusalem",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le récit est marquant par son retournement et l’idée d’un avenir déjà annoncé.",
+    },
+    {
+      id: "l39_boss_q1",
+      question: "Quel message spirituel ressort de l’épisode de Suraqah dans le contexte de l’Hégire ?",
+      options: [
+        "Le désespoir est logique",
+        "L’avenir peut être annoncé au moment même où la fragilité est maximale",
+        "La force vient uniquement de l’argent",
+        "La fuite est une humiliation",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Les récits soulignent une confiance et une perspective d’avenir même au cœur du danger.",
+      difficulty: "boss",
+    },
+  ],
+},
+l40: {
+  title: "Qubāʾ puis Médine : une nouvelle ère commence (≈ 622)",
+  illustration: world10_l40,
+  storyBlocks: [
+    { type: "subtitle", text: "🏡 Qubāʾ : la première halte d’un nouveau monde" },
+    {
+      type: "p",
+      text:
+        "En ≈ 622, l’arrivée à Qubāʾ (près de Yathrib) marque une transition : on passe de la survie à la fondation. Les récits rapportent que Qubāʾ est une étape significative avant l’entrée dans Médine, et qu’une mosquée y est associée comme premier repère collectif de la communauté naissante.",
+    },
+    {
+      type: "p",
+      text:
+        "Après la tension de la route, le décor change : l’accueil, la fraternité, l’espérance. Ce n’est pas encore l’État, ni l’organisation complète. Mais c’est le souffle d’un endroit où l’islam peut être vécu sans étouffement.",
+    },
+
+    { type: "subtitle", text: "🌿 Entrée à Yathrib : une ville devient Médine" },
+    {
+      type: "p",
+      text:
+        "L’entrée à Yathrib n’est pas un simple 'arriver quelque part'. C’est un basculement historique : la communauté musulmane quitte la phase mecquoise d’oppression pour entrer dans une phase de construction. Yathrib deviendra Médine, et cette migration deviendra un repère central de l’histoire islamique.",
+    },
+    {
+      type: "p",
+      text:
+        "Mais il faut retenir une chose : Médine n’est pas un paradis tombé du ciel. C’est un chantier. Une ville divisée, avec ses tribus, ses tensions, ses équilibres. La différence, c’est qu’un principe plus haut vient y donner une direction.",
+    },
+
+    { type: "subtitle", text: "🧱 Le chantier commence" },
+    {
+      type: "p",
+      text:
+        "À partir d’ici, la Sîra change de rythme : organisation communautaire, liens de fraternité, établissement de règles de vie, préparation aux défis extérieurs. Et Quraysh, qui a perdu le contrôle de la scène, ne restera pas passive.",
+    },
+  ],
+  cliffhanger:
+    "La construction commence… mais bientôt, la confrontation arrive. Quraysh ne laissera pas cette communauté grandir sans frapper. Monde 11 : la route vers Badr se dessine.",
+  keyPoints: [
+    "En ≈ 622, l’arrivée à Qubāʾ marque une transition : de la survie à la fondation.",
+    "L’entrée à Yathrib (future Médine) ouvre la phase de construction de la communauté.",
+    "La migration (Hijrah) devient un repère historique majeur.",
+    "Médine est un chantier : la communauté doit se structurer face aux défis.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l40_q1",
+      question: "Pourquoi l’arrivée à Qubāʾ est-elle une étape importante (≈ 622) ?",
+      options: [
+        "Parce que la mission s’arrête",
+        "Parce qu’elle marque une transition vers la fondation communautaire",
+        "Parce que Quraysh y gouverne",
+        "Parce que c’est Jérusalem",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Après la route, Qubāʾ marque l’entrée dans une phase de fondation et de respiration communautaire.",
+    },
+    {
+      id: "l40_q2",
+      question: "Quel est le sens historique de l’entrée à Yathrib ?",
+      options: [
+        "Un simple déplacement",
+        "Un basculement vers la construction de la communauté",
+        "La fin de toute opposition",
+        "La suppression des tribus",
+      ],
+      correctIndex: 1,
+      explanation:
+        "L’Hégire ouvre une phase nouvelle : construire une communauté organisée.",
+    },
+    {
+      id: "l40_boss_q1",
+      question: "Pourquoi dit-on que “Médine est un chantier” et non un paradis immédiat ?",
+      options: [
+        "Parce qu’il n’y a aucun musulman",
+        "Parce que la ville a ses tribus, tensions et équilibres à structurer",
+        "Parce que la prière y est interdite",
+        "Parce que Quraysh y a déjà gagné",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La ville a des réalités tribales et sociales : la communauté doit se structurer et gérer les défis.",
+      difficulty: "boss",
+    },
+  ],
+},
+l41: {
+  title: "Qubāʾ et la Mosquée : poser la première pierre (≈ 622)",
+  illustration: world11_l41,
+  storyBlocks: [
+    { type: "subtitle", text: "🏡 Qubāʾ : la halte qui change le rythme" },
+    {
+      type: "p",
+      text:
+        "En ≈ 622, après la route et la traque, la première respiration forte se trouve à Qubāʾ. La Sîra mentionne cette halte comme un moment fondateur avant l’entrée dans Médine. Ce n’est pas un simple arrêt : c’est le début d’un territoire où l’islam peut se vivre publiquement, sans être étouffé comme à La Mecque.",
+    },
+    {
+      type: "p",
+      text:
+        "Le ton change. À La Mecque, on survivait sous pression. Ici, on peut commencer à bâtir. Et bâtir, ce n’est pas seulement construire des murs : c’est donner une forme visible à la communauté.",
+    },
+
+    { type: "subtitle", text: "🕌 La mosquée : cœur spirituel et centre social" },
+    {
+      type: "p",
+      text:
+        "Très tôt, les récits de Sîra associent cette phase à l’établissement d’un lieu de prière — une mosquée — qui devient naturellement un centre. Dans la vision prophétique, la mosquée n’est pas un décor : elle est un cœur. On y prie, on y apprend, on s’y rassemble, on y organise la vie.",
+    },
+    {
+      type: "p",
+      text:
+        "Et cela a un sens profond : dans une société tribale, chacun a son clan, ses priorités, ses loyautés. La mosquée devient un espace où l’identité principale n’est plus la tribu, mais la foi.",
+    },
+
+    { type: "subtitle", text: "🌿 Entrer à Médine : de l’exil à la mission" },
+    {
+      type: "p",
+      text:
+        "L’entrée à Médine ouvre une phase nouvelle : l’exil ne se vit plus comme une perte, mais comme une ouverture. Pourtant, rien n’est “magique”. Une ville, c’est des équilibres, des attentes, des susceptibilités. Et la communauté musulmane, encore jeune, doit trouver sa stabilité.",
+    },
+    {
+      type: "p",
+      text:
+        "La première pierre posée n’est pas seulement matérielle : elle est symbolique. Elle annonce : 'Ici, on ne va pas seulement tenir. Ici, on va construire.'",
+    },
+  ],
+  cliffhanger:
+    "Mais construire demande plus qu’un lieu : il faut unir des vies brisées. Comment relier les exilés sans rien… avec ceux qui ont déjà une terre ?",
+  keyPoints: [
+    "En ≈ 622, Qubāʾ apparaît dans la Sîra comme une halte fondatrice avant Médine.",
+    "La mosquée devient un centre : prière, apprentissage, rassemblement, organisation.",
+    "La communauté passe d’une logique tribale à une identité centrée sur la foi.",
+    "L’entrée à Médine ouvre la phase de construction, mais avec de vrais défis sociaux.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l41_q1",
+      question: "Pourquoi Qubāʾ est-elle un moment fondateur (≈ 622) dans la Sîra ?",
+      options: [
+        "Parce que l’Hégire s’arrête là",
+        "Parce que c’est une première respiration et une transition vers la construction",
+        "Parce que Quraysh y gouverne",
+        "Parce que c’est une bataille",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Après la traque, Qubāʾ symbolise l’entrée dans une phase où l’islam peut être vécu publiquement et où l’on commence à bâtir.",
+    },
+    {
+      id: "l41_q2",
+      question: "Quel est le rôle central de la mosquée dans la phase médinoise ?",
+      options: [
+        "Un simple bâtiment décoratif",
+        "Un centre spirituel et social : prière, apprentissage, organisation",
+        "Un marché commercial",
+        "Un fort militaire uniquement",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La mosquée est un cœur : lieu de prière, de savoir et de rassemblement communautaire.",
+    },
+    {
+      id: "l41_boss_q1",
+      question: "Pourquoi la mosquée aide-t-elle à dépasser la logique tribale ?",
+      options: [
+        "Parce qu’elle interdit les tribus",
+        "Parce qu’elle crée un espace commun centré sur la foi",
+        "Parce qu’elle supprime les familles",
+        "Parce qu’elle remplace la ville",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Elle rassemble autour de l’adoration et de l’enseignement, au-delà des appartenances tribales.",
+      difficulty: "boss",
+    },
+  ],
+},
+l42: {
+  title: "Les Muhājirūn et les Anṣār : la fraternité qui sauve (≈ 622–623)",
+  illustration: world11_l42,
+  storyBlocks: [
+    { type: "subtitle", text: "🧳 Des exilés sans terre… mais pas sans foi" },
+    {
+      type: "p",
+      text:
+        "Les Muhājirūn arrivent à Médine après avoir quitté La Mecque. Beaucoup ont laissé derrière eux maison, biens, sécurité. L’Hégire n’est pas une migration confortable : elle est un arrachement. On ne comprend pas Médine sans comprendre ça : certains arrivent légers en bagages… mais lourds en souvenirs.",
+    },
+    {
+      type: "p",
+      text:
+        "Et pourtant, l’accueil des Anṣār (les habitants de Médine qui soutiennent) devient l’une des images les plus marquantes de la Sîra : une ville qui ouvre ses portes à des gens qui n’ont plus rien, uniquement parce qu’ils partagent la foi.",
+    },
+
+    { type: "subtitle", text: "🤝 Muʾākhāh : une fraternité organisée" },
+    {
+      type: "p",
+      text:
+        "Les récits rapportent l’établissement d’une fraternité (muʾākhāh) entre Muhājirūn et Anṣār. L’idée n’est pas seulement émotionnelle : elle est pratique. Elle vise à empêcher que l’exil crée une classe de pauvres isolés. Elle crée des liens, des responsabilités, un tissu social.",
+    },
+    {
+      type: "p",
+      text:
+        "C’est un point clé : l’islam ne se contente pas d’un idéal spirituel. Il organise une solidarité réelle. La communauté apprend que la foi se prouve aussi dans le partage, l’accueil, la prise en charge.",
+    },
+
+    { type: "subtitle", text: "💡 La fraternité comme antidote aux fractures" },
+    {
+      type: "p",
+      text:
+        "Médine est déjà une ville marquée par des tensions tribales (Aws/Khazraj). La fraternité islamique devient un antidote : elle propose une identité qui dépasse les rivalités. Mais c’est aussi un test : est-ce que les cœurs acceptent vraiment de mettre la foi avant l’ancien ordre ?",
+    },
+    {
+      type: "p",
+      text:
+        "Cette fraternité est l’une des raisons pour lesquelles la communauté tient : sans elle, l’exil aurait pu devenir une crise sociale. Avec elle, il devient une force.",
+    },
+  ],
+  cliffhanger:
+    "Mais une communauté unie attire forcément des regards. Et autour de Médine, certains observent… en calculant déjà la prochaine étape.",
+  keyPoints: [
+    "Les Muhājirūn arrivent souvent après avoir laissé biens et sécurité à La Mecque.",
+    "Les Anṣār accueillent et soutiennent : un tournant humain majeur.",
+    "La muʾākhāh (fraternité) vise aussi une stabilité sociale, pas seulement émotionnelle.",
+    "La fraternité islamique aide à dépasser les fractures tribales, mais c’est un vrai test.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l42_q1",
+      question: "Pourquoi l’arrivée des Muhājirūn crée-t-elle un défi social ?",
+      options: [
+        "Ils arrivent avec une armée",
+        "Beaucoup ont laissé biens et sécurité derrière eux",
+        "Ils refusent de travailler",
+        "Ils contrôlent la ville",
+      ],
+      correctIndex: 1,
+      explanation:
+        "L’exil implique souvent une perte matérielle : il faut éviter l’isolement et la précarité.",
+    },
+    {
+      id: "l42_q2",
+      question: "Quel est l’objectif pratique de la muʾākhāh ?",
+      options: [
+        "Créer un concours de poésie",
+        "Tisser des liens et responsabilités pour stabiliser la communauté",
+        "Séparer les tribus",
+        "Annuler les relations sociales",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La fraternité organise une solidarité réelle et évite une crise sociale liée à l’exil.",
+    },
+    {
+      id: "l42_boss_q1",
+      question: "Pourquoi la fraternité islamique est-elle un antidote aux anciennes rivalités ?",
+      options: [
+        "Parce qu’elle efface la mémoire",
+        "Parce qu’elle place la foi au-dessus de la tribu",
+        "Parce qu’elle supprime Médine",
+        "Parce qu’elle interdit l’accueil",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Elle propose une identité commune centrée sur la foi, au-dessus des appartenances tribales.",
+      difficulty: "boss",
+    },
+  ],
+},
+l43: {
+  title: "Une ville plurielle : accords, tribus, équilibres (≈ 622–623)",
+  illustration: world11_l43,
+  storyBlocks: [
+    { type: "subtitle", text: "🏙️ Médine : une société, pas une page blanche" },
+    {
+      type: "p",
+      text:
+        "Médine n’est pas un désert vide. C’est une ville avec ses tribus, ses alliances, ses intérêts. Les musulmans arrivent dans un tissu social déjà complexe. Cela signifie une chose : pour que la communauté survive, il faut des règles et des équilibres.",
+    },
+    {
+      type: "p",
+      text:
+        "Les récits de la période médinoise montrent une dynamique d’organisation : la communauté doit coexister, structurer sa vie, définir des responsabilités et des protections. Sans cadre, la ville replongerait facilement dans ses fractures anciennes.",
+    },
+
+    { type: "subtitle", text: "📜 Construire un ordre sans tyrannie" },
+    {
+      type: "p",
+      text:
+        "L’objectif n’est pas d’écraser les autres. L’objectif est d’éviter le chaos. La phase médinoise met en évidence un principe : la justice et l’ordre doivent protéger la vie collective. Une communauté qui ne sait pas se structurer devient fragile et manipulable.",
+    },
+    {
+      type: "p",
+      text:
+        "Dans ce contexte, tout devient plus sensible : un conflit local peut embraser une tribu, une rumeur peut provoquer une rupture, un incident peut être exploité par des ennemis externes.",
+    },
+
+    { type: "subtitle", text: "👀 Le regard extérieur" },
+    {
+      type: "p",
+      text:
+        "Pendant que Médine s’organise, Quraysh observe. Elle n’a pas seulement perdu une ville : elle a perdu le contrôle de la scène. Et quand une puissance perd le contrôle, elle cherche à reprendre l’avantage par l’économie, la pression, la peur.",
+    },
+    {
+      type: "p",
+      text:
+        "C’est ici que tu sens la suite : l’organisation interne n’est pas une option. Parce que la menace externe se prépare déjà.",
+    },
+  ],
+  cliffhanger:
+    "Et dans cette nouvelle société, un danger apparaît de l’intérieur : des visages sourient… mais leurs cœurs calculent.",
+  keyPoints: [
+    "Médine est une société complexe : tribus, alliances, équilibres.",
+    "La communauté doit se structurer pour éviter le chaos et la manipulation.",
+    "Justice et ordre servent à protéger la vie collective, pas à écraser.",
+    "Quraysh observe et prépare une reprise d’avantage par pression et stratégie.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l43_q1",
+      question: "Pourquoi Médine n’est-elle pas une “page blanche” ?",
+      options: [
+        "Parce qu’elle est vide",
+        "Parce qu’elle possède déjà un tissu social : tribus, alliances, intérêts",
+        "Parce qu’il n’y a aucune tribu",
+        "Parce qu’elle dépend de Quraysh",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La ville a déjà ses équilibres : la communauté doit composer avec une réalité sociale complexe.",
+    },
+    {
+      id: "l43_q2",
+      question: "Pourquoi l’organisation interne est-elle vitale à ce stade ?",
+      options: [
+        "Pour écrire de la poésie",
+        "Pour éviter chaos, rumeurs et manipulations (internes/externe)",
+        "Pour supprimer la prière",
+        "Pour quitter Médine",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Une communauté fragile est facilement manipulable. L’ordre protège la cohésion et la justice.",
+    },
+    {
+      id: "l43_boss_q1",
+      question: "Quel risque majeur existe si la société médinoise replonge dans ses fractures ?",
+      options: [
+        "Aucun risque",
+        "Une fragilité exploitable par ennemis internes et externes",
+        "Une augmentation du commerce",
+        "La fin des alliances",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Les fractures rendent la communauté vulnérable et ouvrent la porte à la manipulation.",
+      difficulty: "boss",
+    },
+  ],
+},
+l44: {
+  title: "Les premiers nuages : hypocrisie et tensions (≈ 623)",
+  illustration: world11_l44,
+  storyBlocks: [
+    { type: "subtitle", text: "🌫️ Quand l’islam devient visible… certains s’adaptent" },
+    {
+      type: "p",
+      text:
+        "À La Mecque, être musulman pouvait coûter cher : torture, boycott, humiliation. À Médine, la communauté commence à gagner un poids social. Et c’est ici qu’un phénomène apparaît dans les récits : certains rejoignent extérieurement, non par conviction profonde, mais par calcul.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce phénomène, souvent appelé “hypocrisie” dans le vocabulaire religieux, devient un défi nouveau : ce n’est plus un ennemi frontal. C’est un ennemi discret, qui parle comme toi, mais pense contre toi.",
+    },
+
+    { type: "subtitle", text: "🧨 Le danger intérieur" },
+    {
+      type: "p",
+      text:
+        "Le danger intérieur est plus dur à gérer que le danger extérieur. Un ennemi ouvert te pousse à la vigilance. Un ennemi masqué peut casser la confiance, semer des rumeurs, diviser en silence. Dans une ville déjà complexe, c’est explosif.",
+    },
+    {
+      type: "p",
+      text:
+        "La communauté doit donc apprendre une nouvelle compétence : la lucidité. Pas la paranoïa. La lucidité. La capacité de distinguer, de garder l’unité sans être naïf.",
+    },
+
+    { type: "subtitle", text: "⚖️ Une communauté qui grandit" },
+    {
+      type: "p",
+      text:
+        "Le vrai signe de maturité d’une communauté, ce n’est pas l’absence d’épreuves. C’est sa capacité à les traverser sans se détruire. Médine entre dans cette phase : construire malgré les tensions.",
+    },
+    {
+      type: "p",
+      text:
+        "Et pendant que la ville apprend à se protéger de l’intérieur… Quraysh prépare le choc de l’extérieur.",
+    },
+  ],
+  cliffhanger:
+    "Le calme se fissure. Et bientôt, la confrontation ne sera plus une possibilité… mais une réalité. Monde 12 : les menaces se rapprochent.",
+  keyPoints: [
+    "À Médine, l’islam devient visible : certains peuvent se rapprocher par calcul.",
+    "L’hypocrisie est un défi : danger intérieur, rumeurs, division silencieuse.",
+    "La communauté doit apprendre la lucidité sans tomber dans la paranoïa.",
+    "Pendant que Médine grandit, Quraysh prépare une confrontation extérieure.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l44_q1",
+      question: "Pourquoi un danger intérieur est-il plus difficile à gérer ?",
+      options: [
+        "Parce qu’il est toujours plus fort",
+        "Parce qu’il est discret et peut diviser sans être frontal",
+        "Parce qu’il n’existe pas",
+        "Parce qu’il empêche de prier",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Un danger masqué peut semer la division, la rumeur et la méfiance de l’intérieur.",
+    },
+    {
+      id: "l44_q2",
+      question: "Quelle attitude doit adopter la communauté face à cela ?",
+      options: [
+        "La paranoïa permanente",
+        "La lucidité : unité + prudence",
+        "L’ignorance totale",
+        "La fuite",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La Sîra met en avant la lucidité : protéger l’unité sans naïveté.",
+    },
+    {
+      id: "l44_boss_q1",
+      question: "Pourquoi l’apparition de ce phénomène est-elle liée au changement de contexte ?",
+      options: [
+        "Parce que l’islam disparaît",
+        "Parce que l’islam gagne une visibilité sociale à Médine",
+        "Parce que Quraysh devient musulmane",
+        "Parce que Médine est vide",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Quand l’islam devient visible et influent, certains peuvent s’y associer par intérêt plutôt que conviction.",
       difficulty: "boss",
     },
   ],

@@ -247,9 +247,81 @@ export const WORLDS = [
     },
     { id: "b9", type: "boss", title: "Boss Quiz — Monde 9", estMin: 10, required: true },
   ],
+},
+{
+  id: "world-10",
+  title: "Monde 10 — L’Hégire : la nuit où tout bascule (≈ 622)",
+  description:
+    "Le complot de Quraysh, la sortie, la grotte, la poursuite… puis l’arrivée à Qubāʾ et l’entrée à Médine. Une migration qui change l’Histoire.",
+  nodes: [
+    {
+      id: "l37",
+      type: "lesson",
+      title: "Le complot : une nuit décisive à La Mecque (≈ 622)",
+      estMin: 42,
+      required: true,
+    },
+    {
+      id: "l38",
+      type: "lesson",
+      title: "Thawr : la grotte et la poursuite (≈ 622)",
+      estMin: 45,
+      required: true,
+    },
+    {
+      id: "l39",
+      type: "lesson",
+      title: "Sur la route : Suraqah, promesse et protection (≈ 622)",
+      estMin: 40,
+      required: true,
+    },
+    {
+      id: "l40",
+      type: "lesson",
+      title: "Qubāʾ puis Médine : une nouvelle ère commence (≈ 622)",
+      estMin: 46,
+      required: true,
+    },
+    { id: "b10", type: "boss", title: "Boss Quiz — Monde 10", estMin: 12, required: true },
+  ],
+},
+{
+  id: "world-11",
+  title: "Monde 11 — Médine : bâtir après l’exil (≈ 622–623)",
+  description:
+    "Après l’Hégire, la survie devient construction : mosquée, fraternité, règles de vie… et les premiers signes de tension.",
+  nodes: [
+    {
+      id: "l41",
+      type: "lesson",
+      title: "Qubāʾ et la Mosquée : poser la première pierre (≈ 622)",
+      estMin: 44,
+      required: true,
+    },
+    {
+      id: "l42",
+      type: "lesson",
+      title: "Les Muhājirūn et les Anṣār : la fraternité qui sauve (≈ 622–623)",
+      estMin: 46,
+      required: true,
+    },
+    {
+      id: "l43",
+      type: "lesson",
+      title: "Une ville plurielle : accords, tribus, équilibres (≈ 622–623)",
+      estMin: 46,
+      required: true,
+    },
+    {
+      id: "l44",
+      type: "lesson",
+      title: "Les premiers nuages : hypocrisie et tensions (≈ 623)",
+      estMin: 44,
+      required: true,
+    },
+    { id: "b11", type: "boss", title: "Boss Quiz — Monde 11", estMin: 12, required: true },
+  ],
 }
-
-
 
 
 

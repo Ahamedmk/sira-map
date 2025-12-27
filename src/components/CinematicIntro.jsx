@@ -67,7 +67,7 @@ export default function CinematicIntro({
   if (!current) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] bg-neutral-950 text-white overflow-hidden">
+    <div className="fixed inset-0 z-9999 bg-neutral-950 text-white overflow-hidden">
       {/* Header avec fade-in */}
       <div 
         className={`px-4 pt-4 flex items-center justify-between transition-all duration-700 ${

@@ -30,6 +30,14 @@ export default function LessonPage() {
     if (lessonId === "l13") return "world4_revelation";
     if (lessonId === "l21") return "world6_boycott";
     if (lessonId === "l25") return "world7_sorrow";
+    if (lessonId === "l34") return "world10_hijrah";
+    if (lessonId === "l38") return "world11_build";
+    if (lessonId === "l46") return "world13_badr";
+    if (lessonId === "l54") return "world15_uhud";
+    if (lessonId === "l63") return "world17_khandaq";
+    if (lessonId === "l71") return "world19_hudaybiyyah";
+    if (lessonId === "l83") return "world22_fath";
+    if (lessonId === "l94") return "world24_final";
     return null;
   }, [lessonId]);
 

@@ -14,6 +14,7 @@ import BonusReviewQuiz from "../pages/BonusReviewQuiz.jsx";
 
 import ResultSuccess from "../pages/ResultSuccess.jsx";
 import ResultFail from "../pages/ResultFail.jsx";
+import Timeline from "../pages/Timeline";
 
 export const routes = [
   { path: "/", element: <Navigate to="/map" replace /> },
@@ -23,10 +24,12 @@ export const routes = [
   { path: "/review", element: <ReviewPage /> },
   { path: "/leaderboard", element: <LeaderboardPage /> },
   { path: "/profile", element: <ProfilePage /> },
+  { path:"/timeline", element:<Timeline /> },
 
   // Flow pédagogique
   { path: "/lesson/:lessonId", element: <LessonPage /> },
   { path: "/quiz/:lessonId", element: <QuizPage /> },
+  
 
   // Résultats (UNIQUE source)
   { path: "/result/success/:lessonId", element: <ResultSuccess /> },
