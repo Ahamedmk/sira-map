@@ -44,6 +44,10 @@ import world11_l41 from "../assets/illustrations/worlds/world11_l41.png";
 import world11_l42 from "../assets/illustrations/worlds/world11_l42.png";
 import world11_l43 from "../assets/illustrations/worlds/world11_l43.png";
 import world11_l44 from "../assets/illustrations/worlds/world11_l44.png";
+import world12_l45 from "../assets/illustrations/worlds/world12_l45.png";
+import world12_l46 from "../assets/illustrations/worlds/world12_l46.png";
+import world12_l47 from "../assets/illustrations/worlds/world12_l47.png";
+import world12_l48 from "../assets/illustrations/worlds/world12_l48.png";
 
 
 export const LESSONS_CONTENT = {
@@ -477,6 +481,7 @@ l4: {
 l5: {
   title: "La lignée : un nom qui pèse avant même la naissance",
   illustration: world2_l5,
+  audio: "/audio/lessons/l5.mp3",
   storyBlocks: [
     { type: "subtitle", text: "🧬 Un monde où le nom est une armure" },
     { type: "p", text: "Dans une société tribale, la lignée n’est pas un détail. C’est une carte d’identité, un bouclier, une histoire." },
@@ -559,6 +564,7 @@ l5: {
 l6: {
   title: "Les parents : une histoire courte, mais décisive",
   illustration: world2_l6,
+  audio: "/audio/lessons/l6.mp3",
   storyBlocks: [
     { type: "subtitle", text: "👣 Avant la mission, une vie humaine" },
     { type: "p", text: "Avant d’être Messager, il y a une histoire humaine : un père, une mère, une famille." },
@@ -3647,6 +3653,351 @@ l44: {
     },
   ],
 },
+l45: {
+  title: "Quraysh n’a pas abandonné (≈ 623)",
+  illustration: world12_l45,
+  storyBlocks: [
+    { type: "subtitle", text: "👀 Une puissance blessée observe" },
+    {
+      type: "p",
+      text:
+        "Après l’Hégire, Quraysh n’est pas apaisée. Elle est blessée. Elle a perdu le contrôle de la scène, mais pas sa puissance. Et une puissance blessée ne pardonne pas facilement.",
+    },
+    {
+      type: "p",
+      text:
+        "Depuis La Mecque, Quraysh observe Médine. Elle voit une communauté qui s’organise, qui ne disparaît pas comme prévu. Et plus le temps passe, plus une question devient dangereuse : que se passera-t-il si cette communauté devient stable ?",
+    },
+
+    { type: "subtitle", text: "⚖️ Un nouvel équilibre régional" },
+    {
+      type: "p",
+      text:
+        "La présence musulmane à Médine modifie l’équilibre de la région. Les alliances tribales, les routes commerciales, les rapports de force… tout est impacté. Même sans bataille, l’existence de Médine est déjà une provocation stratégique.",
+    },
+    {
+      type: "p",
+      text:
+        "Dans ce contexte, la confrontation ne naît pas d’un désir de guerre, mais d’un choc d’intérêts. Quraysh ne veut pas laisser émerger une force qui pourrait remettre en cause son statut.",
+    },
+
+    { type: "subtitle", text: "⏳ Le temps joue contre la paix" },
+    {
+      type: "p",
+      text:
+        "Plus le temps passe, plus la tension monte. Et dans l’Histoire, certaines périodes ne permettent pas de rester immobile. Soit une puissance agit… soit elle accepte de décliner.",
+    },
+  ],
+  cliffhanger:
+    "Mais frapper frontalement serait risqué. Alors Quraysh choisit une autre arme : l’économie.",
+  keyPoints: [
+    "Après l’Hégire, Quraysh reste une puissance blessée mais active.",
+    "L’existence de Médine modifie les équilibres régionaux sans combat.",
+    "La tension est stratégique avant d’être militaire.",
+    "Le temps rend la confrontation de plus en plus probable.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l45_q1",
+      question: "Pourquoi Quraysh est-elle qualifiée de “puissance blessée” ?",
+      options: [
+        "Parce qu’elle est pauvre",
+        "Parce qu’elle a perdu le contrôle du message mais pas sa puissance",
+        "Parce qu’elle est isolée",
+        "Parce qu’elle a quitté La Mecque",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Quraysh a perdu le contrôle idéologique mais conserve ses réseaux et sa force.",
+    },
+    {
+      id: "l45_q2",
+      question: "Pourquoi la présence musulmane à Médine est-elle stratégique ?",
+      options: [
+        "Parce qu’elle est cachée",
+        "Parce qu’elle modifie routes, alliances et rapports de force",
+        "Parce qu’elle ne concerne personne",
+        "Parce qu’elle supprime le commerce",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Même sans combat, une nouvelle force régionale change l’équilibre.",
+    },
+    {
+      id: "l45_boss_q1",
+      question: "Pourquoi le temps rend-il la confrontation plus probable ?",
+      options: [
+        "Parce que Médine disparaît",
+        "Parce qu’une puissance doit agir ou accepter de perdre son influence",
+        "Parce que la guerre est obligatoire",
+        "Parce que la paix est interdite",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Dans l’Histoire, une puissance qui voit son influence menacée finit par réagir.",
+      difficulty: "boss",
+    },
+  ],
+},
+l46: {
+  title: "La pression économique : frapper sans combattre (≈ 623)",
+  illustration: world12_l46,
+  storyBlocks: [
+    { type: "subtitle", text: "💰 Quand l’économie devient une arme" },
+    {
+      type: "p",
+      text:
+        "Quraysh comprend qu’une guerre ouverte peut être risquée. Alors elle active une autre arme : l’économie. Les routes commerciales reliant La Mecque au nord passent près de Médine. Et ces routes sont vitales.",
+    },
+    {
+      type: "p",
+      text:
+        "Dans le monde arabe de l’époque, couper une route commerciale n’est pas un simple désagrément. C’est menacer la survie économique d’une cité entière.",
+    },
+
+    { type: "subtitle", text: "⚔️ Une pression sans bataille" },
+    {
+      type: "p",
+      text:
+        "La tension monte sans qu’aucune bataille ne soit lancée. Chaque caravane devient un message politique. Chaque mouvement est observé. La guerre n’a pas commencé… mais elle est déjà dans les esprits.",
+    },
+    {
+      type: "p",
+      text:
+        "Pour la communauté musulmane, la situation est délicate : rester passif, c’est accepter l’asphyxie. Réagir, c’est risquer l’escalade.",
+    },
+
+    { type: "subtitle", text: "🧠 Dissuasion plutôt qu’agression" },
+    {
+      type: "p",
+      text:
+        "À ce stade, l’objectif n’est pas la conquête. Il s’agit de dissuader, de montrer que Médine n’est pas vulnérable. C’est une logique défensive dans un monde où la faiblesse attire l’attaque.",
+    },
+  ],
+  cliffhanger:
+    "Mais quand deux puissances se surveillent trop longtemps… un incident suffit pour tout faire basculer.",
+  keyPoints: [
+    "Quraysh utilise l’économie comme arme stratégique.",
+    "Les routes commerciales sont vitales pour La Mecque.",
+    "La pression précède la bataille : la guerre commence dans les esprits.",
+    "La dissuasion vise à éviter l’asphyxie sans déclencher une guerre totale.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l46_q1",
+      question: "Pourquoi les routes commerciales sont-elles cruciales pour Quraysh ?",
+      options: [
+        "Parce qu’elles servent à voyager",
+        "Parce qu’elles assurent la survie économique de La Mecque",
+        "Parce qu’elles sont religieuses",
+        "Parce qu’elles sont secrètes",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La Mecque dépend fortement du commerce caravannier.",
+    },
+    {
+      id: "l46_q2",
+      question: "Pourquoi parle-t-on de “pression sans bataille” ?",
+      options: [
+        "Parce qu’il n’y a aucun conflit",
+        "Parce que l’économie est utilisée comme moyen de pression",
+        "Parce que Médine attaque",
+        "Parce que Quraysh se retire",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La pression économique est une forme de conflit indirect.",
+    },
+    {
+      id: "l46_boss_q1",
+      question: "Quel est l’objectif principal de la dissuasion à ce stade ?",
+      options: [
+        "Conquérir La Mecque",
+        "Montrer que Médine n’est pas vulnérable",
+        "Forcer une conversion",
+        "Déclencher la guerre",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La dissuasion vise à éviter l’asphyxie et à prévenir l’attaque.",
+      difficulty: "boss",
+    },
+  ],
+},
+l47: {
+  title: "Surveiller, dissuader, se préparer (≈ 623–624)",
+  illustration: world12_l47,
+  storyBlocks: [
+    { type: "subtitle", text: "🛡️ Une communauté en apprentissage" },
+    {
+      type: "p",
+      text:
+        "Médine apprend une réalité nouvelle : la foi seule ne protège pas des agressions. Il faut anticiper, surveiller, comprendre les mouvements autour de soi.",
+    },
+    {
+      type: "p",
+      text:
+        "La communauté ne se prépare pas à dominer, mais à ne pas être écrasée. C’est une nuance essentielle pour comprendre la suite.",
+    },
+
+    { type: "subtitle", text: "📊 Observer avant d’agir" },
+    {
+      type: "p",
+      text:
+        "Les récits montrent une phase d’observation : comprendre les routes, les alliances, les intentions. Une erreur de lecture peut coûter très cher.",
+    },
+    {
+      type: "p",
+      text:
+        "Dans ce climat, chaque décision devient lourde. Rien n’est improvisé. Et pourtant, tout reste fragile.",
+    },
+
+    { type: "subtitle", text: "⏰ Le point de non-retour approche" },
+    {
+      type: "p",
+      text:
+        "Quand la pression dure trop longtemps, une sortie devient inévitable. Et cette sortie, bientôt, portera un nom qui marquera l’Histoire.",
+    },
+  ],
+  cliffhanger:
+    "Une caravane se prépare à passer. Et ce qui devait être une dissuasion va devenir… une confrontation.",
+  keyPoints: [
+    "La communauté médinoise apprend l’anticipation stratégique.",
+    "La préparation est défensive, pas expansionniste.",
+    "Observer et comprendre précède toute action.",
+    "La tension prolongée rend la confrontation inévitable.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l47_q1",
+      question: "Pourquoi la communauté doit-elle apprendre la stratégie ?",
+      options: [
+        "Pour dominer",
+        "Pour éviter d’être écrasée",
+        "Pour attaquer sans raison",
+        "Pour quitter Médine",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La préparation vise la protection et la survie.",
+    },
+    {
+      id: "l47_q2",
+      question: "Pourquoi l’observation est-elle essentielle à ce stade ?",
+      options: [
+        "Pour retarder indéfiniment",
+        "Pour éviter des erreurs coûteuses",
+        "Pour ignorer Quraysh",
+        "Pour provoquer",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Une mauvaise lecture stratégique peut déclencher une catastrophe.",
+    },
+    {
+      id: "l47_boss_q1",
+      question: "Quel danger naît d’une pression prolongée sans résolution ?",
+      options: [
+        "Aucun",
+        "Une confrontation inévitable",
+        "La paix durable",
+        "La disparition de Quraysh",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Quand la tension dure, un incident peut faire basculer vers l’affrontement.",
+      difficulty: "boss",
+    },
+  ],
+},
+l48: {
+  title: "La route de Badr : quand la confrontation devient possible (≈ 624)",
+  illustration: world12_l48,
+  storyBlocks: [
+    { type: "subtitle", text: "🛣️ Une caravane, un choix" },
+    {
+      type: "p",
+      text:
+        "En ≈ 624, une caravane de Quraysh revient du nord. Ce qui semblait être un épisode de dissuasion devient soudain un point de décision. Ignorer ? Intervenir ?",
+    },
+    {
+      type: "p",
+      text:
+        "À ce moment précis, personne ne parle encore de grande bataille. Mais l’engrenage est lancé.",
+    },
+
+    { type: "subtitle", text: "⚖️ Entre prudence et nécessité" },
+    {
+      type: "p",
+      text:
+        "La communauté ne cherche pas l’affrontement massif. Mais laisser passer le signal serait accepter la pression économique sans réponse. L’équilibre est fragile.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce choix n’est pas glorieux. Il est lourd. Et c’est justement ce poids qui rend la suite si humaine.",
+    },
+
+    { type: "subtitle", text: "🌪️ Le calme avant la tempête" },
+    {
+      type: "p",
+      text:
+        "Personne ne sait encore que ce pas mènera à un champ appelé Badr. Mais l’Histoire, elle, a déjà tourné la page.",
+    },
+  ],
+  cliffhanger:
+    "Ils ne sont pas venus pour une bataille… mais la bataille arrive. Monde 13 : Badr.",
+  keyPoints: [
+    "En ≈ 624, une caravane de Quraysh devient un point de bascule.",
+    "La confrontation naît d’une logique de pression et de réponse.",
+    "Le choix est stratégique et lourd, pas glorieux.",
+    "Badr se profile sans que personne n’en mesure encore l’ampleur.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l48_q1",
+      question: "Pourquoi la caravane devient-elle un point décisif ?",
+      options: [
+        "Parce qu’elle est religieuse",
+        "Parce qu’elle cristallise la pression économique",
+        "Parce qu’elle transporte des armes",
+        "Parce qu’elle annonce la victoire",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Elle symbolise la pression économique exercée par Quraysh.",
+    },
+    {
+      id: "l48_q2",
+      question: "Pourquoi le choix est-il décrit comme “lourd” ?",
+      options: [
+        "Parce qu’il est facile",
+        "Parce qu’il peut déclencher une confrontation majeure",
+        "Parce qu’il est symbolique",
+        "Parce qu’il est inutile",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Toute réponse peut entraîner une escalade irréversible.",
+    },
+    {
+      id: "l48_boss_q1",
+      question: "Quel est le sens historique de ce moment (≈ 624) ?",
+      options: [
+        "Un détail sans importance",
+        "Le point d’entrée vers la bataille de Badr",
+        "La fin des tensions",
+        "Le début de la paix",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Ce moment ouvre directement la voie à Badr.",
+      difficulty: "boss",
+    },
+  ],
+},
+
 
 
 };

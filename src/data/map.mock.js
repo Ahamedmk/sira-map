@@ -321,7 +321,46 @@ export const WORLDS = [
     },
     { id: "b11", type: "boss", title: "Boss Quiz — Monde 11", estMin: 12, required: true },
   ],
+  
+},
+{
+  id: "world-12",
+  title: "Monde 12 — La menace se rapproche (≈ 623–624)",
+  description:
+    "La communauté s’organise… mais Quraysh ne lâche rien. Pressions économiques, provocations, et une route commerciale qui devient un champ de tension.",
+  nodes: [
+    {
+      id: "l45",
+      type: "lesson",
+      title: "Quraysh n’a pas abandonné (≈ 623)",
+      estMin: 42,
+      required: true,
+    },
+    {
+      id: "l46",
+      type: "lesson",
+      title: "La pression économique : frapper sans combattre (≈ 623)",
+      estMin: 44,
+      required: true,
+    },
+    {
+      id: "l47",
+      type: "lesson",
+      title: "Surveiller, dissuader, se préparer (≈ 623–624)",
+      estMin: 46,
+      required: true,
+    },
+    {
+      id: "l48",
+      type: "lesson",
+      title: "La route de Badr : quand la confrontation devient possible (≈ 624)",
+      estMin: 48,
+      required: true,
+    },
+    { id: "b12", type: "boss", title: "Boss Quiz — Monde 12", estMin: 12, required: true },
+  ],
 }
+
 
 
 
