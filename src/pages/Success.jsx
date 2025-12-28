@@ -39,11 +39,18 @@ export default function SuccessPage() {
     p = markActiveDay(p);
     p = addXp(p, xp);
     p = completeNode(p, lessonId);
-    
-    // On planifie des révisions seulement pour les "lesson" (pas pour boss/review)
-    if (lesson?.node?.type === "lesson") {
-      p = scheduleReviewsForLesson(p, lessonId);
-    }
+    // ✅ Trigger "signup prompt" : 1 boss sur 3 (b1, b4, b7, b10...)
+const m = String(lessonId).match(/^b(\d+)$/);
+const bossNum = m ? Number(m[1]) : null;
+
+if (lesson?.node?.type === "boss" && bossNum && bossNum % 3 === 1) {
+  // On ne déclenche que si l’utilisateur est invité
+  localStorage.setItem("post_boss_prompt", "signup");
+}
+
+if (lesson?.node?.type === "lesson") {
+  p = scheduleReviewsForLesson(p, lessonId);
+}
 
     const res = evaluateBadges(p);
     p = res.progress;

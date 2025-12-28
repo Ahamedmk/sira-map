@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Map, Brain, Trophy, User } from "lucide-react";
+import { Map, Brain, Trophy, User, LogIn } from "lucide-react";
+import { useAuth } from "../lib/context/AuthContext.jsx";
 
 function Tab({ to, label, Icon }) {
   return (
@@ -68,6 +69,8 @@ function Tab({ to, label, Icon }) {
 }
 
 export default function BottomNav() {
+  const { user } = useAuth();
+
   const [visible, setVisible] = useState(true);
   const lastScrollY = useRef(0);
 
@@ -76,10 +79,8 @@ export default function BottomNav() {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
-        // Scroll vers le bas
         setVisible(false);
       } else {
-        // Scroll vers le haut
         setVisible(true);
       }
 
@@ -104,7 +105,13 @@ export default function BottomNav() {
             <Tab to="/map" label="Map" Icon={Map} />
             <Tab to="/review" label="Réviser" Icon={Brain} />
             <Tab to="/leaderboard" label="Classement" Icon={Trophy} />
-            <Tab to="/profile" label="Profil" Icon={User} />
+
+            {/* ✅ invité => Compte (login), connecté => Profil */}
+            {user ? (
+              <Tab to="/profile" label="Profil" Icon={User} />
+            ) : (
+              <Tab to="/login" label="Compte" Icon={LogIn} />
+            )}
           </div>
 
           <div className="h-1 bg-neutral-900/5 rounded-full mx-auto w-32 mb-2" />

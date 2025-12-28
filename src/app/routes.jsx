@@ -5,6 +5,7 @@ import MapPage from "../pages/Map.jsx";
 import ReviewPage from "../pages/Review.jsx";
 import LeaderboardPage from "../pages/Leaderboard.jsx";
 import ProfilePage from "../pages/Profile.jsx";
+import LoginPage from "../pages/Login.jsx";
 
 import LessonPage from "../pages/Lesson.jsx";
 import CollectionPage from "../pages/CollectionPage.jsx";
@@ -27,6 +28,7 @@ export const routes = [
   { path: "/profile", element: <ProfilePage /> },
   { path:"/timeline", element:<Timeline /> },
   { path:"/collection", element:<CollectionPage />},
+  { path:"/login", element:<LoginPage />},
 
   // Flow pédagogique
   { path: "/lesson/:lessonId", element: <LessonPage /> },

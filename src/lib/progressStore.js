@@ -85,6 +85,7 @@ export function loadProgress() {
 }
 
 export function saveProgress(p) {
+  p.updatedAt = Date.now();
   localStorage.setItem(KEY, JSON.stringify(p));
 }
 

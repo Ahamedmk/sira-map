@@ -5,7 +5,8 @@ import BottomNav from "../components/BottomNav.jsx";
 import BottomSheet from "../components/BottomSheet.jsx";
 
 import { computeMapUI } from "../data/map.mock.js";
-import { loadProgress } from "../lib/progressStore.js";
+import { loadProgress, isNodeCompleted } from "../lib/progressStore.js";
+import { useAuth } from "../lib/context/AuthContext.jsx";
 
 import {
   BookOpen,
@@ -18,6 +19,8 @@ import {
   Star,
   Trophy,
   Zap,
+  UserPlus,
+  ShieldCheck,
 } from "lucide-react";
 
 /* ------------------ Icons ------------------ */
@@ -43,11 +46,15 @@ function NodeIcon({ type, locked }) {
 /* ------------------ Page ------------------ */
 export default function MapPage() {
   const navigate = useNavigate();
+  const { user, loading: authLoading } = useAuth();
 
   const [progress, setProgress] = useState(() => loadProgress());
   const [sheetOpen, setSheetOpen] = useState(false);
   const [selectedNode, setSelectedNode] = useState(null);
   const [pulseNode, setPulseNode] = useState(null);
+
+  // ✅ Signup prompt (invité -> compte)
+  const [signupOpen, setSignupOpen] = useState(false);
 
   useEffect(() => {
     setProgress(loadProgress());
@@ -74,10 +81,35 @@ export default function MapPage() {
     }
   }, [next]);
 
+  /* ------------------ Signup Prompt Trigger ------------------ */
+  useEffect(() => {
+  if (authLoading) return;
+
+  // connecté => jamais de popup
+  if (user) return;
+
+  // déjà vu => ne pas re-spam
+  const alreadySeen = localStorage.getItem("signup_prompt_seen") === "1";
+  if (alreadySeen) return;
+
+  const postBoss = localStorage.getItem("post_boss_prompt"); // "signup"
+
+  if (postBoss === "signup") {
+    setSignupOpen(true);
+    localStorage.setItem("signup_prompt_seen", "1");
+    localStorage.removeItem("post_boss_prompt");
+  }
+}, [authLoading, user]);
+
+
   /* ------------------ Helpers ------------------ */
   function scrollTopInstant() {
-    // ✅ remonte en haut à chaque clic (UX propre)
-    window.scrollTo({ top: 0, behavior: "instant" });
+    // "instant" n'est pas standard partout → on garde un fallback safe
+    try {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    } catch {
+      window.scrollTo(0, 0);
+    }
   }
 
   function gotoNode(node) {
@@ -106,7 +138,6 @@ export default function MapPage() {
   function startNode() {
     if (!selectedNode) return;
 
-    // on ferme le sheet puis on navigue + scroll top
     setSheetOpen(false);
     gotoNode(selectedNode);
   }
@@ -137,7 +168,6 @@ export default function MapPage() {
       {/* ================= STICKY HEADER ================= */}
       <div className="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-neutral-200/50 shadow-sm">
         <div className="mx-auto max-w-md px-5 pt-6 pb-5">
-          {/* Header */}
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1">
               <h1 className="text-2xl font-bold bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-transparent">
@@ -162,7 +192,7 @@ export default function MapPage() {
             </div>
           </div>
 
-          {/* Active World Card avec animation */}
+          {/* Active World Card */}
           <div className="mt-5 rounded-3xl bg-gradient-to-br from-white via-white to-neutral-50 border border-neutral-200/50 p-5 shadow-lg shadow-neutral-200/50 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
 
@@ -326,13 +356,11 @@ export default function MapPage() {
                               </span>
                             )}
 
-                            {worldCompleted &&
-                              node.type === "review" &&
-                              !node.required && (
-                                <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-700 animate-pulse">
-                                  🎁 BONUS
-                                </span>
-                              )}
+                            {worldCompleted && node.type === "review" && !node.required && (
+                              <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-700 animate-pulse">
+                                🎁 BONUS
+                              </span>
+                            )}
                           </div>
                         </div>
                       </button>
@@ -345,7 +373,7 @@ export default function MapPage() {
         </main>
       </div>
 
-      {/* ================= BOTTOMS ================= */}
+      {/* ================= NODE SHEET ================= */}
       <BottomSheet
         open={sheetOpen}
         onOpenChange={setSheetOpen}
@@ -422,6 +450,54 @@ export default function MapPage() {
         )}
       </BottomSheet>
 
+      {/* ================= SIGNUP PROMPT SHEET ================= */}
+      <BottomSheet
+        open={signupOpen}
+        onOpenChange={setSignupOpen}
+        title="Sauvegarde ta progression 🔥"
+        description="Gratuit — pour ne jamais perdre tes mondes, tes badges et ton streak."
+      >
+        <div className="space-y-4">
+          <div className="rounded-2xl border bg-neutral-50 p-4 text-sm text-neutral-700">
+            <div className="flex items-start gap-3">
+              <div className="h-10 w-10 rounded-2xl bg-white border flex items-center justify-center">
+                <ShieldCheck size={18} className="text-emerald-700" />
+              </div>
+              <div className="space-y-1">
+                <p className="font-semibold text-neutral-900">Pourquoi créer un compte ?</p>
+                <ul className="list-disc pl-5 text-sm text-neutral-700 space-y-1">
+                  <li>Récupère ta progression sur n’importe quel appareil</li>
+                  <li>Ne perds pas tes XP, badges et séries</li>
+                  <li>Accède au classement quand il sera activé</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <button
+            onClick={() => {
+              setSignupOpen(false);
+              navigate("/login");
+            }}
+            className="w-full rounded-2xl bg-gradient-to-r from-neutral-900 to-neutral-800 text-white py-4 font-bold shadow-xl shadow-neutral-900/30 hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2"
+          >
+            <UserPlus size={20} />
+            Créer un compte (30 sec)
+          </button>
+
+          <button
+            onClick={() => setSignupOpen(false)}
+            className="w-full rounded-2xl border-2 border-neutral-200 bg-white py-4 font-bold hover:bg-neutral-50 active:scale-[0.98] transition-all duration-200"
+          >
+            Plus tard
+          </button>
+
+          <p className="text-xs text-neutral-500 text-center">
+            Tu peux continuer en invité, mais la progression reste sur cet appareil.
+          </p>
+        </div>
+      </BottomSheet>
+
       <BottomNav />
 
       <style>{`
@@ -437,18 +513,10 @@ export default function MapPage() {
           0%, 100% { transform: scale(1); }
           50% { transform: scale(1.02); }
         }
-        .animate-shimmer {
-          animation: shimmer 2s infinite;
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.5s ease-out;
-        }
-        .animate-pulse-slow {
-          animation: pulse-slow 2s ease-in-out 3;
-        }
-        .delay-1000 {
-          animation-delay: 1s;
-        }
+        .animate-shimmer { animation: shimmer 2s infinite; }
+        .animate-fadeIn { animation: fadeIn 0.5s ease-out; }
+        .animate-pulse-slow { animation: pulse-slow 2s ease-in-out 3; }
+        .delay-1000 { animation-delay: 1s; }
       `}</style>
     </div>
   );
