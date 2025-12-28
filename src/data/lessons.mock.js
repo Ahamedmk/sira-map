@@ -48,6 +48,19 @@ import world12_l45 from "../assets/illustrations/worlds/world12_l45.png";
 import world12_l46 from "../assets/illustrations/worlds/world12_l46.png";
 import world12_l47 from "../assets/illustrations/worlds/world12_l47.png";
 import world12_l48 from "../assets/illustrations/worlds/world12_l48.png";
+import world13_l49 from "../assets/illustrations/worlds/world13_l49.png";
+import world13_l50 from "../assets/illustrations/worlds/world13_l50.png";
+import world13_l51 from "../assets/illustrations/worlds/world13_l51.png";
+import world13_l52 from "../assets/illustrations/worlds/world13_l52.png";
+import world14_l53 from "../assets/illustrations/worlds/world14_l53.png";
+import world14_l54 from "../assets/illustrations/worlds/world14_l54.png";
+import world14_l55 from "../assets/illustrations/worlds/world14_l55.png";
+import world14_l56 from "../assets/illustrations/worlds/world14_l56.png";
+import world15_l57 from "../assets/illustrations/worlds/world15_l57.png";
+import world15_l58 from "../assets/illustrations/worlds/world15_l58.png";
+import world15_l59 from "../assets/illustrations/worlds/world15_l59.png";
+import world15_l60 from "../assets/illustrations/worlds/world15_l60.png";
+
 
 
 export const LESSONS_CONTENT = {
@@ -3997,6 +4010,940 @@ l48: {
     },
   ],
 },
+l49: {
+  title: "Une sortie sans armée (Ramadan 624)",
+  illustration: world13_l49,
+  storyBlocks: [
+    { type: "subtitle", text: "🚶‍♂️ Un départ qui ne ressemble pas à une guerre" },
+    {
+      type: "p",
+      text:
+        "Ramadan, année 624. La communauté sort de Médine avec une intention limitée : intercepter une caravane. Il ne s’agit ni d’une armée, ni d’une expédition militaire préparée.",
+    },
+    {
+      type: "p",
+      text:
+        "Ils sont environ 313. Peu d’armes. Deux chevaux seulement. Environ 70 chameaux, montés à tour de rôle. Rien ne ressemble à une armée prête pour une bataille majeure.",
+    },
+
+    { type: "subtitle", text: "⚖️ Une décision lourde mais assumée" },
+    {
+      type: "p",
+      text:
+        "Ce départ n’est pas une quête de combat. Il est une réponse à une pression économique prolongée. La communauté ne cherche pas le sang, mais la survie.",
+    },
+    {
+      type: "p",
+      text:
+        "À ce moment-là, personne n’imagine affronter Quraysh en force. Et pourtant, les engrenages de l’Histoire sont déjà en mouvement.",
+    },
+
+    { type: "subtitle", text: "⏳ Un point de non-retour discret" },
+    {
+      type: "p",
+      text:
+        "Chaque pas éloigne Médine. Chaque pas rapproche d’un affrontement que personne n’a encore nommé.",
+    },
+  ],
+  cliffhanger:
+    "Mais Quraysh ne laissera pas passer ce signal. Et elle ne viendra pas seule.",
+  keyPoints: [
+    "Le départ se fait en Ramadan 624.",
+    "Ils sont environ 313, très peu équipés.",
+    "L’objectif initial n’est pas une bataille.",
+    "La sortie est une réponse à une pression économique prolongée.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l49_q1",
+      question: "Pourquoi peut-on dire que ce départ n’est pas une expédition militaire classique ?",
+      options: [
+        "Parce qu’ils étaient nombreux",
+        "Parce qu’ils manquaient d’armes et de préparation militaire",
+        "Parce qu’ils avaient une grande cavalerie",
+        "Parce qu’ils cherchaient une conquête",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le groupe est réduit, peu armé, et non préparé pour une grande bataille.",
+    },
+    {
+      id: "l49_boss_q1",
+      question: "Quelle est la motivation principale de cette sortie ?",
+      options: [
+        "La conquête territoriale",
+        "La recherche du combat",
+        "La réponse à une pression économique et stratégique",
+        "L’expansion militaire",
+      ],
+      correctIndex: 2,
+      explanation:
+        "Il s’agit d’une réponse à la pression exercée par Quraysh, pas d’une quête de guerre.",
+      difficulty: "boss",
+    },
+  ],
+},
+l50: {
+  title: "313 face à près de 1000",
+  illustration: world13_l50,
+  storyBlocks: [
+    { type: "subtitle", text: "⚔️ Une mobilisation écrasante" },
+    {
+      type: "p",
+      text:
+        "Quraysh réagit violemment. Près de 1000 hommes quittent La Mecque. Des chefs, des combattants expérimentés, des armes, des chevaux, des chameaux.",
+    },
+    {
+      type: "p",
+      text:
+        "Le rapport de force est clair. Numériquement, logistiquement, militairement : tout penche du même côté.",
+    },
+
+    { type: "subtitle", text: "😰 La réalité frappe" },
+    {
+      type: "p",
+      text:
+        "Quand l’information arrive, la réalité s’impose brutalement : ce ne sera pas une simple interception. Ce sera une bataille.",
+    },
+    {
+      type: "p",
+      text:
+        "Certains n’étaient pas prêts. Certains ont peur. Et cette peur n’est ni cachée ni honteuse. Elle est humaine.",
+    },
+
+    { type: "subtitle", text: "🧠 Une décision collective" },
+    {
+      type: "p",
+      text:
+        "La question est simple et terrible : continuer ou rebrousser chemin ?",
+    },
+    {
+      type: "p",
+      text:
+        "Ce moment est un tournant moral. Il ne s’agit plus de survie économique, mais de tenir debout face à une force écrasante.",
+    },
+  ],
+  cliffhanger:
+    "La décision est prise. Et la nuit qui arrive sera lourde.",
+  keyPoints: [
+    "Quraysh mobilise près de 1000 hommes.",
+    "Le rapport de force est largement défavorable.",
+    "La confrontation devient inévitable.",
+    "La peur est présente et assumée.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l50_q1",
+      question: "Pourquoi la situation change-t-elle radicalement ?",
+      options: [
+        "Parce que la caravane disparaît",
+        "Parce que Quraysh arrive avec une armée massive",
+        "Parce que Médine attaque",
+        "Parce que la paix est signée",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La mobilisation massive de Quraysh transforme la situation en bataille.",
+    },
+    {
+      id: "l50_boss_q1",
+      question: "Pourquoi la peur n’est-elle pas présentée comme une faiblesse ?",
+      options: [
+        "Parce qu’elle est ignorée",
+        "Parce qu’elle est humaine face à une force écrasante",
+        "Parce qu’elle disparaît",
+        "Parce qu’elle est interdite",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La peur est naturelle dans un tel rapport de force.",
+      difficulty: "boss",
+    },
+  ],
+},
+l51: {
+  title: "La nuit avant la bataille",
+  illustration: world13_l51,
+  storyBlocks: [
+    { type: "subtitle", text: "🌙 Une nuit lourde" },
+    {
+      type: "p",
+      text:
+        "La nuit tombe à Badr. Peu dorment. Les corps sont fatigués, les esprits en alerte.",
+    },
+    {
+      type: "p",
+      text:
+        "Il n’y a pas de chants guerriers. Il y a du silence. Des regards. Des invocations.",
+    },
+
+    { type: "subtitle", text: "🙏 Une supplication intense" },
+    {
+      type: "p",
+      text:
+        "La prière devient refuge. Ce n’est plus une stratégie humaine qui est attendue, mais un secours d’en haut.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette nuit-là, la dépendance à Allah est totale. Rien n’est garanti. Rien n’est contrôlable.",
+    },
+
+    { type: "subtitle", text: "⏰ Le matin approche" },
+    {
+      type: "p",
+      text:
+        "L’aube n’apportera pas de réponses verbales. Elle apportera un choc.",
+    },
+  ],
+  cliffhanger:
+    "Le soleil se lève. Et l’Histoire retient son souffle.",
+  keyPoints: [
+    "La nuit est marquée par le silence et la fatigue.",
+    "La supplication devient centrale.",
+    "La dépendance à Allah est totale.",
+    "L’aube annonce un basculement historique.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l51_q1",
+      question: "Quelle atmosphère domine la nuit avant Badr ?",
+      options: [
+        "L’euphorie",
+        "Le silence et la gravité",
+        "La certitude de victoire",
+        "La fête",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La nuit est lourde, silencieuse et marquée par l’invocation.",
+    },
+    {
+      id: "l51_boss_q1",
+      question: "Pourquoi cette nuit est-elle spirituellement centrale ?",
+      options: [
+        "Parce que la bataille est gagnée",
+        "Parce que la dépendance à Allah est totale",
+        "Parce que personne n’a peur",
+        "Parce que tout est planifié",
+      ],
+      correctIndex: 1,
+      explanation:
+        "C’est une nuit d’abandon et de reliance totale.",
+      difficulty: "boss",
+    },
+  ],
+},
+l52: {
+  title: "Le jour de Badr",
+  illustration: world13_l52,
+  storyBlocks: [
+    { type: "subtitle", text: "☀️ Le choc" },
+    {
+      type: "p",
+      text:
+        "Le combat s’engage. 313 face à près de 1000. Peu d’armes contre une armée équipée.",
+    },
+    {
+      type: "p",
+      text:
+        "Mais ce jour-là, la supériorité numérique ne décide pas tout.",
+    },
+
+    { type: "subtitle", text: "⚔️ Une bataille décisive" },
+    {
+      type: "p",
+      text:
+        "Le combat est intense. Rapide. Décisif. Quraysh subit une défaite inattendue.",
+    },
+    {
+      type: "p",
+      text:
+        "Des figures majeures de La Mecque tombent. Et avec elles, l’illusion d’une domination incontestable.",
+    },
+
+    { type: "subtitle", text: "📜 Une trace indélébile" },
+    {
+      type: "p",
+      text:
+        "Badr n’est pas seulement une victoire militaire. C’est un message historique : la communauté ne peut plus être ignorée.",
+    },
+  ],
+  cliffhanger:
+    "Mais une victoire ne signifie pas la fin des épreuves. Elle ouvre un nouveau chapitre.",
+  keyPoints: [
+    "La bataille oppose environ 313 à près de 1000.",
+    "La victoire est inattendue et décisive.",
+    "Quraysh perd des figures majeures.",
+    "Badr change définitivement le regard porté sur la communauté musulmane.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l52_q1",
+      question: "Pourquoi la victoire de Badr est-elle inattendue ?",
+      options: [
+        "Parce que les musulmans étaient plus nombreux",
+        "Parce que le rapport de force était très défavorable",
+        "Parce que Quraysh était faible",
+        "Parce qu’il n’y a pas eu de combat",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Numériquement et militairement, l’avantage était du côté de Quraysh.",
+    },
+    {
+      id: "l52_boss_q1",
+      question: "Quel est l’impact historique principal de Badr ?",
+      options: [
+        "La fin des conflits",
+        "La reconnaissance de la communauté comme force incontournable",
+        "La conquête immédiate de La Mecque",
+        "La disparition de Quraysh",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Badr marque un tournant majeur dans l’équilibre des forces.",
+      difficulty: "boss",
+    },
+  ],
+},
+l53: {
+  title: "Le choc politique à La Mecque",
+  illustration: world14_l53,
+  storyBlocks: [
+    { type: "subtitle", text: "🏛️ Une défaite qui secoue les élites" },
+    {
+      type: "p",
+      text:
+        "À La Mecque, la nouvelle frappe comme un séisme. Badr n’est pas une simple défaite : c’est une humiliation publique.",
+    },
+    {
+      type: "p",
+      text:
+        "Des chefs influents sont morts. Des figures respectées sont tombées. Et surtout, une petite communauté a défié l’ordre établi.",
+    },
+
+    { type: "subtitle", text: "🔥 La vengeance devient un projet" },
+    {
+      type: "p",
+      text:
+        "Très vite, la défaite est transformée en moteur. Le discours change : il ne s’agit plus de contenir, mais d’écraser.",
+    },
+    {
+      type: "p",
+      text:
+        "La Mecque se prépare. Lentement. Méthodiquement. La prochaine confrontation sera différente.",
+    },
+
+    { type: "subtitle", text: "🧠 Un nouvel équilibre des forces" },
+    {
+      type: "p",
+      text:
+        "Badr modifie la carte politique de l’Arabie. Médine n’est plus ignorée. Elle est surveillée.",
+    },
+  ],
+  cliffhanger:
+    "Mais la réaction de La Mecque n’est qu’une partie du problème.",
+  keyPoints: [
+    "Badr provoque un choc politique majeur à La Mecque.",
+    "Des figures influentes ont été tuées.",
+    "La défaite nourrit un désir structuré de vengeance.",
+    "Médine devient un acteur central du jeu politique.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l53_q1",
+      question: "Pourquoi Badr est-il vécu comme une humiliation à La Mecque ?",
+      options: [
+        "Parce que la bataille était mineure",
+        "Parce que des chefs influents ont été tués",
+        "Parce que Médine était plus nombreuse",
+        "Parce que la guerre était inattendue",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La perte de figures majeures rend la défaite profondément humiliante.",
+    },
+    {
+      id: "l53_boss_q1",
+      question: "Quelle est la conséquence politique majeure de Badr ?",
+      options: [
+        "La paix immédiate",
+        "L’effondrement de La Mecque",
+        "La montée d’une vengeance structurée",
+        "La fin des tensions",
+      ],
+      correctIndex: 2,
+      explanation:
+        "Badr transforme l’hostilité en projet organisé.",
+      difficulty: "boss",
+    },
+  ],
+},
+l54: {
+  title: "Les prisonniers de Badr",
+  illustration: world14_l54,
+  storyBlocks: [
+    { type: "subtitle", text: "⛓️ Une question morale immédiate" },
+    {
+      type: "p",
+      text:
+        "Après la bataille, une question se pose : que faire des prisonniers ?",
+    },
+    {
+      type: "p",
+      text:
+        "Aucune tradition militaire claire n’existe pour une communauté encore jeune. Chaque décision compte.",
+    },
+
+    { type: "subtitle", text: "⚖️ Une gestion inédite" },
+    {
+      type: "p",
+      text:
+        "Certains prisonniers sont libérés contre rançon. D’autres contre un enseignement : apprendre à lire et écrire aux enfants de Médine.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette approche surprend. Elle tranche avec les pratiques habituelles de vengeance.",
+    },
+
+    { type: "subtitle", text: "📚 Le savoir comme libération" },
+    {
+      type: "p",
+      text:
+        "La bataille n’ouvre pas seulement une ère militaire. Elle ouvre une vision : le savoir devient une monnaie de valeur.",
+    },
+  ],
+  cliffhanger:
+    "Mais à Médine même, tout le monde ne vit pas la victoire de la même façon.",
+  keyPoints: [
+    "La gestion des prisonniers pose un défi moral.",
+    "Certains sont libérés contre rançon ou enseignement.",
+    "La démarche est novatrice pour l’époque.",
+    "Le savoir devient un outil de reconstruction.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l54_q1",
+      question: "Quelle solution originale est proposée pour certains prisonniers ?",
+      options: [
+        "Le travail forcé",
+        "L’exil",
+        "L’enseignement de la lecture et de l’écriture",
+        "La détention prolongée",
+      ],
+      correctIndex: 2,
+      explanation:
+        "Certains prisonniers sont libérés contre un enseignement.",
+    },
+    {
+      id: "l54_boss_q1",
+      question: "Que révèle cette gestion des prisonniers ?",
+      options: [
+        "Une logique de vengeance",
+        "Une vision éducative et morale",
+        "Une faiblesse militaire",
+        "Une improvisation totale",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La gestion privilégie la valeur du savoir et la retenue.",
+      difficulty: "boss",
+    },
+  ],
+},
+l55: {
+  title: "Médine sous tension",
+  illustration: world14_l55,
+  storyBlocks: [
+    { type: "subtitle", text: "🏘️ Une ville qui change" },
+    {
+      type: "p",
+      text:
+        "La victoire transforme Médine. Le regard des tribus change. Le respect augmente. Mais avec lui… les tensions.",
+    },
+    {
+      type: "p",
+      text:
+        "Certains rejoignent sincèrement. D’autres observent, calculent, attendent.",
+    },
+
+    { type: "subtitle", text: "🧩 Les premières fractures" },
+    {
+      type: "p",
+      text:
+        "L’hypocrisie commence à émerger. Pas par la force, mais par le discours.",
+    },
+    {
+      type: "p",
+      text:
+        "Tous ne partagent pas la même sincérité. Tous ne vivent pas la victoire comme un bien.",
+    },
+
+    { type: "subtitle", text: "⚠️ Un danger intérieur" },
+    {
+      type: "p",
+      text:
+        "La communauté découvre une réalité nouvelle : le danger ne vient plus seulement de l’extérieur.",
+    },
+  ],
+  cliffhanger:
+    "Et ce danger intérieur pèsera lourd lors des prochaines épreuves.",
+  keyPoints: [
+    "La victoire modifie la dynamique interne de Médine.",
+    "De nouveaux comportements apparaissent.",
+    "L’hypocrisie commence à émerger.",
+    "Le danger intérieur devient une réalité.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l55_q1",
+      question: "Pourquoi Médine devient-elle plus tendue après Badr ?",
+      options: [
+        "À cause de la famine",
+        "À cause de nouveaux équilibres sociaux",
+        "À cause d’une défaite",
+        "À cause d’une migration massive",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La victoire modifie les rapports internes et externes.",
+    },
+    {
+      id: "l55_boss_q1",
+      question: "Quel nouveau type de danger apparaît après Badr ?",
+      options: [
+        "Uniquement militaire",
+        "Économique",
+        "Intérieur et moral",
+        "Naturel",
+      ],
+      correctIndex: 2,
+      explanation:
+        "Les tensions internes deviennent un enjeu majeur.",
+      difficulty: "boss",
+    },
+  ],
+},
+l56: {
+  title: "Une victoire qui révèle les cœurs",
+  illustration: world14_l56,
+  storyBlocks: [
+    { type: "subtitle", text: "❤️ La victoire comme révélateur" },
+    {
+      type: "p",
+      text:
+        "La victoire ne teste pas seulement les ennemis. Elle teste les croyants.",
+    },
+    {
+      type: "p",
+      text:
+        "Certains s’élèvent. D’autres se dévoilent. Les intentions deviennent visibles.",
+    },
+
+    { type: "subtitle", text: "🪞 Un miroir spirituel" },
+    {
+      type: "p",
+      text:
+        "Badr agit comme un miroir : il montre ce que chacun porte réellement.",
+    },
+    {
+      type: "p",
+      text:
+        "La foi n’est plus seulement une épreuve de survie. Elle devient une épreuve de sincérité.",
+    },
+
+    { type: "subtitle", text: "📖 Une leçon durable" },
+    {
+      type: "p",
+      text:
+        "La communauté apprend que la réussite n’est pas la fin du chemin. Elle est parfois le début d’épreuves plus subtiles.",
+    },
+  ],
+  cliffhanger:
+    "Et déjà, à La Mecque, la revanche se prépare.",
+  keyPoints: [
+    "La victoire révèle les intentions.",
+    "Les épreuves deviennent plus subtiles.",
+    "La sincérité devient centrale.",
+    "Badr n’est pas la fin du combat.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l56_q1",
+      question: "Pourquoi la victoire est-elle décrite comme un révélateur ?",
+      options: [
+        "Parce qu’elle met fin aux tensions",
+        "Parce qu’elle montre les intentions réelles",
+        "Parce qu’elle supprime la peur",
+        "Parce qu’elle garantit la paix",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La victoire dévoile les cœurs et les motivations.",
+    },
+    {
+      id: "l56_boss_q1",
+      question: "Quelle grande leçon spirituelle ressort après Badr ?",
+      options: [
+        "La victoire suffit",
+        "La foi n’a plus d’épreuves",
+        "La réussite peut être une épreuve",
+        "La guerre est terminée",
+      ],
+      correctIndex: 2,
+      explanation:
+        "Les épreuves continuent, parfois plus discrètes.",
+      difficulty: "boss",
+    },
+  ],
+},
+l57: {
+  title: "La revanche de Quraysh : une armée vers Médine (625)",
+  illustration: world15_l57,
+  storyBlocks: [
+    { type: "subtitle", text: "🔥 La Mecque ne digère pas Badr" },
+    {
+      type: "p",
+      text:
+        "Après Badr (624), La Mecque n’a plus un objectif : elle a une obsession. La défaite a touché l’honneur, et dans l’Arabie tribale, l’honneur ne se “soigne” pas avec le silence. Il se “répare” par un acte visible.",
+    },
+    {
+      type: "p",
+      text:
+        "La vengeance devient un projet. Pas une impulsion. Un projet. Une mobilisation, une marche, une démonstration de force : Quraysh veut effacer l’humiliation et briser l’élan médinois.",
+    },
+
+    { type: "subtitle", text: "🛡️ Une menace réelle" },
+    {
+      type: "p",
+      text:
+        "En 625 (année 3 de l’Hégire), Quraysh rassemble une armée considérable : les sources de Sîra mentionnent environ 3000 hommes. L’objectif est clair : atteindre Médine, imposer le choc, et ramener la peur.",
+    },
+    {
+      type: "p",
+      text:
+        "Côté musulman, la communauté ne cherche pas la bataille — mais elle ne peut pas l’ignorer. Elle doit décider : attendre l’assaut dans la ville, ou sortir à la rencontre ?",
+    },
+
+    { type: "subtitle", text: "⚖️ Une décision qui pèse sur les épaules" },
+    {
+      type: "p",
+      text:
+        "Ce choix n’a rien d’abstrait : derrière lui, il y a des familles, des rues, une ville entière. Une communauté qui n’a que quelques années d’existence et qui sait désormais que les ennemis n’ont pas renoncé.",
+    },
+  ],
+  cliffhanger:
+    "Ils sortent. Et la montagne d’Uḥud devient le témoin silencieux d’une journée que personne n’oubliera.",
+  keyPoints: [
+    "Après Badr, Quraysh vise à laver l’humiliation et briser l’élan de Médine.",
+    "En 625 (3 H), Quraysh mobilise environ 3000 hommes.",
+    "La communauté musulmane doit choisir : défense urbaine ou sortie stratégique.",
+    "Le choc d’Uḥud s’inscrit dans une logique de revanche.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l57_q1",
+      question: "Quel est le moteur principal de Quraysh après Badr ?",
+      options: [
+        "La conversion massive",
+        "La vengeance et la restauration de l’honneur",
+        "L’exil",
+        "Le commerce uniquement",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Après Badr, Quraysh veut effacer l’humiliation et réaffirmer son autorité.",
+    },
+    {
+      id: "l57_q2",
+      question: "Quel est l’enjeu de la décision côté musulman ?",
+      options: [
+        "Choisir une nouvelle capitale",
+        "Attendre dans Médine ou sortir à la rencontre",
+        "Partir en Abyssinie",
+        "Arrêter tout commerce",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La communauté doit décider la meilleure posture défensive face à une armée massive.",
+    },
+    {
+      id: "l57_boss_q1",
+      question: "Pourquoi Uḥud n’est-il pas une bataille “optionnelle” pour Médine ?",
+      options: [
+        "Parce que Médine n’existe plus",
+        "Parce que la menace vise directement la sécurité de la ville",
+        "Parce que la bataille est festive",
+        "Parce que Quraysh est faible",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La marche de Quraysh vise à frapper au cœur : Médine doit réagir pour survivre.",
+      difficulty: "boss",
+    },
+  ],
+},
+l58: {
+  title: "Uḥud : placement, archers et discipline (≈ 700 vs ≈ 3000)",
+  illustration: world15_l58,
+  storyBlocks: [
+    { type: "subtitle", text: "🏔️ La montagne comme bouclier" },
+    {
+      type: "p",
+      text:
+        "Uḥud n’est pas seulement un lieu : c’est une géographie stratégique. La montagne protège un flanc, mais elle ne protège pas tout. Là où le terrain ouvre une brèche, un ennemi peut contourner et frapper derrière.",
+    },
+    {
+      type: "p",
+      text:
+        "Les musulmans sont environ 700 au moment de l’affrontement (après des départs). Face à eux, Quraysh est autour de 3000. L’écart est lourd, et chaque détail devient vital.",
+    },
+
+    { type: "subtitle", text: "🏹 Les archers : une mission simple… et décisive" },
+    {
+      type: "p",
+      text:
+        "Un groupe d’archers est placé sur un point élevé afin de verrouiller le flanc. Leur ordre est clair : ne pas quitter leur position, quoi qu’il arrive. Dans une bataille, il suffit parfois d’un flanc ouvert pour que tout s’écroule.",
+    },
+    {
+      type: "p",
+      text:
+        "Au début, l’élan semble favorable aux musulmans. Quraysh recule. Le sol parle la langue des pas qui fuient, et l’air ressemble à une victoire en train de naître…",
+    },
+
+    { type: "subtitle", text: "⚠️ La discipline : la ligne fine entre l’ordre et le chaos" },
+    {
+      type: "p",
+      text:
+        "C’est ici que la leçon d’Uḥud commence avant même le retournement : la discipline n’est pas un détail. C’est la structure invisible qui tient une armée debout.",
+    },
+  ],
+  cliffhanger:
+    "Et puis… la tentation apparaît. Quelques instants. Un mouvement. Un flanc s’ouvre.",
+  keyPoints: [
+    "Uḥud est un terrain stratégique : la montagne protège mais le flanc reste critique.",
+    "Les musulmans ≈ 700, Quraysh ≈ 3000 (écart massif).",
+    "Les archers ont l’ordre de rester en position pour verrouiller le flanc.",
+    "La discipline est un facteur décisif, avant même le combat direct.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l58_q1",
+      question: "Quel est le rôle principal des archers à Uḥud ?",
+      options: [
+        "Charger au centre",
+        "Verrouiller le flanc depuis une hauteur",
+        "Garder les chameaux",
+        "Négocier la paix",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Les archers protègent le flanc : une brèche permet un contournement.",
+    },
+    {
+      id: "l58_q2",
+      question: "Pourquoi la discipline est-elle décrite comme “structure invisible” ?",
+      options: [
+        "Parce qu’elle rend la bataille amusante",
+        "Parce qu’elle maintient l’ordre et empêche le chaos",
+        "Parce qu’elle supprime le danger",
+        "Parce qu’elle remplace les armes",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Sans discipline, une armée se fragmente et devient vulnérable au contournement.",
+    },
+    {
+      id: "l58_boss_q1",
+      question: "Pourquoi l’écart ≈700 vs ≈3000 rend-il chaque détail vital ?",
+      options: [
+        "Parce que le nombre ne compte jamais",
+        "Parce que l’infériorité numérique exige une stratégie sans faille",
+        "Parce que Quraysh ne combat pas",
+        "Parce que la montagne suffit à tout",
+      ],
+      correctIndex: 1,
+      explanation:
+        "En infériorité, la moindre brèche peut provoquer l’effondrement du dispositif.",
+      difficulty: "boss",
+    },
+  ],
+},
+l59: {
+  title: "Quand la ligne se brise : confusion et retournement",
+  illustration: world15_l59,
+  storyBlocks: [
+    { type: "subtitle", text: "🧨 Une brèche, puis une vague" },
+    {
+      type: "p",
+      text:
+        "Le moment du retournement à Uḥud n’a rien de mythique. Il est brutalement logique : un flanc se fragilise, et l’ennemi exploite. Quand la position des archers se vide, le contournement devient possible.",
+    },
+    {
+      type: "p",
+      text:
+        "Le champ de bataille change de visage en quelques instants. Ce qui était une avancée devient une alerte. Ce qui ressemblait à une victoire devient un piège qui se referme.",
+    },
+
+    { type: "subtitle", text: "😨 La confusion : l’ennemi le plus dangereux" },
+    {
+      type: "p",
+      text:
+        "Dans une bataille, la confusion tue plus vite que l’épée. Quand les lignes ne sont plus claires, quand les cris se mélangent, quand chacun ne sait plus où est l’autre… l’ennemi gagne du terrain sans même être plus courageux : il est juste plus organisé.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce jour-là, la communauté goûte un goût qu’elle n’avait pas connu à Badr : le goût de la déstabilisation. Ce goût qui serre la gorge et fait trembler les mains.",
+    },
+
+    { type: "subtitle", text: "💔 Une épreuve qui touche le cœur" },
+    {
+      type: "p",
+      text:
+        "Uḥud ne laisse pas seulement des blessures physiques. Il laisse une blessure intérieure : 'Comment cela a-t-il pu arriver ?' C’est la question qui frappe les croyants comme un coup d’air froid.",
+    },
+  ],
+  cliffhanger:
+    "Et au milieu du chaos… une rumeur circule. Une rumeur qui pourrait effondrer les cœurs.",
+  keyPoints: [
+    "Le retournement est lié à une brèche sur le flanc (importance des archers).",
+    "La confusion désorganise et amplifie les pertes.",
+    "Uḥud introduit une épreuve différente : la déstabilisation morale.",
+    "La bataille devient une leçon douloureuse sur la discipline et la cohésion.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l59_q1",
+      question: "Pourquoi la confusion est-elle si dangereuse sur un champ de bataille ?",
+      options: [
+        "Parce qu’elle rend la victoire certaine",
+        "Parce qu’elle désorganise les lignes et amplifie les pertes",
+        "Parce qu’elle n’a aucun impact",
+        "Parce qu’elle aide à dormir",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Quand les lignes se brisent, l’ennemi exploite la désorganisation.",
+    },
+    {
+      id: "l59_q2",
+      question: "Quelle différence majeure Uḥud introduit par rapport à Badr ?",
+      options: [
+        "Aucune différence",
+        "Une épreuve de déstabilisation morale et de confusion",
+        "Une paix immédiate",
+        "Un commerce florissant",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Uḥud met les croyants face au choc, au doute et à la déstabilisation.",
+    },
+    {
+      id: "l59_boss_q1",
+      question: "Quel lien logique explique le retournement à Uḥud ?",
+      options: [
+        "Un miracle soudain",
+        "Une brèche stratégique exploitée par contournement",
+        "Le hasard total",
+        "La supériorité numérique n’a aucun rôle",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Une position clé fragilisée ouvre le flanc et permet un retournement tactique.",
+      difficulty: "boss",
+    },
+  ],
+},
+l60: {
+  title: "Après Uḥud : blessures, leçons, et foi éprouvée",
+  illustration: world15_l60,
+  storyBlocks: [
+    { type: "subtitle", text: "🩸 Le silence après le choc" },
+    {
+      type: "p",
+      text:
+        "Après Uḥud, le bruit du combat s’éteint… mais le bruit intérieur reste. Les visages portent la fatigue. Les corps portent les blessures. Les cœurs portent la question : 'Pourquoi ?'",
+    },
+    {
+      type: "p",
+      text:
+        "Uḥud rappelle une vérité difficile : la foi n’annule pas les conséquences. La foi donne du sens, mais elle n’efface pas l’exigence de discipline, ni les réalités du monde.",
+    },
+
+    { type: "subtitle", text: "🧠 La leçon : obéir, tenir, ne pas se disperser" },
+    {
+      type: "p",
+      text:
+        "La leçon d’Uḥud n’est pas une humiliation gratuite. Elle est une éducation. La communauté apprend que les ordres ne sont pas décoratifs. Ils protègent.",
+    },
+    {
+      type: "p",
+      text:
+        "Et surtout : la victoire ne doit pas nourrir l’orgueil. Car l’orgueil fait tomber plus vite que la peur.",
+    },
+
+    { type: "subtitle", text: "⏳ La suite n’attend pas" },
+    {
+      type: "p",
+      text:
+        "Uḥud n’est pas la fin. C’est un chapitre. Et ceux qui ont juré vengeance n’ont pas disparu. Les menaces continuent, les alliances bougent, et l’Histoire ne ralentit pas.",
+    },
+  ],
+  cliffhanger:
+    "La Mecque n’a pas tout obtenu… mais elle n’a pas renoncé. Et bientôt, le danger viendra encore autrement.",
+  keyPoints: [
+    "Après Uḥud, le choc est moral autant que physique.",
+    "La foi n’annule pas les conséquences : discipline et cohésion restent vitales.",
+    "Uḥud enseigne l’obéissance et met en garde contre l’orgueil.",
+    "La confrontation ne s’arrête pas : la menace continue sous d’autres formes.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l60_q1",
+      question: "Quelle est la leçon centrale d’Uḥud pour la communauté ?",
+      options: [
+        "La victoire est garantie",
+        "La discipline et l’obéissance protègent la cohésion",
+        "La peur est interdite",
+        "Le commerce est inutile",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Uḥud montre que la cohésion dépend du respect des consignes et de la discipline.",
+    },
+    {
+      id: "l60_q2",
+      question: "Pourquoi dit-on que la foi n’annule pas les conséquences ?",
+      options: [
+        "Parce que la foi n’existe pas",
+        "Parce que les réalités du monde exigent discipline et responsabilité",
+        "Parce qu’il n’y a pas de leçon",
+        "Parce que tout est hasard",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La foi donne du sens, mais l’erreur et la désorganisation ont des effets réels.",
+    },
+    {
+      id: "l60_boss_q1",
+      question: "Quel danger spirituel Uḥud met-il aussi en lumière ?",
+      options: [
+        "L’orgueil après une réussite",
+        "L’amour du savoir",
+        "La patience",
+        "La fraternité",
+      ],
+      correctIndex: 0,
+      explanation:
+        "L’orgueil et la dispersion peuvent détruire une dynamique collective.",
+      difficulty: "boss",
+    },
+  ],
+},
+
 
 
 

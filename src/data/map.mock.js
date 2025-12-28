@@ -359,9 +359,130 @@ export const WORLDS = [
     },
     { id: "b12", type: "boss", title: "Boss Quiz — Monde 12", estMin: 12, required: true },
   ],
+},
+{
+  id: "world-13",
+  title: "Monde 13 — Badr : quand l’Histoire bascule (Ramadan 624)",
+  description:
+    "Ils ne sont pas venus pour la guerre. Ils sont 313 face à près de 1000. Fatigués, peu armés… mais portés par une conviction qui va marquer l’Histoire.",
+  nodes: [
+    {
+      id: "l49",
+      type: "lesson",
+      title: "Une sortie sans armée (Ramadan 624)",
+      estMin: 50,
+      required: true,
+    },
+    {
+      id: "l50",
+      type: "lesson",
+      title: "313 face à près de 1000 (Badr)",
+      estMin: 55,
+      required: true,
+    },
+    {
+      id: "l51",
+      type: "lesson",
+      title: "La nuit avant la bataille",
+      estMin: 52,
+      required: true,
+    },
+    {
+      id: "l52",
+      type: "lesson",
+      title: "Le jour de Badr",
+      estMin: 60,
+      required: true,
+    },
+    {
+      id: "b13",
+      type: "boss",
+      title: "Boss Quiz — Badr",
+      estMin: 15,
+      required: true,
+    },
+  ],
+},
+{
+  id: "world-14",
+  title: "Monde 14 — Après Badr : le prix de la victoire",
+  description:
+    "La bataille est gagnée. Mais une victoire attire de nouveaux regards, de nouvelles haines… et de nouvelles failles.",
+  nodes: [
+    {
+      id: "l53",
+      type: "lesson",
+      title: "Le choc politique à La Mecque",
+      estMin: 45,
+      required: true,
+    },
+    {
+      id: "l54",
+      type: "lesson",
+      title: "Les prisonniers de Badr",
+      estMin: 48,
+      required: true,
+    },
+    {
+      id: "l55",
+      type: "lesson",
+      title: "Médine sous tension",
+      estMin: 50,
+      required: true,
+    },
+    {
+      id: "l56",
+      type: "lesson",
+      title: "Une victoire qui révèle les cœurs",
+      estMin: 52,
+      required: true,
+    },
+    {
+      id: "b14",
+      type: "boss",
+      title: "Boss Quiz — Après Badr",
+      estMin: 15,
+      required: true,
+    },
+  ],
+},
+{
+  id: "world-15",
+  title: "Monde 15 — Uḥud : quand l’erreur coûte cher (Shawwāl 625)",
+  description:
+    "Après Badr, Quraysh revient avec vengeance. Les musulmans sont environ 700 face à ~3000. Au début tout bascule en leur faveur… puis une faille change tout.",
+  nodes: [
+    {
+      id: "l57",
+      type: "lesson",
+      title: "La revanche de Quraysh : une armée vers Médine (625)",
+      estMin: 52,
+      required: true,
+    },
+    {
+      id: "l58",
+      type: "lesson",
+      title: "Uḥud : placement, archers et discipline (≈ 700 vs ≈ 3000)",
+      estMin: 58,
+      required: true,
+    },
+    {
+      id: "l59",
+      type: "lesson",
+      title: "Quand la ligne se brise : confusion et retournement",
+      estMin: 60,
+      required: true,
+    },
+    {
+      id: "l60",
+      type: "lesson",
+      title: "Après Uḥud : blessures, leçons, et foi éprouvée",
+      estMin: 56,
+      required: true,
+    },
+    { id: "b15", type: "boss", title: "Boss Quiz — Uḥud", estMin: 16, required: true },
+  ],
 }
-
-
 
 
   // Tu pourras ajouter Monde 2, Monde 3 etc.
