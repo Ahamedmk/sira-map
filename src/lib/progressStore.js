@@ -1,4 +1,13 @@
 const KEY = "sira_progress_v1";
+let _cloudSync = null;
+
+/**
+ * Permet de brancher un push cloud sans coupler progressStore à Supabase.
+ * Exemple: setProgressCloudSync((progress) => queueRemoteProgress(user.id, progress))
+ */
+export function setProgressCloudSync(fn) {
+  _cloudSync = typeof fn === "function" ? fn : null;
+}
 
 function todayISO() {
   const d = new Date();
@@ -87,7 +96,15 @@ export function loadProgress() {
 export function saveProgress(p) {
   p.updatedAt = Date.now();
   localStorage.setItem(KEY, JSON.stringify(p));
+
+  // ✅ push cloud (si branché)
+  try {
+    _cloudSync?.(p);
+  } catch (e) {
+    console.warn("cloudSync failed:", e?.message || e);
+  }
 }
+
 
 export function markActiveDay(p) {
   const t = todayISO();

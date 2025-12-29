@@ -1,6 +1,18 @@
-import { createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { supabase } from "../supabase";
-import { syncProgressOnLogin } from "../progressSync";
+import {
+  syncProgressOnLogin,
+  queueRemoteProgress,
+  flushRemoteProgressNow,
+} from "../progressSync";
+import { setProgressCloudSync } from "../progressStore";
 
 const AuthContext = createContext(null);
 
@@ -17,7 +29,8 @@ export function AuthProvider({ children }) {
     async function init() {
       try {
         const { data, error } = await supabase.auth.getSession();
-console.log("🔐 getSession:", data?.session);
+        console.log("🔐 getSession:", data?.session);
+
         if (!mounted) return;
 
         if (error) console.warn("getSession error:", error);
@@ -29,17 +42,20 @@ console.log("🔐 getSession:", data?.session);
 
     init();
 
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, newSession) => {
+    const { data: sub } = supabase.auth.onAuthStateChange(
+      (event, newSession) => {
         console.log("🔄 auth event:", event);
-  console.log("👤 new session:", newSession);
-      setSession(newSession ?? null);
-      setLoading(false);
+        console.log("👤 new session:", newSession);
 
-      // si l’utilisateur se déconnecte, on reset pour permettre une sync au prochain login
-      if (!newSession?.user?.id) {
-        lastSyncedUserIdRef.current = null;
+        setSession(newSession ?? null);
+        setLoading(false);
+
+        // si l’utilisateur se déconnecte, on reset pour permettre une sync au prochain login
+        if (!newSession?.user?.id) {
+          lastSyncedUserIdRef.current = null;
+        }
       }
-    });
+    );
 
     return () => {
       mounted = false;
@@ -47,29 +63,48 @@ console.log("🔐 getSession:", data?.session);
     };
   }, []);
 
-  // ✅ Sync progression au login
+  // ✅ Sync progression au login (pull remote + merge + push remote)
   useEffect(() => {
     const userId = session?.user?.id;
-    console.log("🧭 AuthContext useEffect session:", session);
     if (!userId) return;
+
+    console.log("🧭 AuthContext: userId =", userId);
 
     // empêche double sync si on rerender
     if (lastSyncedUserIdRef.current === userId) {
-    console.log("⛔ Sync already done for", userId);
-    return;
-  }
+      console.log("⛔ Sync already done for", userId);
+      return;
+    }
     lastSyncedUserIdRef.current = userId;
 
     (async () => {
-    try {
-      console.log("✅ AuthContext: syncing progress for", userId);
-      const merged = await syncProgressOnLogin(userId);
-      console.log("✅ AuthContext: sync done, merged xp =", merged?.xp);
-    } catch (e) {
-      console.warn("❌ Progress sync failed:", e?.message || e);
+      try {
+        console.log("✅ AuthContext: syncing progress for", userId);
+        const merged = await syncProgressOnLogin(userId);
+        console.log("✅ AuthContext: sync done, merged xp =", merged?.xp);
+      } catch (e) {
+        console.warn("❌ Progress sync failed:", e?.message || e);
+      }
+    })();
+  }, [session?.user?.id]);
+
+  // ✅ Brancher le push auto: chaque saveProgress() déclenche queueRemoteProgress()
+  useEffect(() => {
+    const userId = session?.user?.id;
+
+    if (!userId) {
+      setProgressCloudSync(null);
+      return;
     }
-  })();
-}, [session?.user?.id]);
+
+    setProgressCloudSync((progress) => {
+      queueRemoteProgress(userId, progress);
+    });
+
+    return () => {
+      setProgressCloudSync(null);
+    };
+  }, [session?.user?.id]);
 
   const value = useMemo(() => {
     return {
@@ -77,6 +112,10 @@ console.log("🔐 getSession:", data?.session);
       user: session?.user ?? null,
       loading,
       signOut: async () => {
+        try {
+          // flush avant logout (sinon si debounce pas encore parti)
+          await flushRemoteProgressNow();
+        } catch {}
         await supabase.auth.signOut();
       },
     };
