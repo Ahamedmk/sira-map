@@ -11,6 +11,7 @@ import {
   saveProgress,
   completeNode,
   scheduleReviewsForLesson,
+  isNodeCompleted,
 } from "../lib/progressStore.js";
 
 import { CheckCircle2, Sparkles, TrendingUp, Award, ArrowRight, Brain, Star, Trophy, Zap } from "lucide-react";
@@ -36,6 +37,11 @@ export default function SuccessPage() {
       lesson?.node?.type === "boss" ? 60 : lesson?.node?.type === "review" ? 15 : 30;
 
     let p = loadProgress();
+    // ✅ si déjà complété => pas de récompense, pas de schedule, rien
+  if (isNodeCompleted(p, lessonId)) {
+    setReward({ xp: 0 });
+    return () => clearTimeout(timer);
+  }
     p = markActiveDay(p);
     p = addXp(p, xp);
     p = completeNode(p, lessonId);

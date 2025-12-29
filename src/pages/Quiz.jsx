@@ -1,10 +1,21 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ChevronLeft, Crown, Sparkles, ShieldCheck, Zap, Award, AlertCircle, CheckCircle2, XCircle } from "lucide-react";
+import {
+  ChevronLeft,
+  Crown,
+  Sparkles,
+  ShieldCheck,
+  Zap,
+  Award,
+  AlertCircle,
+  CheckCircle2,
+  XCircle,
+} from "lucide-react";
 
 import { getLessonById } from "../data/map.mock.js";
 import { getLessonContent, LESSONS_CONTENT } from "../data/lessons.mock.js";
 import { buildBossQuiz } from "../lib/bossQuizEngine.js";
+import { loadProgress, isNodeCompleted } from "../lib/progressStore.js";
 
 export default function Quiz() {
   const { lessonId } = useParams();
@@ -14,7 +25,27 @@ export default function Quiz() {
   const [selected, setSelected] = useState(null);
   const [correctCount, setCorrectCount] = useState(0);
   const [showFeedback, setShowFeedback] = useState(false);
+
   const isBossId = useMemo(() => /^b\d+$/.test(String(lessonId)), [lessonId]);
+
+  // ✅ Verrou : si déjà complété -> on redirige
+  const alreadyDone = useMemo(() => {
+    const p = loadProgress();
+    return isNodeCompleted(p, lessonId);
+  }, [lessonId]);
+
+  useEffect(() => {
+    if (!alreadyDone) return;
+
+    // boss => on renvoie sur map
+    if (isBossId) {
+      navigate("/map", { replace: true });
+      return;
+    }
+
+    // leçon => relire autorisé, donc on renvoie sur la leçon
+    navigate(`/lesson/${lessonId}`, { replace: true });
+  }, [alreadyDone, isBossId, lessonId, navigate]);
 
   const quiz = useMemo(() => {
     if (isBossId) {
@@ -54,6 +85,9 @@ export default function Quiz() {
     if (isBossId) return true;
     return questions.some((q) => q.difficulty === "boss");
   }, [isBossId, questions]);
+
+  // Si déjà fait : on ne montre rien (useEffect redirect)
+  if (alreadyDone) return null;
 
   if (!total) {
     return (
@@ -115,8 +149,8 @@ export default function Quiz() {
     <div
       className={[
         "min-h-screen pb-8 relative overflow-hidden",
-        bossMode 
-          ? "bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950" 
+        bossMode
+          ? "bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950"
           : "bg-gradient-to-br from-neutral-50 via-blue-50/20 to-purple-50/20",
       ].join(" ")}
     >
@@ -127,7 +161,6 @@ export default function Quiz() {
             <div className="absolute top-20 right-10 w-72 h-72 bg-yellow-600/10 rounded-full blur-3xl animate-pulse" />
             <div className="absolute bottom-20 left-10 w-80 h-80 bg-amber-600/10 rounded-full blur-3xl animate-pulse delay-1000" />
           </div>
-          {/* Particules d'étoiles */}
           <div className="fixed inset-0 pointer-events-none">
             {[...Array(20)].map((_, idx) => (
               <div
@@ -150,13 +183,12 @@ export default function Quiz() {
       )}
 
       <div className="relative z-10 mx-auto max-w-md px-5 pt-6">
-        {/* Bouton retour */}
         <button
           onClick={() => navigate(-1)}
           className={[
             "inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm font-medium shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200",
             bossMode
-              ? "bg-neutral-800/80 backdrop-blur-sm border border-neutral-700/50 text-black"
+              ? "bg-neutral-800/80 backdrop-blur-sm border border-neutral-700/50 text-white"
               : "bg-white/90 backdrop-blur-sm border border-neutral-200/50 text-neutral-700",
           ].join(" ")}
         >
@@ -167,9 +199,8 @@ export default function Quiz() {
         {/* Header Quiz */}
         {bossMode ? (
           <div className="mt-5 rounded-3xl border-2 border-yellow-600/30 bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 p-6 shadow-2xl shadow-yellow-900/20 relative overflow-hidden">
-            {/* Effet de lueur */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-600/10 to-transparent animate-shimmer" />
-            
+
             <div className="relative z-10 flex items-start justify-between gap-4">
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-600/20 border border-yellow-600/30 mb-2">
@@ -182,13 +213,14 @@ export default function Quiz() {
                 <div className="mt-2 flex items-center gap-3 text-sm text-neutral-300">
                   <span className="flex items-center gap-1">
                     <ShieldCheck size={16} className="text-yellow-400" />
-                    Seuil : <span className="font-bold text-white">{quiz.passPct ?? 80}%</span>
+                    Seuil :{" "}
+                    <span className="font-bold text-white">{quiz.passPct ?? 80}%</span>
                   </span>
                   <span className="text-neutral-500">•</span>
                   <span className="font-semibold">{total} questions</span>
                 </div>
               </div>
-              
+
               <div className="h-16 w-16 rounded-2xl border-2 border-yellow-600/30 bg-gradient-to-br from-yellow-600/20 to-amber-600/20 flex items-center justify-center shadow-xl shadow-yellow-900/30 animate-pulse-slow">
                 <Crown className="text-yellow-400" size={28} />
               </div>
@@ -202,9 +234,7 @@ export default function Quiz() {
                   <Award size={24} className="text-blue-600" />
                 </div>
                 <div>
-                  <h1 className="text-lg font-bold text-neutral-900">
-                    {quiz.title}
-                  </h1>
+                  <h1 className="text-lg font-bold text-neutral-900">{quiz.title}</h1>
                   <p className="text-sm text-neutral-600">
                     Question {i + 1} sur {total}
                   </p>
@@ -224,17 +254,12 @@ export default function Quiz() {
               {progressPct}%
             </span>
           </div>
-          <div
-            className={[
-              "h-3 w-full rounded-full overflow-hidden shadow-inner",
-              bossMode ? "bg-neutral-800" : "bg-neutral-100",
-            ].join(" ")}
-          >
+          <div className={["h-3 w-full rounded-full overflow-hidden shadow-inner", bossMode ? "bg-neutral-800" : "bg-neutral-100"].join(" ")}>
             <div
               className={[
                 "h-full transition-all duration-500 ease-out relative overflow-hidden rounded-full",
-                bossMode 
-                  ? "bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-500" 
+                bossMode
+                  ? "bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-500"
                   : "bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500",
               ].join(" ")}
               style={{ width: `${progressPct}%` }}
@@ -253,19 +278,9 @@ export default function Quiz() {
               : "border-neutral-200/50 bg-white/90 backdrop-blur-sm",
           ].join(" ")}
         >
-          {/* Gradient background pour hover */}
-          {!bossMode && (
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          )}
-
           <div className="relative z-10">
             <div className="flex items-start justify-between gap-4 mb-5">
-              <h2
-                className={[
-                  "text-lg font-bold leading-snug flex-1",
-                  bossMode ? "text-white" : "text-neutral-900",
-                ].join(" ")}
-              >
+              <h2 className={["text-lg font-bold leading-snug flex-1", bossMode ? "text-white" : "text-neutral-900"].join(" ")}>
                 {q.question}
               </h2>
 
@@ -292,19 +307,9 @@ export default function Quiz() {
                     disabled={locked}
                     className={[
                       "w-full text-left rounded-2xl border-2 px-5 py-4 text-sm font-medium transition-all duration-200 relative overflow-hidden group",
-                      bossMode
-                        ? "bg-neutral-800/50 border-neutral-700  "
-                        : "bg-white border-neutral-200",
-                      active && !locked
-                        ? bossMode
-                          ? "border-yellow-400 bg-yellow-600/10"
-                          : "border-blue-500 bg-blue-50"
-                        : "",
-                      !locked && !active
-                        ? bossMode
-                          ? "hover:border-neutral-600 hover:bg-neutral-800"
-                          : "hover:border-neutral-300 hover:shadow-md hover:scale-[1.01]"
-                        : "",
+                      bossMode ? "bg-neutral-800/50 border-neutral-700" : "bg-white border-neutral-200",
+                      active && !locked ? (bossMode ? "border-yellow-400 bg-yellow-600/10" : "border-blue-500 bg-blue-50") : "",
+                      !locked && !active ? (bossMode ? "hover:border-neutral-600 hover:bg-neutral-800" : "hover:border-neutral-300 hover:shadow-md hover:scale-[1.01]") : "",
                       showAsWrong && "border-red-500 bg-red-50",
                       showAsCorrect && (bossMode ? "border-emerald-400 bg-emerald-900/20" : "border-emerald-500 bg-emerald-50"),
                       locked && "cursor-not-allowed",
@@ -312,18 +317,22 @@ export default function Quiz() {
                     onClick={() => !locked && setSelected(idx)}
                   >
                     <div className="relative z-10 flex items-center gap-3">
-                      <div className={[
-                        "w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all",
-                        active && !locked && (bossMode ? "border-yellow-400 bg-yellow-400" : "border-blue-500 bg-blue-500"),
-                        !active && !locked && (bossMode ? "border-neutral-600" : "border-neutral-300"),
-                        showAsWrong && "border-red-500 bg-red-500",
-                        showAsCorrect && "border-emerald-500 bg-emerald-500",
-                      ].join(" ")}>
+                      <div
+                        className={[
+                          "w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all",
+                          active && !locked && (bossMode ? "border-yellow-400 bg-yellow-400" : "border-blue-500 bg-blue-500"),
+                          !active && !locked && (bossMode ? "border-neutral-600" : "border-neutral-300"),
+                          showAsWrong && "border-red-500 bg-red-500",
+                          showAsCorrect && "border-emerald-500 bg-emerald-500",
+                        ].join(" ")}
+                      >
                         {(active && !locked) || showAsWrong || showAsCorrect ? (
                           <div className="w-2 h-2 rounded-full bg-white" />
                         ) : null}
                       </div>
-                      <span className={bossMode ? "text-neutral-800" : "text-neutral-900"}>
+
+                      {/* ✅ FIX LISIBILITÉ BOSS MODE */}
+                      <span className={bossMode ? "text-neutral-100" : "text-neutral-900"}>
                         {opt}
                       </span>
                     </div>
@@ -332,7 +341,6 @@ export default function Quiz() {
               })}
             </div>
 
-            {/* Bouton Valider */}
             {!showFeedback && (
               <button
                 onClick={validate}
@@ -369,12 +377,7 @@ export default function Quiz() {
             ].join(" ")}
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className={[
-                "h-12 w-12 rounded-2xl flex items-center justify-center shadow-lg",
-                isCorrect
-                  ? "bg-emerald-500"
-                  : "bg-red-500",
-              ].join(" ")}>
+              <div className={["h-12 w-12 rounded-2xl flex items-center justify-center shadow-lg", isCorrect ? "bg-emerald-500" : "bg-red-500"].join(" ")}>
                 {isCorrect ? (
                   <CheckCircle2 size={24} className="text-white" />
                 ) : (
@@ -382,14 +385,7 @@ export default function Quiz() {
                 )}
               </div>
               <div>
-                <p
-                  className={[
-                    "text-lg font-bold",
-                    isCorrect
-                      ? bossMode ? "text-emerald-400" : "text-emerald-700"
-                      : bossMode ? "text-red-400" : "text-red-700",
-                  ].join(" ")}
-                >
+                <p className={["text-lg font-bold", isCorrect ? (bossMode ? "text-emerald-400" : "text-emerald-700") : (bossMode ? "text-red-400" : "text-red-700")].join(" ")}>
                   {isCorrect ? "Excellent !" : "Pas tout à fait..."}
                 </p>
                 <p className={`text-xs ${bossMode ? "text-neutral-400" : "text-neutral-600"}`}>
@@ -399,19 +395,9 @@ export default function Quiz() {
             </div>
 
             {q.explanation && (
-              <div className={[
-                "rounded-2xl border p-4 mb-4",
-                bossMode
-                  ? "bg-neutral-800/50 border-neutral-700"
-                  : "bg-white border-neutral-200",
-              ].join(" ")}>
+              <div className={["rounded-2xl border p-4 mb-4", bossMode ? "bg-neutral-800/50 border-neutral-700" : "bg-white border-neutral-200"].join(" ")}>
                 <p className="text-xs font-bold text-neutral-500 mb-2">💡 EXPLICATION</p>
-                <p
-                  className={[
-                    "text-sm leading-6",
-                    bossMode ? "text-neutral-200" : "text-neutral-700",
-                  ].join(" ")}
-                >
+                <p className={["text-sm leading-6", bossMode ? "text-neutral-200" : "text-neutral-700"].join(" ")}>
                   {q.explanation}
                 </p>
               </div>
@@ -453,9 +439,7 @@ export default function Quiz() {
 
         {/* Score actuel */}
         <div className={`mt-5 rounded-2xl border p-4 ${
-          bossMode 
-            ? "bg-neutral-900/50 border-neutral-700" 
-            : "bg-white/80 border-neutral-200/50"
+          bossMode ? "bg-neutral-900/50 border-neutral-700" : "bg-white/80 border-neutral-200/50"
         }`}>
           <div className="flex items-center justify-between">
             <span className={`text-sm font-medium ${bossMode ? "text-neutral-400" : "text-neutral-600"}`}>

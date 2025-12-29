@@ -122,18 +122,22 @@ export default function MapPage() {
   }
 
   function openNode(node) {
-    if (!node || node.status === "locked") return;
+  if (!node || node.status === "locked") return;
 
-    // ✅ si déjà terminé => ouverture directe (pas de BottomSheet, pas de récompense)
-    if (node.status === "done") {
-      gotoNode(node);
+  // ✅ si déjà terminé : on va direct voir (leçon) ou on bloque (quiz)
+  if (node.status === "done") {
+    if (node.type === "lesson") {
+      navigate(`/lesson/${node.id}`); // relire OK
       return;
     }
-
-    // sinon => bottom sheet
-    setSelectedNode(node);
-    setSheetOpen(true);
+    // boss déjà validé => pas rejouable
+    return;
   }
+
+  setSelectedNode(node);
+  setSheetOpen(true);
+}
+
 
   function startNode() {
     if (!selectedNode) return;
