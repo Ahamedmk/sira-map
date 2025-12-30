@@ -95,7 +95,7 @@ export default function Quiz() {
         <div className="mx-auto max-w-md px-5 pt-8">
           <button
             onClick={() => navigate(-1)}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white border border-neutral-200/50 text-sm font-medium text-neutral-700 shadow-sm hover:shadow-md transition-all"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white border border-neutral-200/50 text-sm font-medium text-neutral-900 shadow-sm hover:shadow-md transition-all"
           >
             <ChevronLeft size={18} />
             Retour
@@ -188,8 +188,8 @@ export default function Quiz() {
           className={[
             "inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm font-medium shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200",
             bossMode
-              ? "bg-neutral-800/80 backdrop-blur-sm border border-neutral-700/50 text-white"
-              : "bg-white/90 backdrop-blur-sm border border-neutral-200/50 text-neutral-700",
+              ? "bg-neutral-800/80 backdrop-blur-sm border border-neutral-700/50 text-black"
+              : "bg-white/90 backdrop-blur-sm border border-neutral-200/50 text-neutral-900",
           ].join(" ")}
         >
           <ChevronLeft size={18} />
@@ -332,7 +332,7 @@ export default function Quiz() {
                       </div>
 
                       {/* ✅ FIX LISIBILITÉ BOSS MODE */}
-                      <span className={bossMode ? "text-neutral-100" : "text-neutral-900"}>
+                      <span className={bossMode ? "text-neutral-900" : "text-neutral-900"}>
                         {opt}
                       </span>
                     </div>
