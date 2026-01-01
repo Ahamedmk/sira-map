@@ -6,6 +6,7 @@
 export const WORLDS = [
   {
     id: "world-1",
+    key: "world1_intro",
     title: "Monde 1 — Avant la naissance",
     nodes: [
       { id: "l1", type: "lesson", title: "Arabie : tribus et désert", estMin: 3, required: true },
@@ -19,6 +20,7 @@ export const WORLDS = [
 
   {
   id: "world-2",
+  key: "world1_parent",
   title: "Monde 2 — La lignée et les parents",
   description: "Comprendre la lignée, les parents et l’enfance qui façonne.",
   nodes: [
@@ -63,6 +65,7 @@ export const WORLDS = [
 },
 {
   id: "world-3",
+  key: "world3_naissance",
   title: "Monde 3 — Naissance, enfance et jeunesse",
   description: "De l’Année de l’Éléphant à la veille de la Révélation (≈ 570 → 610).",
   nodes: [
@@ -116,6 +119,7 @@ export const WORLDS = [
 },
 {
   id: "world-4",
+  key: "world4_revelation",
   title: "Monde 4 — La première Révélation et les débuts",
   description: "De Ḥirāʾ à la phase discrète : le message commence (≈ 610).",
   nodes: [
@@ -133,6 +137,7 @@ export const WORLDS = [
 },
 {
   id: "world-5",
+  key: "world5_persecution",
   title: "Monde 5 — L’annonce publique et la persécution",
   description: "Du passage au public aux premières persécutions et à l’Hijra vers l’Abyssinie (≈ 613 → 615).",
   nodes: [
@@ -150,6 +155,7 @@ export const WORLDS = [
 },
 {
   id: "world-6",
+  key: "world6_boycott",
   title: "Monde 6 — Le boycott et l’épreuve",
   description:
     "Trois années d’isolement, de faim et de résistance collective au Shiʿb Abī Ṭālib (≈ 616–619).",
@@ -163,6 +169,7 @@ export const WORLDS = [
 },
 {
   id: "world-7",
+  key: "world7_tristesse",
   title: "Monde 7 — ʿĀm al-Ḥuzn : l’Année de la Tristesse",
   description:
     "Perdre ses piliers, affronter l’abandon, puis chercher une porte ailleurs (≈ 619–620).",
@@ -176,6 +183,7 @@ export const WORLDS = [
 },
 {
   id: "world-8",
+  key: "world8_nocturne",
   title: "Monde 8 — Al-Isrāʾ wa-l-Miʿrāj : quand le ciel répond (≈ 620)",
   description:
     "Après Ṭāʾif et l’Année de la Tristesse, une ouverture vient d’en haut : le Voyage Nocturne et l’Ascension.",
@@ -213,6 +221,7 @@ export const WORLDS = [
 },
 {
   id: "world-9",
+  key: "world9_aquabah",
   title: "Monde 9 — ʿAqabah : quand une ville tend la main (≈ 620–622)",
   description:
     "Saisons du pèlerinage, rencontres tribales, Yathrib (Médine) écoute… puis promet. Un tournant silencieux qui va sauver la mission.",
@@ -250,6 +259,7 @@ export const WORLDS = [
 },
 {
   id: "world-10",
+  key: "world10_hijrah",
   title: "Monde 10 — L’Hégire : la nuit où tout bascule (≈ 622)",
   description:
     "Le complot de Quraysh, la sortie, la grotte, la poursuite… puis l’arrivée à Qubāʾ et l’entrée à Médine. Une migration qui change l’Histoire.",
@@ -287,6 +297,7 @@ export const WORLDS = [
 },
 {
   id: "world-11",
+  key: "world11_build",
   title: "Monde 11 — Médine : bâtir après l’exil (≈ 622–623)",
   description:
     "Après l’Hégire, la survie devient construction : mosquée, fraternité, règles de vie… et les premiers signes de tension.",
@@ -325,6 +336,7 @@ export const WORLDS = [
 },
 {
   id: "world-12",
+  key: "world12_menace",
   title: "Monde 12 — La menace se rapproche (≈ 623–624)",
   description:
     "La communauté s’organise… mais Quraysh ne lâche rien. Pressions économiques, provocations, et une route commerciale qui devient un champ de tension.",
@@ -362,6 +374,7 @@ export const WORLDS = [
 },
 {
   id: "world-13",
+  key: "world13_badr",
   title: "Monde 13 — Badr : quand l’Histoire bascule (Ramadan 624)",
   description:
     "Ils ne sont pas venus pour la guerre. Ils sont 313 face à près de 1000. Fatigués, peu armés… mais portés par une conviction qui va marquer l’Histoire.",
@@ -405,6 +418,7 @@ export const WORLDS = [
 },
 {
   id: "world-14",
+  key: "world14_victoire",
   title: "Monde 14 — Après Badr : le prix de la victoire",
   description:
     "La bataille est gagnée. Mais une victoire attire de nouveaux regards, de nouvelles haines… et de nouvelles failles.",
@@ -448,6 +462,7 @@ export const WORLDS = [
 },
 {
   id: "world-15",
+  key: "world15_uhud",
   title: "Monde 15 — Uḥud : quand l’erreur coûte cher (Shawwāl 625)",
   description:
     "Après Badr, Quraysh revient avec vengeance. Les musulmans sont environ 700 face à ~3000. Au début tout bascule en leur faveur… puis une faille change tout.",
@@ -507,6 +522,7 @@ export function getLessonById(lessonId) {
 }
 
 /**
+ * key: "world24_final" ( à ne pas oublier)
  * Règles de déverrouillage :
  * - Monde 1 : toujours unlocked
  * - Monde N : unlocked si boss du monde N-1 est "done"

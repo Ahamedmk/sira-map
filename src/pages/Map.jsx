@@ -22,6 +22,11 @@ import {
   UserPlus,
   ShieldCheck,
 } from "lucide-react";
+// import { unlockCard } from "../lib/cardsProgress.js";
+
+// await unlockCard("abu-bakr", "manual_test", { test: true });
+// console.log("✅ unlockCard OK");
+
 
 /* ------------------ Icons ------------------ */
 function NodeIcon({ type, locked }) {

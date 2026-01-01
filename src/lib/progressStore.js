@@ -72,6 +72,7 @@ export function loadProgress() {
     return {
       xp: normalizeNumber(data.xp, 0),
       streak: normalizeNumber(data.streak, 0),
+      unlockedCards: normalizeArray(data.unlockedCards),
       lastActiveDate: data.lastActiveDate ?? null,
       completedNodeIds: normalizeArray(data.completedNodeIds),
       xpToday,
@@ -85,6 +86,7 @@ export function loadProgress() {
       streak: 0,
       lastActiveDate: null,
       completedNodeIds: [],
+      unlockedCards: [],
       xpToday: 0,
       xpTodayDate: t,
       reviewQueue: [],
@@ -228,6 +230,7 @@ export function resetProgress() {
     xpTodayDate: t,
     reviewQueue: [],
     unlockedBadges: [],
+    unlockedCards: [],
   };
 
   localStorage.setItem(KEY, JSON.stringify(fresh));
@@ -252,4 +255,26 @@ export function isWorld1Completed(p) {
   // MVP: monde 1 boss = b1
   return (p.completedNodeIds || []).includes("b1");
 }
+
+/* ---------- Cards helpers ---------- */
+
+export function isCardUnlocked(p, slug) {
+  return normalizeArray(p.unlockedCards).includes(slug);
+}
+
+export function unlockCardLocal(p, slug) {
+  p.unlockedCards = normalizeArray(p.unlockedCards);
+  if (!p.unlockedCards.includes(slug)) {
+    p.unlockedCards.push(slug);
+  }
+  return p;
+}
+
+export function resetCardsOnly() {
+  const p = loadProgress();
+  p.unlockedCards = [];
+  saveProgress(p);
+  return p;
+}
+
 

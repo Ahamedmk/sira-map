@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Map, Brain, Trophy, User, LogIn } from "lucide-react";
+import { Map, Brain, Trophy, User, LogIn, Library } from "lucide-react";
 import { useAuth } from "../lib/context/AuthContext.jsx";
 
 function Tab({ to, label, Icon }) {
@@ -101,9 +101,11 @@ export default function BottomNav() {
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-b from-neutral-50/50 to-transparent pointer-events-none" />
 
-          <div className="relative px-3 py-3 grid grid-cols-4 gap-2">
+          {/* ✅ 5 tabs => grid-cols-5 */}
+          <div className="relative px-3 py-3 grid grid-cols-5 gap-2">
             <Tab to="/map" label="Map" Icon={Map} />
             <Tab to="/review" label="Réviser" Icon={Brain} />
+            <Tab to="/collection" label="Collection" Icon={Library} />
             <Tab to="/leaderboard" label="Classement" Icon={Trophy} />
 
             {/* ✅ invité => Compte (login), connecté => Profil */}
