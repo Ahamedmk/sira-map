@@ -1,43 +1,63 @@
 import React, { useEffect, useMemo } from "react";
+import { Sparkles, Star, Trophy, Crown } from "lucide-react";
 
 function ConfettiBurst() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {Array.from({ length: 28 }).map((_, i) => (
-        <span
-          key={i}
-          className="absolute top-[-10%] left-1/2 h-2 w-2 rounded-sm opacity-80 animate-confetti"
-          style={{
-            transform: `translateX(${(Math.random() - 0.5) * 420}px)`,
-            animationDelay: `${Math.random() * 0.35}s`,
-            animationDuration: `${0.9 + Math.random() * 0.8}s`,
-          }}
-        />
-      ))}
+      {Array.from({ length: 40 }).map((_, i) => {
+        const shapes = ['🎉', '✨', '⭐', '💫', '🌟', '🎊'];
+        const shape = shapes[i % shapes.length];
+        return (
+          <span
+            key={i}
+            className="absolute top-[-10%] left-1/2 text-2xl opacity-90 animate-confetti"
+            style={{
+              transform: `translateX(${(Math.random() - 0.5) * 500}px)`,
+              animationDelay: `${Math.random() * 0.4}s`,
+              animationDuration: `${1.2 + Math.random() * 1}s`,
+            }}
+          >
+            {shape}
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
+function RarityBadge({ rarity }) {
+  const rarityMeta = {
+    common: { label: "Commune", icon: "⭐", gradient: "from-emerald-400 to-emerald-600", glow: "bg-emerald-400/20" },
+    rare: { label: "Rare", icon: "💎", gradient: "from-blue-400 to-blue-600", glow: "bg-blue-400/20" },
+    epic: { label: "Épique", icon: "✨", gradient: "from-fuchsia-400 to-fuchsia-600", glow: "bg-fuchsia-400/20" },
+    legacy: { label: "Héritage", icon: "👑", gradient: "from-amber-400 to-amber-600", glow: "bg-amber-400/20" },
+  };
+
+  const meta = rarityMeta[rarity?.toLowerCase()] || rarityMeta.common;
+
+  return (
+    <div className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${meta.gradient} px-4 py-2 text-white font-bold text-sm shadow-lg animate-pulse-slow`}>
+      <span className="text-lg">{meta.icon}</span>
+      {meta.label}
     </div>
   );
 }
 
 function pickImageUnlocked(card) {
   if (!card) return null;
-
-  // cas "art" jsonb ou objet JS
   const art = card.art || card?.meta?.art;
   if (art?.imageUnlocked) return art.imageUnlocked;
   if (art?.image_unlocked) return art.image_unlocked;
-
-  // cas colonnes supabase (si tu stockes direct)
   if (card.image_unlocked) return card.image_unlocked;
   if (card.imageUnlocked) return card.imageUnlocked;
-
   return null;
 }
 
 export default function CardUnlockModal({ open, card, onClose }) {
   useEffect(() => {
     if (!open) return;
-    // auto-close optionnel
-    // const t = setTimeout(() => onClose?.(), 2200);
+    // Auto-close optionnel après 3s
+    // const t = setTimeout(() => onClose?.(), 3000);
     // return () => clearTimeout(t);
   }, [open, onClose]);
 
@@ -52,8 +72,8 @@ export default function CardUnlockModal({ open, card, onClose }) {
   }, [card]);
 
   const rarity = useMemo(() => {
-    if (!card) return "";
-    return (card.rarity || "common").toUpperCase();
+    if (!card) return "common";
+    return (card.rarity || "common").toLowerCase();
   }, [card]);
 
   const hook = useMemo(() => {
@@ -65,91 +85,190 @@ export default function CardUnlockModal({ open, card, onClose }) {
 
   if (!open || !card) return null;
 
+  const rarityMeta = {
+    common: { gradient: "from-emerald-400 to-emerald-600", glow: "shadow-emerald-500/50" },
+    rare: { gradient: "from-blue-400 to-blue-600", glow: "shadow-blue-500/50" },
+    epic: { gradient: "from-fuchsia-400 to-fuchsia-600", glow: "shadow-fuchsia-500/50" },
+    legacy: { gradient: "from-amber-400 to-amber-600", glow: "shadow-amber-500/50" },
+  };
+
+  const meta = rarityMeta[rarity] || rarityMeta.common;
+
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center">
-      {/* overlay */}
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center px-5 animate-fadeIn">
+      {/* Overlay avec blur */}
       <div
-        className="absolute inset-0 bg-black/60 backdrop-show"
+        className="absolute inset-0 bg-black/70 backdrop-blur-md"
         onClick={onClose}
       />
 
-      <div className="relative w-[92%] max-w-md rounded-3xl border border-white/10 bg-neutral-950 text-white shadow-2xl overflow-hidden animate-pop">
+      {/* Modal card */}
+      <div className="relative w-full max-w-md rounded-3xl border-2 border-white/10 bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 text-white shadow-2xl overflow-hidden animate-popIn">
+        {/* Confetti */}
         <ConfettiBurst />
 
-        <div className="relative p-6">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-bold tracking-wide">
-            🎴 CARTE DÉBLOQUÉE
+        {/* Glow effect en arrière-plan */}
+        <div className={`absolute inset-0 bg-gradient-to-br ${meta.gradient} opacity-5 animate-pulse-slow`} />
+
+        <div className="relative z-10 p-8">
+          {/* Header avec badge */}
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-white/20 to-white/5 border-2 border-white/20 mb-4 animate-bounce-slow">
+              <Trophy size={32} className="text-white" />
+            </div>
+            
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm px-4 py-2 text-xs font-bold tracking-wide border border-white/20 mb-4">
+              <Star size={14} className="text-white fill-white" />
+              NOUVELLE CARTE DÉBLOQUÉE
+              <Star size={14} className="text-white fill-white" />
+            </div>
+
+            <h2 className="text-3xl font-extrabold leading-tight mb-2 bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+              {title}
+            </h2>
+            
+            {laqab && (
+              <p className="text-sm text-white/70 italic mb-3">
+                {laqab}
+              </p>
+            )}
+
+            <RarityBadge rarity={rarity} />
           </div>
 
-          <h2 className="mt-3 text-xl font-extrabold leading-tight">{title}</h2>
-          {laqab ? (
-            <p className="mt-1 text-sm text-white/70">{laqab}</p>
-          ) : null}
+          {/* Carte visuelle avec effet 3D */}
+          <div className="flex justify-center mb-6">
+            <div className={`relative group animate-cardFlip ${meta.glow}`}>
+              {/* Glow ring autour de la carte */}
+              <div className={`absolute -inset-2 bg-gradient-to-r ${meta.gradient} rounded-3xl opacity-30 blur-xl group-hover:opacity-50 transition-opacity duration-500`} />
+              
+              <div className="relative h-[280px] w-[200px] rounded-2xl border-2 border-white/20 bg-gradient-to-br from-white/10 to-white/5 overflow-hidden shadow-2xl">
+                {imageUnlocked ? (
+                  <img
+                    src={imageUnlocked}
+                    alt={title}
+                    className="h-full w-full object-cover"
+                    draggable="false"
+                  />
+                ) : (
+                  <div className="h-full w-full flex flex-col items-center justify-center text-white/40">
+                    <Sparkles size={48} className="mb-3 opacity-50" />
+                    <span className="text-sm font-medium">Image à venir</span>
+                  </div>
+                )}
 
-          {/* carte */}
-          <div className="mt-5 flex justify-center">
-            <div className="relative h-[260px] w-[190px] rounded-2xl border border-white/15 bg-white/5 overflow-hidden shadow-xl animate-cardFlip">
-              {imageUnlocked ? (
-                <img
-                  src={imageUnlocked}
-                  alt={title}
-                  className="h-full w-full object-cover"
-                  draggable="false"
-                />
-              ) : (
-                <div className="h-full w-full flex items-center justify-center text-white/60 text-sm">
-                  Image manquante
+                {/* Overlay gradient au bas */}
+                <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-black/60 to-transparent" />
+
+                {/* Badge rareté sur la carte */}
+                <div className="absolute top-3 left-3 rounded-full bg-black/60 backdrop-blur-sm px-3 py-1.5 text-xs font-bold uppercase border border-white/20">
+                  {rarity}
                 </div>
-              )}
 
-              {/* badge rarity */}
-              <div className="absolute top-3 left-3 rounded-full bg-black/50 px-3 py-1 text-[11px] font-bold uppercase">
-                {rarity}
+                {/* Effet de brillance qui traverse */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
               </div>
             </div>
           </div>
 
-          {hook ? (
-            <p className="mt-5 text-sm text-white/80">{hook}</p>
-          ) : null}
+          {/* Description */}
+          {hook && (
+            <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 mb-6">
+              <div className="flex items-start gap-3">
+                <Sparkles size={18} className="text-white/60 flex-shrink-0 mt-0.5" />
+                <p className="text-sm text-white/80 leading-relaxed">
+                  {hook}
+                </p>
+              </div>
+            </div>
+          )}
 
+          {/* Bouton CTA */}
           <button
             onClick={onClose}
-            className="mt-6 w-full rounded-2xl bg-white text-neutral-950 font-extrabold py-3 hover:opacity-90 active:scale-[0.99] transition"
+            className="w-full rounded-2xl bg-gradient-to-r from-white to-white/95 text-neutral-900 font-extrabold py-4 shadow-xl shadow-white/20 hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 relative overflow-hidden group"
           >
-            Continuer
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              <Crown size={20} />
+              Continuer l'aventure
+            </span>
           </button>
+
+          {/* Message d'encouragement */}
+          <p className="mt-4 text-center text-xs text-white/50">
+            ✨ Carte ajoutée à ta collection
+          </p>
         </div>
 
         {/* Animations CSS */}
         <style>{`
-          .backdrop-show { animation: fadeIn 180ms ease-out; }
-          .animate-pop { animation: popIn 220ms ease-out; }
-          .animate-cardFlip { animation: cardFlip 550ms ease-out; }
+          .animate-fadeIn {
+            animation: fadeIn 300ms ease-out;
+          }
+          .animate-popIn {
+            animation: popIn 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+          }
+          .animate-cardFlip {
+            animation: cardFlip 700ms ease-out;
+          }
           .animate-confetti {
-            background: white;
-            animation-name: confettiFall;
-            animation-timing-function: ease-in;
-            animation-fill-mode: both;
+            animation: confettiFall linear forwards;
           }
-          .animate-confetti:nth-child(3n) { background: #facc15; }
-          .animate-confetti:nth-child(3n+1) { background: #22c55e; }
-          .animate-confetti:nth-child(3n+2) { background: #60a5fa; }
+          .animate-bounce-slow {
+            animation: bounceSlow 2s ease-in-out infinite;
+          }
+          .animate-pulse-slow {
+            animation: pulseSlow 3s ease-in-out infinite;
+          }
 
-          @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+          
           @keyframes popIn {
-            from { transform: scale(.95); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+            0% { transform: scale(0.8); opacity: 0; }
+            60% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); }
           }
+          
           @keyframes cardFlip {
-            0% { transform: rotateY(70deg) scale(.98); opacity: 0; }
-            60% { transform: rotateY(0deg) scale(1.02); opacity: 1; }
-            100% { transform: rotateY(0deg) scale(1); }
+            0% { 
+              transform: perspective(1000px) rotateY(90deg) scale(0.9);
+              opacity: 0;
+            }
+            50% { 
+              transform: perspective(1000px) rotateY(-10deg) scale(1.02);
+            }
+            100% { 
+              transform: perspective(1000px) rotateY(0deg) scale(1);
+              opacity: 1;
+            }
           }
+          
           @keyframes confettiFall {
-            0% { top: -10%; opacity: 0; transform: rotate(0deg); }
+            0% { 
+              top: -10%; 
+              opacity: 0; 
+              transform: translateX(var(--tx, 0)) rotate(0deg) scale(1);
+            }
             10% { opacity: 1; }
-            100% { top: 110%; opacity: 0; transform: rotate(280deg); }
+            100% { 
+              top: 110%; 
+              opacity: 0; 
+              transform: translateX(var(--tx, 0)) rotate(360deg) scale(0.5);
+            }
+          }
+          
+          @keyframes bounceSlow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+          }
+          
+          @keyframes pulseSlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
           }
         `}</style>
       </div>
