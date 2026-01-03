@@ -20,7 +20,6 @@ import { saveProgress } from "../lib/progressStore";
 import { syncCardsToSupabase } from "../lib/syncCards";
 import { loadProgress, isNodeCompleted } from "../lib/progressStore.js";
 
-// ✅ modal animation
 import CardUnlockModal from "../components/CardUnlockModal.jsx";
 
 /**
@@ -52,24 +51,104 @@ function worldIdToWorldKey(worldId) {
   return null;
 }
 
+/* =========================================================
+   ✅ RNG déterministe (pas de Math.random dans le render)
+========================================================= */
+// hash string -> seed (xmur3)
+function xmur3(str) {
+  let h = 1779033703 ^ str.length;
+  for (let i = 0; i < str.length; i++) {
+    h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
+    h = (h << 13) | (h >>> 19);
+  }
+  return function () {
+    h = Math.imul(h ^ (h >>> 16), 2246822507);
+    h = Math.imul(h ^ (h >>> 13), 3266489909);
+    h ^= h >>> 16;
+    return h >>> 0;
+  };
+}
+
+// seed -> rng (mulberry32)
+function mulberry32(seed) {
+  return function () {
+    let t = (seed += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function makeSeededRng(seedStr) {
+  const seedFn = xmur3(seedStr);
+  return mulberry32(seedFn());
+}
+
+function shuffleArray(arr, rng) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/**
+ * Mélange les options d'une question et recalcule correctIndex.
+ * Déterministe (même question => même shuffle) pour éviter les bugs,
+ * et surtout: pas de Math.random() dans le render.
+ */
+function shuffleQuestionOptions(question, seedBase) {
+  if (!question?.options?.length || typeof question.correctIndex !== "number") {
+    return question;
+  }
+
+  // Seed stable par quiz + question
+  const rng = makeSeededRng(`${seedBase}::${question.id}::${question.question}`);
+
+  // On tag chaque option avec son index original
+  const tagged = question.options.map((text, originalIndex) => ({
+    text,
+    originalIndex,
+  }));
+
+  const shuffled = shuffleArray(tagged, rng);
+
+  const newOptions = shuffled.map((x) => x.text);
+  const newCorrectIndex = shuffled.findIndex(
+    (x) => x.originalIndex === question.correctIndex
+  );
+
+  return {
+    ...question,
+    options: newOptions,
+    correctIndex: newCorrectIndex,
+  };
+}
+
+function makeBossDots(count = 20) {
+  return Array.from({ length: count }, (_, id) => ({
+    id,
+    top: `${Math.random() * 100}%`,
+    left: `${Math.random() * 100}%`,
+    delay: `${Math.random() * 3}s`,
+  }));
+}
+
 export default function Quiz() {
   const { lessonId } = useParams();
   const navigate = useNavigate();
 
   const [i, setI] = useState(0);
   const [selected, setSelected] = useState(null);
-
   const [correctCount, setCorrectCount] = useState(0);
   const correctRef = useRef(0);
-
   const [showFeedback, setShowFeedback] = useState(false);
 
-  // ✅ popup unlock (déclenché par ton engine/flow réel)
+  // ✅ popup unlock
   const [unlockOpen, setUnlockOpen] = useState(false);
   const [unlockQueue, setUnlockQueue] = useState([]);
-
   const pendingNavRef = useRef(null); // { type:"success"|"fail", lessonId }
-
 
   const isBossId = useMemo(() => /^b\d+$/.test(String(lessonId)), [lessonId]);
 
@@ -90,8 +169,10 @@ export default function Quiz() {
     navigate(`/lesson/${lessonId}`, { replace: true });
   }, [alreadyDone, isBossId, lessonId, navigate]);
 
-  const quiz = useMemo(() => {
+  // 1) Base quiz (pur, sans random)
+  const baseQuiz = useMemo(() => {
     if (isBossId) {
+      // On laisse ton engine générer le quiz boss
       return buildBossQuiz(lessonId, LESSONS_CONTENT, {
         count: 8,
         passPct: 80,
@@ -124,6 +205,34 @@ export default function Quiz() {
     };
   }, [isBossId, lessonId]);
 
+  // 2) Quiz “préparé” : shuffle options (sans Math.random)
+  const [quiz, setQuiz] = useState(null);
+
+  useEffect(() => {
+    // reset UI state à chaque quiz
+    setI(0);
+    setSelected(null);
+    setShowFeedback(false);
+    correctRef.current = 0;
+    setCorrectCount(0);
+
+    if (!baseQuiz) {
+      setQuiz(null);
+      return;
+    }
+
+    const seedBase = `quiz::${lessonId}::${baseQuiz?.worldKey || "no_world"}::${isBossId ? "boss" : "lesson"}`;
+
+    const prepared = {
+      ...baseQuiz,
+      questions: (baseQuiz.questions || []).map((q) =>
+        shuffleQuestionOptions(q, seedBase)
+      ),
+    };
+
+    setQuiz(prepared);
+  }, [baseQuiz, lessonId, isBossId]);
+
   const questions = quiz?.questions || [];
   const total = questions.length;
 
@@ -132,35 +241,44 @@ export default function Quiz() {
     return questions.some((q) => q.difficulty === "boss");
   }, [isBossId, questions]);
 
+  // ✅ dots boss générés en effect (pas dans le render)
+  const [bossDots, setBossDots] = useState([]);
+  useEffect(() => {
+    if (!bossMode) {
+      setBossDots([]);
+      return;
+    }
+    setBossDots(makeBossDots(20));
+  }, [bossMode, lessonId]);
+
   // Si déjà fait : on ne montre rien (useEffect redirect)
   if (alreadyDone) return null;
 
   function handleCloseUnlock() {
-  const rest = unlockQueue.slice(1);
+    const rest = unlockQueue.slice(1);
 
-  // ✅ si plusieurs cartes débloquées -> on enchaîne
-  if (rest.length) {
-    setUnlockQueue(rest);
-    return;
+    // ✅ si plusieurs cartes débloquées -> on enchaîne
+    if (rest.length) {
+      setUnlockQueue(rest);
+      return;
+    }
+
+    // ✅ fin de queue
+    setUnlockOpen(false);
+    setUnlockQueue([]);
+
+    // ✅ navigation après fermeture
+    const pending = pendingNavRef.current;
+    pendingNavRef.current = null;
+
+    if (pending?.type === "success") {
+      navigate(`/result/success/${pending.lessonId}`, { replace: true });
+    } else if (pending?.type === "fail") {
+      navigate(`/result/fail/${pending.lessonId}`, { replace: true });
+    }
   }
 
-  // ✅ fin de queue
-  setUnlockOpen(false);
-  setUnlockQueue([]);
-
-  // ✅ navigation après fermeture
-  const pending = pendingNavRef.current;
-  pendingNavRef.current = null;
-
-  if (pending?.type === "success") {
-    navigate(`/result/success/${pending.lessonId}`, { replace: true });
-  } else if (pending?.type === "fail") {
-    navigate(`/result/fail/${pending.lessonId}`, { replace: true });
-  }
-}
-
-
-  if (!total) {
+  if (!quiz || !total) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-red-50/20 to-orange-50/20">
         <div className="mx-auto max-w-md px-5 pt-8">
@@ -213,58 +331,52 @@ export default function Quiz() {
   }
 
   async function finish() {
-  const pct = Math.round((correctRef.current / total) * 100);
-  const passPct = quiz?.passPct ?? 80;
-  const passed = pct >= passPct;
+    const pct = Math.round((correctRef.current / total) * 100);
+    const passPct = quiz?.passPct ?? 80;
+    const passed = pct >= passPct;
 
-  // si échec: on peut naviguer direct (pas de carte)
-  if (!passed) {
-    navigate(`/result/fail/${lessonId}`, { replace: true });
-    return;
-  }
+    // si échec: on peut naviguer direct (pas de carte)
+    if (!passed) {
+      navigate(`/result/fail/${lessonId}`, { replace: true });
+      return;
+    }
 
-  // ✅ succès: on déclenche le moteur de cartes
-  try {
-    const p = loadProgress();
+    // ✅ succès: on déclenche le moteur de cartes
+    try {
+      const p = loadProgress();
 
-    const { progress: p2, newlyUnlocked } = evaluateCards(p, {
-      event: "quiz_end",
-      worldKey: quiz?.worldKey, // ex: "world10_hijrah"
-      score: pct,
-      isBoss: isBossId,
-      // si tu as ces infos, passe-les, sinon laisse false:
-      usedHints: false,
-      lessonReplayed: false,
-    });
-
-    saveProgress(p2);
-
-    // ✅ sync supabase (anti farm déjà géré par upsert)
-    if (newlyUnlocked?.length) {
-      await syncCardsToSupabase(newlyUnlocked, {
-        source: "quiz",
+      const { progress: p2, newlyUnlocked } = evaluateCards(p, {
         event: "quiz_end",
         worldKey: quiz?.worldKey,
         score: pct,
         isBoss: isBossId,
+        usedHints: false,
+        lessonReplayed: false,
       });
 
-      // ✅ ouvrir popup, et on garde la navigation en attente
-      pendingNavRef.current = { type: "success", lessonId };
-      setUnlockQueue(newlyUnlocked);
-      setUnlockOpen(true);
-      return; // ⛔️ on navigate pas maintenant
+      saveProgress(p2);
+
+      if (newlyUnlocked?.length) {
+        await syncCardsToSupabase(newlyUnlocked, {
+          source: "quiz",
+          event: "quiz_end",
+          worldKey: quiz?.worldKey,
+          score: pct,
+          isBoss: isBossId,
+        });
+
+        pendingNavRef.current = { type: "success", lessonId };
+        setUnlockQueue(newlyUnlocked);
+        setUnlockOpen(true);
+        return; // ⛔️ on navigate pas maintenant
+      }
+
+      navigate(`/result/success/${lessonId}`, { replace: true });
+    } catch (e) {
+      console.error("finish() cards flow failed:", e);
+      navigate(`/result/success/${lessonId}`, { replace: true });
     }
-
-    // ✅ pas de carte à montrer -> navigation normale
-    navigate(`/result/success/${lessonId}`, { replace: true });
-  } catch (e) {
-    console.error("finish() cards flow failed:", e);
-    // fallback : ne bloque pas l'utilisateur
-    navigate(`/result/success/${lessonId}`, { replace: true });
   }
-}
-
 
   function next() {
     if (i + 1 >= total) return finish();
@@ -296,15 +408,17 @@ export default function Quiz() {
             <div className="absolute top-20 right-10 w-72 h-72 bg-yellow-600/10 rounded-full blur-3xl animate-pulse" />
             <div className="absolute bottom-20 left-10 w-80 h-80 bg-amber-600/10 rounded-full blur-3xl animate-pulse delay-1000" />
           </div>
+
+          {/* ✅ dots boss: plus de Math.random ici */}
           <div className="fixed inset-0 pointer-events-none">
-            {[...Array(20)].map((_, idx) => (
+            {bossDots.map((d) => (
               <div
-                key={idx}
+                key={d.id}
                 className="absolute w-1 h-1 bg-yellow-400/30 rounded-full animate-pulse"
                 style={{
-                  top: `${Math.random() * 100}%`,
-                  left: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 3}s`,
+                  top: d.top,
+                  left: d.left,
+                  animationDelay: d.delay,
                 }}
               />
             ))}
