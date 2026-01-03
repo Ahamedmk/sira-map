@@ -497,7 +497,147 @@ export const WORLDS = [
     },
     { id: "b15", type: "boss", title: "Boss Quiz — Uḥud", estMin: 16, required: true },
   ],
+},
+{
+  id: "world-16",
+  title: "Monde 16 — Tenir après Uḥud : pression et endurance (626)",
+  description:
+    "Uḥud est passée, mais la menace reste. Les ennemis n’attaquent pas toujours frontalement. Parfois, ils attendent, encerclent, testent…",
+  nodes: [
+    {
+      id: "l61",
+      type: "lesson",
+      title: "Après Uḥud : une communauté fragilisée",
+      estMin: 48,
+      required: true,
+    },
+    {
+      id: "l62",
+      type: "lesson",
+      title: "Alliances mouvantes et menaces diffuses",
+      estMin: 52,
+      required: true,
+    },
+    {
+      id: "l63",
+      type: "lesson",
+      title: "Tenir sans combattre",
+      estMin: 50,
+      required: true,
+    },
+    {
+      id: "l64",
+      type: "lesson",
+      title: "Quand la patience devient une stratégie",
+      estMin: 55,
+      required: true,
+    },
+    { id: "b16", type: "boss", title: "Boss Quiz — Tenir après Uḥud", estMin: 15, required: true },
+  ],
+},
+{
+  id: "world-17",
+  title: "Monde 17 — Al-Khandaq : tenir quand tout encercle (627)",
+  description:
+    "Jamais Médine n’avait fait face à une menace aussi massive. Une coalition immense, un siège prolongé, la faim, le froid… et une tranchée qui change l’Histoire.",
+  nodes: [
+    {
+      id: "l65",
+      type: "lesson",
+      title: "Une coalition jamais vue",
+      estMin: 55,
+      required: true,
+    },
+    {
+      id: "l66",
+      type: "lesson",
+      title: "Creuser pour survivre : la tranchée",
+      estMin: 58,
+      required: true,
+    },
+    {
+      id: "l67",
+      type: "lesson",
+      title: "Faim, froid et peur : le siège",
+      estMin: 60,
+      required: true,
+    },
+    {
+      id: "l68",
+      type: "lesson",
+      title: "Quand la coalition s’effondre",
+      estMin: 56,
+      required: true,
+    },
+    {
+      id: "b17",
+      type: "boss",
+      title: "Boss Quiz — Al-Khandaq",
+      estMin: 16,
+      required: true,
+    },
+  ],
+},
+{
+  id: "world-18",
+  title: "Monde 18 — Après Al-Khandaq : le rapport de force s’inverse",
+  description:
+    "La coalition est partie sans victoire. Médine est toujours debout. Et désormais, quelque chose a changé : ce ne sont plus les musulmans qui subissent l’agenda.",
+  nodes: [
+    {
+      id: "l69",
+      type: "lesson",
+      title: "Une victoire sans bataille",
+      estMin: 50,
+      required: true,
+    },
+    {
+      id: "l70",
+      type: "lesson",
+      title: "La fin de la menace totale",
+      estMin: 52,
+      required: true,
+    },
+    {
+      id: "l71",
+      type: "lesson",
+      title: "Un ennemi fragilisé",
+      estMin: 55,
+      required: true,
+    },
+    {
+      id: "l72",
+      type: "lesson",
+      title: "Désormais, l’initiative change de camp",
+      estMin: 58,
+      required: true,
+    },
+    {
+      id: "b18",
+      type: "boss",
+      title: "Boss Quiz — Le renversement",
+      estMin: 15,
+      required: true,
+    },
+  ],
+},
+{
+  id: "world-19",
+  title: "Monde 19 — Al-Ḥudaybiyyah : la paix incomprise (628 / 6 H)",
+  description:
+    "Ils partent pour la ʿUmrah, sans intention de guerre. Mais Quraysh bloque l’accès. Tension, négociation… et un traité que beaucoup trouvent dur. Pourtant, l’Histoire bascule.",
+  nodes: [
+    { id: "l73", type: "lesson", title: "Le départ pour la ʿUmrah (628)", estMin: 55, required: true },
+    { id: "l74", type: "lesson", title: "Ḥudaybiyyah : blocage et négociations", estMin: 62, required: true },
+    { id: "l75", type: "lesson", title: "Bayʿat ar-Riḍwān : le serment sous l’arbre", estMin: 58, required: true },
+    { id: "l76", type: "lesson", title: "Le traité : choc, patience… et victoire stratégique", estMin: 65, required: true },
+    { id: "b19", type: "boss", title: "Boss Quiz — Al-Ḥudaybiyyah", estMin: 16, required: true },
+  ],
 }
+
+
+
+
 
 
   // Tu pourras ajouter Monde 2, Monde 3 etc.

@@ -60,6 +60,23 @@ import world15_l57 from "../assets/illustrations/worlds/world15_l57.png";
 import world15_l58 from "../assets/illustrations/worlds/world15_l58.png";
 import world15_l59 from "../assets/illustrations/worlds/world15_l59.png";
 import world15_l60 from "../assets/illustrations/worlds/world15_l60.png";
+import world16_l61 from "../assets/illustrations/worlds/world16_l61.png";
+import world16_l62 from "../assets/illustrations/worlds/world16_l62.png";
+import world16_l63 from "../assets/illustrations/worlds/world16_l63.png";
+import world16_l64 from "../assets/illustrations/worlds/world16_l64.png";
+import world17_l65 from "../assets/illustrations/worlds/world17_l65.png";
+import world17_l66 from "../assets/illustrations/worlds/world17_l66.png";
+import world17_l67 from "../assets/illustrations/worlds/world17_l67.png";
+import world17_l68 from "../assets/illustrations/worlds/world17_l68.png";
+import world18_l69 from "../assets/illustrations/worlds/world18_l69.png";
+import world18_l70 from "../assets/illustrations/worlds/world18_l70.png";
+import world18_l71 from "../assets/illustrations/worlds/world18_l71.png";
+import world18_l72 from "../assets/illustrations/worlds/world18_l72.jpeg";
+import world19_l73 from "../assets/illustrations/worlds/world19_l73.png";
+import world19_l74 from "../assets/illustrations/worlds/world19_l74.png";
+import world19_l75 from "../assets/illustrations/worlds/world19_l75.png";
+import world19_l76 from "../assets/illustrations/worlds/world19_l76.png";
+
 
 
 
@@ -4939,6 +4956,1166 @@ l60: {
       correctIndex: 0,
       explanation:
         "L’orgueil et la dispersion peuvent détruire une dynamique collective.",
+      difficulty: "boss",
+    },
+  ],
+},
+l61: {
+  title: "Après Uḥud : une communauté fragilisée",
+  illustration: world16_l61,
+  storyBlocks: [
+    { type: "subtitle", text: "🩹 Des blessures visibles… et invisibles" },
+    {
+      type: "p",
+      text:
+        "Après Uḥud (625), la communauté rentre à Médine blessée. Les corps portent les traces du combat, mais les cœurs portent quelque chose de plus lourd encore : le doute.",
+    },
+    {
+      type: "p",
+      text:
+        "Certains se demandent comment une victoire promise a pu se transformer en épreuve si dure. La question n’est pas théorique. Elle est intime.",
+    },
+
+    { type: "subtitle", text: "🏘️ Une ville observée" },
+    {
+      type: "p",
+      text:
+        "Médine n’est plus seulement une ville. Elle est un symbole. Et comme tout symbole, elle est observée, testée, évaluée par les tribus alentour.",
+    },
+    {
+      type: "p",
+      text:
+        "Chaque faiblesse est scrutée. Chaque hésitation peut être exploitée.",
+    },
+
+    { type: "subtitle", text: "⚖️ Entre peur et lucidité" },
+    {
+      type: "p",
+      text:
+        "La communauté apprend à vivre avec une vérité inconfortable : la foi n’empêche pas la vulnérabilité. Elle oblige à la lucidité.",
+    },
+  ],
+  cliffhanger:
+    "Et pendant que Médine panse ses plaies… les alliances commencent à bouger.",
+  keyPoints: [
+    "Après Uḥud, la fragilité est à la fois physique et morale.",
+    "Le doute apparaît naturellement après une épreuve sévère.",
+    "Médine devient un symbole observé par les tribus.",
+    "La lucidité devient indispensable à la survie.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l61_q1",
+      question: "Quel type de fragilité apparaît après Uḥud ?",
+      options: [
+        "Uniquement militaire",
+        "Physique et morale",
+        "Économique seulement",
+        "Aucune",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Uḥud laisse des blessures visibles et intérieures.",
+    },
+    {
+      id: "l61_boss_q1",
+      question: "Pourquoi Médine est-elle davantage observée après Uḥud ?",
+      options: [
+        "Parce qu’elle est isolée",
+        "Parce qu’elle est devenue un symbole stratégique",
+        "Parce qu’elle est riche",
+        "Parce qu’elle est vide",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La communauté est désormais un acteur central, donc surveillé.",
+      difficulty: "boss",
+    },
+  ],
+},
+l62: {
+  title: "Alliances mouvantes et menaces diffuses",
+  illustration: world16_l62,
+  storyBlocks: [
+    { type: "subtitle", text: "🧩 Un jeu tribal complexe" },
+    {
+      type: "p",
+      text:
+        "L’Arabie du VIIe siècle n’est pas figée. Les alliances changent, se font et se défont. Après Uḥud, beaucoup se demandent : Médine est-elle toujours solide ?",
+    },
+    {
+      type: "p",
+      text:
+        "Certains hésitent. D’autres testent les limites. Peu attaquent frontalement. Le danger devient diffus.",
+    },
+
+    { type: "subtitle", text: "🕶️ Des ennemis qui attendent" },
+    {
+      type: "p",
+      text:
+        "Toutes les menaces ne portent pas une épée. Certaines portent un sourire, un accord, une promesse fragile.",
+    },
+    {
+      type: "p",
+      text:
+        "La communauté apprend que le danger n’est pas toujours visible. Il peut se cacher dans le temps.",
+    },
+
+    { type: "subtitle", text: "⚠️ Vigilance constante" },
+    {
+      type: "p",
+      text:
+        "Dans ce climat, la vigilance devient une posture quotidienne. Non par paranoïa, mais par responsabilité.",
+    },
+  ],
+  cliffhanger:
+    "Et bientôt, cette vigilance sera mise à l’épreuve à une échelle jamais vue.",
+  keyPoints: [
+    "Les alliances tribales sont instables après Uḥud.",
+    "Les menaces deviennent diffuses plutôt que frontales.",
+    "Le danger peut être politique autant que militaire.",
+    "La vigilance devient une nécessité quotidienne.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l62_q1",
+      question: "Pourquoi parle-t-on de menaces “diffuses” ?",
+      options: [
+        "Parce qu’elles sont imaginaires",
+        "Parce qu’elles ne prennent pas toujours la forme d’une attaque directe",
+        "Parce qu’elles sont faibles",
+        "Parce qu’elles sont inexistantes",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le danger devient politique, tribal et stratégique.",
+    },
+    {
+      id: "l62_boss_q1",
+      question: "Quel est le risque principal dans ce contexte d’alliances mouvantes ?",
+      options: [
+        "L’isolement total",
+        "La perte de vigilance",
+        "La victoire immédiate",
+        "La disparition des tribus",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Relâcher l’attention dans un contexte instable est dangereux.",
+      difficulty: "boss",
+    },
+  ],
+},
+l63: {
+  title: "Tenir sans combattre",
+  illustration: world16_l63,
+  storyBlocks: [
+    { type: "subtitle", text: "🕊️ La retenue comme force" },
+    {
+      type: "p",
+      text:
+        "Après Uḥud, aucune grande bataille immédiate n’éclate. Et ce silence n’est pas une faiblesse. Il est une phase.",
+    },
+    {
+      type: "p",
+      text:
+        "Tenir sans combattre exige une autre forme de courage : celui de ne pas provoquer, de ne pas se précipiter.",
+    },
+
+    { type: "subtitle", text: "🧠 Une endurance mentale" },
+    {
+      type: "p",
+      text:
+        "La patience devient une discipline intérieure. L’ennemi attend une erreur. La communauté apprend à ne pas la donner.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce monde enseigne que toutes les victoires ne se gagnent pas sur un champ de bataille.",
+    },
+
+    { type: "subtitle", text: "⏳ Le temps comme allié" },
+    {
+      type: "p",
+      text:
+        "Le temps peut user une coalition, révéler des fissures, faire tomber des masques. Encore faut-il savoir l’utiliser.",
+    },
+  ],
+  cliffhanger:
+    "Mais cette attente prépare un choc d’une ampleur inédite.",
+  keyPoints: [
+    "L’absence de combat n’est pas une faiblesse.",
+    "La retenue peut être stratégique.",
+    "La patience devient une discipline mentale.",
+    "Le temps peut devenir un allié.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l63_q1",
+      question: "Pourquoi “tenir sans combattre” est-il difficile ?",
+      options: [
+        "Parce que c’est inutile",
+        "Parce que cela exige patience et maîtrise",
+        "Parce que personne ne regarde",
+        "Parce que c’est interdit",
+      ],
+      correctIndex: 1,
+      explanation:
+        "L’endurance mentale est plus exigeante qu’un choc immédiat.",
+    },
+    {
+      id: "l63_boss_q1",
+      question: "Quelle force stratégique le temps peut-il offrir ?",
+      options: [
+        "La confusion",
+        "L’usure des ennemis et la révélation des fissures",
+        "La disparition du danger",
+        "La fuite",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le temps affaiblit souvent les coalitions fragiles.",
+      difficulty: "boss",
+    },
+  ],
+},
+l64: {
+  title: "Quand la patience devient une stratégie",
+  illustration: world16_l64,
+  storyBlocks: [
+    { type: "subtitle", text: "🧠 De la réaction à la stratégie" },
+    {
+      type: "p",
+      text:
+        "La communauté ne survit pas seulement grâce au courage. Elle survit en apprenant. Après Uḥud, elle passe d’une réaction instinctive à une réflexion stratégique.",
+    },
+    {
+      type: "p",
+      text:
+        "Chaque épreuve affine la compréhension du monde réel : ses règles, ses délais, ses dangers.",
+    },
+
+    { type: "subtitle", text: "⚖️ Patience active" },
+    {
+      type: "p",
+      text:
+        "La patience ici n’est pas passive. Elle est active, consciente, organisée. Elle s’accompagne de préparation et de lucidité.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce monde prépare silencieusement le suivant. Car la patience, quand elle est collective, devient une arme.",
+    },
+
+    { type: "subtitle", text: "🌱 Une communauté qui mûrit" },
+    {
+      type: "p",
+      text:
+        "Ce n’est plus une communauté qui subit seulement. C’est une communauté qui apprend à durer.",
+    },
+  ],
+  cliffhanger:
+    "Et bientôt, cette patience sera mise à l’épreuve face à une coalition jamais vue.",
+  keyPoints: [
+    "La communauté évolue vers une pensée stratégique.",
+    "La patience devient active et organisée.",
+    "Chaque épreuve fait mûrir la communauté.",
+    "Un choc majeur se prépare.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l64_q1",
+      question: "Pourquoi parle-t-on de “patience active” ?",
+      options: [
+        "Parce qu’elle consiste à attendre sans rien faire",
+        "Parce qu’elle s’accompagne de préparation et de lucidité",
+        "Parce qu’elle est automatique",
+        "Parce qu’elle est imposée",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La patience est ici une stratégie consciente.",
+    },
+    {
+      id: "l64_boss_q1",
+      question: "Que prépare ce monde sur le plan historique ?",
+      options: [
+        "La fin de toutes les menaces",
+        "Un choc majeur impliquant une grande coalition",
+        "Un retour à La Mecque immédiat",
+        "Une paix définitive",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Ce monde prépare la confrontation des Coalisés (Khandaq).",
+      difficulty: "boss",
+    },
+  ],
+},
+l65: {
+  title: "Une coalition jamais vue",
+  illustration: world17_l65,
+  storyBlocks: [
+    { type: "subtitle", text: "🌪️ Quand tous les ennemis se rejoignent" },
+    {
+      type: "p",
+      text:
+        "En 627 (année 5 de l’Hégire), la menace prend une forme inédite. Ce ne sont plus des attaques isolées. C’est une coalition. Quraysh, des tribus alliées, des forces diverses : environ 10 000 hommes marchent vers Médine.",
+    },
+    {
+      type: "p",
+      text:
+        "Face à eux, la communauté musulmane compte environ 3000 personnes. Le déséquilibre est écrasant. Et cette fois, il n’y aura pas de bataille rapide.",
+    },
+
+    { type: "subtitle", text: "🧠 Une stratégie d’anéantissement" },
+    {
+      type: "p",
+      text:
+        "L’objectif de la coalition est clair : encercler, assiéger, épuiser. Il ne s’agit plus de prouver une supériorité. Il s’agit d’en finir.",
+    },
+    {
+      type: "p",
+      text:
+        "La pression est psychologique avant d’être militaire. Le message est simple : ‘Il n’y a aucune issue.’",
+    },
+
+    { type: "subtitle", text: "⚖️ Une situation sans précédent" },
+    {
+      type: "p",
+      text:
+        "Jamais Médine n’avait été confrontée à une telle concentration d’ennemis. Les alliances hostiles ont mis de côté leurs différences pour un objectif commun.",
+    },
+  ],
+  cliffhanger:
+    "Face à cette masse, une question s’impose : comment survivre ?",
+  keyPoints: [
+    "En 627, une coalition d’environ 10 000 hommes marche sur Médine.",
+    "Les musulmans sont environ 3000.",
+    "L’objectif est le siège et l’épuisement, pas un combat rapide.",
+    "La pression est autant psychologique que militaire.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l65_q1",
+      question: "Pourquoi parle-t-on d’une menace sans précédent ?",
+      options: [
+        "Parce que Médine est isolée",
+        "Parce qu’une coalition massive se forme contre Médine",
+        "Parce que la bataille est courte",
+        "Parce que la paix est signée",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Jamais autant de tribus ne s’étaient unies contre Médine.",
+    },
+    {
+      id: "l65_boss_q1",
+      question: "Quel est l’objectif principal de la coalition ?",
+      options: [
+        "Un duel symbolique",
+        "Un siège pour épuiser et anéantir",
+        "Une simple démonstration",
+        "Un échange commercial",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La stratégie vise l’encerclement et l’épuisement.",
+      difficulty: "boss",
+    },
+  ],
+},
+l66: {
+  title: "Creuser pour survivre : la tranchée",
+  illustration: world17_l66,
+  storyBlocks: [
+    { type: "subtitle", text: "⛏️ Une idée inattendue" },
+    {
+      type: "p",
+      text:
+        "Face à une armée bien plus nombreuse, une solution radicalement différente est proposée : creuser une tranchée sur les zones vulnérables de Médine.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette technique n’est pas arabe. Elle est inhabituelle. Mais la situation l’exige. Ici, l’innovation devient une condition de survie.",
+    },
+
+    { type: "subtitle", text: "🥶 Travail, faim et endurance" },
+    {
+      type: "p",
+      text:
+        "Creuser n’est pas un acte héroïque. C’est un travail pénible, long, dans le froid et avec peu de nourriture. Chaque coup de pioche est un acte de résistance.",
+    },
+    {
+      type: "p",
+      text:
+        "Il n’y a pas de promesse de victoire immédiate. Seulement la volonté de tenir.",
+    },
+
+    { type: "subtitle", text: "🧱 Une barrière psychologique" },
+    {
+      type: "p",
+      text:
+        "La tranchée n’est pas seulement un obstacle physique. Elle brise l’élan de la coalition. Elle transforme l’assaut attendu en attente frustrante.",
+    },
+  ],
+  cliffhanger:
+    "La coalition arrive. Et elle découvre un terrain qu’elle ne comprend pas.",
+  keyPoints: [
+    "La tranchée est une solution stratégique innovante.",
+    "Elle est creusée dans des conditions extrêmement difficiles.",
+    "Elle bloque l’assaut frontal de la coalition.",
+    "L’innovation devient un outil de survie.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l66_q1",
+      question: "Pourquoi la tranchée est-elle une solution inédite ?",
+      options: [
+        "Parce qu’elle est décorative",
+        "Parce qu’elle est étrangère aux pratiques arabes",
+        "Parce qu’elle est inutile",
+        "Parce qu’elle est rapide",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La tranchée n’était pas une pratique militaire locale.",
+    },
+    {
+      id: "l66_boss_q1",
+      question: "Quel est l’impact principal de la tranchée ?",
+      options: [
+        "Elle accélère la bataille",
+        "Elle empêche l’assaut et impose l’attente",
+        "Elle affaiblit Médine",
+        "Elle détruit les récoltes",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La tranchée neutralise la supériorité numérique.",
+      difficulty: "boss",
+    },
+  ],
+},
+l67: {
+  title: "Faim, froid et peur : le siège",
+  illustration: world17_l67,
+  storyBlocks: [
+    { type: "subtitle", text: "🥶 Un hiver sous pression" },
+    {
+      type: "p",
+      text:
+        "Le siège s’installe. Les jours passent. Le froid mord. La faim se fait sentir. Les vivres sont rares. La peur circule comme un murmure permanent.",
+    },
+    {
+      type: "p",
+      text:
+        "L’ennemi est là, visible, massif. Il attend que la fatigue fasse le travail.",
+    },
+
+    { type: "subtitle", text: "🧠 Une épreuve mentale extrême" },
+    {
+      type: "p",
+      text:
+        "Le siège n’attaque pas seulement le corps. Il attaque le moral. Chaque nuit est une question : ‘Combien de temps encore ?’",
+    },
+    {
+      type: "p",
+      text:
+        "Certains doutent. Certains vacillent. Et c’est précisément ici que la foi est mise à nu.",
+    },
+
+    { type: "subtitle", text: "⚠️ Une pression intérieure" },
+    {
+      type: "p",
+      text:
+        "À la menace extérieure s’ajoutent des tensions internes. Les cœurs faibles cherchent une issue. Les cœurs solides tiennent.",
+    },
+  ],
+  cliffhanger:
+    "Mais ce siège, aussi massif soit-il, cache une fragilité.",
+  keyPoints: [
+    "Le siège impose faim, froid et peur.",
+    "L’épreuve est autant mentale que physique.",
+    "Des tensions internes apparaissent.",
+    "La foi est testée dans la durée.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l67_q1",
+      question: "Pourquoi le siège est-il une épreuve mentale ?",
+      options: [
+        "Parce qu’il est court",
+        "Parce qu’il installe une attente prolongée et angoissante",
+        "Parce qu’il est facile",
+        "Parce qu’il n’y a pas de danger",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le temps et l’incertitude usent les esprits.",
+    },
+    {
+      id: "l67_boss_q1",
+      question: "Quel est le danger intérieur pendant le siège ?",
+      options: [
+        "La victoire immédiate",
+        "Le découragement et la division",
+        "La richesse",
+        "L’excès de nourriture",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le siège met à l’épreuve la cohésion interne.",
+      difficulty: "boss",
+    },
+  ],
+},
+l68: {
+  title: "Quand la coalition s’effondre",
+  illustration: world17_l68,
+  storyBlocks: [
+    { type: "subtitle", text: "🌬️ Un retournement silencieux" },
+    {
+      type: "p",
+      text:
+        "La coalition est forte en nombre… mais fragile en cohésion. Le froid, la fatigue, les désaccords internes commencent à fissurer l’alliance.",
+    },
+    {
+      type: "p",
+      text:
+        "Le siège s’éternise. L’objectif d’un assaut décisif disparaît peu à peu.",
+    },
+
+    { type: "subtitle", text: "💨 La fin sans bataille" },
+    {
+      type: "p",
+      text:
+        "Sans combat frontal, la coalition se retire. Non pas par victoire de l’épée, mais par l’effondrement de la volonté.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce jour-là, Médine tient sans avoir livré bataille. Et ce fait est en soi une victoire stratégique majeure.",
+    },
+
+    { type: "subtitle", text: "📜 Une leçon durable" },
+    {
+      type: "p",
+      text:
+        "Al-Khandaq enseigne que toutes les victoires ne sont pas bruyantes. Certaines sont silencieuses… mais décisives.",
+    },
+  ],
+  cliffhanger:
+    "Et après cette épreuve, le rapport de force ne sera plus jamais le même.",
+  keyPoints: [
+    "La coalition se fragilise par manque de cohésion.",
+    "Le siège échoue sans bataille décisive.",
+    "Médine tient grâce à la stratégie et à l’endurance.",
+    "Le rapport de force bascule durablement.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l68_q1",
+      question: "Pourquoi la coalition se retire-t-elle ?",
+      options: [
+        "À cause d’une défaite militaire directe",
+        "À cause de l’usure, du froid et du manque de cohésion",
+        "À cause d’une trêve signée",
+        "À cause d’un renfort inattendu",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le siège échoue par épuisement et désaccords internes.",
+    },
+    {
+      id: "l68_boss_q1",
+      question: "Quelle est la grande leçon stratégique d’Al-Khandaq ?",
+      options: [
+        "Le nombre suffit toujours",
+        "La stratégie et l’endurance peuvent neutraliser une supériorité massive",
+        "La bataille est inévitable",
+        "La fuite est la seule solution",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Al-Khandaq montre la puissance de la stratégie face au nombre.",
+      difficulty: "boss",
+    },
+  ],
+},
+l69: {
+  title: "Une victoire sans bataille",
+  illustration: world18_l69,
+  storyBlocks: [
+    { type: "subtitle", text: "🌅 Le silence après la tempête" },
+    {
+      type: "p",
+      text:
+        "Quand la coalition se retire de Médine, il n’y a pas de cris de victoire. Il y a du silence. Un silence lourd, presque irréel.",
+    },
+    {
+      type: "p",
+      text:
+        "Personne n’a chargé. Personne n’a percé. Et pourtant… Médine est toujours là.",
+    },
+
+    { type: "subtitle", text: "⚖️ Une victoire d’un autre type" },
+    {
+      type: "p",
+      text:
+        "Cette victoire n’est pas inscrite sur un champ de bataille. Elle est inscrite dans un fait simple : l’ennemi est venu avec tout… et il est reparti sans rien.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce jour-là, la communauté comprend que survivre à une coalition massive est en soi un tournant historique.",
+    },
+
+    { type: "subtitle", text: "🧠 Comprendre ce qui vient de se passer" },
+    {
+      type: "p",
+      text:
+        "Al-Khandaq n’a pas été gagné par l’épée, mais par la stratégie, l’endurance et la cohésion. Et ce type de victoire change la manière dont les forces se perçoivent.",
+    },
+  ],
+  cliffhanger:
+    "Mais cette victoire silencieuse cache un basculement encore plus profond.",
+  keyPoints: [
+    "La coalition se retire sans victoire militaire.",
+    "Médine survit à la plus grande menace connue.",
+    "La victoire est stratégique et psychologique.",
+    "Le silence marque un tournant historique.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l69_q1",
+      question: "Pourquoi parle-t-on d’une victoire sans bataille ?",
+      options: [
+        "Parce qu’il n’y a pas eu de guerre",
+        "Parce que l’ennemi s’est retiré sans affrontement décisif",
+        "Parce que Médine a fui",
+        "Parce qu’un traité est signé",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La coalition se retire sans combat frontal.",
+    },
+    {
+      id: "l69_boss_q1",
+      question: "Quel est l’impact principal de cette victoire silencieuse ?",
+      options: [
+        "La disparition de tous les ennemis",
+        "Un changement profond du rapport de force",
+        "Une paix immédiate",
+        "Une expansion militaire",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le rapport de force psychologique et stratégique bascule.",
+      difficulty: "boss",
+    },
+  ],
+},
+l70: {
+  title: "La fin de la menace totale",
+  illustration: world18_l70,
+  storyBlocks: [
+    { type: "subtitle", text: "🛑 Un plafond vient d’être atteint" },
+    {
+      type: "p",
+      text:
+        "La coalition représentait le maximum de force que les ennemis pouvaient rassembler. Et ce maximum a échoué.",
+    },
+    {
+      type: "p",
+      text:
+        "À partir de ce moment, une certitude s’installe : plus jamais une attaque de cette ampleur ne sera possible contre Médine.",
+    },
+
+    { type: "subtitle", text: "⚠️ Le danger n’a pas disparu" },
+    {
+      type: "p",
+      text:
+        "La menace n’est pas terminée. Mais elle change de nature. Elle devient locale, ponctuelle, limitée.",
+    },
+    {
+      type: "p",
+      text:
+        "L’ennemi n’attaque plus avec assurance. Il calcule. Il hésite.",
+    },
+
+    { type: "subtitle", text: "🧱 Une communauté désormais solide" },
+    {
+      type: "p",
+      text:
+        "Ce que la coalition n’a pas réussi à briser, plus personne ne le brisera facilement. La communauté a appris à tenir dans l’extrême.",
+    },
+  ],
+  cliffhanger:
+    "Et quand la peur change de camp, l’Histoire suit.",
+  keyPoints: [
+    "La coalition représentait la menace maximale.",
+    "Cette menace a échoué définitivement.",
+    "Les dangers deviennent limités et fragmentés.",
+    "La confiance change de camp.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l70_q1",
+      question: "Pourquoi dit-on que la menace “totale” prend fin ?",
+      options: [
+        "Parce que tous les ennemis disparaissent",
+        "Parce que le maximum de force possible a échoué",
+        "Parce que Médine attaque",
+        "Parce qu’une alliance est signée",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La coalition maximale n’a pas réussi à détruire Médine.",
+    },
+    {
+      id: "l70_boss_q1",
+      question: "Comment évolue la nature du danger après Al-Khandaq ?",
+      options: [
+        "Il devient inexistant",
+        "Il devient local et limité",
+        "Il devient plus massif",
+        "Il devient immédiat",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Les menaces persistent mais sans ampleur globale.",
+      difficulty: "boss",
+    },
+  ],
+},
+l71: {
+  title: "Un ennemi fragilisé",
+  illustration: world18_l71,
+  storyBlocks: [
+    { type: "subtitle", text: "💔 L’échec qui marque" },
+    {
+      type: "p",
+      text:
+        "Un échec collectif laisse des traces. La coalition n’a pas seulement perdu du temps. Elle a perdu de la crédibilité.",
+    },
+    {
+      type: "p",
+      text:
+        "Les alliances se fissurent. Les reproches circulent. Les certitudes tombent.",
+    },
+
+    { type: "subtitle", text: "🧠 Quand la peur change de camp" },
+    {
+      type: "p",
+      text:
+        "Jusqu’ici, Médine se préparait à subir. Désormais, ce sont les ennemis qui anticipent, qui redoutent, qui hésitent.",
+    },
+    {
+      type: "p",
+      text:
+        "La force n’est plus perçue comme invincible. Et cette perception compte autant que les armes.",
+    },
+
+    { type: "subtitle", text: "⚖️ Une fragilité durable" },
+    {
+      type: "p",
+      text:
+        "Même sans bataille, un ennemi peut être affaibli durablement. Al-Khandaq l’a prouvé.",
+    },
+  ],
+  cliffhanger:
+    "Et quand l’ennemi hésite, l’initiative change de mains.",
+  keyPoints: [
+    "L’échec fragilise la coalition.",
+    "Les alliances ennemies se fissurent.",
+    "La peur change progressivement de camp.",
+    "La crédibilité militaire est entamée.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l71_q1",
+      question: "Pourquoi l’ennemi sort-il fragilisé d’Al-Khandaq ?",
+      options: [
+        "À cause d’une lourde défaite militaire",
+        "À cause d’un échec collectif et psychologique",
+        "À cause d’un manque de soldats",
+        "À cause d’une trêve",
+      ],
+      correctIndex: 1,
+      explanation:
+        "L’échec mine la cohésion et la crédibilité.",
+    },
+    {
+      id: "l71_boss_q1",
+      question: "Pourquoi la perception de la force est-elle si importante ?",
+      options: [
+        "Parce qu’elle remplace les armes",
+        "Parce qu’elle influence les décisions et alliances",
+        "Parce qu’elle est symbolique uniquement",
+        "Parce qu’elle est temporaire",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La perception conditionne les comportements politiques et militaires.",
+      difficulty: "boss",
+    },
+  ],
+},
+l72: {
+  title: "Désormais, l’initiative change de camp",
+  illustration: world18_l72,
+  storyBlocks: [
+    { type: "subtitle", text: "🔄 Un changement invisible mais réel" },
+    {
+      type: "p",
+      text:
+        "Après Al-Khandaq, quelque chose d’irréversible se produit : la communauté n’est plus uniquement sur la défensive.",
+    },
+    {
+      type: "p",
+      text:
+        "Elle ne cherche pas la domination, mais elle n’attend plus passivement les coups.",
+    },
+
+    { type: "subtitle", text: "🧭 Une nouvelle posture" },
+    {
+      type: "p",
+      text:
+        "L’initiative ne signifie pas agression. Elle signifie choix, anticipation, direction.",
+    },
+    {
+      type: "p",
+      text:
+        "Pour la première fois depuis longtemps, le futur n’est plus dicté par la peur.",
+    },
+
+    { type: "subtitle", text: "📜 Vers une phase différente de l’Histoire" },
+    {
+      type: "p",
+      text:
+        "Cette bascule ouvre une nouvelle période : celle de la diplomatie, des traités, et d’une expansion qui ne repose plus uniquement sur la survie.",
+    },
+  ],
+  cliffhanger:
+    "Et cette nouvelle phase commencera par un acte que beaucoup ne comprendront pas.",
+  keyPoints: [
+    "Après Al-Khandaq, la posture devient proactive.",
+    "L’initiative change sans recherche de domination.",
+    "La peur ne dicte plus l’agenda.",
+    "Une nouvelle phase historique commence.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l72_q1",
+      question: "Que signifie le changement d’initiative ?",
+      options: [
+        "Lancer immédiatement des attaques",
+        "Ne plus subir passivement les événements",
+        "Abandonner toute prudence",
+        "Ignorer les menaces",
+      ],
+      correctIndex: 1,
+      explanation:
+        "L’initiative permet de choisir et d’anticiper.",
+    },
+    {
+      id: "l72_boss_q1",
+      question: "Quelle phase historique s’ouvre après ce monde ?",
+      options: [
+        "La fin totale des conflits",
+        "La phase diplomatique et stratégique",
+        "Le retour à La Mecque immédiat",
+        "L’isolement complet",
+      ],
+      correctIndex: 1,
+      explanation:
+        "L’Histoire entre dans une phase de traités et de consolidation.",
+      difficulty: "boss",
+    },
+  ],
+},
+l73: {
+  title: "Le départ pour la ʿUmrah (628 / 6 H)",
+  illustration: world19_l73,
+  storyBlocks: [
+    { type: "subtitle", text: "🕋 Un départ qui n’a rien d’une guerre" },
+    {
+      type: "p",
+      text:
+        "En 628 (6 H), la communauté prend une décision qui surprend : partir vers La Mecque pour accomplir la ʿUmrah. Ce n’est pas une expédition militaire. L’intention est le pèlerinage.",
+    },
+    {
+      type: "p",
+      text:
+        "Ils sortent avec l’état d’esprit du sacré, pas de la conquête. Beaucoup de récits rapportent qu’ils sont environ 1400. Et dans leurs cœurs, il y a une chose fragile : l’espoir.",
+    },
+
+    { type: "subtitle", text: "🌙 Le poids de la mémoire" },
+    {
+      type: "p",
+      text:
+        "La route vers La Mecque n’est pas une simple route. C’est la route des souvenirs, des blessures, de l’exil. C’est la ville d’où ils ont dû partir… et qu’ils n’ont pas cessé de regarder de loin.",
+    },
+    {
+      type: "p",
+      text:
+        "Chaque pas est lourd. Mais chaque pas est aussi une déclaration : “Nous sommes là. Nous venons pour adorer.”",
+    },
+
+    { type: "subtitle", text: "⚠️ Une question plane au-dessus du groupe" },
+    {
+      type: "p",
+      text:
+        "La Mecque laissera-t-elle entrer ceux qu’elle a rejetés ? Quraysh acceptera-t-elle de voir ce retour pacifique… sans y lire une humiliation ?",
+    },
+  ],
+  cliffhanger:
+    "Et quand l’horizon de La Mecque se dessine… une barrière invisible se lève devant eux.",
+  keyPoints: [
+    "En 6 H / 628, les musulmans se dirigent vers La Mecque pour la ʿUmrah.",
+    "L’intention n’est pas la guerre mais le pèlerinage.",
+    "Le groupe est rapporté autour de 1400 compagnons.",
+    "Le retour vers La Mecque porte une charge émotionnelle et symbolique forte.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l73_q1",
+      question: "Quel est l’objectif du départ vers La Mecque en 6 H / 628 ?",
+      options: ["Une conquête militaire", "La ʿUmrah", "Une expédition commerciale", "Une migration"],
+      correctIndex: 1,
+      explanation: "L’intention est le pèlerinage (ʿUmrah), pas la guerre.",
+    },
+    {
+      id: "l73_boss_q1",
+      question: "Pourquoi ce départ est-il aussi symbolique ?",
+      options: [
+        "Parce que La Mecque n’existe plus",
+        "Parce que c’est un retour vers la ville de l’exil, dans un cadre sacré",
+        "Parce qu’il s’agit d’un duel annoncé",
+        "Parce que c’est une simple promenade",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le retour vers la ville d’où ils ont été contraints de partir est chargé de sens.",
+      difficulty: "boss",
+    },
+  ],
+},
+l74: {
+  title: "Ḥudaybiyyah : blocage et négociations",
+  illustration: world19_l74,
+  storyBlocks: [
+    { type: "subtitle", text: "🧱 Bloqués avant l’entrée" },
+    {
+      type: "p",
+      text:
+        "Ils n’entrent pas. Quraysh bloque l’accès. Le groupe s’arrête à Al-Ḥudaybiyyah, à la limite de la zone de La Mecque.",
+    },
+    {
+      type: "p",
+      text:
+        "Et là, quelque chose de difficile commence : attendre. Dans l’attente, l’esprit s’agite. Les émotions montent. L’ennemi n’a pas besoin de frapper : le simple blocage est une pression.",
+    },
+
+    { type: "subtitle", text: "🗣️ Une bataille de paroles" },
+    {
+      type: "p",
+      text:
+        "Les échanges s’installent. Des émissaires. Des discussions. Des refus. Des retours. Ce n’est pas une guerre d’épées : c’est une guerre de positions et de dignité.",
+    },
+    {
+      type: "p",
+      text:
+        "La question n’est plus “qui gagne ?” mais “qui cède ?” Et dans le désert, céder peut ressembler à perdre… même quand on tient la vérité.",
+    },
+
+    { type: "subtitle", text: "🔥 Une tension au bord de l’explosion" },
+    {
+      type: "p",
+      text:
+        "Chaque minute peut devenir un déclencheur. Le groupe est là, prêt à respecter le sacré… mais prêt aussi à ne pas se laisser écraser.",
+    },
+  ],
+  cliffhanger:
+    "Puis une nouvelle traverse le camp… une nouvelle qui va faire trembler tous les cœurs.",
+  keyPoints: [
+    "Quraysh bloque l’entrée à La Mecque : arrêt à Al-Ḥudaybiyyah.",
+    "La tension se déplace du militaire vers le politique et la dignité.",
+    "Des négociations et échanges d’émissaires s’installent.",
+    "Le blocage devient une pression psychologique majeure.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l74_q1",
+      question: "Que fait Quraysh face au départ pour la ʿUmrah ?",
+      options: ["Elle ouvre immédiatement l’accès", "Elle bloque l’entrée", "Elle s’exile", "Elle accepte une alliance"],
+      correctIndex: 1,
+      explanation: "Quraysh bloque l’accès à La Mecque, d’où l’arrêt à Ḥudaybiyyah.",
+    },
+    {
+      id: "l74_boss_q1",
+      question: "Pourquoi ce moment est-il une “bataille de paroles” ?",
+      options: [
+        "Parce que personne n’est présent",
+        "Parce que la confrontation passe par négociation et positionnement",
+        "Parce que la guerre est finie",
+        "Parce que tout est simple",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le conflit se joue sur la diplomatie, l’honneur et les conditions.",
+      difficulty: "boss",
+    },
+  ],
+},
+l75: {
+  title: "Bayʿat ar-Riḍwān : le serment sous l’arbre",
+  illustration: world19_l75,
+  storyBlocks: [
+    { type: "subtitle", text: "🌳 Un moment où la foi devient visible" },
+    {
+      type: "p",
+      text:
+        "À Ḥudaybiyyah, la tension atteint un sommet. Une information se répand — et le camp bascule. Dans ce climat, les compagnons prêtent un serment : Bayʿat ar-Riḍwān, sous un arbre.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce n’est pas une scène de discours. C’est une scène de vérité. Des hommes qui n’ont pas les moyens d’une grande armée face à Quraysh… mais qui ont la détermination d’un engagement total.",
+    },
+
+    { type: "subtitle", text: "🫀 Le courage collectif" },
+    {
+      type: "p",
+      text:
+        "Il y a une force particulière dans ce serment : ce n’est pas l’élan d’un individu. C’est une cohésion. Le groupe affirme : “Nous ne reculons pas.”",
+    },
+    {
+      type: "p",
+      text:
+        "Ce moment marque l’Histoire : le camp n’est pas venu pour la guerre, mais il refuse d’être humilié.",
+    },
+
+    { type: "subtitle", text: "⚖️ Une dignité protégée" },
+    {
+      type: "p",
+      text:
+        "Le serment n’est pas une provocation. Il est une ligne rouge : on négocie, oui. On patiente, oui. Mais on ne se dissout pas.",
+    },
+  ],
+  cliffhanger:
+    "Et c’est précisément après ce serment… que la négociation va aboutir à un traité qui va choquer beaucoup de cœurs.",
+  keyPoints: [
+    "À Ḥudaybiyyah a lieu Bayʿat ar-Riḍwān (serment sous l’arbre).",
+    "Ce serment montre une cohésion et une détermination collectives.",
+    "Les musulmans ne cherchent pas la guerre mais refusent l’humiliation.",
+    "Ce moment prépare la conclusion d’un traité majeur.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l75_q1",
+      question: "Qu’est-ce que Bayʿat ar-Riḍwān ?",
+      options: [
+        "Une bataille",
+        "Un serment (bayʿa) prêté sous un arbre",
+        "Un commerce",
+        "Une migration",
+      ],
+      correctIndex: 1,
+      explanation: "Bayʿat ar-Riḍwān est le serment prêté sous l’arbre à Ḥudaybiyyah.",
+    },
+    {
+      id: "l75_boss_q1",
+      question: "Quelle idée centrale exprime ce serment ?",
+      options: [
+        "La fuite",
+        "La cohésion et le refus de l’humiliation",
+        "La fin des épreuves",
+        "L’abandon de la ʿUmrah",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le serment affirme la solidité collective malgré l’encerclement politique.",
+      difficulty: "boss",
+    },
+  ],
+},
+l76: {
+  title: "Le traité : choc, patience… et victoire stratégique",
+  illustration: world19_l76,
+  storyBlocks: [
+    { type: "subtitle", text: "📝 Un traité, pas une entrée" },
+    {
+      type: "p",
+      text:
+        "Le résultat immédiat n’est pas ce que beaucoup espéraient : pas d’entrée à La Mecque cette année-là. À la place, un traité est conclu : une trêve (souvent rapportée à environ dix ans) et un retour à Médine.",
+    },
+    {
+      type: "p",
+      text:
+        "Pour certains, c’est un choc. Ils sont venus pour la ʿUmrah. Ils repartent sans l’accomplir. Sur le plan émotionnel, cela peut ressembler à une défaite.",
+    },
+
+    { type: "subtitle", text: "⚖️ Une paix qui pèse" },
+    {
+      type: "p",
+      text:
+        "Les clauses sont difficiles à avaler pour plusieurs compagnons. Le cœur humain comprend vite le “gain visible”, mais il peine avec le “gain différé”.",
+    },
+    {
+      type: "p",
+      text:
+        "Et pourtant… ce traité ouvre quelque chose d’immense : une période où la guerre ouverte recule, où les contacts augmentent, où les tribus observent sans le bruit permanent des combats.",
+    },
+
+    { type: "subtitle", text: "🔓 La victoire qui ne ressemble pas à une victoire" },
+    {
+      type: "p",
+      text:
+        "Stratégiquement, le rapport de force change. La communauté n’est plus enfermée dans une survie permanente. Elle respire. Elle parle. Elle se déplace. Les alliances se redessinent.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce monde te met face à une vérité : parfois, la victoire la plus puissante est celle qui exige de la patience — parce qu’elle ne flatte pas l’ego.",
+    },
+  ],
+  cliffhanger:
+    "Et dans le prochain monde, tu verras comment cette “paix incomprise” va produire un impact que personne n’imaginait.",
+  keyPoints: [
+    "À Ḥudaybiyyah, un traité est conclu : trêve (souvent rapportée ~10 ans).",
+    "Les musulmans ne font pas la ʿUmrah cette année-là mais pourront revenir ensuite.",
+    "Le traité choque certains sur le plan émotionnel.",
+    "Stratégiquement, il ouvre une période de respiration et de diffusion du message.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l76_q1",
+      question: "Quel est le résultat immédiat de Ḥudaybiyyah ?",
+      options: [
+        "Entrée immédiate à La Mecque",
+        "Un traité et le retour sans ʿUmrah cette année-là",
+        "Une bataille décisive",
+        "La fin de Quraysh",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le groupe repart sans accomplir la ʿUmrah cette année, avec un traité (trêve).",
+    },
+    {
+      id: "l76_boss_q1",
+      question: "Pourquoi ce traité est-il une victoire stratégique malgré le choc ?",
+      options: [
+        "Parce qu’il supprime toute épreuve",
+        "Parce qu’il réduit la guerre ouverte et ouvre une phase de diffusion et d’alliances",
+        "Parce qu’il force Quraysh à quitter La Mecque",
+        "Parce qu’il donne une armée énorme",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le traité change l’environnement : moins de guerre ouverte, plus d’espace pour la prédication et les alliances.",
       difficulty: "boss",
     },
   ],
