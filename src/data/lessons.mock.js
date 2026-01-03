@@ -76,6 +76,10 @@ import world19_l73 from "../assets/illustrations/worlds/world19_l73.png";
 import world19_l74 from "../assets/illustrations/worlds/world19_l74.png";
 import world19_l75 from "../assets/illustrations/worlds/world19_l75.png";
 import world19_l76 from "../assets/illustrations/worlds/world19_l76.png";
+import world20_l77 from "../assets/illustrations/worlds/world20_l77.png";
+import world20_l78 from "../assets/illustrations/worlds/world20_l78.png";
+import world20_l79 from "../assets/illustrations/worlds/world20_l79.png";
+import world20_l80 from "../assets/illustrations/worlds/world20_l80.png";
 
 
 
@@ -6120,6 +6124,289 @@ l76: {
     },
   ],
 },
+l77: {
+  title: "Une paix qui libère le mouvement",
+  illustration: world20_l77,
+  storyBlocks: [
+    { type: "subtitle", text: "🕊️ Quand la guerre cesse de dicter chaque pas" },
+    {
+      type: "p",
+      text:
+        "Après Ḥudaybiyyah (6 H / 628), quelque chose change profondément : la guerre ouverte avec Quraysh n’est plus permanente. Pour la première fois depuis longtemps, la communauté respire.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette respiration n’est pas du repos. C’est de l’espace. De l’espace pour voyager, parler, rencontrer, expliquer. Le message n’est plus étouffé par l’urgence militaire.",
+    },
+
+    { type: "subtitle", text: "🚶‍♂️ Les routes s’ouvrent" },
+    {
+      type: "p",
+      text:
+        "Les tribus observent. Beaucoup hésitaient auparavant : s’allier à une communauté en guerre permanente était risqué. Désormais, le paysage est différent.",
+    },
+    {
+      type: "p",
+      text:
+        "Les échanges se multiplient. Les discussions se font sans le bruit constant des armes. Et cela change tout.",
+    },
+
+    { type: "subtitle", text: "⚖️ Une victoire invisible" },
+    {
+      type: "p",
+      text:
+        "Ḥudaybiyyah commence à montrer sa vraie nature : ce n’était pas un recul, mais une ouverture stratégique. Une victoire qui ne se mesure pas en territoires conquis, mais en horizons dégagés.",
+    },
+  ],
+  cliffhanger:
+    "Et quand l’espace s’ouvre… une question s’impose : le message est-il réservé à l’Arabie ?",
+  keyPoints: [
+    "Après Ḥudaybiyyah, la guerre ouverte recule.",
+    "La communauté gagne en liberté de mouvement et de parole.",
+    "Les tribus observent un nouvel équilibre.",
+    "La paix devient un levier stratégique majeur.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l77_q1",
+      question: "Quel est l’effet principal immédiat de Ḥudaybiyyah ?",
+      options: [
+        "Une conquête militaire",
+        "Une paix durable totale",
+        "La réduction de la guerre ouverte et plus de liberté de mouvement",
+        "La disparition des tensions",
+      ],
+      correctIndex: 2,
+      explanation:
+        "Ḥudaybiyyah réduit la guerre ouverte et libère les déplacements et échanges.",
+    },
+    {
+      id: "l77_boss_q1",
+      question: "Pourquoi cette paix est-elle qualifiée de “victoire invisible” ?",
+      options: [
+        "Parce qu’elle n’existe pas",
+        "Parce qu’elle ne repose pas sur la conquête militaire",
+        "Parce qu’elle est temporaire",
+        "Parce qu’elle est oubliée",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Elle change le rapport de force sans bataille directe.",
+      difficulty: "boss",
+    },
+  ],
+},
+l78: {
+  title: "Les lettres aux souverains",
+  illustration: world20_l78,
+  storyBlocks: [
+    { type: "subtitle", text: "🌍 Un message qui dépasse l’Arabie" },
+    {
+      type: "p",
+      text:
+        "Dans cette période d’ouverture (fin 6 H – 7 H), le message ne reste plus limité aux tribus locales. Des lettres sont envoyées à plusieurs souverains et dirigeants régionaux.",
+    },
+    {
+      type: "p",
+      text:
+        "C’est un changement d’échelle. Le message ne se présente pas comme une force armée, mais comme un appel, posé avec clarté.",
+    },
+
+    { type: "subtitle", text: "✉️ Une démarche assumée" },
+    {
+      type: "p",
+      text:
+        "Envoyer ces lettres, c’est affirmer une conviction : ce message n’est pas circonstanciel. Il ne dépend ni d’un territoire ni d’un rapport de force immédiat.",
+    },
+    {
+      type: "p",
+      text:
+        "Certaines réponses seront ouvertes, d’autres fermées. Mais l’acte lui-même marque une étape irréversible.",
+    },
+
+    { type: "subtitle", text: "🧭 Une vision à long terme" },
+    {
+      type: "p",
+      text:
+        "Ce monde montre que l’expansion ne commence pas par l’épée, mais par la parole structurée, assumée, envoyée au-delà des frontières connues.",
+    },
+  ],
+  cliffhanger:
+    "Mais pendant que le message s’étend… une menace interne doit encore être sécurisée.",
+  keyPoints: [
+    "Après Ḥudaybiyyah, le message dépasse l’Arabie.",
+    "Des lettres sont envoyées à des dirigeants et souverains.",
+    "L’expansion commence par l’appel, pas par la conquête.",
+    "Cette démarche affirme une vision universelle.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l78_q1",
+      question: "Que symbolisent les lettres envoyées aux souverains ?",
+      options: [
+        "Une déclaration de guerre",
+        "Un appel universel au-delà de l’Arabie",
+        "Un échange commercial",
+        "Une alliance militaire",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Les lettres montrent que le message dépasse les frontières arabes.",
+    },
+    {
+      id: "l78_boss_q1",
+      question: "Pourquoi cette étape est-elle stratégique ?",
+      options: [
+        "Parce qu’elle garantit des conquêtes immédiates",
+        "Parce qu’elle affirme une vision à long terme",
+        "Parce qu’elle élimine tous les ennemis",
+        "Parce qu’elle supprime les tensions",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Elle pose le message comme universel, indépendamment du rapport de force.",
+      difficulty: "boss",
+    },
+  ],
+},
+l79: {
+  title: "Khaybar : sécurité et stabilité (628 / 7 H)",
+  illustration: world20_l79,
+  storyBlocks: [
+    { type: "subtitle", text: "🛡️ Sécuriser l’arrière" },
+    {
+      type: "p",
+      text:
+        "En 7 H (628–629), Khaybar représente un enjeu stratégique. Ce n’est pas seulement un lieu : c’est une source de menaces potentielles et de déstabilisation.",
+    },
+    {
+      type: "p",
+      text:
+        "Dans un contexte où le message s’étend, sécuriser l’arrière devient indispensable.",
+    },
+
+    { type: "subtitle", text: "⚔️ Une opération ciblée" },
+    {
+      type: "p",
+      text:
+        "L’objectif n’est pas l’expansion aveugle, mais la stabilisation. Mettre fin à un foyer de tensions permet d’éviter que la communauté ne soit encerclée pendant qu’elle s’ouvre au monde.",
+    },
+
+    { type: "subtitle", text: "🔒 Une base désormais sûre" },
+    {
+      type: "p",
+      text:
+        "Après Khaybar, Médine est plus stable. Les routes sont plus sûres. L’énergie peut se concentrer sur la construction plutôt que la survie.",
+    },
+  ],
+  cliffhanger:
+    "Et cette stabilité va profondément modifier l’équilibre des forces en Arabie.",
+  keyPoints: [
+    "Khaybar est un enjeu stratégique majeur.",
+    "L’objectif est la sécurité et la stabilité.",
+    "La communauté consolide sa base arrière.",
+    "Cette étape prépare une phase plus large.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l79_q1",
+      question: "Pourquoi Khaybar est-il stratégique ?",
+      options: [
+        "Pour des raisons commerciales uniquement",
+        "Parce qu’il représente une menace potentielle",
+        "Parce qu’il est proche de La Mecque",
+        "Parce qu’il est symbolique",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Khaybar est un foyer de menaces qu’il faut neutraliser.",
+    },
+    {
+      id: "l79_boss_q1",
+      question: "Quel est l’effet principal après Khaybar ?",
+      options: [
+        "Une expansion immédiate hors d’Arabie",
+        "Une stabilité accrue autour de Médine",
+        "La fin de toute opposition",
+        "Une paix totale",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La région autour de Médine devient plus stable.",
+      difficulty: "boss",
+    },
+  ],
+},
+l80: {
+  title: "Un nouvel équilibre en Arabie",
+  illustration: world20_l80,
+  storyBlocks: [
+    { type: "subtitle", text: "⚖️ Un paysage transformé" },
+    {
+      type: "p",
+      text:
+        "Quelques années plus tôt, la communauté luttait pour survivre. Désormais, le paysage est transformé : alliances, neutralités, observations prudentes.",
+    },
+    {
+      type: "p",
+      text:
+        "L’Arabie ne regarde plus Médine comme une anomalie fragile, mais comme une force structurée.",
+    },
+
+    { type: "subtitle", text: "🧩 Les tribus choisissent" },
+    {
+      type: "p",
+      text:
+        "Beaucoup de tribus prennent position. Certaines s’allient, d’autres observent. Mais l’indifférence disparaît.",
+    },
+
+    { type: "subtitle", text: "⏳ Une montée silencieuse" },
+    {
+      type: "p",
+      text:
+        "Ce monde ne se termine pas par un choc, mais par une montée continue. Tout est en place pour un événement que peu peuvent encore imaginer…",
+    },
+  ],
+  cliffhanger:
+    "Car très bientôt, La Mecque elle-même va redevenir centrale.",
+  keyPoints: [
+    "L’équilibre des forces en Arabie évolue.",
+    "Médine devient une puissance reconnue.",
+    "Les tribus ne peuvent plus rester neutres.",
+    "Le terrain est prêt pour un tournant majeur.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l80_q1",
+      question: "Comment l’Arabie perçoit-elle Médine à ce stade ?",
+      options: [
+        "Comme une communauté marginale",
+        "Comme une force structurée",
+        "Comme une menace isolée",
+        "Comme un simple partenaire commercial",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Médine est désormais vue comme une force organisée.",
+    },
+    {
+      id: "l80_boss_q1",
+      question: "Pourquoi ce monde est-il un monde de transition ?",
+      options: [
+        "Parce qu’il conclut l’Histoire",
+        "Parce qu’il prépare un tournant majeur",
+        "Parce qu’il n’apporte rien de nouveau",
+        "Parce qu’il annule les précédents",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Il prépare directement les événements majeurs à venir.",
+      difficulty: "boss",
+    },
+  ],
+},
+
 
 
 

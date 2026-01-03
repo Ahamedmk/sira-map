@@ -633,6 +633,19 @@ export const WORLDS = [
     { id: "l76", type: "lesson", title: "Le traité : choc, patience… et victoire stratégique", estMin: 65, required: true },
     { id: "b19", type: "boss", title: "Boss Quiz — Al-Ḥudaybiyyah", estMin: 16, required: true },
   ],
+},
+{
+  id: "world-20",
+  title: "Monde 20 — L’ouverture du monde (628–629 / 7 H)",
+  description:
+    "Après Ḥudaybiyyah, le silence remplace la guerre ouverte. Les routes s’ouvrent, les alliances se redessinent… et le message dépasse désormais l’Arabie.",
+  nodes: [
+    { id: "l77", type: "lesson", title: "Une paix qui libère le mouvement", estMin: 55, required: true },
+    { id: "l78", type: "lesson", title: "Les lettres aux souverains", estMin: 60, required: true },
+    { id: "l79", type: "lesson", title: "Khaybar : sécurité et stabilité (628)", estMin: 65, required: true },
+    { id: "l80", type: "lesson", title: "Un nouvel équilibre en Arabie", estMin: 58, required: true },
+    { id: "b20", type: "boss", title: "Boss Quiz — L’ouverture du monde", estMin: 16, required: true },
+  ],
 }
 
 
