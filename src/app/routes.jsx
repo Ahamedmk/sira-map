@@ -18,6 +18,10 @@ import ResultSuccess from "../pages/ResultSuccess.jsx";
 import ResultFail from "../pages/ResultFail.jsx";
 import Timeline from "../pages/Timeline";
 
+import WeeklyBossPage from "../pages/WeeklyBossPage.jsx";
+import WeeklyBossQuizPage from "../pages/WeeklyBossQuizPage.jsx";
+import WeeklyBossResultPage from "../pages/WeeklyBossResultPage.jsx";
+
 export const routes = [
   { path: "/", element: <Navigate to="/map" replace /> },
 
@@ -29,6 +33,7 @@ export const routes = [
   { path:"/timeline", element:<Timeline /> },
   { path:"/collection", element:<CollectionPage />},
   { path:"/login", element:<LoginPage />},
+  
 
   // Flow pédagogique
   { path: "/lesson/:lessonId", element: <LessonPage /> },
@@ -42,6 +47,10 @@ export const routes = [
   // Révisions
   { path: "/review/quiz/:reviewId", element: <ReviewQuizPage /> },
   { path: "/bonus/:bonusId", element: <BonusReviewQuiz /> },
+
+  { path:"/weeklyboss", element:<WeeklyBossPage />},
+{ path:"/weeklyboss/quiz", element:<WeeklyBossQuizPage />},
+{ path:"/weeklyboss/result", element:<WeeklyBossResultPage />},
 
   // Fallback
   { path: "*", element: <Navigate to="/map" replace /> },

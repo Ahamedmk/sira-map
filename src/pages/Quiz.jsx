@@ -22,6 +22,10 @@ import { loadProgress, isNodeCompleted } from "../lib/progressStore.js";
 
 import CardUnlockModal from "../components/CardUnlockModal.jsx";
 
+// ✅ AJOUT : auth + supabase (adapte le chemin si besoin)
+import { useAuth } from "../lib/context/AuthContext.jsx";
+import { supabase } from "../lib/supabase.js";
+
 /**
  * map.mock.js -> world ids: "world-10"
  * cards system -> worldKey: "world10_hijrah"
@@ -126,7 +130,10 @@ function shuffleQuestionOptions(question, seedBase) {
   };
 }
 
+/* ✅ Dots boss : on garde ton effet, mais on évite Math.random dans le render */
 function makeBossDots(count = 20) {
+  // Seed basé sur time, juste esthétique (pas un problème car pas dans le render).
+  // Si tu veux 100% déterministe => seedBase
   return Array.from({ length: count }, (_, id) => ({
     id,
     top: `${Math.random() * 100}%`,
@@ -135,15 +142,76 @@ function makeBossDots(count = 20) {
   }));
 }
 
+/* =========================================================
+   ✅ Helpers leaderboard (dates, week start, etc.)
+========================================================= */
+function toISODate(d = new Date()) {
+  // YYYY-MM-DD (UTC safe)
+  const x = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  return x.toISOString().slice(0, 10);
+}
+
+// Week start Monday (date string YYYY-MM-DD)
+function getWeekStartMondayISO(d = new Date()) {
+  const date = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  const day = date.getUTCDay(); // 0=Sun,1=Mon,...6=Sat
+  const diff = (day === 0 ? 6 : day - 1); // days since Monday
+  date.setUTCDate(date.getUTCDate() - diff);
+  return date.toISOString().slice(0, 10);
+}
+
+/**
+ * Détermine si c’est la première activité du jour (pour global days_active).
+ * (simple, localStorage) — tu peux remplacer par une table "daily_activity" plus tard.
+ */
+function getAndSetFirstActivityToday(userId, isoDay) {
+  if (!userId) return false;
+  const key = `global_first_activity_${userId}_${isoDay}`;
+  const already = localStorage.getItem(key) === "1";
+  if (already) return false;
+  localStorage.setItem(key, "1");
+  return true;
+}
+
+function getLocalStreak(userId) {
+  if (!userId) return 0;
+
+  const today = toISODate(new Date());
+  const keyLast = `streak_last_day_${userId}`;
+  const keyStreak = `streak_current_${userId}`;
+
+  const lastDay = localStorage.getItem(keyLast);
+  const current = Number(localStorage.getItem(keyStreak) || 0);
+
+  // déjà compté aujourd'hui
+  if (lastDay === today) return current;
+
+  // calc hier
+  const d = new Date(today + "T00:00:00Z");
+  d.setUTCDate(d.getUTCDate() - 1);
+  const yesterday = d.toISOString().slice(0, 10);
+
+  let next = 1;
+  if (lastDay === yesterday) next = Math.max(1, current + 1);
+
+  localStorage.setItem(keyLast, today);
+  localStorage.setItem(keyStreak, String(next));
+  return next;
+}
+
 export default function Quiz() {
   const { lessonId } = useParams();
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   const [i, setI] = useState(0);
   const [selected, setSelected] = useState(null);
   const [correctCount, setCorrectCount] = useState(0);
   const correctRef = useRef(0);
   const [showFeedback, setShowFeedback] = useState(false);
+
+  // ✅ timer quiz total
+  const quizStartMsRef = useRef(null);
 
   // ✅ popup unlock
   const [unlockOpen, setUnlockOpen] = useState(false);
@@ -216,12 +284,17 @@ export default function Quiz() {
     correctRef.current = 0;
     setCorrectCount(0);
 
+    // ✅ reset timer
+    quizStartMsRef.current = Date.now();
+
     if (!baseQuiz) {
       setQuiz(null);
       return;
     }
 
-    const seedBase = `quiz::${lessonId}::${baseQuiz?.worldKey || "no_world"}::${isBossId ? "boss" : "lesson"}`;
+    const seedBase = `quiz::${lessonId}::${baseQuiz?.worldKey || "no_world"}::${
+      isBossId ? "boss" : "lesson"
+    }`;
 
     const prepared = {
       ...baseQuiz,
@@ -330,10 +403,83 @@ export default function Quiz() {
     setShowFeedback(true);
   }
 
+  // ✅ NEW: push score to Supabase leaderboards
+  async function submitLeaderboard({ passed }) {
+    // On ne bloque pas le user si supabase down -> try/catch au caller
+    if (!user?.id) return;
+
+    const todayISO = toISODate(new Date());
+    const weekStartISO = getWeekStartMondayISO(new Date());
+    const timeMs = Math.max(0, Date.now() - (quizStartMsRef.current || Date.now()));
+
+    const correct = correctRef.current;
+    const totalQ = total;
+
+    // ⚠️ streak : si tu as déjà une logique streak ailleurs, branche-la ici.
+    // Pour l’instant on met 0 (safe). Tu peux aussi stocker un streak dans progressStore.
+    const streak = getLocalStreak(user.id);;
+
+    // 1) Boss -> weekly boss (même si raté)
+    if (isBossId && quiz?.isWeeklyBoss === true) {
+      await supabase.rpc("submit_weekly_boss_score", {
+        p_week_start: weekStartISO,
+        p_user_id: user.id,
+        p_correct: correct,
+        p_total: totalQ,
+        p_time_ms: timeMs,
+      });
+
+      // Optionnel: marquer "seen" (badge bottomnav)
+      localStorage.setItem("lb_seen_v1", "1");
+    }
+
+    // 2) Lesson quiz -> daily (seulement si réussi)
+    if (!isBossId && passed) {
+      await supabase.rpc("submit_daily_score", {
+        p_day: todayISO,
+        p_user_id: user.id,
+        p_correct: correct,
+        p_total: totalQ,
+        p_time_ms: timeMs,
+        p_streak: streak,
+      });
+
+      localStorage.setItem("lb_seen_v1", "1");
+    }
+
+    // 3) Global (optionnel) — safe
+    try {
+      const isFirst = getAndSetFirstActivityToday(user.id, todayISO);
+
+      // ⚠️ Si tu gères streak ailleurs, mets les vraies valeurs
+      const newStreakCurrent = streak;
+      const newStreakMax = streak;
+
+      await supabase.rpc("bump_global_after_quiz", {
+        p_user_id: user.id,
+        p_today: todayISO,
+        p_is_first_activity_today: isFirst,
+        p_new_streak_current: newStreakCurrent,
+        p_new_streak_max: newStreakMax,
+      });
+    } catch (e) {
+      // On ignore si la function n’existe pas encore ou si tu ne l’as pas déployée
+      // console.warn("bump_global_after_quiz skipped:", e);
+    }
+  }
+
   async function finish() {
     const pct = Math.round((correctRef.current / total) * 100);
     const passPct = quiz?.passPct ?? 80;
     const passed = pct >= passPct;
+
+    // ✅ ENVOI SCORE (avant nav)
+    try {
+      await submitLeaderboard({ passed });
+    } catch (e) {
+      console.error("submitLeaderboard failed:", e);
+      // on continue quand même
+    }
 
     // si échec: on peut naviguer direct (pas de carte)
     if (!passed) {
@@ -454,7 +600,9 @@ export default function Quiz() {
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-600/20 border border-yellow-600/30 mb-2">
                   <Crown size={14} className="text-yellow-400" />
-                  <span className="text-xs font-bold text-yellow-400">MODE BOSS</span>
+                  <span className="text-xs font-bold text-yellow-400">
+                    MODE BOSS
+                  </span>
                 </div>
                 <h1 className="mt-2 text-xl font-bold text-white">
                   {quiz.title || "Boss Quiz"}
@@ -463,7 +611,9 @@ export default function Quiz() {
                   <span className="flex items-center gap-1">
                     <ShieldCheck size={16} className="text-yellow-400" />
                     Seuil :{" "}
-                    <span className="font-bold text-white">{quiz.passPct ?? 80}%</span>
+                    <span className="font-bold text-white">
+                      {quiz.passPct ?? 80}%
+                    </span>
                   </span>
                   <span className="text-neutral-500">•</span>
                   <span className="font-semibold">{total} questions</span>
@@ -483,7 +633,9 @@ export default function Quiz() {
                   <Award size={24} className="text-blue-600" />
                 </div>
                 <div>
-                  <h1 className="text-lg font-bold text-neutral-900">{quiz.title}</h1>
+                  <h1 className="text-lg font-bold text-neutral-900">
+                    {quiz.title}
+                  </h1>
                   <p className="text-sm text-neutral-600">
                     Question {i + 1} sur {total}
                   </p>
@@ -496,10 +648,18 @@ export default function Quiz() {
         {/* Barre de progression */}
         <div className="mt-5 relative">
           <div className="flex items-center justify-between mb-2 px-1">
-            <span className={`text-xs font-bold ${bossMode ? "text-neutral-400" : "text-neutral-600"}`}>
+            <span
+              className={`text-xs font-bold ${
+                bossMode ? "text-neutral-400" : "text-neutral-600"
+              }`}
+            >
               Progression
             </span>
-            <span className={`text-xs font-bold ${bossMode ? "text-yellow-400" : "text-blue-600"}`}>
+            <span
+              className={`text-xs font-bold ${
+                bossMode ? "text-yellow-400" : "text-blue-600"
+              }`}
+            >
               {progressPct}%
             </span>
           </div>
@@ -566,7 +726,9 @@ export default function Quiz() {
                     disabled={locked}
                     className={[
                       "w-full text-left rounded-2xl border-2 px-5 py-4 text-sm font-medium transition-all duration-200 relative overflow-hidden group",
-                      bossMode ? "bg-neutral-800/50 border-neutral-700" : "bg-white border-neutral-200",
+                      bossMode
+                        ? "bg-neutral-800/50 border-neutral-700"
+                        : "bg-white border-neutral-200",
                       active && !locked
                         ? bossMode
                           ? "border-yellow-400 bg-yellow-600/10"
@@ -678,7 +840,11 @@ export default function Quiz() {
                 >
                   {isCorrect ? "Excellent !" : "Pas tout à fait..."}
                 </p>
-                <p className={`text-xs ${bossMode ? "text-neutral-400" : "text-neutral-600"}`}>
+                <p
+                  className={`text-xs ${
+                    bossMode ? "text-neutral-400" : "text-neutral-600"
+                  }`}
+                >
                   {isCorrect ? "Continue comme ça" : "Lis l'explication"}
                 </p>
               </div>
@@ -688,10 +854,14 @@ export default function Quiz() {
               <div
                 className={[
                   "rounded-2xl border p-4 mb-4",
-                  bossMode ? "bg-neutral-800/50 border-neutral-700" : "bg-white border-neutral-200",
+                  bossMode
+                    ? "bg-neutral-800/50 border-neutral-700"
+                    : "bg-white border-neutral-200",
                 ].join(" ")}
               >
-                <p className="text-xs font-bold text-neutral-500 mb-2">💡 EXPLICATION</p>
+                <p className="text-xs font-bold text-neutral-500 mb-2">
+                  💡 EXPLICATION
+                </p>
                 <p
                   className={[
                     "text-sm leading-6",
@@ -740,14 +910,24 @@ export default function Quiz() {
         {/* Score actuel */}
         <div
           className={`mt-5 rounded-2xl border p-4 ${
-            bossMode ? "bg-neutral-900/50 border-neutral-700" : "bg-white/80 border-neutral-200/50"
+            bossMode
+              ? "bg-neutral-900/50 border-neutral-700"
+              : "bg-white/80 border-neutral-200/50"
           }`}
         >
           <div className="flex items-center justify-between">
-            <span className={`text-sm font-medium ${bossMode ? "text-neutral-400" : "text-neutral-600"}`}>
+            <span
+              className={`text-sm font-medium ${
+                bossMode ? "text-neutral-400" : "text-neutral-600"
+              }`}
+            >
               Score actuel
             </span>
-            <span className={`text-lg font-bold ${bossMode ? "text-yellow-400" : "text-blue-600"}`}>
+            <span
+              className={`text-lg font-bold ${
+                bossMode ? "text-yellow-400" : "text-blue-600"
+              }`}
+            >
               {correctCount}/{i + (showFeedback ? 1 : 0)}
             </span>
           </div>
