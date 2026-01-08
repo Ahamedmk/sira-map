@@ -151,7 +151,8 @@ export default function MapPage() {
 
     // On récupère le monde du node (injecté plus bas au rendu)
     const worldN = worldNumberFromId(rawNode.worldId || activeWorldId);
-    const lockedByPaywall = isWorldLockedByPaywall(worldN, isPro);
+    const lockedByPaywall = false;
+    // isWorldLockedByPaywall(worldN, isPro);
 
     // 🔒 Paywall : si non Pro et monde verrouillé
     if (lockedByPaywall) {
