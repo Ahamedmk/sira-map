@@ -5,8 +5,9 @@ import BottomNav from "../components/BottomNav.jsx";
 import BottomSheet from "../components/BottomSheet.jsx";
 
 import { computeMapUI } from "../data/map.mock.js";
-import { loadProgress, isNodeCompleted } from "../lib/progressStore.js";
+import { loadProgress } from "../lib/progressStore.js";
 import { useAuth } from "../lib/context/AuthContext.jsx";
+import { isWorldLockedByPaywall } from "../lib/premium.js";
 
 import {
   BookOpen,
@@ -22,30 +23,43 @@ import {
   UserPlus,
   ShieldCheck,
 } from "lucide-react";
-// import { unlockCard } from "../lib/cardsProgress.js";
-
-// await unlockCard("abu-bakr", "manual_test", { test: true });
-// console.log("✅ unlockCard OK");
-
 
 /* ------------------ Icons ------------------ */
 function NodeIcon({ type, locked }) {
   const base = locked ? "text-neutral-400" : "";
   const iconProps = { size: 20, strokeWidth: 2 };
 
-  if (type === "lesson")
+  if (type === "lesson") {
     return (
-      <BookOpen className={`${base} ${!locked && "text-blue-600"}`} {...iconProps} />
+      <BookOpen className={`${base} ${!locked ? "text-blue-600" : ""}`} {...iconProps} />
     );
-  if (type === "review")
+  }
+  if (type === "review") {
     return (
-      <Brain className={`${base} ${!locked && "text-purple-600"}`} {...iconProps} />
+      <Brain className={`${base} ${!locked ? "text-purple-600" : ""}`} {...iconProps} />
     );
-  if (type === "boss")
+  }
+  if (type === "boss") {
     return (
-      <Crown className={`${base} ${!locked && "text-amber-600"}`} {...iconProps} />
+      <Crown className={`${base} ${!locked ? "text-amber-600" : ""}`} {...iconProps} />
     );
+  }
   return null;
+}
+
+/* ------------------ Helpers ------------------ */
+function worldNumberFromId(worldId) {
+  // world-1 => 1, world6 => 6, "6" => 6
+  const m = String(worldId || "").match(/(\d+)/);
+  return m ? Number(m[1]) : 1;
+}
+
+function scrollTopInstant() {
+  try {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  } catch {
+    window.scrollTo(0, 0);
+  }
 }
 
 /* ------------------ Page ------------------ */
@@ -60,6 +74,9 @@ export default function MapPage() {
 
   // ✅ Signup prompt (invité -> compte)
   const [signupOpen, setSignupOpen] = useState(false);
+
+  // ✅ Premium (à brancher plus tard)
+  const isPro = false;
 
   useEffect(() => {
     setProgress(loadProgress());
@@ -88,35 +105,24 @@ export default function MapPage() {
 
   /* ------------------ Signup Prompt Trigger ------------------ */
   useEffect(() => {
-  if (authLoading) return;
+    if (authLoading) return;
 
-  // connecté => jamais de popup
-  if (user) return;
+    // connecté => jamais de popup
+    if (user) return;
 
-  // déjà vu => ne pas re-spam
-  const alreadySeen = localStorage.getItem("signup_prompt_seen") === "1";
-  if (alreadySeen) return;
+    // déjà vu => ne pas re-spam
+    const alreadySeen = localStorage.getItem("signup_prompt_seen") === "1";
+    if (alreadySeen) return;
 
-  const postBoss = localStorage.getItem("post_boss_prompt"); // "signup"
-
-  if (postBoss === "signup") {
-    setSignupOpen(true);
-    localStorage.setItem("signup_prompt_seen", "1");
-    localStorage.removeItem("post_boss_prompt");
-  }
-}, [authLoading, user]);
-
+    const postBoss = localStorage.getItem("post_boss_prompt"); // "signup"
+    if (postBoss === "signup") {
+      setSignupOpen(true);
+      localStorage.setItem("signup_prompt_seen", "1");
+      localStorage.removeItem("post_boss_prompt");
+    }
+  }, [authLoading, user]);
 
   /* ------------------ Helpers ------------------ */
-  function scrollTopInstant() {
-    // "instant" n'est pas standard partout → on garde un fallback safe
-    try {
-      window.scrollTo({ top: 0, behavior: "instant" });
-    } catch {
-      window.scrollTo(0, 0);
-    }
-  }
-
   function gotoNode(node) {
     if (!node) return;
     scrollTopInstant();
@@ -124,31 +130,6 @@ export default function MapPage() {
     if (node.type === "lesson") navigate(`/lesson/${node.id}`);
     if (node.type === "review") navigate(`/bonus/${node.id}`);
     if (node.type === "boss") navigate(`/quiz/${node.id}`);
-  }
-
-  function openNode(node) {
-  if (!node || node.status === "locked") return;
-
-  // ✅ si déjà terminé : on va direct voir (leçon) ou on bloque (quiz)
-  if (node.status === "done") {
-    if (node.type === "lesson") {
-      navigate(`/lesson/${node.id}`); // relire OK
-      return;
-    }
-    // boss déjà validé => pas rejouable
-    return;
-  }
-
-  setSelectedNode(node);
-  setSheetOpen(true);
-}
-
-
-  function startNode() {
-    if (!selectedNode) return;
-
-    setSheetOpen(false);
-    gotoNode(selectedNode);
   }
 
   function isWorldCompleted(world) {
@@ -163,6 +144,51 @@ export default function MapPage() {
     if (type === "review") return "from-purple-50 to-purple-100/50";
     if (type === "boss") return "from-amber-50 to-amber-100/50";
     return "from-neutral-50 to-neutral-100";
+  }
+
+  function openNode(rawNode) {
+    if (!rawNode || rawNode.status === "locked") return;
+
+    // On récupère le monde du node (injecté plus bas au rendu)
+    const worldN = worldNumberFromId(rawNode.worldId || activeWorldId);
+    const lockedByPaywall = isWorldLockedByPaywall(worldN, isPro);
+
+    // 🔒 Paywall : si non Pro et monde verrouillé
+    if (lockedByPaywall) {
+      setSelectedNode({
+        ...rawNode,
+        _paywall: true,
+        _worldN: worldN,
+      });
+      setSheetOpen(true);
+      return;
+    }
+
+    // ✅ si déjà terminé : leçon relisible, quiz non rejouable
+    if (rawNode.status === "done") {
+      if (rawNode.type === "lesson") {
+        navigate(`/lesson/${rawNode.id}`);
+        return;
+      }
+      // boss/review/quiz => non rejouable
+      return;
+    }
+
+    setSelectedNode(rawNode);
+    setSheetOpen(true);
+  }
+
+  function startNode() {
+    if (!selectedNode) return;
+    setSheetOpen(false);
+
+    // Paywall => vers page d’achat
+    if (selectedNode._paywall) {
+      navigate("/paywall");
+      return;
+    }
+
+    gotoNode(selectedNode);
   }
 
   /* ------------------ Render ------------------ */
@@ -231,11 +257,21 @@ export default function MapPage() {
               <button
                 className="mt-4 w-full rounded-2xl bg-gradient-to-r from-neutral-900 to-neutral-800 text-white py-3.5 font-bold disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-neutral-900/20 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2"
                 disabled={!next}
-                onClick={() => openNode(next)}
+                onClick={() => openNode({ ...next, worldId: activeWorldId })}
               >
                 <Zap size={18} />
                 Continuer l'aventure
               </button>
+
+              {/* 🔒 CTA Premium (accessible à tout moment) */}
+              {!isPro && (
+                <button
+                  onClick={() => navigate("/paywall")}
+                  className="mt-3 w-full rounded-2xl border-2 border-neutral-200 bg-white py-3.5 font-bold hover:bg-neutral-50 active:scale-[0.98] transition-all duration-200"
+                >
+                  🔒 Débloquer la suite
+                </button>
+              )}
 
               <p className="mt-3 text-xs text-neutral-500 text-center flex items-center justify-center gap-1.5">
                 <Sparkles size={12} />
@@ -275,6 +311,7 @@ export default function MapPage() {
 
                 <div className={`space-y-4 ${w.unlocked ? "" : "opacity-60"}`}>
                   {w.nodes.map((node, idx) => {
+                    const nodeWithWorld = { ...node, worldId: w.id };
                     const locked = node.status === "locked";
                     const isNext = next?.id === node.id;
                     const isPulsing = pulseNode === node.id;
@@ -282,7 +319,7 @@ export default function MapPage() {
                     return (
                       <button
                         key={node.id}
-                        onClick={() => openNode(node)}
+                        onClick={() => openNode(nodeWithWorld)}
                         className={[
                           "w-full text-left rounded-3xl border bg-white p-5 relative overflow-hidden group",
                           "transition-all duration-300",
@@ -386,9 +423,15 @@ export default function MapPage() {
       <BottomSheet
         open={sheetOpen}
         onOpenChange={setSheetOpen}
-        title={selectedNode?.title || "Démarrer"}
+        title={
+          selectedNode?._paywall
+            ? "Contenu Premium 🔒"
+            : selectedNode?.title || "Démarrer"
+        }
         description={
-          selectedNode
+          selectedNode?._paywall
+            ? `Le Monde ${selectedNode?._worldN} est disponible en Premium.`
+            : selectedNode
             ? `≈ ${selectedNode.estMin} min • ${
                 selectedNode.type === "boss"
                   ? "Boss Quiz 👑"
@@ -399,63 +442,90 @@ export default function MapPage() {
             : ""
         }
       >
-        {selectedNode && (
+        {selectedNode?._paywall ? (
           <div className="space-y-4">
-            {selectedNode.status !== "done" ? (
-              <>
-                <div className="rounded-2xl border-2 border-dashed border-amber-300 bg-gradient-to-br from-amber-50 to-yellow-50 p-4 text-sm">
-                  <div className="flex items-center gap-2 justify-center">
-                    <Sparkles size={18} className="text-amber-600" />
-                    <span className="text-neutral-700">Récompense estimée :</span>
-                    <span className="font-bold text-lg text-amber-700">
-                      +
-                      {selectedNode.type === "boss"
-                        ? 60
-                        : selectedNode.type === "review"
-                        ? 10
-                        : 30}{" "}
-                      XP
-                    </span>
-                  </div>
-                </div>
+            <div className="rounded-2xl border bg-neutral-50 p-4 text-sm text-neutral-700">
+              Tu as accès gratuitement au{" "}
+              <span className="font-semibold">Monde 1</span>. Pour continuer la
+              Sîra (Monde 2 → …), passe en Premium.
+            </div>
 
-                <button
-                  onClick={startNode}
-                  className="w-full rounded-2xl bg-gradient-to-r from-neutral-900 to-neutral-800 text-white py-4 font-bold shadow-xl shadow-neutral-900/30 hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2"
-                >
-                  <Zap size={20} />
-                  Démarrer maintenant
-                </button>
+            <button
+              onClick={() => {
+                setSheetOpen(false);
+                navigate("/paywall");
+              }}
+              className="w-full rounded-2xl bg-gradient-to-r from-neutral-900 to-neutral-800 text-white py-4 font-bold shadow-xl shadow-neutral-900/30 hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+            >
+              Débloquer la suite
+            </button>
 
-                <button
-                  onClick={() => setSheetOpen(false)}
-                  className="w-full rounded-2xl border-2 border-neutral-200 bg-white py-4 font-bold hover:bg-neutral-50 active:scale-[0.98] transition-all duration-200"
-                >
-                  Plus tard
-                </button>
-              </>
-            ) : (
-              <>
-                <div className="rounded-2xl border bg-emerald-50 p-4 text-sm text-emerald-800">
-                  ✅ Déjà validé. Tu peux relire sans regagner de récompense.
-                </div>
-
-                <button
-                  onClick={startNode}
-                  className="w-full rounded-2xl bg-neutral-900 text-white py-4 font-bold"
-                >
-                  Ouvrir
-                </button>
-
-                <button
-                  onClick={() => setSheetOpen(false)}
-                  className="w-full rounded-2xl border-2 border-neutral-200 bg-white py-4 font-bold hover:bg-neutral-50"
-                >
-                  Fermer
-                </button>
-              </>
-            )}
+            <button
+              onClick={() => setSheetOpen(false)}
+              className="w-full rounded-2xl border-2 border-neutral-200 bg-white py-4 font-bold hover:bg-neutral-50 active:scale-[0.98] transition-all duration-200"
+            >
+              Plus tard
+            </button>
           </div>
+        ) : (
+          selectedNode && (
+            <div className="space-y-4">
+              {selectedNode.status !== "done" ? (
+                <>
+                  <div className="rounded-2xl border-2 border-dashed border-amber-300 bg-gradient-to-br from-amber-50 to-yellow-50 p-4 text-sm">
+                    <div className="flex items-center gap-2 justify-center">
+                      <Sparkles size={18} className="text-amber-600" />
+                      <span className="text-neutral-700">Récompense estimée :</span>
+                      <span className="font-bold text-lg text-amber-700">
+                        +
+                        {selectedNode.type === "boss"
+                          ? 60
+                          : selectedNode.type === "review"
+                          ? 10
+                          : 30}{" "}
+                        XP
+                      </span>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={startNode}
+                    className="w-full rounded-2xl bg-gradient-to-r from-neutral-900 to-neutral-800 text-white py-4 font-bold shadow-xl shadow-neutral-900/30 hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2"
+                  >
+                    <Zap size={20} />
+                    Démarrer maintenant
+                  </button>
+
+                  <button
+                    onClick={() => setSheetOpen(false)}
+                    className="w-full rounded-2xl border-2 border-neutral-200 bg-white py-4 font-bold hover:bg-neutral-50 active:scale-[0.98] transition-all duration-200"
+                  >
+                    Plus tard
+                  </button>
+                </>
+              ) : (
+                <>
+                  <div className="rounded-2xl border bg-emerald-50 p-4 text-sm text-emerald-800">
+                    ✅ Déjà validé. Tu peux relire sans regagner de récompense.
+                  </div>
+
+                  <button
+                    onClick={startNode}
+                    className="w-full rounded-2xl bg-neutral-900 text-white py-4 font-bold"
+                  >
+                    Ouvrir
+                  </button>
+
+                  <button
+                    onClick={() => setSheetOpen(false)}
+                    className="w-full rounded-2xl border-2 border-neutral-200 bg-white py-4 font-bold hover:bg-neutral-50"
+                  >
+                    Fermer
+                  </button>
+                </>
+              )}
+            </div>
+          )
         )}
       </BottomSheet>
 

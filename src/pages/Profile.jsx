@@ -1,20 +1,50 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import BottomNav from "../components/BottomNav.jsx";
-import { loadProgress } from "../lib/progressStore.js";
+import { loadProgress, resetProgress } from "../lib/progressStore.js";
 import { BADGES } from "../data/badges.js";
-import { Sparkles, Flame, Award, TrendingUp, Star, Zap, Trophy, Lock } from "lucide-react";
-import { resetProgress } from "../lib/progressStore.js";
+import {
+  Sparkles,
+  Flame,
+  Award,
+  TrendingUp,
+  Star,
+  Zap,
+  Trophy,
+  Lock,
+  LogIn,
+  LogOut,
+} from "lucide-react";
+import { useAuth } from "../lib/context/AuthContext.jsx";
+import { flushRemoteProgressNow } from "../lib/progressSync.js";
 
 export default function ProfilePage() {
+  const navigate = useNavigate();
+  const { user, signOut, loading: authLoading } = useAuth();
+
   const [progress, setProgress] = useState(() => loadProgress());
 
   useEffect(() => {
     setProgress(loadProgress());
   }, []);
 
-  const unlockedSet = useMemo(() => new Set(progress.unlockedBadges || []), [progress]);
+  const unlockedSet = useMemo(
+    () => new Set(progress.unlockedBadges || []),
+    [progress]
+  );
   const unlockedCount = unlockedSet.size;
   const badgeProgress = Math.round((unlockedCount / BADGES.length) * 100);
+
+  async function handleLogout() {
+    try {
+      // ✅ push pending cloud (si connecté) avant logout
+      await flushRemoteProgressNow();
+    } catch (e) {
+      // ignore
+    }
+    await signOut();
+    navigate("/", { replace: true });
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-blue-50/20 to-purple-50/20 pb-32">
@@ -30,9 +60,49 @@ export default function ProfilePage() {
           <h1 className="text-3xl font-bold bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-transparent">
             Ton Profil
           </h1>
-          <p className="text-sm text-neutral-600 mt-1">
-            Continue comme ça, champion ! 🏆
-          </p>
+
+          <div className="mt-2 flex items-center justify-between gap-3">
+            <p className="text-sm text-neutral-600">
+              Continue comme ça, champion ! 🏆
+            </p>
+
+            {/* ✅ Zone Auth (Login / Logout) */}
+            {!authLoading && (
+              <>
+                {user ? (
+                  <button
+      onClick={async () => {
+        await signOut(); // ✅ ne reset pas (Option A)
+        navigate("/map");
+      }}
+      className="w-full rounded-2xl border-2 border-neutral-200 bg-white py-4 font-bold hover:bg-neutral-50"
+    >
+                    <LogOut size={16} />
+                    Se déconnecter
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => navigate("/login")}
+                    className="inline-flex items-center gap-2 rounded-2xl bg-neutral-900 px-3 py-2 text-xs font-semibold text-white shadow-sm hover:shadow-md transition"
+                  >
+                    <LogIn size={16} />
+                    Se connecter
+                  </button>
+                )}
+              </>
+            )}
+          </div>
+
+          {/* ✅ Email si connecté */}
+          {user?.email ? (
+            <p className="mt-2 text-xs text-neutral-500">
+              Connecté : <span className="font-medium">{user.email}</span>
+            </p>
+          ) : (
+            <p className="mt-2 text-xs text-neutral-500">
+              Mode invité (progression locale)
+            </p>
+          )}
         </div>
 
         {/* Stats principales avec effet glassmorphism */}
@@ -40,14 +110,16 @@ export default function ProfilePage() {
           {/* Streak Card */}
           <div className="relative rounded-3xl bg-gradient-to-br from-orange-50 via-red-50 to-orange-50 border border-orange-200/50 p-5 shadow-lg shadow-orange-200/30 overflow-hidden group hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-            
+
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 text-xs font-semibold text-orange-700 mb-2">
                 <Flame size={16} className="animate-pulse" />
                 <span>Streak</span>
               </div>
               <div className="flex items-baseline gap-2">
-                <p className="text-4xl font-bold text-orange-600">{progress.streak}</p>
+                <p className="text-4xl font-bold text-orange-600">
+                  {progress.streak}
+                </p>
                 <span className="text-sm text-orange-600/70">jours</span>
               </div>
               <div className="mt-2 flex items-center gap-1 text-xs text-orange-600/80">
@@ -60,19 +132,21 @@ export default function ProfilePage() {
           {/* XP Card */}
           <div className="relative rounded-3xl bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-50 border border-amber-200/50 p-5 shadow-lg shadow-amber-200/30 overflow-hidden group hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-            
+
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 text-xs font-semibold text-amber-700 mb-2">
                 <Sparkles size={16} className="animate-pulse" />
                 <span>XP Total</span>
               </div>
               <div className="flex items-baseline gap-2">
-                <p className="text-4xl font-bold text-amber-600">{progress.xp}</p>
+                <p className="text-4xl font-bold text-amber-600">
+                  {progress.xp}
+                </p>
                 <span className="text-sm text-amber-600/70">pts</span>
               </div>
               <div className="mt-2 flex items-center gap-1 text-xs text-amber-600/80">
                 <Star size={12} className="fill-amber-600/80" />
-                <span>Niveau {Math.floor(progress.xp / 100)}</span>
+                <span>Niveau {Math.floor((progress.xp || 0) / 100)}</span>
               </div>
             </div>
           </div>
@@ -81,14 +155,17 @@ export default function ProfilePage() {
         {/* XP Today Card */}
         <div className="relative rounded-3xl bg-gradient-to-r from-white to-neutral-50 border border-neutral-200/50 p-5 shadow-md shadow-neutral-200/30 mb-6 overflow-hidden group hover:shadow-lg transition-all duration-300">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-50/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-          
+
           <div className="relative z-10 flex items-center justify-between">
             <div>
               <div className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-700 mb-1">
                 <Zap size={18} className="text-blue-600" />
-                <span>XP aujourd'hui</span>
+                <span>XP aujourd&apos;hui</span>
               </div>
-              <p className="text-2xl font-bold text-neutral-900">{progress.xpToday} <span className="text-lg text-neutral-500">/ 50</span></p>
+              <p className="text-2xl font-bold text-neutral-900">
+                {progress.xpToday}{" "}
+                <span className="text-lg text-neutral-500">/ 50</span>
+              </p>
             </div>
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
               <Trophy size={28} className="text-blue-600" />
@@ -99,13 +176,17 @@ export default function ProfilePage() {
           <div className="mt-4 h-2 w-full bg-neutral-100 rounded-full overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-700 ease-out relative overflow-hidden"
-              style={{ width: `${Math.min((progress.xpToday / 50) * 100, 100)}%` }}
+              style={{
+                width: `${Math.min(((progress.xpToday || 0) / 50) * 100, 100)}%`,
+              }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shimmer" />
             </div>
           </div>
           <p className="mt-2 text-xs text-neutral-500 text-center">
-            {progress.xpToday >= 50 ? "🎉 Objectif quotidien atteint !" : `Plus que ${50 - progress.xpToday} XP pour ton objectif`}
+            {progress.xpToday >= 50
+              ? "🎉 Objectif quotidien atteint !"
+              : `Plus que ${Math.max(50 - (progress.xpToday || 0), 0)} XP pour ton objectif`}
           </p>
         </div>
 
@@ -189,7 +270,11 @@ export default function ProfilePage() {
                     {/* Info du badge */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-2 mb-1">
-                        <p className={`font-bold ${unlocked ? "text-neutral-900" : "text-neutral-600"}`}>
+                        <p
+                          className={`font-bold ${
+                            unlocked ? "text-neutral-900" : "text-neutral-600"
+                          }`}
+                        >
                           {b.title}
                         </p>
                         {unlocked && (
@@ -199,11 +284,11 @@ export default function ProfilePage() {
                           </span>
                         )}
                       </div>
-                      
+
                       <p className="text-xs text-neutral-600 mb-2 line-clamp-2">
                         {b.description}
                       </p>
-                      
+
                       {!unlocked && (
                         <div className="flex items-center gap-1.5 text-xs">
                           <div className="px-2 py-1 rounded-full bg-neutral-200 text-neutral-700 font-medium">
@@ -238,7 +323,11 @@ export default function ProfilePage() {
 
             <button
               onClick={() => {
-                if (confirm("⚠️ Réinitialiser toute la progression ? Cette action est irréversible !")) {
+                if (
+                  confirm(
+                    "⚠️ Réinitialiser toute la progression ? Cette action est irréversible !"
+                  )
+                ) {
                   resetProgress();
                   window.location.reload();
                 }

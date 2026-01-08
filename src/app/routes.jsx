@@ -1,11 +1,15 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 
+import PresentationPage from "../pages/Presentation.jsx";
 import MapPage from "../pages/Map.jsx";
 import ReviewPage from "../pages/Review.jsx";
 import LeaderboardPage from "../pages/Leaderboard.jsx";
 import ProfilePage from "../pages/Profile.jsx";
 import LoginPage from "../pages/Login.jsx";
+import SubscribePage from "../pages/Subscribe.jsx";
+import EntryPage from "../pages/Entry.jsx";
+import PaywallPage from "../pages/Paywall.jsx";
 
 import LessonPage from "../pages/Lesson.jsx";
 import CollectionPage from "../pages/CollectionPage.jsx";
@@ -23,9 +27,10 @@ import WeeklyBossQuizPage from "../pages/WeeklyBossQuizPage.jsx";
 import WeeklyBossResultPage from "../pages/WeeklyBossResultPage.jsx";
 
 export const routes = [
-  { path: "/", element: <Navigate to="/map" replace /> },
+  { path: "/", element: <EntryPage /> },
 
   // Tabs principales
+   { path: "/presentation", element: <PresentationPage /> },
   { path: "/map", element: <MapPage /> },
   { path: "/review", element: <ReviewPage /> },
   { path: "/leaderboard", element: <LeaderboardPage /> },
@@ -33,6 +38,9 @@ export const routes = [
   { path:"/timeline", element:<Timeline /> },
   { path:"/collection", element:<CollectionPage />},
   { path:"/login", element:<LoginPage />},
+  { path: "/subscribe", element: <SubscribePage /> },
+  { path: "/paywall", element: <PaywallPage /> },
+
   
 
   // Flow pédagogique

@@ -13,6 +13,7 @@ import {
   flushRemoteProgressNow,
 } from "../progressSync";
 import { setProgressCloudSync } from "../progressStore";
+import { resetProgress } from "../progressStore"; // adapte le chemin
 
 const AuthContext = createContext(null);
 
@@ -112,12 +113,27 @@ export function AuthProvider({ children }) {
       user: session?.user ?? null,
       loading,
       signOut: async () => {
-        try {
-          // flush avant logout (sinon si debounce pas encore parti)
-          await flushRemoteProgressNow();
-        } catch {}
-        await supabase.auth.signOut();
-      },
+  try {
+    // 1) push final si tu as une sauvegarde en attente
+    await flushRemoteProgressNow?.();
+
+    // 2) logout supabase
+    await supabase.auth.signOut();
+
+    // 3) reset progression locale (retour monde 1)
+    resetProgress();
+
+    // 4) optionnel : reset flags UI
+    localStorage.removeItem("signup_prompt_seen");
+    localStorage.removeItem("post_boss_prompt");
+    localStorage.removeItem("progress_migrated_to_supabase_v1");
+
+    // 5) refresh pour que Map relise le localStorage clean
+    window.location.href = "/map";
+  } catch (e) {
+    console.warn("signOut failed:", e?.message || e);
+  }
+},
     };
   }, [session, loading]);
 
