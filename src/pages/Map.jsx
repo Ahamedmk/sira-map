@@ -76,7 +76,7 @@ export default function MapPage() {
   const [signupOpen, setSignupOpen] = useState(false);
 
   // ✅ Premium (à brancher plus tard)
-  const isPro = false;
+  const isPro = true;
 
   useEffect(() => {
     setProgress(loadProgress());
