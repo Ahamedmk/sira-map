@@ -1,12 +1,66 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Crown, Timer, ArrowLeft, CheckCircle2, XCircle, BookOpen, Link2 } from "lucide-react";
+import {
+  Crown,
+  Timer,
+  ArrowLeft,
+  CheckCircle2,
+  XCircle,
+  BookOpen,
+  Link2,
+  ArrowUp,
+  ArrowDown,
+} from "lucide-react";
 import { WEEKLY_BOSS } from "../data/weeklyBossQuestions.js";
 import { useAuth } from "../lib/context/AuthContext.jsx";
 import { supabase } from "../lib/supabase.js";
 
 function cx(...c) {
   return c.filter(Boolean).join(" ");
+}
+
+function arraysEqual(a, b) {
+  if (!Array.isArray(a) || !Array.isArray(b)) return false;
+  if (a.length !== b.length) return false;
+  for (let i = 0; i < a.length; i += 1) {
+    if (a[i] !== b[i]) return false;
+  }
+  return true;
+}
+
+/**
+ * Shuffle indices [0..n-1] with crypto if available, otherwise Math.random.
+ * (Avoids "always same order" feelings on some runtimes.)
+ */
+function shuffledIndices(n) {
+  const arr = Array.from({ length: n }, (_, i) => i);
+
+  // crypto-based Fisher-Yates
+  const hasCrypto =
+    typeof globalThis !== "undefined" &&
+    globalThis.crypto &&
+    typeof globalThis.crypto.getRandomValues === "function";
+
+  for (let i = n - 1; i > 0; i -= 1) {
+    let r;
+    if (hasCrypto) {
+      const buf = new Uint32Array(1);
+      globalThis.crypto.getRandomValues(buf);
+      r = buf[0] / 2 ** 32;
+    } else {
+      r = Math.random();
+    }
+    const j = Math.floor(r * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function formatClock(ms) {
+  const s = Math.ceil(ms / 1000);
+  const mm = String(Math.floor(s / 60)).padStart(2, "0");
+  const ss = String(s % 60).padStart(2, "0");
+  return `${mm}:${ss}`;
 }
 
 export default function WeeklyBossQuizPage() {
@@ -22,8 +76,13 @@ export default function WeeklyBossQuizPage() {
   const [checkingAttempt, setCheckingAttempt] = useState(true);
 
   const [idx, setIdx] = useState(0);
-  const [selected, setSelected] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
+
+  // MCQ
+  const [selected, setSelected] = useState(null);
+
+  // ORDER
+  const [order, setOrder] = useState([]); // array of indices into q.items
 
   const correctRef = useRef(0);
   const [correctCount, setCorrectCount] = useState(0);
@@ -35,7 +94,23 @@ export default function WeeklyBossQuizPage() {
   const remainingMs = Math.max(0, timeLimitMs - elapsedMs);
   const timeUp = remainingMs <= 0;
 
+  const passPct = boss.passPct ?? 80;
+
   const q = questions[idx];
+
+  // Init per question
+  useEffect(() => {
+    setSelected(null);
+    setShowFeedback(false);
+
+    if (q?.type === "order") {
+      const n = Array.isArray(q.items) ? q.items.length : 0;
+      // Start shuffled to make it a real exercise
+      setOrder(shuffledIndices(n));
+    } else {
+      setOrder([]);
+    }
+  }, [idx]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // 1) Check already attempted (server)
   useEffect(() => {
@@ -93,23 +168,42 @@ export default function WeeklyBossQuizPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeUp, checkingAttempt, attempted]);
 
-  const passPct = boss.passPct ?? 80;
   const pct = useMemo(() => {
     if (!total) return 0;
     return Math.round((correctCount / total) * 100);
   }, [correctCount, total]);
 
-  function formatClock(ms) {
-    const s = Math.ceil(ms / 1000);
-    const mm = String(Math.floor(s / 60)).padStart(2, "0");
-    const ss = String(s % 60).padStart(2, "0");
-    return `${mm}:${ss}`;
+  function computeIsCorrect() {
+    if (!q) return false;
+    if (q.type === "mcq") {
+      return selected !== null && selected === q.correctIndex;
+    }
+    if (q.type === "order") {
+      // correctOrder can be indices array (same length as items)
+      // Example: correctOrder: [0,1,2,3]
+      const expected = Array.isArray(q.correctOrder)
+        ? q.correctOrder
+        : Array.from({ length: (q.items || []).length }, (_, i) => i);
+
+      return arraysEqual(order, expected);
+    }
+    return false;
   }
 
-  const isCorrect = selected !== null && selected === q.correctIndex;
+  const isCorrect = computeIsCorrect();
+
+  function canValidate() {
+    if (!q) return false;
+    if (q.type === "mcq") return selected !== null;
+    if (q.type === "order") {
+      const n = Array.isArray(q.items) ? q.items.length : 0;
+      return Array.isArray(order) && order.length === n;
+    }
+    return false;
+  }
 
   function validate() {
-    if (selected === null) return;
+    if (!canValidate()) return;
 
     if (isCorrect) {
       correctRef.current += 1;
@@ -120,17 +214,15 @@ export default function WeeklyBossQuizPage() {
   }
 
   async function finish() {
-    // éviter double finish
     if (attempted) return;
 
     const timeMs = Math.max(0, Date.now() - startMsRef.current);
 
-    // Score hebdo : même formule que SQL (pour cohérence affichage)
+    // Score hebdo : score puis tie-break par temps (déjà dans DB)
     const wrong = Math.max(total - correctRef.current, 0);
     const timePenalty = Math.floor((timeMs / 1000) / 5);
-    const finalScore = (correctRef.current * 10) - timePenalty - (wrong * 5);
+    const finalScore = correctRef.current * 10 - timePenalty - wrong * 5;
 
-    // Push Supabase (si connecté)
     try {
       if (user?.id) {
         await supabase.rpc("submit_weekly_boss_score", {
@@ -143,10 +235,8 @@ export default function WeeklyBossQuizPage() {
       }
     } catch (e) {
       console.error("submit_weekly_boss_score failed:", e);
-      // On continue quand même (résultat local)
     }
 
-    // Navigate résultat (page simple inline)
     navigate("/weekly-boss/result", {
       replace: true,
       state: {
@@ -167,9 +257,167 @@ export default function WeeklyBossQuizPage() {
       finish();
       return;
     }
-    setSelected(null);
-    setShowFeedback(false);
     setIdx((x) => x + 1);
+  }
+
+  function moveOrderItem(pos, dir) {
+    // dir: -1 up, +1 down
+    setOrder((prev) => {
+      const nextArr = [...prev];
+      const target = pos + dir;
+      if (target < 0 || target >= nextArr.length) return prev;
+      [nextArr[pos], nextArr[target]] = [nextArr[target], nextArr[pos]];
+      return nextArr;
+    });
+  }
+
+  function renderSources() {
+    const sources = Array.isArray(q.sources) ? q.sources : [];
+    if (!sources.length) return null;
+
+    return (
+      <div className="mt-4 rounded-xl border border-neutral-700 bg-neutral-950/40 p-4">
+        <div className="flex items-center gap-2 text-xs font-extrabold text-neutral-200">
+          <BookOpen size={14} className="text-yellow-300" />
+          Sources (pour vérifier)
+        </div>
+
+        <ul className="mt-2 space-y-2">
+          {sources.map((s, k) => (
+            <li key={k} className="text-xs text-neutral-300 leading-relaxed flex gap-2">
+              <Link2 size={12} className="mt-0.5 text-neutral-400" />
+              <span>
+                <span className="font-bold text-neutral-200">{s.work}</span>
+                {" — "}
+                <span className="text-neutral-300">{s.ref}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  function renderQuestionBody() {
+    if (q.type === "mcq") {
+      return (
+        <div className="mt-5 space-y-3">
+          {q.options.map((opt, i) => {
+            const active = selected === i;
+            const locked = showFeedback;
+
+            const showAsCorrect = locked && i === q.correctIndex;
+            const showAsWrong = locked && active && i !== q.correctIndex;
+
+            return (
+              <button
+                key={i}
+                disabled={locked}
+                onClick={() => !locked && setSelected(i)}
+                className={cx(
+                  "w-full text-left rounded-2xl border-2 px-5 py-4 text-sm font-bold transition-all",
+                  "bg-neutral-950/40 border-neutral-700 hover:border-neutral-500",
+                  active && !locked && "border-yellow-400 bg-yellow-600/10",
+                  showAsCorrect && "border-emerald-400 bg-emerald-900/20",
+                  showAsWrong && "border-rose-400 bg-rose-900/20",
+                  locked && "cursor-not-allowed"
+                )}
+              >
+                {opt}
+              </button>
+            );
+          })}
+        </div>
+      );
+    }
+
+    if (q.type === "order") {
+      const items = Array.isArray(q.items) ? q.items : [];
+      const expected = Array.isArray(q.correctOrder)
+        ? q.correctOrder
+        : Array.from({ length: items.length }, (_, i) => i);
+
+      return (
+        <div className="mt-5">
+          <div className="text-xs text-neutral-300">
+            Remets les éléments dans le bon ordre (↑ ↓). À score égal, le temps départage.
+          </div>
+
+          <div className="mt-3 space-y-2">
+            {order.map((itemIndex, pos) => {
+              const label = items[itemIndex];
+
+              return (
+                <div
+                  key={`${q.id}_${itemIndex}_${pos}`}
+                  className={cx(
+                    "rounded-2xl border-2 bg-neutral-950/40 border-neutral-700 px-4 py-3",
+                    showFeedback && arraysEqual(order, expected) && "border-emerald-400 bg-emerald-900/20",
+                    showFeedback && !arraysEqual(order, expected) && "border-rose-400 bg-rose-900/20"
+                  )}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="text-xs font-extrabold text-neutral-200 w-6 text-center">
+                      {pos + 1}
+                    </div>
+
+                    <div className="flex-1 text-sm font-bold text-neutral-100">
+                      {label}
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <button
+                        disabled={showFeedback || pos === 0}
+                        onClick={() => moveOrderItem(pos, -1)}
+                        className={cx(
+                          "rounded-xl border px-2.5 py-2 transition-all",
+                          "border-neutral-700 bg-neutral-900/60 hover:bg-neutral-900",
+                          (showFeedback || pos === 0) && "opacity-40 cursor-not-allowed"
+                        )}
+                        title="Monter"
+                      >
+                        <ArrowUp size={16} />
+                      </button>
+
+                      <button
+                        disabled={showFeedback || pos === order.length - 1}
+                        onClick={() => moveOrderItem(pos, +1)}
+                        className={cx(
+                          "rounded-xl border px-2.5 py-2 transition-all",
+                          "border-neutral-700 bg-neutral-900/60 hover:bg-neutral-900",
+                          (showFeedback || pos === order.length - 1) && "opacity-40 cursor-not-allowed"
+                        )}
+                        title="Descendre"
+                      >
+                        <ArrowDown size={16} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {showFeedback && !arraysEqual(order, expected) && (
+            <div className="mt-4 rounded-2xl border border-neutral-700 bg-neutral-950/40 p-4">
+              <div className="text-xs font-extrabold text-neutral-200">Ordre correct :</div>
+              <ol className="mt-2 space-y-1 list-decimal list-inside text-sm text-neutral-200">
+                {expected.map((i) => (
+                  <li key={i}>{items[i]}</li>
+                ))}
+              </ol>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // fallback
+    return (
+      <div className="mt-4 text-sm text-rose-200">
+        Type de question non supporté : <span className="font-extrabold">{q.type}</span>
+      </div>
+    );
   }
 
   if (checkingAttempt) {
@@ -217,7 +465,7 @@ export default function WeeklyBossQuizPage() {
       <div className="mx-auto max-w-md px-5 pt-8 text-white">
         <button
           onClick={() => navigate("/weekly-boss")}
-          className="inline-flex items-center gap-2 rounded-2xl border border-neutral-700 bg-neutral-900/70 px-4 py-2.5 text-sm font-bold text-black"
+          className="inline-flex items-center gap-2 rounded-2xl border border-neutral-700 bg-neutral-900/70 px-4 py-2.5 text-sm font-bold text-white shadow"
         >
           <ArrowLeft size={16} /> Quitter
         </button>
@@ -244,41 +492,15 @@ export default function WeeklyBossQuizPage() {
         <div className="mt-5 rounded-3xl border border-neutral-700 bg-neutral-900/70 p-6 shadow-xl">
           <h2 className="text-lg font-extrabold leading-snug">{q.question}</h2>
 
-          <div className="mt-5 space-y-3">
-            {q.options.map((opt, i) => {
-              const active = selected === i;
-              const locked = showFeedback;
-
-              const showAsCorrect = locked && i === q.correctIndex;
-              const showAsWrong = locked && active && i !== q.correctIndex;
-
-              return (
-                <button
-                  key={i}
-                  disabled={locked}
-                  onClick={() => !locked && setSelected(i)}
-                  className={cx(
-                    "w-full text-left rounded-2xl border-2 px-5 py-4 text-sm font-bold text-black transition-all",
-                    "bg-neutral-950/40 border-neutral-700 hover:border-neutral-500",
-                    active && !locked && "border-yellow-400 bg-yellow-600/10",
-                    showAsCorrect && "border-emerald-400 bg-emerald-900/20",
-                    showAsWrong && "border-rose-400 bg-rose-900/20",
-                    locked && "cursor-not-allowed"
-                  )}
-                >
-                  {opt}
-                </button>
-              );
-            })}
-          </div>
+          {renderQuestionBody()}
 
           {!showFeedback ? (
             <button
               onClick={validate}
-              disabled={selected === null}
+              disabled={!canValidate()}
               className={cx(
                 "mt-5 w-full rounded-2xl py-4 font-extrabold shadow-lg transition-all",
-                selected === null
+                !canValidate()
                   ? "bg-neutral-800 text-neutral-400 cursor-not-allowed"
                   : "bg-gradient-to-r from-yellow-500 to-amber-500 text-neutral-900 hover:shadow-xl hover:scale-[1.01]"
               )}
@@ -309,30 +531,13 @@ export default function WeeklyBossQuizPage() {
                   )}
                 </div>
 
-                <p className="mt-2 text-sm text-neutral-200 leading-relaxed">
-                  {q.explanation}
-                </p>
+                {q.explanation && (
+                  <p className="mt-2 text-sm text-neutral-200 leading-relaxed">
+                    {q.explanation}
+                  </p>
+                )}
 
-                {/* Sources */}
-                <div className="mt-4 rounded-xl border border-neutral-700 bg-neutral-950/40 p-4">
-                  <div className="flex items-center gap-2 text-xs font-extrabold text-neutral-200">
-                    <BookOpen size={14} className="text-yellow-300" />
-                    Sources (pour vérifier)
-                  </div>
-
-                  <ul className="mt-2 space-y-2">
-                    {q.sources.map((s, k) => (
-                      <li key={k} className="text-xs text-neutral-300 leading-relaxed flex gap-2">
-                        <Link2 size={12} className="mt-0.5 text-neutral-400" />
-                        <span>
-                          <span className="font-bold text-neutral-200">{s.work}</span>
-                          {" — "}
-                          <span className="text-neutral-300">{s.ref}</span>
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {renderSources()}
               </div>
 
               <button
@@ -346,7 +551,12 @@ export default function WeeklyBossQuizPage() {
         </div>
 
         <div className="mt-4 text-sm text-neutral-300">
-          Score actuel : <span className="font-extrabold text-yellow-300">{correctCount}/{idx + (showFeedback ? 1 : 0)}</span>
+          Progression :{" "}
+          <span className="font-extrabold text-yellow-300">
+            {correctCount}/{total}
+          </span>{" "}
+          • Réussite actuelle :{" "}
+          <span className="font-extrabold text-yellow-300">{pct}%</span>
         </div>
       </div>
     </div>

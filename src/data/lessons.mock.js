@@ -5264,40 +5264,56 @@ l65: {
     {
       type: "p",
       text:
-        "En 627 (année 5 de l’Hégire), la menace prend une forme inédite. Ce ne sont plus des attaques isolées. C’est une coalition. Quraysh, des tribus alliées, des forces diverses : environ 10 000 hommes marchent vers Médine.",
+        "En 627 (année 5 de l’Hégire), la menace prend une forme que Médine n’avait encore jamais connue. Jusque-là, les épreuves avaient souvent été des affrontements limités, des raids, des escarmouches, des tensions qui montaient puis retombaient. Mais cette fois, quelque chose change dans la nature même du danger : ce ne sont plus des attaques isolées, ni une seule tribu en colère. C’est une coalition. Une union de forces qui, d’habitude, ne marchent pas ensemble… mais qui, pour un objectif précis, acceptent de mettre leurs rivalités de côté. Quraysh est au cœur de cette offensive, entraînant avec elle des tribus alliées et d’autres groupes qui voient là une occasion unique de frapper fort. Le résultat est terrifiant : environ 10 000 hommes se mettent en marche vers Médine. Dix mille. Un chiffre qui ne représente pas seulement une armée, mais une intention collective : écraser une ville, briser une communauté, refermer définitivement un chapitre de résistance.",
     },
     {
       type: "p",
       text:
-        "Face à eux, la communauté musulmane compte environ 3000 personnes. Le déséquilibre est écrasant. Et cette fois, il n’y aura pas de bataille rapide.",
+        "Et face à cette masse en mouvement, la communauté musulmane n’a pas les moyens de répondre par la force brute. À Médine, on compte environ 3000 personnes capables de se mobiliser, et encore : une ville, ce n’est pas seulement une armée. Il y a des familles, des enfants, des personnes âgées, des responsabilités, des maisons à protéger. Le déséquilibre est écrasant, presque humiliant sur le plan militaire. Mais ce qui rend la situation encore plus lourde, c’est que la menace ne ressemble pas à une bataille classique. Cette fois, il n’y aura pas forcément un choc rapide, un face-à-face clair où tout se décide en quelques heures. Non. Tout laisse présager une épreuve longue, une pression continue, un siège qui use les nerfs autant que les corps. Car une coalition de cette taille n’arrive pas pour “tester” ou pour “prouver” : elle arrive pour conclure.",
     },
 
     { type: "subtitle", text: "🧠 Une stratégie d’anéantissement" },
     {
       type: "p",
       text:
-        "L’objectif de la coalition est clair : encercler, assiéger, épuiser. Il ne s’agit plus de prouver une supériorité. Il s’agit d’en finir.",
+        "L’objectif de la coalition est clair, même sans qu’il soit écrit noir sur blanc : encercler, assiéger, épuiser. Il ne s’agit plus de gagner un duel honorable ou de sortir victorieux d’un affrontement symbolique. Ici, la logique est froide : priver Médine de respiration. Faire monter la peur, couper les chemins, transformer la ville en prison, et attendre que la fatigue fasse ce que les épées ne feront pas immédiatement. Car la coalition a compris une chose : une communauté ne tombe pas seulement sous les coups. Elle tombe quand son moral est brisé, quand l’incertitude dure trop longtemps, quand les nuits deviennent plus lourdes que les jours, quand chaque matin commence avec la même question : “Combien de temps encore ?”",
     },
     {
       type: "p",
       text:
-        "La pression est psychologique avant d’être militaire. Le message est simple : ‘Il n’y a aucune issue.’",
+        "C’est pour cela que la pression est psychologique avant d’être militaire. Même avant le premier contact, avant la première flèche, avant la première charge, l’annonce même de l’armée agit comme une arme. Dans les esprits, le message se répète : “Ils sont trop nombreux.” “Nous sommes encerclés.” “Il n’y a aucune issue.” Et quand ce genre de phrases commence à tourner dans une ville, le danger ne vient plus seulement de l’extérieur. Il commence à ronger de l’intérieur. L’ennemi ne cherche pas uniquement à percer des défenses : il cherche à installer un sentiment d’inévitabilité. Comme si la défaite était déjà écrite. Comme si résister n’était qu’un délai inutile.",
+    },
+    {
+      type: "p",
+      text:
+        "Et c’est là l’une des idées les plus terribles d’un siège : il transforme le temps en arme. Chaque jour qui passe sans solution devient une attaque. Chaque nuit où l’on dort mal devient une blessure. Chaque rumeur devient une flèche. La coalition ne veut pas simplement vaincre une armée : elle veut faire tomber une ville dans la lassitude, puis dans la panique, puis dans l’abandon. C’est une stratégie d’anéantissement, parce qu’elle vise le cœur, la cohésion, la confiance. Elle vise ce qui tient une communauté debout quand tout tremble autour d’elle.",
     },
 
     { type: "subtitle", text: "⚖️ Une situation sans précédent" },
     {
       type: "p",
       text:
-        "Jamais Médine n’avait été confrontée à une telle concentration d’ennemis. Les alliances hostiles ont mis de côté leurs différences pour un objectif commun.",
+        "Jamais Médine n’avait été confrontée à une telle concentration d’ennemis. Ce qui frappe, ce n’est pas seulement le nombre, mais le fait que des alliances hostiles aient accepté de se coordonner. D’ordinaire, ces tribus ont leurs propres intérêts, leurs propres querelles, leurs propres calculs. Mais cette fois, elles ont trouvé un point d’accord : l’idée que Médine doit tomber. Et quand des ennemis très différents se mettent d’accord sur un seul objectif, cela signifie que la menace dépasse une simple dispute politique. Cela ressemble à une tentative de fermeture totale : couper l’histoire, effacer une présence, empêcher toute expansion.",
+    },
+    {
+      type: "p",
+      text:
+        "Dans une ville comme Médine, ce n’est pas seulement un défi militaire, c’est un défi existentiel. Car une armée si nombreuse ne vient pas uniquement pour “affronter” : elle vient pour imposer une réalité. Elle vient pour faire comprendre à tous, de l’intérieur comme de l’extérieur, que l’équilibre a changé. Que la peur doit changer de camp. Et dans ce genre de contexte, chaque décision devient lourde. Chaque choix engage la survie de familles entières. Chaque erreur peut coûter une brèche, puis une catastrophe.",
+    },
+    {
+      type: "p",
+      text:
+        "Mais c’est aussi dans ces moments-là que se révèle ce qu’une communauté a réellement dans le ventre. Car quand tout semble perdu, il ne reste plus que l’essentiel : la lucidité, la solidarité, l’endurance… et une conviction profonde que l’on ne mesure pas uniquement par les chiffres. La coalition arrive avec sa force, ses bannières, ses cavaliers, son assurance. Médine, elle, doit répondre avec autre chose : une intelligence collective, une unité intérieure, et une capacité à tenir quand on voudrait craquer. La question n’est plus : “Peut-on gagner ?” La question devient : “Peut-on survivre… et rester debout ?”",
     },
   ],
   cliffhanger:
     "Face à cette masse, une question s’impose : comment survivre ?",
   keyPoints: [
-    "En 627, une coalition d’environ 10 000 hommes marche sur Médine.",
-    "Les musulmans sont environ 3000.",
+    "En 627 (5 H), une coalition d’environ 10 000 hommes marche sur Médine.",
+    "Les musulmans sont environ 3000, avec une ville entière à protéger.",
     "L’objectif est le siège et l’épuisement, pas un combat rapide.",
-    "La pression est autant psychologique que militaire.",
+    "La pression est psychologique avant d’être militaire : le temps devient une arme.",
+    "Situation sans précédent : des ennemis divers s’unissent pour un objectif commun.",
   ],
   reviewQuestions: [
     {
@@ -5311,7 +5327,7 @@ l65: {
       ],
       correctIndex: 1,
       explanation:
-        "Jamais autant de tribus ne s’étaient unies contre Médine.",
+        "Jamais autant de tribus ne s’étaient unies en même temps contre Médine, avec une intention de siège et d’épuisement.",
     },
     {
       id: "l65_boss_q1",
@@ -5324,11 +5340,12 @@ l65: {
       ],
       correctIndex: 1,
       explanation:
-        "La stratégie vise l’encerclement et l’épuisement.",
+        "La stratégie vise à encercler Médine, user les forces et le moral, puis faire tomber la ville sans forcément chercher une bataille rapide.",
       difficulty: "boss",
     },
   ],
 },
+
 l66: {
   title: "Creuser pour survivre : la tranchée",
   illustration: world17_l66,
@@ -5337,40 +5354,61 @@ l66: {
     {
       type: "p",
       text:
-        "Face à une armée bien plus nombreuse, une solution radicalement différente est proposée : creuser une tranchée sur les zones vulnérables de Médine.",
+        "Face à une armée bien plus nombreuse, la communauté de Médine comprend très vite qu’une confrontation directe serait suicidaire. Les chiffres parlent d’eux-mêmes, et l’expérience des batailles précédentes a déjà montré les limites d’un affrontement classique. C’est dans ce contexte de lucidité extrême qu’émerge une idée radicalement différente : creuser une tranchée sur les zones vulnérables de la ville. Une solution simple en apparence, mais profondément audacieuse dans le fond. Il ne s’agit pas d’attaquer, ni même de défier l’ennemi sur son terrain favori, mais de redéfinir complètement les règles du jeu.",
     },
     {
       type: "p",
       text:
-        "Cette technique n’est pas arabe. Elle est inhabituelle. Mais la situation l’exige. Ici, l’innovation devient une condition de survie.",
+        "Cette technique n’est pas arabe. Elle ne fait pas partie des traditions militaires locales, ni de la culture guerrière fondée sur la bravoure frontale et les charges visibles. Justement pour cette raison, elle surprend. Elle déstabilise. Elle dérange. Dans une situation normale, une telle idée aurait pu être rejetée, considérée comme étrange ou inutile. Mais ici, la situation est exceptionnelle. Et quand la survie est en jeu, l’habitude devient un luxe. L’innovation cesse d’être un choix confortable : elle devient une nécessité vitale. Accepter cette idée, c’est accepter de sortir de ses repères, de ses réflexes, et de son orgueil.",
+    },
+    {
+      type: "p",
+      text:
+        "Creuser une tranchée, c’est reconnaître une chose essentielle : on ne gagnera pas par la force brute. On gagnera peut-être en tenant. En retardant. En empêchant l’ennemi d’utiliser ce dans quoi il excelle. C’est une décision humble, mais terriblement intelligente. Elle montre que parfois, la vraie force ne consiste pas à frapper plus fort, mais à penser différemment.",
     },
 
     { type: "subtitle", text: "🥶 Travail, faim et endurance" },
     {
       type: "p",
       text:
-        "Creuser n’est pas un acte héroïque. C’est un travail pénible, long, dans le froid et avec peu de nourriture. Chaque coup de pioche est un acte de résistance.",
+        "Creuser n’a rien de spectaculaire. Il n’y a pas de cris de victoire, pas de charge héroïque, pas d’instant glorieux que l’on raconte avec emphase. Il y a la terre dure, le froid qui mord les mains, la fatigue qui s’accumule, et la faim qui affaiblit les corps. Chaque coup de pioche demande un effort réel, répété, silencieux. Et pourtant, chacun de ces coups est un acte de résistance. Un refus de céder à la peur. Un refus de se laisser écraser par l’avance de la coalition.",
     },
     {
       type: "p",
       text:
-        "Il n’y a pas de promesse de victoire immédiate. Seulement la volonté de tenir.",
+        "Les jours passent, et le travail continue. Les muscles brûlent, le dos se courbe, les forces diminuent. Il n’y a pas de promesse de victoire immédiate, pas de garantie que cette tranchée suffira. Seulement une conviction partagée : faire tout ce qui est possible, jusqu’au bout. Creuser devient un symbole d’endurance collective. Chacun participe selon ses moyens, chacun porte une part du fardeau. Et dans cet effort commun, quelque chose se renforce : le lien entre les individus, la solidarité face au danger, la certitude que personne ne lutte seul.",
+    },
+    {
+      type: "p",
+      text:
+        "C’est souvent dans ces moments de fatigue extrême que les vraies intentions apparaissent. Certains tiennent malgré la douleur, d’autres malgré le doute. Car le véritable combat ne se joue pas seulement dans la terre que l’on retire, mais dans l’esprit que l’on maintient éveillé. Continuer à creuser, c’est affirmer que l’espoir n’est pas encore mort, même quand les forces semblent manquer.",
     },
 
     { type: "subtitle", text: "🧱 Une barrière psychologique" },
     {
       type: "p",
       text:
-        "La tranchée n’est pas seulement un obstacle physique. Elle brise l’élan de la coalition. Elle transforme l’assaut attendu en attente frustrante.",
+        "La tranchée n’est pas seulement un obstacle physique. Elle est une barrière mentale. Lorsque la coalition arrive enfin devant Médine, elle s’attend à un terrain familier, à un affrontement prévisible, à une supériorité qui s’impose naturellement. Mais ce qu’elle découvre ne correspond à aucun de ses schémas habituels. L’élan est brisé. L’assurance vacille. Là où l’on pensait charger, il faut désormais s’arrêter, observer, hésiter.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette attente imposée est en elle-même une victoire stratégique. Elle transforme l’assaut attendu en frustration prolongée. Les soldats, préparés pour le choc, se retrouvent face à un vide infranchissable. La supériorité numérique perd de sa valeur quand elle ne peut pas s’exprimer. Et plus le temps passe, plus la coalition s’use moralement, tandis que Médine gagne ce qui lui manquait le plus : du temps.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi, une simple tranchée devient bien plus qu’un fossé. Elle devient un message clair : vous ne combattrez pas comme vous l’aviez prévu. Elle rappelle que l’intelligence, l’adaptation et la patience peuvent neutraliser une force écrasante. Et parfois, survivre commence par accepter de creuser… plutôt que de lever l’épée.",
     },
   ],
   cliffhanger:
     "La coalition arrive. Et elle découvre un terrain qu’elle ne comprend pas.",
   keyPoints: [
-    "La tranchée est une solution stratégique innovante.",
-    "Elle est creusée dans des conditions extrêmement difficiles.",
-    "Elle bloque l’assaut frontal de la coalition.",
-    "L’innovation devient un outil de survie.",
+    "La tranchée est une solution stratégique innovante face à une supériorité écrasante.",
+    "Elle est étrangère aux pratiques militaires arabes traditionnelles.",
+    "Elle est creusée dans des conditions extrêmement difficiles : fatigue, froid et faim.",
+    "Elle empêche l’assaut frontal et brise l’élan psychologique de la coalition.",
+    "L’innovation et l’endurance deviennent des outils de survie.",
   ],
   reviewQuestions: [
     {
@@ -5384,7 +5422,7 @@ l66: {
       ],
       correctIndex: 1,
       explanation:
-        "La tranchée n’était pas une pratique militaire locale.",
+        "La tranchée n’appartient pas aux traditions militaires arabes et surprend totalement la coalition.",
     },
     {
       id: "l66_boss_q1",
@@ -5397,11 +5435,12 @@ l66: {
       ],
       correctIndex: 1,
       explanation:
-        "La tranchée neutralise la supériorité numérique.",
+        "La tranchée neutralise la supériorité numérique et transforme l’offensive en siège frustrant.",
       difficulty: "boss",
     },
   ],
 },
+
 l67: {
   title: "Faim, froid et peur : le siège",
   illustration: world17_l67,
@@ -5410,40 +5449,56 @@ l67: {
     {
       type: "p",
       text:
-        "Le siège s’installe. Les jours passent. Le froid mord. La faim se fait sentir. Les vivres sont rares. La peur circule comme un murmure permanent.",
+        "Le siège s’installe, lentement mais sûrement. Ce n’est pas une attaque brutale, ni un choc violent qui décide du sort en quelques heures. C’est une épreuve qui s’étire, jour après jour, nuit après nuit. Le froid mord les corps, s’infiltre dans les vêtements, raidit les membres déjà fatigués par les travaux précédents. Les réserves de nourriture diminuent, les vivres deviennent comptés, et chaque repas est plus léger que le précédent. La faim ne surgit pas d’un coup : elle s’installe, discrète, puis persistante, jusqu’à devenir une présence constante. Et avec elle, la peur circule dans la ville comme un murmure permanent, jamais totalement silencieux.",
     },
     {
       type: "p",
       text:
-        "L’ennemi est là, visible, massif. Il attend que la fatigue fasse le travail.",
+        "L’ennemi est là, visible, massif, campé aux portes de Médine. Sa simple présence rappelle, à chaque instant, la gravité de la situation. Il n’attaque pas immédiatement, car il n’en a pas besoin. Il attend. Il observe. Il mise sur le temps, convaincu que la fatigue, la faim et le froid finiront par faire ce que les armes n’ont pas encore accompli. Cette attente calculée devient elle-même une arme redoutable. Car savoir que l’ennemi est là, tout proche, sans savoir quand — ou même si — il frappera, crée une tension permanente qui épuise les nerfs autant que les forces physiques.",
     },
 
     { type: "subtitle", text: "🧠 Une épreuve mentale extrême" },
     {
       type: "p",
       text:
-        "Le siège n’attaque pas seulement le corps. Il attaque le moral. Chaque nuit est une question : ‘Combien de temps encore ?’",
+        "Le siège n’attaque pas seulement le corps. Il vise l’esprit. Chaque jour qui passe sans dénouement alourdit l’atmosphère. Chaque nuit devient une épreuve en soi, car le silence est rarement rassurant. Dans l’obscurité, les pensées se bousculent : combien de temps encore ? Jusqu’où tiendrons-nous ? Et si demain était pire qu’aujourd’hui ? Ces questions ne trouvent pas de réponse immédiate, et c’est précisément ce qui rend l’épreuve si lourde. L’incertitude use plus profondément que la douleur visible.",
     },
     {
       type: "p",
       text:
-        "Certains doutent. Certains vacillent. Et c’est précisément ici que la foi est mise à nu.",
+        "Dans ce contexte, les cœurs sont mis à nu. Certains commencent à douter, non pas forcément par faiblesse, mais par épuisement. La peur de l’avenir, la fatigue accumulée, la sensation d’être encerclé peuvent faire vaciller même les plus déterminés. D’autres, au contraire, trouvent dans cette épreuve une force inattendue. La foi n’est plus un concept abstrait : elle devient un appui concret, un souffle qui permet de tenir quand tout semble pousser à abandonner. Le siège agit comme un révélateur, distinguant ce qui repose sur des certitudes profondes de ce qui dépend uniquement du confort.",
+    },
+    {
+      type: "p",
+      text:
+        "Chaque instant devient alors un combat intérieur. Il ne s’agit plus seulement de défendre une ville, mais de préserver une confiance, une cohésion, une raison de tenir ensemble. Car une communauté peut survivre à la faim et au froid, mais elle ne survit pas longtemps à la perte de sens et d’espérance.",
     },
 
     { type: "subtitle", text: "⚠️ Une pression intérieure" },
     {
       type: "p",
       text:
-        "À la menace extérieure s’ajoutent des tensions internes. Les cœurs faibles cherchent une issue. Les cœurs solides tiennent.",
+        "À la menace extérieure s’ajoutent inévitablement des tensions internes. Lorsque la pression dure trop longtemps, les fissures apparaissent. Certains cherchent une issue rapide, n’importe laquelle, même au prix de concessions dangereuses. Les paroles deviennent plus lourdes, les regards plus inquiets. Les cœurs fragiles cherchent un soulagement immédiat, tandis que les cœurs solides s’efforcent de maintenir le cap, malgré le poids écrasant de la situation.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette lutte intérieure est parfois plus difficile que l’affrontement extérieur. Car elle ne se voit pas toujours, mais elle fragilise de l’intérieur. Le siège ne teste pas uniquement la résistance face à l’ennemi, il teste la capacité à rester unis, à se soutenir mutuellement, à ne pas laisser la peur dicter les décisions. C’est ici que la foi, la patience et la lucidité jouent un rôle décisif : elles empêchent la division de faire ce que l’ennemi espère sans avoir à lever l’épée.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi, sous le froid, la faim et la peur, se joue un combat silencieux mais déterminant. Un combat pour la cohésion, pour la confiance, pour la dignité. Et si le siège paraît écrasant, il porte en lui une vérité inattendue : toute pression prolongée révèle aussi les faiblesses de celui qui assiège. Car maintenir une armée immobile, nourrie et motivée, n’est pas sans coût. Derrière la puissance apparente de la coalition, une fragilité commence déjà à se dessiner.",
     },
   ],
   cliffhanger:
     "Mais ce siège, aussi massif soit-il, cache une fragilité.",
   keyPoints: [
-    "Le siège impose faim, froid et peur.",
-    "L’épreuve est autant mentale que physique.",
-    "Des tensions internes apparaissent.",
-    "La foi est testée dans la durée.",
+    "Le siège impose une épreuve prolongée de faim, de froid et de peur.",
+    "L’attente et l’incertitude rendent l’épreuve mentalement éprouvante.",
+    "La foi et la patience deviennent des soutiens essentiels pour tenir.",
+    "Des tensions internes apparaissent sous la pression prolongée.",
+    "Le siège révèle aussi les limites et la fragilité de l’assaillant.",
   ],
   reviewQuestions: [
     {
@@ -5457,7 +5512,7 @@ l67: {
       ],
       correctIndex: 1,
       explanation:
-        "Le temps et l’incertitude usent les esprits.",
+        "Le temps, l’incertitude et l’attente prolongée usent profondément les esprits.",
     },
     {
       id: "l67_boss_q1",
@@ -5470,11 +5525,12 @@ l67: {
       ],
       correctIndex: 1,
       explanation:
-        "Le siège met à l’épreuve la cohésion interne.",
+        "La pression prolongée peut provoquer le découragement et fragiliser la cohésion interne.",
       difficulty: "boss",
     },
   ],
 },
+
 l68: {
   title: "Quand la coalition s’effondre",
   illustration: world17_l68,
@@ -5483,40 +5539,51 @@ l68: {
     {
       type: "p",
       text:
-        "La coalition est forte en nombre… mais fragile en cohésion. Le froid, la fatigue, les désaccords internes commencent à fissurer l’alliance.",
+        "La coalition était impressionnante par son nombre, écrasante par son apparence, presque intimidante par la certitude qu’elle affichait à son arrivée. Pourtant, au fil des jours, une réalité plus discrète commence à s’imposer : cette force immense est fragile de l’intérieur. Le froid s’intensifie, la fatigue s’accumule, et l’enthousiasme des premiers jours laisse place à l’irritation et au doute. Les soldats ne sont plus portés par l’élan de l’offensive, mais par l’obligation de tenir, de rester, de patienter. Et attendre, dans des conditions difficiles, est souvent plus éprouvant que combattre.",
     },
     {
       type: "p",
       text:
-        "Le siège s’éternise. L’objectif d’un assaut décisif disparaît peu à peu.",
+        "Peu à peu, les désaccords internes émergent. Chaque tribu a ses propres attentes, ses propres limites, ses propres calculs. Ce qui les unissait au départ — la volonté de faire tomber Médine — commence à perdre de sa force face aux réalités du terrain. Le siège s’éternise, et avec lui disparaît l’idée d’un assaut décisif. L’assurance collective se fissure. Ce qui devait être une démonstration de puissance devient une épreuve d’endurance que tous ne sont pas prêts à supporter. La coalition reste nombreuse, mais elle n’avance plus. Et une armée qui n’avance plus commence déjà à reculer, intérieurement.",
     },
 
     { type: "subtitle", text: "💨 La fin sans bataille" },
     {
       type: "p",
       text:
-        "Sans combat frontal, la coalition se retire. Non pas par victoire de l’épée, mais par l’effondrement de la volonté.",
+        "Puis vient un moment presque imperceptible, sans clameur ni choc d’épées, où la décision se dessine. Il n’y aura pas de bataille frontale. Pas de charge finale. Pas de victoire spectaculaire à raconter. Un à un, les camps se replient. La coalition se retire, non pas sous la contrainte d’une défaite militaire directe, mais sous le poids de l’usure. La volonté s’est effondrée là où la force semblait pourtant suffisante. Ce retrait marque une vérité profonde : on peut perdre sans avoir combattu, lorsque l’on n’a plus de raison de rester.",
     },
     {
       type: "p",
       text:
-        "Ce jour-là, Médine tient sans avoir livré bataille. Et ce fait est en soi une victoire stratégique majeure.",
+        "Ce jour-là, Médine tient sans avoir livré bataille. Et ce fait, en lui-même, est une victoire stratégique majeure. Car résister sans combattre, dans un contexte aussi déséquilibré, signifie que l’objectif de l’ennemi a échoué totalement. La ville n’a pas été prise, la communauté n’a pas été brisée, et l’élan de la coalition s’est dissipé sans résultat. Cette victoire n’est pas visible dans le sang versé ou les trophées brandis, mais dans ce qui n’a pas été perdu : la cohésion, la dignité, et la capacité à rester debout face à une menace écrasante.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce retrait silencieux laisse une trace durable. Il marque la fin d’une illusion : celle selon laquelle Médine pourrait être écrasée par la seule force du nombre. Désormais, les équilibres changent. Les ennemis comprennent que la communauté musulmane n’est pas seulement capable de combattre, mais aussi de tenir, de s’adapter, et de résister intelligemment. Et cette prise de conscience est parfois plus dissuasive qu’une défaite militaire classique.",
     },
 
     { type: "subtitle", text: "📜 Une leçon durable" },
     {
       type: "p",
       text:
-        "Al-Khandaq enseigne que toutes les victoires ne sont pas bruyantes. Certaines sont silencieuses… mais décisives.",
+        "Al-Khandaq enseigne une leçon rare et profonde : toutes les victoires ne sont pas bruyantes. Certaines se déroulent dans le silence, dans la patience, dans la constance. Elles ne font pas trembler la terre, mais elles transforment durablement les rapports de force. Cette victoire-là ne repose ni sur le nombre, ni sur la violence, mais sur la lucidité, la stratégie et l’endurance face à l’épreuve.",
+    },
+    {
+      type: "p",
+      text:
+        "Elle rappelle que la véritable puissance ne se mesure pas uniquement à la capacité de frapper, mais aussi à celle de tenir quand tout pousse à céder. Médine ne gagne pas en écrasant son ennemi, mais en l’obligeant à renoncer. Et ce renoncement marque un tournant. Après cette épreuve, le rapport de force ne sera plus jamais le même. L’initiative change de camp. La peur aussi. Et ce basculement silencieux ouvre une nouvelle phase de l’histoire, où la communauté musulmane n’est plus simplement en survie, mais en position de transformation durable.",
     },
   ],
   cliffhanger:
     "Et après cette épreuve, le rapport de force ne sera plus jamais le même.",
   keyPoints: [
-    "La coalition se fragilise par manque de cohésion.",
-    "Le siège échoue sans bataille décisive.",
-    "Médine tient grâce à la stratégie et à l’endurance.",
-    "Le rapport de force bascule durablement.",
+    "La coalition, malgré son nombre, manque de cohésion et s’use avec le temps.",
+    "Le froid, la fatigue et les désaccords internes fragilisent l’alliance.",
+    "Le siège échoue sans bataille décisive ni affrontement frontal.",
+    "Médine tient grâce à la stratégie, à l’endurance et à l’unité.",
+    "La victoire d’Al-Khandaq marque un tournant durable dans le rapport de force.",
   ],
   reviewQuestions: [
     {
@@ -5530,7 +5597,7 @@ l68: {
       ],
       correctIndex: 1,
       explanation:
-        "Le siège échoue par épuisement et désaccords internes.",
+        "Le siège échoue principalement en raison de l’épuisement, du froid et des divisions internes au sein de la coalition.",
     },
     {
       id: "l68_boss_q1",
@@ -5543,11 +5610,12 @@ l68: {
       ],
       correctIndex: 1,
       explanation:
-        "Al-Khandaq montre la puissance de la stratégie face au nombre.",
+        "Al-Khandaq démontre que l’intelligence stratégique et la patience peuvent vaincre une force numériquement supérieure.",
       difficulty: "boss",
     },
   ],
 },
+
 l69: {
   title: "Une victoire sans bataille",
   illustration: world18_l69,
@@ -5556,40 +5624,56 @@ l69: {
     {
       type: "p",
       text:
-        "Quand la coalition se retire de Médine, il n’y a pas de cris de victoire. Il y a du silence. Un silence lourd, presque irréel.",
+        "Lorsque la coalition se retire enfin de Médine, la scène est presque déroutante. Il n’y a pas de cris de triomphe, pas de clameurs, pas de célébrations bruyantes. Après des semaines de tension extrême, ce qui s’installe d’abord, c’est le silence. Un silence lourd, dense, presque irréel. Comme si chacun avait besoin de quelques instants pour réaliser que la menace est réellement partie. Les regards se croisent, les corps fatigués respirent enfin, mais sans explosion de joie. Ce calme soudain contraste violemment avec la peur constante qui habitait chaque jour du siège.",
     },
     {
       type: "p",
       text:
-        "Personne n’a chargé. Personne n’a percé. Et pourtant… Médine est toujours là.",
+        "Personne n’a chargé. Personne n’a percé les lignes ennemies. Il n’y a pas eu de bataille décisive qui aurait marqué les mémoires par le fracas des armes. Et pourtant, un fait s’impose avec une force saisissante : Médine est toujours là. La ville n’a pas cédé. La communauté n’a pas été brisée. Après avoir tenu face à la plus grande coalition jamais rassemblée contre elle, Médine se tient debout, intacte dans son essence. Ce constat, à lui seul, est bouleversant. Car parfois, survivre est déjà une forme de victoire que l’histoire ne peut ignorer.",
     },
 
     { type: "subtitle", text: "⚖️ Une victoire d’un autre type" },
     {
       type: "p",
       text:
-        "Cette victoire n’est pas inscrite sur un champ de bataille. Elle est inscrite dans un fait simple : l’ennemi est venu avec tout… et il est reparti sans rien.",
+        "Cette victoire ne s’inscrit pas sur un champ de bataille couvert de traces de combats. Elle ne se mesure pas en territoires conquis ni en ennemis vaincus par l’épée. Elle s’inscrit dans un fait simple, presque brutal dans sa clarté : l’ennemi est venu avec tout ce qu’il avait — le nombre, la force, les alliances — et il est reparti sans rien obtenir. Aucun objectif atteint. Aucun résultat concret. La coalition n’a ni détruit la ville, ni brisé la communauté, ni imposé sa volonté.",
     },
     {
       type: "p",
       text:
-        "Ce jour-là, la communauté comprend que survivre à une coalition massive est en soi un tournant historique.",
+        "Ce jour-là, la communauté comprend quelque chose de fondamental. Survivre à une coalition massive, dans des conditions aussi extrêmes, n’est pas un simple épisode parmi d’autres. C’est un tournant historique. Car jusque-là, Médine pouvait être perçue comme vulnérable, fragile, dépendante des circonstances. Désormais, elle a prouvé qu’elle peut résister à une pression maximale. Et cette prise de conscience ne concerne pas seulement les habitants de Médine : elle s’imprime aussi dans l’esprit de leurs adversaires.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette victoire est différente parce qu’elle ne repose pas sur la destruction de l’autre, mais sur l’échec total de son projet. L’ennemi n’est pas reparti humilié par une défaite sanglante, mais marqué par une certitude inquiétante : même avec une supériorité écrasante, il n’a pas réussi. Et parfois, cette réalité est plus dissuasive que la plus grande des défaites militaires.",
     },
 
     { type: "subtitle", text: "🧠 Comprendre ce qui vient de se passer" },
     {
       type: "p",
       text:
-        "Al-Khandaq n’a pas été gagné par l’épée, mais par la stratégie, l’endurance et la cohésion. Et ce type de victoire change la manière dont les forces se perçoivent.",
+        "Al-Khandaq n’a pas été gagné par l’épée, mais par la stratégie, l’endurance et la cohésion. Chaque élément a joué un rôle décisif. La stratégie a empêché l’ennemi d’utiliser sa force. L’endurance a permis de tenir malgré la faim, le froid et la peur. La cohésion a empêché l’effondrement intérieur que la coalition espérait provoquer. Ensemble, ces éléments ont produit un résultat que personne n’attendait vraiment : une victoire sans bataille.",
+    },
+    {
+      type: "p",
+      text:
+        "Et ce type de victoire change profondément la manière dont les forces se perçoivent. Médine ne se voit plus comme une communauté constamment sur la défensive, obligée de réagir à chaque menace. Elle comprend désormais qu’elle peut imposer son rythme, forcer l’adversaire à s’adapter, et même le pousser à l’épuisement sans lever l’épée. Quant à la coalition, elle repart avec un doute qui ne la quittera plus facilement : si une telle puissance n’a pas suffi ici, alors où est la limite ?",
+    },
+    {
+      type: "p",
+      text:
+        "Ce silence après la tempête n’est donc pas vide. Il est chargé de sens. Il annonce un basculement discret mais profond. L’histoire ne retient pas seulement les batailles gagnées, mais aussi ces moments où le rapport de force change sans bruit, quand une communauté découvre qu’elle est capable de tenir face à l’impossible. Et cette prise de conscience ouvre la porte à une nouvelle phase, bien plus décisive qu’il n’y paraît.",
     },
   ],
   cliffhanger:
     "Mais cette victoire silencieuse cache un basculement encore plus profond.",
   keyPoints: [
-    "La coalition se retire sans victoire militaire.",
-    "Médine survit à la plus grande menace connue.",
-    "La victoire est stratégique et psychologique.",
-    "Le silence marque un tournant historique.",
+    "La coalition se retire sans avoir remporté de victoire militaire.",
+    "Médine survit à la plus grande menace de son histoire récente.",
+    "La victoire est stratégique, psychologique et symbolique.",
+    "Le silence après le siège marque un tournant historique majeur.",
+    "Le rapport de force commence à basculer durablement.",
   ],
   reviewQuestions: [
     {
@@ -5603,7 +5687,7 @@ l69: {
       ],
       correctIndex: 1,
       explanation:
-        "La coalition se retire sans combat frontal.",
+        "La coalition se retire sans combat frontal ni bataille décisive.",
     },
     {
       id: "l69_boss_q1",
@@ -5616,11 +5700,12 @@ l69: {
       ],
       correctIndex: 1,
       explanation:
-        "Le rapport de force psychologique et stratégique bascule.",
+        "Cette victoire modifie durablement le rapport de force psychologique et stratégique.",
       difficulty: "boss",
     },
   ],
 },
+
 l70: {
   title: "La fin de la menace totale",
   illustration: world18_l70,
@@ -5629,40 +5714,51 @@ l70: {
     {
       type: "p",
       text:
-        "La coalition représentait le maximum de force que les ennemis pouvaient rassembler. Et ce maximum a échoué.",
+        "La coalition qui s’est rassemblée contre Médine représentait le maximum absolu de force que les ennemis pouvaient espérer réunir. Jamais auparavant autant de tribus, de ressources et d’intérêts n’avaient été alignés dans un même objectif. Tout avait été mobilisé : le nombre, la logistique, l’intimidation, la pression psychologique. Et pourtant, ce maximum a échoué. Non pas partiellement, mais totalement. La ville n’est pas tombée. La communauté n’a pas été détruite. L’objectif principal de cette coalition — mettre fin définitivement à l’expérience de Médine — n’a pas été atteint.",
     },
     {
       type: "p",
       text:
-        "À partir de ce moment, une certitude s’installe : plus jamais une attaque de cette ampleur ne sera possible contre Médine.",
+        "À partir de ce moment, une certitude nouvelle s’installe. Elle ne s’exprime pas forcément en mots, mais elle est comprise par tous, amis comme ennemis : plus jamais une attaque de cette ampleur ne sera possible contre Médine. Non pas parce que le danger disparaît, mais parce que la limite a été atteinte. Si une coalition aussi massive n’a pas suffi, alors aucune autre tentative globale ne pourra espérer un résultat différent. Cette prise de conscience marque un tournant stratégique majeur. La peur, jusque-là omniprésente, commence doucement à changer de camp.",
     },
 
     { type: "subtitle", text: "⚠️ Le danger n’a pas disparu" },
     {
       type: "p",
       text:
-        "La menace n’est pas terminée. Mais elle change de nature. Elle devient locale, ponctuelle, limitée.",
+        "Il serait pourtant illusoire de croire que toute menace s’évanouit d’un coup. Le danger n’est pas terminé. Mais il change profondément de nature. Après Al-Khandaq, les attaques ne peuvent plus être globales, coordonnées et écrasantes. Elles deviennent locales, ponctuelles, limitées dans le temps et dans l’espace. L’ennemi n’avance plus avec la certitude de vaincre. Il observe, il calcule, il hésite. Chaque décision est désormais pesée, car l’échec de la coalition a montré que Médine n’est plus une cible facile.",
     },
     {
       type: "p",
       text:
-        "L’ennemi n’attaque plus avec assurance. Il calcule. Il hésite.",
+        "Cette hésitation est en elle-même une victoire silencieuse. Là où régnait auparavant l’assurance, s’installe désormais le doute. L’ennemi ne frappe plus pour imposer, mais pour tester. Il n’agit plus avec arrogance, mais avec prudence. Et dans les conflits, ce changement est décisif : une force qui hésite n’impose plus son rythme. Elle réagit. Elle subit l’initiative de l’autre.",
     },
 
     { type: "subtitle", text: "🧱 Une communauté désormais solide" },
     {
       type: "p",
       text:
-        "Ce que la coalition n’a pas réussi à briser, plus personne ne le brisera facilement. La communauté a appris à tenir dans l’extrême.",
+        "Ce que la coalition n’a pas réussi à briser, plus personne ne le brisera facilement. Car l’épreuve traversée a forgé quelque chose de durable. La communauté a appris à tenir dans l’extrême : tenir sous la faim, sous le froid, sous la peur, sous la pression prolongée. Elle a appris que sa force ne dépend pas uniquement des circonstances favorables, mais de sa capacité à rester unie quand tout pousse à la division.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette solidité nouvelle n’est pas seulement militaire ou stratégique. Elle est intérieure. Elle se manifeste dans la confiance collective, dans la certitude que même face au pire scénario imaginable, il existe une réponse. Peut-être pas immédiate, peut-être pas spectaculaire, mais suffisante pour tenir et traverser l’épreuve. Après Al-Khandaq, Médine n’est plus simplement une ville qui résiste : elle devient une communauté consciente de sa propre résilience.",
+    },
+    {
+      type: "p",
+      text:
+        "Et lorsque la peur change de camp, l’Histoire suit inévitablement. Les dynamiques s’inversent. Les initiatives se déplacent. Ce qui paraissait impossible devient envisageable. La fin de la menace totale ne signifie pas la fin des défis, mais elle marque la fin d’une époque : celle où Médine pouvait être écrasée par une seule offensive massive. Désormais, le temps joue pour elle.",
     },
   ],
   cliffhanger:
     "Et quand la peur change de camp, l’Histoire suit.",
   keyPoints: [
-    "La coalition représentait la menace maximale.",
-    "Cette menace a échoué définitivement.",
-    "Les dangers deviennent limités et fragmentés.",
-    "La confiance change de camp.",
+    "La coalition représentait le maximum de force que les ennemis pouvaient rassembler.",
+    "Cette tentative globale a échoué définitivement.",
+    "Les menaces persistent mais deviennent locales et limitées.",
+    "L’ennemi hésite désormais avant d’agir.",
+    "La communauté sort renforcée, unie et consciente de sa résilience.",
   ],
   reviewQuestions: [
     {
@@ -5676,7 +5772,7 @@ l70: {
       ],
       correctIndex: 1,
       explanation:
-        "La coalition maximale n’a pas réussi à détruire Médine.",
+        "La plus grande coalition possible n’a pas réussi à détruire Médine, rendant impossible une attaque globale similaire.",
     },
     {
       id: "l70_boss_q1",
@@ -5689,11 +5785,12 @@ l70: {
       ],
       correctIndex: 1,
       explanation:
-        "Les menaces persistent mais sans ampleur globale.",
+        "Après l’échec de la coalition, les menaces subsistent mais sans ampleur globale.",
       difficulty: "boss",
     },
   ],
 },
+
 l71: {
   title: "Un ennemi fragilisé",
   illustration: world18_l71,
@@ -5702,40 +5799,61 @@ l71: {
     {
       type: "p",
       text:
-        "Un échec collectif laisse des traces. La coalition n’a pas seulement perdu du temps. Elle a perdu de la crédibilité.",
+        "Un échec collectif ne disparaît pas avec le temps. Il s’imprime dans les esprits, il s’infiltre dans les discours, il s’invite dans les décisions futures. Pour la coalition, Al-Khandaq n’a pas seulement été une occasion manquée ou une opération avortée. C’est un choc profond. Elle n’a pas seulement perdu du temps, des ressources et de l’énergie : elle a perdu quelque chose de bien plus précieux dans les rapports de force entre tribus et puissances. Elle a perdu sa crédibilité.",
     },
     {
       type: "p",
       text:
-        "Les alliances se fissurent. Les reproches circulent. Les certitudes tombent.",
+        "Avant le siège, l’image était claire : une force massive, sûre d’elle, capable de se coordonner pour écraser Médine. Après le retrait, cette image se fissure. Les questions commencent à circuler. Qui a mal évalué la situation ? Qui a promis une victoire rapide ? Qui a entraîné les autres dans une entreprise sans issue ? Les reproches ne sont pas toujours publics, mais ils existent. Et lorsqu’une alliance commence à douter de ses propres choix, elle devient fragile, même sans combat.",
+    },
+    {
+      type: "p",
+      text:
+        "Les alliances, justement, sont les premières à se fissurer. Ce qui tenait auparavant par l’intérêt commun et la promesse de succès ne tient plus lorsque l’échec s’impose. Certains partenaires se sentent trompés, d’autres estiment avoir trop risqué pour trop peu. Les certitudes tombent les unes après les autres. Car si une coalition aussi large n’a pas réussi, alors qui peut encore prétendre mener une offensive décisive contre Médine ? Cette question reste suspendue, sans réponse convaincante.",
     },
 
     { type: "subtitle", text: "🧠 Quand la peur change de camp" },
     {
       type: "p",
       text:
-        "Jusqu’ici, Médine se préparait à subir. Désormais, ce sont les ennemis qui anticipent, qui redoutent, qui hésitent.",
+        "Jusqu’ici, Médine se préparait à subir. Chaque menace était anticipée avec la conscience d’un déséquilibre possible, chaque rumeur faisait craindre une nouvelle offensive majeure. Mais après Al-Khandaq, quelque chose bascule subtilement. Désormais, ce sont les ennemis qui anticipent. Ce sont eux qui redoutent les conséquences de leurs choix. Ce sont eux qui hésitent avant de s’engager. La dynamique psychologique s’inverse.",
     },
     {
       type: "p",
       text:
-        "La force n’est plus perçue comme invincible. Et cette perception compte autant que les armes.",
+        "La force de la coalition n’est plus perçue comme invincible. Et cette perte d’aura est déterminante. Dans les conflits, la perception de la force compte parfois autant que la force elle-même. Une armée redoutée peut gagner sans combattre. Une armée dont on doute doit prouver, encore et encore, qu’elle mérite d’être crainte. Après l’échec du siège, les ennemis de Médine ne peuvent plus compter sur l’intimidation seule. Chaque mouvement devient risqué, chaque décision peut entraîner des conséquences imprévues.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette hésitation n’est pas un simple détail. Elle ralentit l’action, elle divise les opinions, elle affaiblit la capacité à se coordonner. Là où l’assurance permettait d’agir vite et fort, le doute impose la prudence. Et dans un contexte politique et militaire, la prudence excessive peut être paralysante. Médine, elle, observe ce changement avec lucidité. Sans triomphalisme, mais avec la conscience que le rapport de force intérieur a déjà évolué.",
     },
 
     { type: "subtitle", text: "⚖️ Une fragilité durable" },
     {
       type: "p",
       text:
-        "Même sans bataille, un ennemi peut être affaibli durablement. Al-Khandaq l’a prouvé.",
+        "Al-Khandaq a démontré une vérité souvent oubliée : un ennemi peut être affaibli durablement même sans bataille frontale. L’usure psychologique, la perte de crédibilité, la rupture de la confiance interne peuvent avoir des effets plus profonds qu’une défaite militaire classique. La coalition repart intacte en apparence, mais marquée en profondeur. Elle a découvert ses propres limites.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette fragilité ne disparaît pas du jour au lendemain. Elle s’installe dans les mémoires collectives. La prochaine fois qu’une alliance sera envisagée contre Médine, le souvenir d’Al-Khandaq refera surface. Les promesses de victoire rapide seront accueillies avec scepticisme. Les risques seront plus lourdement pesés. Et cette méfiance ralentira toute tentative d’union massive.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi, sans avoir livré bataille décisive, Médine a réussi à affaiblir durablement son ennemi. Non pas en le détruisant, mais en le forçant à douter de lui-même. Et dans les rapports de force à long terme, cette victoire silencieuse est souvent la plus déterminante. Car quand l’ennemi hésite, quand il n’ose plus agir avec assurance, l’initiative change de mains. Et ce basculement annonce déjà la suite de l’Histoire.",
     },
   ],
   cliffhanger:
     "Et quand l’ennemi hésite, l’initiative change de mains.",
   keyPoints: [
-    "L’échec fragilise la coalition.",
-    "Les alliances ennemies se fissurent.",
-    "La peur change progressivement de camp.",
-    "La crédibilité militaire est entamée.",
+    "L’échec d’Al-Khandaq fragilise durablement la coalition.",
+    "La crédibilité et la cohésion des alliances ennemies sont entamées.",
+    "La peur et le doute changent progressivement de camp.",
+    "La perception de la force influence directement les décisions politiques et militaires.",
+    "Un ennemi peut être affaibli sans bataille frontale.",
   ],
   reviewQuestions: [
     {
@@ -5749,7 +5867,7 @@ l71: {
       ],
       correctIndex: 1,
       explanation:
-        "L’échec mine la cohésion et la crédibilité.",
+        "L’échec collectif a miné la cohésion, la crédibilité et la confiance interne de la coalition.",
     },
     {
       id: "l71_boss_q1",
@@ -5762,11 +5880,12 @@ l71: {
       ],
       correctIndex: 1,
       explanation:
-        "La perception conditionne les comportements politiques et militaires.",
+        "La perception de la force conditionne les comportements, les alliances et les choix stratégiques.",
       difficulty: "boss",
     },
   ],
 },
+
 l72: {
   title: "Désormais, l’initiative change de camp",
   illustration: world18_l72,
@@ -5775,40 +5894,56 @@ l72: {
     {
       type: "p",
       text:
-        "Après Al-Khandaq, quelque chose d’irréversible se produit : la communauté n’est plus uniquement sur la défensive.",
+        "Après Al-Khandaq, quelque chose d’irréversible se produit, même si cela ne se manifeste pas immédiatement par des conquêtes ou des démonstrations de force. Le changement est d’abord intérieur, presque invisible. La communauté n’est plus uniquement dans une posture de réaction permanente. Jusqu’ici, chaque décision était prise sous la pression d’une menace imminente, chaque mouvement dicté par la nécessité de se défendre. Désormais, cette logique commence à s’effriter. Médine n’est plus seulement en train de subir l’Histoire : elle commence à y participer activement.",
     },
     {
       type: "p",
       text:
-        "Elle ne cherche pas la domination, mais elle n’attend plus passivement les coups.",
+        "Ce basculement ne signifie pas une recherche de domination ou une volonté d’écraser l’adversaire. Il marque plutôt la fin d’une attente passive. La communauté n’avance pas avec arrogance, mais avec lucidité. Elle comprend qu’attendre le prochain coup, sans jamais rien décider, n’est plus une fatalité. Après avoir résisté au pire scénario imaginable, elle sait désormais qu’elle peut choisir quand agir, comment agir, et surtout pourquoi agir. Cette conscience nouvelle transforme profondément la manière d’envisager l’avenir.",
     },
 
     { type: "subtitle", text: "🧭 Une nouvelle posture" },
     {
       type: "p",
       text:
-        "L’initiative ne signifie pas agression. Elle signifie choix, anticipation, direction.",
+        "Prendre l’initiative ne signifie pas attaquer sans raison ni précaution. L’initiative, ici, prend un sens plus subtil et plus stratégique. Elle signifie reprendre la maîtrise du temps. Anticiper plutôt que subir. Choisir plutôt que réagir. Fixer une direction au lieu d’être constamment contraint par les décisions de l’ennemi. Cette posture demande une maturité nouvelle, car agir volontairement engage davantage de responsabilités que simplement se défendre.",
     },
     {
       type: "p",
       text:
-        "Pour la première fois depuis longtemps, le futur n’est plus dicté par la peur.",
+        "Pour la première fois depuis longtemps, le futur n’est plus dicté par la peur. Les décisions ne sont plus prises uniquement pour éviter le pire, mais pour construire quelque chose de durable. Cette évolution change profondément l’équilibre psychologique. Là où régnait l’urgence, apparaît désormais la réflexion. Là où dominait l’angoisse, s’installe une forme de confiance mesurée. La communauté comprend que survivre n’est plus l’unique horizon : il devient possible de penser à l’après.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette nouvelle posture modifie aussi la perception extérieure. Les adversaires, déjà fragilisés par l’échec de la coalition, observent désormais une Médine qui ne tremble plus à chaque menace. Une communauté capable de tenir, mais aussi de décider. Et cette capacité à décider est souvent plus déstabilisante qu’une démonstration de force brute.",
     },
 
     { type: "subtitle", text: "📜 Vers une phase différente de l’Histoire" },
     {
       type: "p",
       text:
-        "Cette bascule ouvre une nouvelle période : celle de la diplomatie, des traités, et d’une expansion qui ne repose plus uniquement sur la survie.",
+        "Cette bascule ouvre une période radicalement nouvelle. Une période où l’Histoire ne s’écrit plus uniquement dans l’urgence de la survie, mais dans la construction patiente. C’est l’entrée progressive dans une phase marquée par la diplomatie, les traités, les alliances réfléchies, et une expansion qui ne repose plus uniquement sur la nécessité de se défendre. La communauté commence à interagir avec son environnement non plus seulement pour repousser des menaces, mais pour organiser des relations durables.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce tournant n’est pas immédiatement compris par tous. Certains s’attendent à une revanche rapide, à une démonstration éclatante de force après l’épreuve traversée. Mais la sagesse de cette nouvelle phase réside précisément dans le choix de la mesure plutôt que de l’excès. La stratégie l’emporte sur l’émotion. La vision à long terme sur la réaction immédiate.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi, l’initiative change de camp sans bruit, sans déclaration spectaculaire. Mais ses effets sont profonds et durables. L’Histoire s’engage dans une trajectoire différente, où chaque décision pèsera davantage que chaque bataille. Et cette nouvelle phase commencera par un acte que beaucoup ne comprendront pas sur le moment, mais qui révélera toute la maturité acquise après l’épreuve d’Al-Khandaq.",
     },
   ],
   cliffhanger:
     "Et cette nouvelle phase commencera par un acte que beaucoup ne comprendront pas.",
   keyPoints: [
-    "Après Al-Khandaq, la posture devient proactive.",
-    "L’initiative change sans recherche de domination.",
-    "La peur ne dicte plus l’agenda.",
-    "Une nouvelle phase historique commence.",
+    "Après Al-Khandaq, la communauté sort d’une posture uniquement défensive.",
+    "L’initiative signifie choix, anticipation et maîtrise du temps.",
+    "La peur ne dicte plus les décisions majeures.",
+    "Une phase de diplomatie, de traités et de consolidation s’ouvre.",
+    "L’Histoire entre dans une dynamique nouvelle et durable.",
   ],
   reviewQuestions: [
     {
@@ -5822,7 +5957,7 @@ l72: {
       ],
       correctIndex: 1,
       explanation:
-        "L’initiative permet de choisir et d’anticiper.",
+        "Le changement d’initiative permet de choisir, d’anticiper et de ne plus seulement réagir aux événements.",
     },
     {
       id: "l72_boss_q1",
@@ -5835,11 +5970,12 @@ l72: {
       ],
       correctIndex: 1,
       explanation:
-        "L’Histoire entre dans une phase de traités et de consolidation.",
+        "Après Al-Khandaq, l’Histoire entre dans une phase marquée par la diplomatie, les traités et la consolidation.",
       difficulty: "boss",
     },
   ],
 },
+
 l73: {
   title: "Le départ pour la ʿUmrah (628 / 6 H)",
   illustration: world19_l73,
@@ -5848,48 +5984,75 @@ l73: {
     {
       type: "p",
       text:
-        "En 628 (6 H), la communauté prend une décision qui surprend : partir vers La Mecque pour accomplir la ʿUmrah. Ce n’est pas une expédition militaire. L’intention est le pèlerinage.",
+        "En 628 (6 H), la communauté prend une décision qui déroute autant qu’elle intrigue. Après des années de conflits, de sièges, de pressions et de menaces existentielles, voilà qu’un choix radicalement différent est posé : partir vers La Mecque pour accomplir la ʿUmrah. Pas une expédition militaire. Pas une démonstration de force. Pas une revanche attendue. Mais un pèlerinage. Une intention sacrée, assumée, clairement affichée. Dans un contexte où chaque déplacement pouvait être interprété comme une provocation, ce choix est tout sauf anodin.",
     },
     {
       type: "p",
       text:
-        "Ils sortent avec l’état d’esprit du sacré, pas de la conquête. Beaucoup de récits rapportent qu’ils sont environ 1400. Et dans leurs cœurs, il y a une chose fragile : l’espoir.",
+        "Ils sortent de Médine avec l’état d’esprit du sacré, pas celui de la conquête. Les armes ne sont pas celles de la guerre, mais celles du voyage. Les vêtements sont ceux du pèlerin, pas du combattant. Beaucoup de récits rapportent qu’ils sont environ 1400. Un nombre conséquent, mais qui n’a rien d’une armée. Et dans leurs cœurs, il y a quelque chose de profondément humain, presque fragile : l’espoir. L’espoir de pouvoir adorer librement. L’espoir de poser le pied dans la Maison sacrée sans effusion de sang. L’espoir, aussi, que le temps de la peur permanente commence enfin à s’éloigner.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce départ est un acte de foi avant d’être un acte politique. Il signifie : nous n’avançons pas parce que nous sommes les plus forts, mais parce que nous avons confiance. Confiance que l’adoration n’est pas une faiblesse. Confiance que la dignité ne passe pas toujours par l’affrontement. Et cette posture, dans un monde habitué à lire chaque mouvement comme une menace, est profondément déstabilisante.",
     },
 
     { type: "subtitle", text: "🌙 Le poids de la mémoire" },
     {
       type: "p",
       text:
-        "La route vers La Mecque n’est pas une simple route. C’est la route des souvenirs, des blessures, de l’exil. C’est la ville d’où ils ont dû partir… et qu’ils n’ont pas cessé de regarder de loin.",
+        "La route vers La Mecque n’est pas une route ordinaire. Chaque pas réveille des souvenirs enfouis. C’est la route de l’exil, des larmes, des séparations forcées. C’est la ville qu’ils ont dû quitter sous la contrainte, parfois dans la douleur, parfois dans la précipitation. La ville de l’enfance pour certains, des racines pour d’autres. Et malgré les années, malgré la distance, La Mecque n’a jamais cessé d’être présente dans les cœurs.",
     },
     {
       type: "p",
       text:
-        "Chaque pas est lourd. Mais chaque pas est aussi une déclaration : “Nous sommes là. Nous venons pour adorer.”",
+        "Marcher vers elle, c’est affronter la mémoire. Les blessures ne sont pas toutes refermées. Les humiliations passées ne sont pas oubliées. Pourtant, ce retour ne se fait pas avec colère. Il se fait avec retenue. Chaque pas est lourd, chargé d’émotion, mais chaque pas est aussi une déclaration silencieuse : “Nous sommes là. Nous ne venons pas réclamer. Nous ne venons pas imposer. Nous venons pour adorer.” Cette phrase, à elle seule, résume toute la profondeur de ce voyage.",
+    },
+    {
+      type: "p",
+      text:
+        "Il y a dans cette marche une forme de courage particulier. Le courage de revenir sans arme là où l’on a été chassé. Le courage de s’exposer au regard de ceux qui ont fait du tort. Le courage de ne pas transformer la douleur passée en vengeance présente. Et ce courage-là n’est pas toujours compris, ni par les ennemis, ni même par certains alliés.",
     },
 
     { type: "subtitle", text: "⚠️ Une question plane au-dessus du groupe" },
     {
       type: "p",
       text:
-        "La Mecque laissera-t-elle entrer ceux qu’elle a rejetés ? Quraysh acceptera-t-elle de voir ce retour pacifique… sans y lire une humiliation ?",
+        "À mesure que le groupe avance, une question lourde plane au-dessus de chaque pas. La Mecque laissera-t-elle entrer ceux qu’elle a rejetés ? Quraysh acceptera-t-elle ce retour pacifique, assumé, sans y lire une provocation ou une humiliation ? Car pour Quraysh, voir revenir ceux qu’elle a expulsés, même sans armes, pose un problème profond. Ce retour remet en cause un récit, un rapport de domination, une image de contrôle.",
+    },
+    {
+      type: "p",
+      text:
+        "Le danger n’est donc pas absent. Il est simplement différent. Ce n’est plus le danger d’un champ de bataille ouvert, mais celui d’un refus, d’un blocage, d’une réaction d’orgueil. Le groupe le sait. Pourtant, il avance. Non par naïveté, mais par choix. Car parfois, l’acte le plus stratégique n’est pas celui qui force, mais celui qui révèle l’injustice ou la peur de l’autre.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi, à l’horizon, La Mecque commence à se dessiner. Les cœurs battent plus fort. Les regards se tendent. Et avant même que la ville ne soit atteinte, une barrière invisible se dresse déjà. Pas faite de murs ou de soldats visibles, mais de décisions politiques, de calculs d’honneur et de crainte de perdre la face. Le voyage n’est pas terminé. En réalité, il ne fait que commencer.",
     },
   ],
   cliffhanger:
     "Et quand l’horizon de La Mecque se dessine… une barrière invisible se lève devant eux.",
   keyPoints: [
-    "En 6 H / 628, les musulmans se dirigent vers La Mecque pour la ʿUmrah.",
-    "L’intention n’est pas la guerre mais le pèlerinage.",
+    "En 6 H / 628, les musulmans se dirigent vers La Mecque pour accomplir la ʿUmrah.",
+    "L’intention affichée est le pèlerinage, non la guerre.",
     "Le groupe est rapporté autour de 1400 compagnons.",
-    "Le retour vers La Mecque porte une charge émotionnelle et symbolique forte.",
+    "Le retour vers La Mecque est chargé de mémoire, d’exil et d’émotion.",
+    "Ce départ pacifique pose une question politique et symbolique majeure à Quraysh.",
   ],
   reviewQuestions: [
     {
       id: "l73_q1",
       question: "Quel est l’objectif du départ vers La Mecque en 6 H / 628 ?",
-      options: ["Une conquête militaire", "La ʿUmrah", "Une expédition commerciale", "Une migration"],
+      options: [
+        "Une conquête militaire",
+        "La ʿUmrah",
+        "Une expédition commerciale",
+        "Une migration",
+      ],
       correctIndex: 1,
-      explanation: "L’intention est le pèlerinage (ʿUmrah), pas la guerre.",
+      explanation:
+        "L’intention du voyage est l’accomplissement de la ʿUmrah, pas une action militaire.",
     },
     {
       id: "l73_boss_q1",
@@ -5902,11 +6065,12 @@ l73: {
       ],
       correctIndex: 1,
       explanation:
-        "Le retour vers la ville d’où ils ont été contraints de partir est chargé de sens.",
+        "Revenir pacifiquement vers la ville d’où ils ont été chassés, pour adorer, est un acte profondément symbolique et historique.",
       difficulty: "boss",
     },
   ],
 },
+
 l74: {
   title: "Ḥudaybiyyah : blocage et négociations",
   illustration: world19_l74,
@@ -5915,48 +6079,70 @@ l74: {
     {
       type: "p",
       text:
-        "Ils n’entrent pas. Quraysh bloque l’accès. Le groupe s’arrête à Al-Ḥudaybiyyah, à la limite de la zone de La Mecque.",
+        "Ils n’entrent pas. Alors que La Mecque est enfin proche, que l’objectif spirituel semble à portée de pas, Quraysh décide de bloquer l’accès. Le groupe est contraint de s’arrêter à Al-Ḥudaybiyyah, à la limite de la zone sacrée. Ce lieu devient soudainement le théâtre d’une épreuve inattendue. Non pas une bataille armée, mais un arrêt brutal, imposé, qui met à l’épreuve la patience et la sincérité des intentions. Être si proche du but, et pourtant empêché, est souvent plus difficile que d’être encore loin.",
     },
     {
       type: "p",
       text:
-        "Et là, quelque chose de difficile commence : attendre. Dans l’attente, l’esprit s’agite. Les émotions montent. L’ennemi n’a pas besoin de frapper : le simple blocage est une pression.",
+        "Et là commence quelque chose de profondément éprouvant : l’attente. Une attente sans échéance claire. Dans cette immobilité forcée, l’esprit s’agite. Les questions se multiplient. Pourquoi ce refus ? Jusqu’où iront-ils ? Les émotions montent, parfois contradictoires : frustration, incompréhension, colère contenue, mais aussi espoir ténu que la situation puisse s’apaiser. Quraysh n’a pas besoin de frapper. Le simple fait de bloquer suffit à créer une pression immense. Car empêcher l’accès au sacré, sans justification ouverte, touche directement la dignité et le cœur.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce blocage n’est pas neutre. Il est calculé. Il vise à rappeler qui contrôle l’entrée, qui décide, qui impose. Et pour le groupe venu en pèlerin, cette situation est délicate : comment rester fidèle à l’intention sacrée sans se laisser humilier ? Comment tenir sans provoquer ? Chaque instant passé à Al-Ḥudaybiyyah devient un test de maîtrise de soi.",
     },
 
     { type: "subtitle", text: "🗣️ Une bataille de paroles" },
     {
       type: "p",
       text:
-        "Les échanges s’installent. Des émissaires. Des discussions. Des refus. Des retours. Ce n’est pas une guerre d’épées : c’est une guerre de positions et de dignité.",
+        "Très vite, les échanges commencent. Des émissaires vont et viennent. Des paroles sont transmises, interprétées, parfois déformées. On discute, on refuse, on renvoie des messages, on temporise. Ce n’est pas une guerre d’épées, mais une guerre de positions. Chaque mot compte. Chaque silence aussi. L’enjeu n’est plus seulement d’entrer à La Mecque, mais de préserver l’honneur, la dignité et la cohérence du message porté.",
     },
     {
       type: "p",
       text:
-        "La question n’est plus “qui gagne ?” mais “qui cède ?” Et dans le désert, céder peut ressembler à perdre… même quand on tient la vérité.",
+        "La question centrale change subtilement. Il ne s’agit plus seulement de savoir “qui gagne ?”, mais “qui cède ?”. Et dans le désert, céder peut ressembler à perdre, même lorsque l’on est convaincu d’être dans le vrai. Accepter certaines conditions peut être vécu comme une humiliation. Les refuser peut mener à l’affrontement. La ligne est fine, dangereuse. La tension est palpable, car chaque concession possible est observée, jugée, pesée.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette bataille de paroles exige une sagesse particulière. Il faut savoir parler sans provoquer, refuser sans insulter, tenir sans rompre. Et cette forme de combat est parfois plus exigeante que le combat armé. Car elle demande un contrôle total de soi, une vision à long terme, et la capacité de supporter l’incompréhension, même au sein de son propre camp.",
     },
 
     { type: "subtitle", text: "🔥 Une tension au bord de l’explosion" },
     {
       type: "p",
       text:
-        "Chaque minute peut devenir un déclencheur. Le groupe est là, prêt à respecter le sacré… mais prêt aussi à ne pas se laisser écraser.",
+        "À Al-Ḥudaybiyyah, chaque minute peut devenir un déclencheur. Une mauvaise nouvelle, un malentendu, une provocation isolée, et tout peut basculer. Le groupe est là, déterminé à respecter le caractère sacré de la démarche. Mais il est aussi conscient d’une chose essentielle : respecter ne signifie pas accepter l’écrasement. Cette tension permanente maintient tout le monde dans un état d’alerte extrême.",
+    },
+    {
+      type: "p",
+      text:
+        "Les cœurs oscillent entre retenue et fermeté. Personne ne veut être celui qui déclenche l’irréparable, mais personne ne veut non plus rentrer sans avoir défendu la dignité du message porté. Cette attente sous pression révèle les tempéraments, les peurs, les élans de courage. Et pendant que les discussions se poursuivent, une rumeur commence à circuler. Une nouvelle, encore floue, encore incertaine, mais suffisamment lourde pour faire trembler tous les cœurs.",
     },
   ],
   cliffhanger:
     "Puis une nouvelle traverse le camp… une nouvelle qui va faire trembler tous les cœurs.",
   keyPoints: [
-    "Quraysh bloque l’entrée à La Mecque : arrêt à Al-Ḥudaybiyyah.",
-    "La tension se déplace du militaire vers le politique et la dignité.",
-    "Des négociations et échanges d’émissaires s’installent.",
-    "Le blocage devient une pression psychologique majeure.",
+    "Quraysh bloque l’entrée à La Mecque, forçant l’arrêt à Al-Ḥudaybiyyah.",
+    "L’épreuve principale devient l’attente et la pression psychologique.",
+    "Le conflit se déplace du militaire vers la diplomatie et la dignité.",
+    "Des échanges d’émissaires et des négociations complexes s’installent.",
+    "La tension est extrême, chaque instant pouvant faire basculer la situation.",
   ],
   reviewQuestions: [
     {
       id: "l74_q1",
       question: "Que fait Quraysh face au départ pour la ʿUmrah ?",
-      options: ["Elle ouvre immédiatement l’accès", "Elle bloque l’entrée", "Elle s’exile", "Elle accepte une alliance"],
+      options: [
+        "Elle ouvre immédiatement l’accès",
+        "Elle bloque l’entrée",
+        "Elle s’exile",
+        "Elle accepte une alliance",
+      ],
       correctIndex: 1,
-      explanation: "Quraysh bloque l’accès à La Mecque, d’où l’arrêt à Ḥudaybiyyah.",
+      explanation:
+        "Quraysh bloque l’accès à La Mecque, ce qui conduit à l’arrêt du groupe à Al-Ḥudaybiyyah.",
     },
     {
       id: "l74_boss_q1",
@@ -5969,11 +6155,12 @@ l74: {
       ],
       correctIndex: 1,
       explanation:
-        "Le conflit se joue sur la diplomatie, l’honneur et les conditions.",
+        "Le conflit se joue principalement sur la diplomatie, les échanges et la préservation de la dignité.",
       difficulty: "boss",
     },
   ],
 },
+
 l75: {
   title: "Bayʿat ar-Riḍwān : le serment sous l’arbre",
   illustration: world19_l75,
@@ -5982,40 +6169,61 @@ l75: {
     {
       type: "p",
       text:
-        "À Ḥudaybiyyah, la tension atteint un sommet. Une information se répand — et le camp bascule. Dans ce climat, les compagnons prêtent un serment : Bayʿat ar-Riḍwān, sous un arbre.",
+        "À Ḥudaybiyyah, la tension atteint un point de rupture. Les négociations s’éternisent, les allers-retours d’émissaires nourrissent l’incertitude, et une information commence à circuler dans le camp — une information grave, lourde de conséquences. Elle se répand rapidement, sans être encore totalement confirmée, mais son effet est immédiat : l’atmosphère change. Les regards se durcissent. Les cœurs se serrent. Le calme apparent laisse place à une détermination silencieuse. Dans ce climat tendu, un acte décisif est posé : les compagnons prêtent un serment, Bayʿat ar-Riḍwān, sous un arbre.",
     },
     {
       type: "p",
       text:
-        "Ce n’est pas une scène de discours. C’est une scène de vérité. Des hommes qui n’ont pas les moyens d’une grande armée face à Quraysh… mais qui ont la détermination d’un engagement total.",
+        "Ce n’est pas une scène de grands discours ni de slogans enflammés. C’est un moment de vérité brute. Chacun s’avance avec ce qu’il est, avec ses peurs, ses limites, mais aussi avec une conviction claire. Ils savent qu’ils ne disposent pas des moyens d’une grande armée face à Quraysh. Ils savent que l’ennemi est puissant, organisé, et capable d’écraser militairement un groupe venu sans intention de combattre. Et pourtant, ils s’engagent. Non par inconscience, mais par fidélité à un principe : la dignité ne se négocie pas.",
+    },
+    {
+      type: "p",
+      text:
+        "Sous cet arbre, la foi cesse d’être un concept intérieur pour devenir un acte visible. Elle se traduit par une parole donnée, par une main tendue, par une promesse assumée jusqu’au bout. Ce serment n’est pas dicté par l’enthousiasme du moment, mais par la clarté morale. C’est précisément ce qui lui donne sa force. Il ne repose pas sur l’espoir d’une victoire facile, mais sur la certitude que certaines lignes ne doivent pas être franchies, même lorsque la situation semble défavorable.",
     },
 
     { type: "subtitle", text: "🫀 Le courage collectif" },
     {
       type: "p",
       text:
-        "Il y a une force particulière dans ce serment : ce n’est pas l’élan d’un individu. C’est une cohésion. Le groupe affirme : “Nous ne reculons pas.”",
+        "Il y a une force particulière dans ce serment, une force que l’on ne retrouve pas dans les élans isolés. Ce n’est pas le courage spectaculaire d’un individu prêt à se sacrifier seul. C’est un courage collectif, construit sur la cohésion. Chacun voit l’autre s’engager. Chacun comprend qu’il ne sera pas seul. Et cette conscience transforme la peur. Elle ne disparaît pas, mais elle est maîtrisée, contenue, partagée.",
     },
     {
       type: "p",
       text:
-        "Ce moment marque l’Histoire : le camp n’est pas venu pour la guerre, mais il refuse d’être humilié.",
+        "Le message est clair, même s’il n’est pas formulé en slogans : “Nous ne reculons pas.” Non pas par goût de l’affrontement, mais par refus de la dissolution. Le groupe n’est pas venu chercher la guerre, mais il refuse d’être humilié, méprisé ou réduit au silence. Ce serment affirme une position ferme : la patience a des limites, et la dignité en fait partie. En ce sens, Bayʿat ar-Riḍwān n’est pas un appel à la violence, mais une déclaration de solidité morale.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce moment marque profondément l’Histoire, car il révèle la nature du groupe. Il ne s’agit pas d’une foule portée par l’émotion, mais d’une communauté consciente de ce qu’elle défend. La cohésion démontrée sous cet arbre envoie un message puissant, y compris à l’adversaire : même sans armes levées, même dans un cadre sacré, ce groupe ne se laissera pas écraser. Cette certitude change l’équilibre des négociations bien plus que n’importe quelle menace.",
     },
 
     { type: "subtitle", text: "⚖️ Une dignité protégée" },
     {
       type: "p",
       text:
-        "Le serment n’est pas une provocation. Il est une ligne rouge : on négocie, oui. On patiente, oui. Mais on ne se dissout pas.",
+        "Le serment de Bayʿat ar-Riḍwān n’est pas une provocation. Il n’est pas un défi lancé pour enflammer la situation. Il est une ligne rouge posée avec calme et fermeté. Il dit : nous acceptons de négocier, nous acceptons d’attendre, nous acceptons même de faire des concessions raisonnables. Mais nous ne nous dissoudrons pas. Nous ne renoncerons pas à notre dignité sous prétexte de paix.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette posture est difficile à tenir, car elle demande un équilibre délicat. Trop de fermeté peut mener à l’affrontement. Trop de souplesse peut ressembler à une capitulation. Bayʿat ar-Riḍwān trace précisément cette ligne. Elle protège l’essentiel sans fermer la porte au dialogue. Et c’est cette maturité qui rend ce moment si déterminant : la force n’est pas dans la rupture, mais dans la capacité à rester entier tout en continuant à parler.",
+    },
+    {
+      type: "p",
+      text:
+        "Après ce serment, quelque chose a changé. Le camp est plus uni. Les intentions sont claires. Les hésitations se dissipent. Et paradoxalement, c’est précisément cette fermeté paisible qui va permettre à la négociation d’aboutir. Car l’adversaire comprend désormais qu’il ne fait pas face à un groupe indécis ou manipulable, mais à une communauté capable de patience comme de résolution.",
     },
   ],
   cliffhanger:
     "Et c’est précisément après ce serment… que la négociation va aboutir à un traité qui va choquer beaucoup de cœurs.",
   keyPoints: [
-    "À Ḥudaybiyyah a lieu Bayʿat ar-Riḍwān (serment sous l’arbre).",
-    "Ce serment montre une cohésion et une détermination collectives.",
+    "À Ḥudaybiyyah a lieu Bayʿat ar-Riḍwān, le serment prêté sous l’arbre.",
+    "Ce serment révèle une cohésion et une détermination collectives.",
     "Les musulmans ne cherchent pas la guerre mais refusent l’humiliation.",
-    "Ce moment prépare la conclusion d’un traité majeur.",
+    "Bayʿat ar-Riḍwān trace une ligne rouge tout en laissant place à la négociation.",
+    "Ce moment prépare directement la conclusion d’un traité majeur.",
   ],
   reviewQuestions: [
     {
@@ -6028,7 +6236,8 @@ l75: {
         "Une migration",
       ],
       correctIndex: 1,
-      explanation: "Bayʿat ar-Riḍwān est le serment prêté sous l’arbre à Ḥudaybiyyah.",
+      explanation:
+        "Bayʿat ar-Riḍwān est le serment collectif prêté sous un arbre à Ḥudaybiyyah.",
     },
     {
       id: "l75_boss_q1",
@@ -6041,11 +6250,12 @@ l75: {
       ],
       correctIndex: 1,
       explanation:
-        "Le serment affirme la solidité collective malgré l’encerclement politique.",
+        "Le serment affirme l’unité du groupe et son refus de se laisser humilier, malgré une situation difficile.",
       difficulty: "boss",
     },
   ],
 },
+
 l76: {
   title: "Le traité : choc, patience… et victoire stratégique",
   illustration: world19_l76,
@@ -6054,45 +6264,61 @@ l76: {
     {
       type: "p",
       text:
-        "Le résultat immédiat n’est pas ce que beaucoup espéraient : pas d’entrée à La Mecque cette année-là. À la place, un traité est conclu : une trêve (souvent rapportée à environ dix ans) et un retour à Médine.",
+        "Le résultat immédiat n’est pas celui que beaucoup espéraient. Après un voyage long, chargé d’émotion, d’espoir et de retenue, il n’y a pas d’entrée à La Mecque cette année-là. Pas de ṭawāf autour de la Kaʿbah. Pas de rites accomplis. À la place, un document est rédigé. Un traité. Une trêve — souvent rapportée comme devant durer environ dix ans — et une décision claire : le groupe doit retourner à Médine.",
     },
     {
       type: "p",
       text:
-        "Pour certains, c’est un choc. Ils sont venus pour la ʿUmrah. Ils repartent sans l’accomplir. Sur le plan émotionnel, cela peut ressembler à une défaite.",
+        "Sur le plan humain, le choc est réel. Ils sont venus avec l’intention pure de la ʿUmrah. Ils repartent sans l’accomplir. Le cœur peine à comprendre. L’effort consenti, la route parcourue, la tension supportée… tout cela semble déboucher sur un retour à vide. Pour certains compagnons, ce moment est difficile à accepter. Émotionnellement, cela ressemble à une défaite. Pas une défaite militaire, mais une frustration profonde, presque une injustice ressentie. Comment repartir alors que l’on était si proche ? Comment accepter ce qui ressemble à un recul après tant d’épreuves ?",
+    },
+    {
+      type: "p",
+      text:
+        "Ce traité heurte l’attente immédiate. Il va à contre-courant de ce que l’on imagine être une “réussite”. Il demande quelque chose de rare : accepter de ne pas voir tout de suite le fruit de l’effort. Et c’est précisément pour cela qu’il est si éprouvant. Car l’être humain est naturellement attiré par le résultat visible, immédiat, tangible. Ici, on lui demande de rentrer… avec seulement une promesse écrite.",
     },
 
     { type: "subtitle", text: "⚖️ Une paix qui pèse" },
     {
       type: "p",
       text:
-        "Les clauses sont difficiles à avaler pour plusieurs compagnons. Le cœur humain comprend vite le “gain visible”, mais il peine avec le “gain différé”.",
+        "Les clauses du traité sont lourdes à avaler pour plusieurs compagnons. Certaines paraissent déséquilibrées, d’autres difficiles à justifier émotionnellement. Le cœur humain comprend vite le “gain visible”, mais il a du mal avec le “gain différé”. Accepter aujourd’hui pour récolter demain demande une confiance profonde et une vision à long terme que tout le monde n’a pas encore intégrée.",
     },
     {
       type: "p",
       text:
-        "Et pourtant… ce traité ouvre quelque chose d’immense : une période où la guerre ouverte recule, où les contacts augmentent, où les tribus observent sans le bruit permanent des combats.",
+        "Pourtant, derrière ces lignes écrites sur un parchemin, quelque chose d’immense s’ouvre. Une porte discrète, mais déterminante. Cette trêve signifie la fin, au moins temporaire, de la guerre ouverte. Les armes se taisent. Les routes deviennent plus sûres. Les contacts deviennent possibles sans la peur constante de l’affrontement. Les tribus, jusqu’ici spectatrices inquiètes, peuvent observer sans être happées par le bruit permanent des combats.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette paix pèse lourd, non parce qu’elle est faible, mais parce qu’elle oblige à changer de regard. Elle impose de faire confiance à un processus plutôt qu’à un coup d’éclat. Elle demande de croire que le calme peut parfois produire plus que la confrontation. Et pour des cœurs forgés dans l’épreuve et la résistance, ce changement de rythme est difficile, presque déstabilisant.",
     },
 
     { type: "subtitle", text: "🔓 La victoire qui ne ressemble pas à une victoire" },
     {
       type: "p",
       text:
-        "Stratégiquement, le rapport de force change. La communauté n’est plus enfermée dans une survie permanente. Elle respire. Elle parle. Elle se déplace. Les alliances se redessinent.",
+        "Stratégiquement pourtant, quelque chose de fondamental bascule. Le rapport de force change sans bruit. La communauté n’est plus enfermée dans une survie permanente, dictée par l’urgence et la menace constante. Elle respire. Elle circule. Elle parle. Elle peut transmettre son message sans être immédiatement soupçonnée d’agression. Les alliances se redessinent, non sous la pression de la peur, mais à travers l’observation et la réflexion.",
     },
     {
       type: "p",
       text:
-        "Ce monde te met face à une vérité : parfois, la victoire la plus puissante est celle qui exige de la patience — parce qu’elle ne flatte pas l’ego.",
+        "Ce traité crée un espace inédit. Un espace où les paroles peuvent voyager plus loin que les armes. Un espace où les gens peuvent écouter sans être pris dans la logique des camps opposés. Et dans cet espace, le message se diffuse plus largement, plus rapidement, plus profondément que pendant les années de conflit ouvert.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce monde te confronte à une vérité dérangeante mais essentielle : parfois, la victoire la plus puissante est celle qui ne ressemble pas à une victoire. Celle qui ne flatte pas l’ego. Celle qui ne donne pas immédiatement l’impression d’avoir “gagné”. Mais celle qui prépare un impact bien plus grand que ce que l’on aurait pu obtenir par la force. La patience exigée ici n’est pas une faiblesse. Elle est une stratégie. Et son efficacité ne tardera pas à se révéler.",
     },
   ],
   cliffhanger:
     "Et dans le prochain monde, tu verras comment cette “paix incomprise” va produire un impact que personne n’imaginait.",
   keyPoints: [
-    "À Ḥudaybiyyah, un traité est conclu : trêve (souvent rapportée ~10 ans).",
-    "Les musulmans ne font pas la ʿUmrah cette année-là mais pourront revenir ensuite.",
-    "Le traité choque certains sur le plan émotionnel.",
-    "Stratégiquement, il ouvre une période de respiration et de diffusion du message.",
+    "À Ḥudaybiyyah, un traité est conclu avec une trêve souvent rapportée à environ dix ans.",
+    "Les musulmans repartent sans accomplir la ʿUmrah cette année-là.",
+    "Le traité provoque un choc émotionnel chez plusieurs compagnons.",
+    "Cette paix réduit la guerre ouverte et ouvre un espace nouveau.",
+    "Stratégiquement, le traité permet une diffusion et des alliances inédites.",
   ],
   reviewQuestions: [
     {
@@ -6106,7 +6332,7 @@ l76: {
       ],
       correctIndex: 1,
       explanation:
-        "Le groupe repart sans accomplir la ʿUmrah cette année, avec un traité (trêve).",
+        "Le groupe repart sans accomplir la ʿUmrah cette année, avec un traité établissant une trêve.",
     },
     {
       id: "l76_boss_q1",
@@ -6119,11 +6345,12 @@ l76: {
       ],
       correctIndex: 1,
       explanation:
-        "Le traité change l’environnement : moins de guerre ouverte, plus d’espace pour la prédication et les alliances.",
+        "Le traité change profondément l’environnement : moins de guerre ouverte, plus d’espace pour la transmission du message et la construction d’alliances.",
       difficulty: "boss",
     },
   ],
 },
+
 l77: {
   title: "Une paix qui libère le mouvement",
   illustration: world20_l77,
@@ -6132,39 +6359,60 @@ l77: {
     {
       type: "p",
       text:
-        "Après Ḥudaybiyyah (6 H / 628), quelque chose change profondément : la guerre ouverte avec Quraysh n’est plus permanente. Pour la première fois depuis longtemps, la communauté respire.",
+        "Après Ḥudaybiyyah (6 H / 628), un basculement discret mais décisif s’opère. La guerre ouverte avec Quraysh n’est plus la toile de fond permanente de chaque décision. Pendant des années, la communauté avait appris à penser, agir et se déplacer sous la pression constante de la menace. Chaque voyage pouvait devenir un risque, chaque rencontre une provocation, chaque parole une étincelle. Désormais, cette logique commence à se relâcher. Pour la première fois depuis longtemps, la communauté respire.",
     },
     {
       type: "p",
       text:
-        "Cette respiration n’est pas du repos. C’est de l’espace. De l’espace pour voyager, parler, rencontrer, expliquer. Le message n’est plus étouffé par l’urgence militaire.",
+        "Mais cette respiration n’est pas un relâchement, ni un abandon de vigilance. Ce n’est pas du repos. C’est de l’espace. De l’espace mental, stratégique et humain. De l’espace pour voyager sans être immédiatement soupçonné. De l’espace pour parler sans que chaque mot soit lu comme une déclaration de guerre. De l’espace pour rencontrer, expliquer, clarifier. Le message, jusque-là souvent étouffé par l’urgence militaire, peut enfin circuler avec plus de liberté.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette transformation est profonde. Elle change le rythme même de la vie collective. Les décisions ne sont plus prises uniquement pour éviter l’affrontement du lendemain, mais pour construire dans la durée. La paix, ici, n’est pas une fin en soi. Elle est un outil. Un cadre qui permet autre chose. Et cette différence est essentielle pour comprendre ce qui va suivre.",
     },
 
     { type: "subtitle", text: "🚶‍♂️ Les routes s’ouvrent" },
     {
       type: "p",
       text:
-        "Les tribus observent. Beaucoup hésitaient auparavant : s’allier à une communauté en guerre permanente était risqué. Désormais, le paysage est différent.",
+        "Avec la diminution de la guerre ouverte, les routes s’ouvrent à nouveau. Les tribus, longtemps figées dans l’attente et la crainte, observent attentivement. Beaucoup hésitaient auparavant à se rapprocher d’une communauté perçue comme engagée dans un conflit permanent. S’allier à elle pouvait sembler dangereux, risqué, voire suicidaire. Désormais, le paysage est différent. Le calme relatif permet l’observation sans urgence.",
     },
     {
       type: "p",
       text:
-        "Les échanges se multiplient. Les discussions se font sans le bruit constant des armes. Et cela change tout.",
+        "Les échanges se multiplient. Les discussions se font sans le bruit constant des armes. On peut écouter sans craindre une attaque imminente. On peut poser des questions sans être immédiatement catalogué comme ennemi ou allié. Ce simple changement transforme tout. Car les idées voyagent mieux quand les routes sont sûres. Les convictions se transmettent plus profondément quand elles ne sont pas couvertes par le fracas des combats.",
+    },
+    {
+      type: "p",
+      text:
+        "Dans cet espace nouveau, le message trouve un terrain plus fertile. Les gens comparent, réfléchissent, discutent. La paix devient un catalyseur. Elle ne force pas l’adhésion, mais elle permet la compréhension. Et cette compréhension, dans bien des cas, a un impact plus durable que la contrainte.",
     },
 
     { type: "subtitle", text: "⚖️ Une victoire invisible" },
     {
       type: "p",
       text:
-        "Ḥudaybiyyah commence à montrer sa vraie nature : ce n’était pas un recul, mais une ouverture stratégique. Une victoire qui ne se mesure pas en territoires conquis, mais en horizons dégagés.",
+        "C’est ici que Ḥudaybiyyah révèle sa véritable nature. Ce qui avait été perçu par certains comme un recul commence à apparaître comme une ouverture stratégique majeure. Une victoire qui ne se mesure ni en territoires conquis, ni en ennemis vaincus, mais en horizons dégagés. La communauté n’est plus enfermée dans une logique de survie permanente. Elle peut penser à plus loin, à plus large.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette victoire est dite “invisible” parce qu’elle ne flatte pas les regards pressés. Elle ne produit pas immédiatement de trophées ou de récits héroïques. Mais ses effets sont profonds. Elle change les conditions mêmes dans lesquelles le message se diffuse. Elle modifie la perception extérieure. Elle montre qu’une paix bien placée peut être plus puissante qu’une confrontation continue.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi, Ḥudaybiyyah libère le mouvement au sens le plus large : mouvement des corps, des paroles, des idées. Et lorsque le mouvement est libéré, une question s’impose naturellement. Si le message peut désormais circuler sans être bloqué par la guerre… est-il destiné à rester limité à l’Arabie ?",
     },
   ],
   cliffhanger:
     "Et quand l’espace s’ouvre… une question s’impose : le message est-il réservé à l’Arabie ?",
   keyPoints: [
-    "Après Ḥudaybiyyah, la guerre ouverte recule.",
-    "La communauté gagne en liberté de mouvement et de parole.",
-    "Les tribus observent un nouvel équilibre.",
+    "Après Ḥudaybiyyah, la guerre ouverte avec Quraysh recule nettement.",
+    "La communauté gagne un espace de mouvement, de parole et de réflexion.",
+    "Les routes s’ouvrent et les échanges se multiplient.",
+    "Les tribus observent un nouvel équilibre sans la pression militaire constante.",
     "La paix devient un levier stratégique majeur.",
   ],
   reviewQuestions: [
@@ -6179,7 +6427,7 @@ l77: {
       ],
       correctIndex: 2,
       explanation:
-        "Ḥudaybiyyah réduit la guerre ouverte et libère les déplacements et échanges.",
+        "Ḥudaybiyyah réduit la guerre ouverte et libère les déplacements, les échanges et la parole.",
     },
     {
       id: "l77_boss_q1",
@@ -6192,11 +6440,12 @@ l77: {
       ],
       correctIndex: 1,
       explanation:
-        "Elle change le rapport de force sans bataille directe.",
+        "Elle modifie profondément le rapport de force sans bataille directe ni conquête territoriale.",
       difficulty: "boss",
     },
   ],
 },
+
 l78: {
   title: "Les lettres aux souverains",
   illustration: world20_l78,
@@ -6205,40 +6454,61 @@ l78: {
     {
       type: "p",
       text:
-        "Dans cette période d’ouverture (fin 6 H – 7 H), le message ne reste plus limité aux tribus locales. Des lettres sont envoyées à plusieurs souverains et dirigeants régionaux.",
+        "Dans cette période d’ouverture qui suit Ḥudaybiyyah (fin 6 H – 7 H), une étape décisive est franchie. Le message ne reste plus cantonné aux tribus locales ni aux équilibres internes de l’Arabie. Pour la première fois, il s’adresse clairement au-delà de son espace immédiat. Des lettres sont envoyées à plusieurs souverains et dirigeants régionaux. Ce geste marque un changement d’échelle historique.",
     },
     {
       type: "p",
       text:
-        "C’est un changement d’échelle. Le message ne se présente pas comme une force armée, mais comme un appel, posé avec clarté.",
+        "Il ne s’agit pas d’un geste de provocation ni d’une démonstration de puissance militaire. Le message ne se présente pas comme celui d’une armée en expansion, mais comme un appel. Un appel formulé avec clarté, assumé, direct. Il traverse des frontières politiques, culturelles et géographiques. Et par ce simple acte, une idée est affirmée sans ambiguïté : ce message ne se limite pas à un contexte local ou tribal.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette ouverture vers l’extérieur n’aurait pas été possible sans la paix relative instaurée par Ḥudaybiyyah. La guerre ouverte aurait étouffé toute tentative de dialogue à grande échelle. La trêve, en revanche, crée un cadre où la parole peut voyager plus loin que les armes.",
     },
 
     { type: "subtitle", text: "✉️ Une démarche assumée" },
     {
       type: "p",
       text:
-        "Envoyer ces lettres, c’est affirmer une conviction : ce message n’est pas circonstanciel. Il ne dépend ni d’un territoire ni d’un rapport de force immédiat.",
+        "Envoyer ces lettres est un acte lourd de sens. C’est affirmer une conviction profonde : ce message n’est pas circonstanciel. Il ne dépend ni d’un territoire précis, ni d’un rapport de force immédiat. Il n’est pas né d’une victoire militaire, et il ne disparaîtra pas avec une défaite. Il se présente comme une invitation adressée à l’humanité, au-delà des frontières connues.",
     },
     {
       type: "p",
       text:
-        "Certaines réponses seront ouvertes, d’autres fermées. Mais l’acte lui-même marque une étape irréversible.",
+        "Les réponses, bien sûr, seront diverses. Certaines ouvertes, curieuses, respectueuses. D’autres fermées, méfiantes, parfois hostiles. Mais au fond, la nature des réponses importe moins que l’acte lui-même. Car une fois le message envoyé, il ne peut plus être replié. Une étape irréversible est franchie. Le message s’inscrit désormais dans une perspective mondiale.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette démarche demande un courage particulier. Elle expose. Elle assume le regard de puissances établies, de systèmes politiques anciens, de cultures différentes. Mais elle affirme aussi une confiance absolue dans la portée du message, indépendamment des réactions immédiates.",
     },
 
     { type: "subtitle", text: "🧭 Une vision à long terme" },
     {
       type: "p",
       text:
-        "Ce monde montre que l’expansion ne commence pas par l’épée, mais par la parole structurée, assumée, envoyée au-delà des frontières connues.",
+        "Ce monde montre clairement que l’expansion ne commence pas par l’épée. Elle commence par la parole structurée, posée, envoyée au-delà des frontières familières. Une parole qui ne cherche pas à imposer, mais à inviter. Une parole qui s’inscrit dans le temps long, consciente que les transformations profondes ne sont jamais instantanées.",
+    },
+    {
+      type: "p",
+      text:
+        "En écrivant à des souverains, la communauté affirme une vision stratégique et spirituelle à long terme. Elle ne cherche pas un gain immédiat, mais elle plante des graines. Certaines tomberont sur un sol réceptif. D’autres non. Mais le geste, en lui-même, redéfinit l’horizon. Le message n’est plus régional. Il est universel dans son intention.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi, pendant que l’espace extérieur s’ouvre et que la parole circule au loin, une autre réalité subsiste plus près. Car toute expansion extérieure exige une stabilité intérieure. Et pendant que le message s’étend au-delà des frontières, une menace interne, encore présente, doit être traitée pour sécuriser durablement cette nouvelle phase.",
     },
   ],
   cliffhanger:
     "Mais pendant que le message s’étend… une menace interne doit encore être sécurisée.",
   keyPoints: [
-    "Après Ḥudaybiyyah, le message dépasse l’Arabie.",
-    "Des lettres sont envoyées à des dirigeants et souverains.",
-    "L’expansion commence par l’appel, pas par la conquête.",
-    "Cette démarche affirme une vision universelle.",
+    "Après Ḥudaybiyyah, le message dépasse le cadre de l’Arabie.",
+    "Des lettres sont envoyées à des souverains et dirigeants régionaux.",
+    "L’expansion commence par l’appel et la parole, non par la conquête.",
+    "Cette démarche affirme une vision universelle et assumée.",
+    "Elle marque une étape irréversible dans l’histoire du message.",
   ],
   reviewQuestions: [
     {
@@ -6252,7 +6522,7 @@ l78: {
       ],
       correctIndex: 1,
       explanation:
-        "Les lettres montrent que le message dépasse les frontières arabes.",
+        "Les lettres montrent que le message dépasse les frontières arabes et s’adresse à un horizon universel.",
     },
     {
       id: "l78_boss_q1",
@@ -6265,11 +6535,12 @@ l78: {
       ],
       correctIndex: 1,
       explanation:
-        "Elle pose le message comme universel, indépendamment du rapport de force.",
+        "Cette étape pose le message dans une perspective universelle, indépendante du rapport de force immédiat.",
       difficulty: "boss",
     },
   ],
 },
+
 l79: {
   title: "Khaybar : sécurité et stabilité (628 / 7 H)",
   illustration: world20_l79,
@@ -6278,35 +6549,61 @@ l79: {
     {
       type: "p",
       text:
-        "En 7 H (628–629), Khaybar représente un enjeu stratégique. Ce n’est pas seulement un lieu : c’est une source de menaces potentielles et de déstabilisation.",
+        "En 7 H (628–629), Khaybar n’est pas un simple point sur une carte. C’est un nœud stratégique, un espace où se croisent intérêts politiques, sécuritaires et économiques. Tant que cette zone demeure instable, elle représente une menace latente pour Médine. Des foyers de tensions peuvent s’y rallumer, des alliances hostiles s’y reconstituer, des pressions s’y organiser. Dans une phase où le message commence à s’étendre au-delà des frontières immédiates, laisser un tel arrière non sécurisé serait une prise de risque majeure.",
     },
     {
       type: "p",
       text:
-        "Dans un contexte où le message s’étend, sécuriser l’arrière devient indispensable.",
+        "Sécuriser l’arrière, ce n’est pas chercher l’affrontement pour l’affrontement. C’est comprendre que l’ouverture vers l’extérieur exige une base intérieure solide. Une communauté qui s’ouvre au monde sans protéger ses arrières s’expose à être prise en étau. Khaybar incarne précisément ce danger potentiel : une instabilité capable de détourner l’énergie, de briser l’élan et de forcer un retour constant à la défense d’urgence.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi, l’enjeu dépasse largement le lieu lui-même. Il s’agit de créer les conditions d’une stabilité durable. Tant que certaines zones restent des foyers de tensions, la paix obtenue ailleurs demeure fragile. Khaybar devient donc un passage obligé, non pour étendre un territoire de manière aveugle, mais pour consolider l’équilibre global.",
     },
 
     { type: "subtitle", text: "⚔️ Une opération ciblée" },
     {
       type: "p",
       text:
-        "L’objectif n’est pas l’expansion aveugle, mais la stabilisation. Mettre fin à un foyer de tensions permet d’éviter que la communauté ne soit encerclée pendant qu’elle s’ouvre au monde.",
+        "L’opération menée à Khaybar n’a pas pour objectif une expansion incontrôlée. Elle est ciblée, réfléchie, inscrite dans une logique de stabilisation. Mettre fin à un foyer de tensions, c’est empêcher la multiplication des menaces indirectes. C’est éviter que la communauté ne soit encerclée politiquement pendant qu’elle s’efforce d’ouvrir des voies diplomatiques et spirituelles ailleurs.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette approche révèle une maturité stratégique nouvelle. Il ne s’agit plus seulement de répondre à des agressions immédiates, mais d’anticiper. D’identifier les points de fragilité. De traiter les sources de déstabilisation avant qu’elles ne produisent des crises majeures. Khaybar devient ainsi un exemple clair : la stabilité se construit autant par la prévention que par la réaction.",
+    },
+    {
+      type: "p",
+      text:
+        "En neutralisant ce foyer de tensions, la communauté se donne la possibilité de ne plus disperser ses forces. L’énergie jusque-là consommée par la vigilance constante peut être redirigée vers la construction, l’organisation et la transmission. Et cette réorientation est décisive pour la suite des événements.",
     },
 
     { type: "subtitle", text: "🔒 Une base désormais sûre" },
     {
       type: "p",
       text:
-        "Après Khaybar, Médine est plus stable. Les routes sont plus sûres. L’énergie peut se concentrer sur la construction plutôt que la survie.",
+        "Après Khaybar, un changement concret se fait sentir. Médine gagne en stabilité. Les routes deviennent plus sûres. Les menaces périphériques se réduisent considérablement. Cette sécurité nouvelle ne signifie pas l’absence totale de défis, mais elle marque la fin d’une instabilité chronique.",
+    },
+    {
+      type: "p",
+      text:
+        "Désormais, la communauté peut concentrer son énergie sur la construction plutôt que sur la survie. Elle peut planifier, organiser, consolider. La base arrière est suffisamment sécurisée pour soutenir une phase plus large, plus ambitieuse. Khaybar n’est donc pas une fin en soi, mais une étape structurante.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette stabilité va rapidement produire des effets visibles. Elle modifie la perception extérieure. Elle renforce la crédibilité interne. Et surtout, elle prépare un changement d’échelle. Car une base sûre est le socle indispensable à toute transformation durable de l’équilibre régional.",
     },
   ],
   cliffhanger:
     "Et cette stabilité va profondément modifier l’équilibre des forces en Arabie.",
   keyPoints: [
-    "Khaybar est un enjeu stratégique majeur.",
-    "L’objectif est la sécurité et la stabilité.",
-    "La communauté consolide sa base arrière.",
-    "Cette étape prépare une phase plus large.",
+    "Khaybar représente un enjeu stratégique et sécuritaire majeur.",
+    "L’objectif est la stabilisation, pas l’expansion aveugle.",
+    "La communauté sécurise sa base arrière.",
+    "Les routes et l’environnement autour de Médine deviennent plus sûrs.",
+    "Cette étape prépare une phase plus large et structurée.",
   ],
   reviewQuestions: [
     {
@@ -6320,7 +6617,7 @@ l79: {
       ],
       correctIndex: 1,
       explanation:
-        "Khaybar est un foyer de menaces qu’il faut neutraliser.",
+        "Khaybar constitue un foyer de tensions et de menaces qu’il fallait neutraliser pour stabiliser la région.",
     },
     {
       id: "l79_boss_q1",
@@ -6333,11 +6630,12 @@ l79: {
       ],
       correctIndex: 1,
       explanation:
-        "La région autour de Médine devient plus stable.",
+        "La région autour de Médine devient plus stable et plus sûre.",
       difficulty: "boss",
     },
   ],
 },
+
 l80: {
   title: "Un nouvel équilibre en Arabie",
   illustration: world20_l80,
@@ -6346,35 +6644,61 @@ l80: {
     {
       type: "p",
       text:
-        "Quelques années plus tôt, la communauté luttait pour survivre. Désormais, le paysage est transformé : alliances, neutralités, observations prudentes.",
+        "Quelques années plus tôt, la communauté luttait simplement pour survivre. Les menaces étaient constantes, les alliances incertaines, l’avenir opaque. Désormais, le paysage est profondément transformé. L’Arabie n’est plus un espace figé dans l’hostilité ou l’indifférence. Les rapports se redessinent : alliances assumées, neutralités prudentes, observations attentives.",
     },
     {
       type: "p",
       text:
-        "L’Arabie ne regarde plus Médine comme une anomalie fragile, mais comme une force structurée.",
+        "Médine n’est plus perçue comme une anomalie fragile ou passagère. Elle apparaît désormais comme une force structurée, organisée, capable de tenir dans la durée. Cette perception change tout. Car dans un environnement tribal et politique, être reconnu comme une force stable est souvent plus déterminant que la puissance brute.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce nouvel équilibre ne s’est pas imposé par un choc unique, mais par une accumulation de décisions stratégiques, de patience et de cohérence. Chaque étape — trêve, ouverture, sécurisation — a contribué à transformer progressivement le regard porté sur Médine.",
     },
 
     { type: "subtitle", text: "🧩 Les tribus choisissent" },
     {
       type: "p",
       text:
-        "Beaucoup de tribus prennent position. Certaines s’allient, d’autres observent. Mais l’indifférence disparaît.",
+        "Dans ce nouveau contexte, l’indifférence devient impossible. Les tribus sont désormais face à un choix. Certaines décident de s’allier clairement. D’autres préfèrent observer, attendre, mesurer. Mais rester totalement à l’écart n’est plus une option viable. Le mouvement est trop visible, trop structuré pour être ignoré.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce moment est révélateur. Il montre que l’influence ne repose pas uniquement sur la contrainte, mais sur la cohérence et la stabilité. Les tribus évaluent non seulement la force militaire, mais aussi la capacité à maintenir des accords, à offrir un cadre fiable, à durer.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi, chaque choix tribal devient un indicateur de ce nouvel équilibre. L’Arabie entre dans une phase où les positions se clarifient, où les alliances se structurent, et où les équilibres anciens commencent à céder la place à une configuration inédite.",
     },
 
     { type: "subtitle", text: "⏳ Une montée silencieuse" },
     {
       type: "p",
       text:
-        "Ce monde ne se termine pas par un choc, mais par une montée continue. Tout est en place pour un événement que peu peuvent encore imaginer…",
+        "Ce monde ne se conclut pas par un affrontement spectaculaire. Il se termine par une montée continue, presque imperceptible. Les fondations sont en place. Les résistances se réduisent. Les regards se tournent de plus en plus vers Médine comme un centre incontournable.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette montée est silencieuse, mais déterminante. Elle prépare un événement que peu peuvent encore imaginer pleinement. Un événement qui ne sera pas seulement militaire ou politique, mais profondément symbolique. Car lorsque les équilibres sont prêts, un centre oublié ou rejeté peut redevenir central.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi, ce monde agit comme un seuil. Il ne ferme pas une histoire, il en ouvre une autre. Tout est désormais en place pour un tournant majeur. Et très bientôt, La Mecque elle-même va redevenir le cœur battant de cette transformation.",
     },
   ],
   cliffhanger:
     "Car très bientôt, La Mecque elle-même va redevenir centrale.",
   keyPoints: [
-    "L’équilibre des forces en Arabie évolue.",
-    "Médine devient une puissance reconnue.",
-    "Les tribus ne peuvent plus rester neutres.",
-    "Le terrain est prêt pour un tournant majeur.",
+    "L’équilibre des forces en Arabie évolue profondément.",
+    "Médine est désormais reconnue comme une force structurée.",
+    "Les tribus doivent prendre position ou observer activement.",
+    "L’indifférence disparaît du paysage politique.",
+    "Le terrain est prêt pour un tournant historique majeur.",
   ],
   reviewQuestions: [
     {
@@ -6388,7 +6712,7 @@ l80: {
       ],
       correctIndex: 1,
       explanation:
-        "Médine est désormais vue comme une force organisée.",
+        "Médine est désormais perçue comme une force organisée et durable.",
     },
     {
       id: "l80_boss_q1",
@@ -6401,11 +6725,12 @@ l80: {
       ],
       correctIndex: 1,
       explanation:
-        "Il prépare directement les événements majeurs à venir.",
+        "Il prépare directement les événements majeurs à venir, notamment le recentrage autour de La Mecque.",
       difficulty: "boss",
     },
   ],
 },
+
 
 
 
