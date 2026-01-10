@@ -80,8 +80,22 @@ import world20_l77 from "../assets/illustrations/worlds/world20_l77.png";
 import world20_l78 from "../assets/illustrations/worlds/world20_l78.png";
 import world20_l79 from "../assets/illustrations/worlds/world20_l79.png";
 import world20_l80 from "../assets/illustrations/worlds/world20_l80.png";
-
-
+import world21_l81 from "../assets/illustrations/worlds/world21_l81.png";
+import world21_l82 from "../assets/illustrations/worlds/world21_l82.png";
+import world21_l83 from "../assets/illustrations/worlds/world21_l83.png";
+import world21_l84 from "../assets/illustrations/worlds/world21_l84.png";
+import world22_l85 from "../assets/illustrations/worlds/world22_l85.png";
+import world22_l86 from "../assets/illustrations/worlds/world22_l86.png";
+import world22_l87 from "../assets/illustrations/worlds/world22_l87.png";
+import world22_l88 from "../assets/illustrations/worlds/world22_l88.png";
+import world23_l89 from "../assets/illustrations/worlds/world23_l89.png";
+import world23_l90 from "../assets/illustrations/worlds/world23_l90.png";
+import world23_l91 from "../assets/illustrations/worlds/world23_l91.png";
+import world23_l92 from "../assets/illustrations/worlds/world23_l92.png";
+import world24_l93 from "../assets/illustrations/worlds/world24_l93.png";
+import world24_l94 from "../assets/illustrations/worlds/world24_l94.png";
+import world24_l95 from "../assets/illustrations/worlds/world24_l95.png";
+import world24_l96 from "../assets/illustrations/worlds/world24_l96.png";
 
 
 export const LESSONS_CONTENT = {
@@ -6731,6 +6745,1505 @@ l80: {
     },
   ],
 },
+
+l81: {
+  title: "Une paix fragile",
+  illustration: world21_l81,
+  storyBlocks: [
+    { type: "subtitle", text: "🕊️ Une trêve sous surveillance" },
+    {
+      type: "p",
+      text:
+        "Après Ḥudaybiyyah, la paix tient. Officiellement. Les armes se sont tues, les routes sont plus calmes, les échanges reprennent. Mais cette paix n’est pas encore enracinée. Elle repose sur des équilibres délicats, presque invisibles : des alliances tribales parfois anciennes, parfois opportunistes ; des engagements moraux dont la solidité dépend des intérêts du moment ; des promesses surveillées de près par tous les acteurs. Rien n’est totalement acquis. Tout peut basculer.",
+    },
+    {
+      type: "p",
+      text:
+        "Chaque camp observe l’autre avec attention. Chaque déplacement, chaque alliance nouvelle, chaque parole rapportée est analysée, interprétée, parfois exagérée. La paix n’est pas encore devenue confiance. Elle est plutôt une suspension du conflit, une pause tendue où chacun retient son souffle. On ne frappe pas, mais on reste prêt. On ne provoque pas ouvertement, mais on teste les limites. Cette atmosphère crée une tension sourde, moins bruyante que la guerre, mais tout aussi pesante.",
+    },
+    {
+      type: "p",
+      text:
+        "Dans ce contexte, la vigilance est permanente. La trêve impose une discipline nouvelle : ne pas répondre à chaque provocation, ne pas confondre retenue et faiblesse, ne pas transformer la patience en naïveté. Tenir la paix demande parfois plus d’efforts que mener un combat. Car il faut résister à l’instinct de se défendre immédiatement, accepter le temps long, et supporter l’incertitude.",
+    },
+
+    { type: "subtitle", text: "👁️ Les regards de Quraysh" },
+    {
+      type: "p",
+      text:
+        "À La Mecque, Quraysh observe attentivement ce qui se passe à Médine. Les nouvelles arrivent régulièrement : alliances qui se multiplient, tribus qui se rapprochent, routes plus sûres, influence grandissante. Cette montée en puissance ne se fait pas dans le fracas des batailles, mais dans le calme relatif de la paix. Et paradoxalement, ce silence inquiète plus que les affrontements passés.",
+    },
+    {
+      type: "p",
+      text:
+        "Car la guerre, Quraysh savait la gérer. Elle permettait de justifier l’hostilité, de mobiliser, de bloquer. La paix, en revanche, révèle autre chose. Elle laisse apparaître une communauté qui se structure, qui attire, qui inspire confiance. Une communauté qui n’est plus constamment affaiblie par la survie immédiate. Et cette réalité pose un problème bien plus profond que la menace militaire.",
+    },
+    {
+      type: "p",
+      text:
+        "La question qui s’impose progressivement n’est plus “si” cet équilibre va se rompre, mais “quand”. Quand un incident viendra-t-il mettre à l’épreuve cette trêve fragile ? Quand un acte isolé, une décision tribale, une violation indirecte fera-t-elle voler en éclats ce calme précaire ? Quraysh le pressent : cette paix n’est pas éternelle. Elle est une phase. Et comme toute phase transitoire, elle porte en elle la possibilité d’une rupture.",
+    },
+  ],
+  cliffhanger:
+    "Et la rupture viendra… non pas d’un grand discours, mais d’un acte précis.",
+  keyPoints: [
+    "La trêve issue de Ḥudaybiyyah tient, mais reste fragile.",
+    "Elle repose sur des équilibres tribaux et des engagements surveillés.",
+    "La méfiance persiste malgré l’absence de guerre ouverte.",
+    "Quraysh observe avec inquiétude la montée silencieuse de Médine.",
+    "La paix apparaît comme une phase transitoire, exposée à une rupture.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l81_q1",
+      question: "Pourquoi la paix après Ḥudaybiyyah est-elle fragile ?",
+      options: [
+        "Parce qu’elle est secrète",
+        "Parce qu’elle repose sur des équilibres tribaux délicats",
+        "Parce qu’elle n’existe pas",
+        "Parce qu’elle dure trop longtemps",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La trêve dépend d’alliances, d’engagements moraux et d’un équilibre constamment surveillé.",
+    },
+    {
+      id: "l81_boss_q1",
+      question: "Qu’est-ce qui inquiète le plus Quraysh durant cette période ?",
+      options: [
+        "La famine",
+        "La montée silencieuse de Médine",
+        "Une invasion immédiate",
+        "La perte du commerce",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Ce n’est pas une attaque directe, mais la croissance progressive et l’influence accrue de Médine qui inquiètent Quraysh.",
+      difficulty: "boss",
+    },
+  ],
+},
+l82: {
+  title: "La rupture du traité",
+  illustration: world21_l82,
+  storyBlocks: [
+    { type: "subtitle", text: "⚠️ Une ligne franchie" },
+    {
+      type: "p",
+      text:
+        "Un traité ne s’effondre pas toujours dans le fracas d’une déclaration officielle ou d’un discours solennel. Bien souvent, il se brise de manière plus discrète, presque insidieuse. Ici, ce n’est pas une annonce publique qui met fin à Ḥudaybiyyah, mais un acte précis, ciblé, lourd de conséquences. Une alliance liée à Quraysh attaque une tribu alliée à Médine. Ce geste, en apparence localisé, dépasse largement le cadre d’un simple conflit tribal.",
+    },
+    {
+      type: "p",
+      text:
+        "Car au cœur même du traité de Ḥudaybiyyah se trouvait un principe fondamental : le respect des alliances. Chaque camp s’était engagé à protéger ses alliés et à empêcher toute agression indirecte. Toucher à une tribu alliée, c’était toucher à l’accord lui-même. Ce n’est donc pas un incident périphérique, mais une remise en cause directe de l’esprit et de la lettre du traité. Une ligne invisible, mais essentielle, vient d’être franchie.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce type de rupture est particulièrement grave, car il révèle une chose : la paix n’est plus respectée dans les faits, même si elle continue d’exister sur le papier. Et lorsqu’un traité cesse d’être honoré dans les actes, il devient une coquille vide. Les mots restent, mais leur force disparaît. À partir de cet instant, l’équilibre fragile qui maintenait la trêve commence à s’effondrer.",
+    },
+
+    { type: "subtitle", text: "⚖️ Une responsabilité assumée" },
+    {
+      type: "p",
+      text:
+        "Face à cette violation, Quraysh ne peut plus se réfugier dans l’ambiguïté. La situation impose un choix clair, presque brutal. Soit réparer la faute, reconnaître la rupture et restaurer la justice envers la tribu agressée. Soit assumer pleinement la responsabilité de l’effondrement du traité. Il n’y a plus de zone grise. Les engagements pris à Ḥudaybiyyah ne peuvent pas survivre à une telle transgression sans réaction.",
+    },
+    {
+      type: "p",
+      text:
+        "À ce stade, le traité ne tient plus par les mots écrits. Il tient — ou s’effondre — par les actes. Et l’inaction devient elle-même une forme de choix. Ne pas réparer, c’est accepter la rupture. Ne pas protéger les alliances, c’est reconnaître que la trêve n’a plus de valeur réelle. Le message est limpide : la paix ne peut survivre sans justice. Une paix qui tolère l’injustice cesse d’être une paix ; elle devient une façade.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette responsabilité assumée change profondément la nature de la situation. Jusqu’ici, la retenue et la patience dominaient. Désormais, une réponse devient moralement légitime. Non pas par désir de conflit, mais parce que le cadre qui empêchait l’escalade a été brisé par l’autre camp. La rupture du traité ne crée pas la violence : elle enlève les barrières qui la retenaient.",
+    },
+
+    { type: "subtitle", text: "🧭 Le moment de vérité" },
+    {
+      type: "p",
+      text:
+        "Ce moment marque un basculement décisif. Pendant des mois, la paix avait été maintenue au prix d’une vigilance constante, d’une patience exigeante, d’une retenue parfois incomprise. Mais une paix n’est durable que si toutes les parties en respectent les fondements. Lorsque ces fondements sont violés, continuer à se taire revient à accepter l’injustice.",
+    },
+    {
+      type: "p",
+      text:
+        "La rupture de Ḥudaybiyyah appelle donc une réponse. Une réponse mesurée, mais ferme. Une réponse qui ne peut plus être différée sans perdre toute crédibilité. Car il ne s’agit plus seulement de défendre une tribu alliée, mais de préserver un principe : les accords ont un sens, les engagements ont une valeur, et la paix repose sur la responsabilité.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi, ce n’est pas la colère qui pousse à agir, mais la cohérence. Le cadre a changé. Les conditions ont évolué. Et lorsque la justice est rompue, le silence n’est plus une option. La rupture du traité ouvre une nouvelle phase, inévitable, où l’initiative devra s’exprimer autrement.",
+    },
+  ],
+  cliffhanger:
+    "Et cette rupture appelle une réponse… une réponse qui ne peut plus être différée.",
+  keyPoints: [
+    "La rupture du traité ne vient pas d’un discours, mais d’un acte précis.",
+    "Une alliance liée à Quraysh attaque une tribu alliée à Médine.",
+    "Cette violation touche le principe central du respect des alliances.",
+    "Quraysh doit soit réparer, soit assumer la rupture.",
+    "La paix ne peut survivre sans justice.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l82_q1",
+      question: "Qu’est-ce qui provoque la rupture de Ḥudaybiyyah ?",
+      options: [
+        "Un désaccord commercial",
+        "Une attaque contre une tribu alliée",
+        "Un refus de négocier",
+        "Une invasion",
+      ],
+      correctIndex: 1,
+      explanation:
+        "L’attaque d’une tribu alliée à Médine par une alliance liée à Quraysh viole le traité.",
+    },
+    {
+      id: "l82_boss_q1",
+      question: "Pourquoi cette rupture est-elle décisive ?",
+      options: [
+        "Parce qu’elle annule toute négociation future",
+        "Parce qu’elle libère moralement la réponse",
+        "Parce qu’elle force une guerre immédiate",
+        "Parce qu’elle surprend tout le monde",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La rupture rend toute réponse légitime : le cadre de la trêve est brisé.",
+      difficulty: "boss",
+    },
+  ],
+},
+l83: {
+  title: "La décision irréversible",
+  illustration: world21_l83,
+  storyBlocks: [
+    { type: "subtitle", text: "⏳ Le temps du choix" },
+    {
+      type: "p",
+      text:
+        "La rupture est désormais incontestable. Le cadre posé par Ḥudaybiyyah a été violé, et chacun en a conscience. Pourtant, la réponse ne jaillit pas dans l’urgence ni dans la colère. Il n’y a pas de réaction impulsive, pas de cris, pas d’appel précipité à la revanche. Au contraire, un temps de réflexion s’impose. Un temps lourd, silencieux, où chaque option est pesée avec une lucidité totale sur ses conséquences.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce moment est fondamental, car il marque une différence essentielle avec les années précédentes. Autrefois, chaque décision était dictée par la survie immédiate. Il fallait réagir vite, parfois dans l’urgence, pour ne pas disparaître. Cette fois, la situation est différente. Il ne s’agit plus simplement de tenir ou d’échapper à une menace. Il s’agit de répondre à une injustice claire, de rétablir un ordre qui a été brisé, et de le faire sans perdre ce qui a été construit au prix de tant d’efforts.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette lucidité impose une responsabilité nouvelle. Une réponse mal maîtrisée pourrait rallumer des cycles de violence sans fin. Une réponse trop faible pourrait valider l’injustice et vider les accords de tout sens. Le choix à faire n’est donc pas seulement stratégique, il est moral. Il engage l’avenir. Il engage la crédibilité. Et il engage la manière dont l’Histoire se souviendra de ce moment.",
+    },
+
+    { type: "subtitle", text: "🧭 Une marche décidée" },
+    {
+      type: "p",
+      text:
+        "Après ce temps de clarté, la décision se dessine sans ambiguïté. Une marche vers La Mecque. Non pas dans la précipitation, mais avec une détermination calme. Ce n’est pas un appel à la vengeance, ni une explosion de haine longtemps contenue. C’est un acte assumé, réfléchi, presque solennel. Une marche destinée à mettre fin à un cycle d’instabilité, de violations répétées et d’équilibres artificiels.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette marche porte une intention précise. Elle ne vise pas à humilier, ni à détruire, ni à effacer par la force ce qui a existé. Elle vise à rétablir un cadre juste, à rendre aux engagements leur valeur, et à clore une période où la paix pouvait être rompue sans conséquence. C’est une réponse proportionnée à une rupture majeure, une réponse qui cherche à transformer durablement la situation plutôt qu’à satisfaire une émotion immédiate.",
+    },
+    {
+      type: "p",
+      text:
+        "Marcher vers La Mecque, c’est aussi affronter un passé lourd. C’est se diriger vers une ville qui a rejeté, persécuté, expulsé. Une ville chargée de souvenirs douloureux. Mais c’est précisément pour cela que la décision est irréversible. Car tant que ce nœud central n’est pas traité, l’équilibre restera fragile. Cette marche n’est pas une répétition du passé. Elle est une tentative consciente de le dépasser.",
+    },
+
+    { type: "subtitle", text: "⚖️ Une intention qui change tout" },
+    {
+      type: "p",
+      text:
+        "Ce qui distingue cette décision de tant d’autres dans l’Histoire, c’est l’intention qui la porte. La colère n’est pas aux commandes. La peur non plus. Ce qui domine, c’est la volonté de réparer une injustice et de restaurer un ordre juste. Cette intention va conditionner chaque étape, chaque consigne, chaque choix à venir.",
+    },
+    {
+      type: "p",
+      text:
+        "Entrer à La Mecque après tout ce qui s’est passé est un défi immense. Le risque de reproduire les erreurs du passé est réel. La tentation de la revanche existe toujours. Mais précisément parce que la décision a été prise dans le calme et la lucidité, elle ouvre la possibilité d’un dénouement inédit. Un dénouement qui ne sera pas fondé sur la destruction, mais sur la clôture d’un cycle ancien.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi, la décision est prise. Elle ne peut plus être différée. Elle ne peut plus être annulée sans renoncer à la justice. Le mouvement est enclenché. Et désormais, une question majeure se pose : comment entrer dans la ville qui a tout rejeté… sans répéter les erreurs du passé ?",
+    },
+  ],
+  cliffhanger:
+    "Mais comment entrer dans la ville qui a tout rejeté… sans répéter les erreurs du passé ?",
+  keyPoints: [
+    "La réponse à la rupture est réfléchie et maîtrisée.",
+    "La décision n’est pas dictée par la colère mais par la justice.",
+    "La marche vers La Mecque devient inévitable.",
+    "L’objectif est de mettre fin à un cycle d’instabilité.",
+    "L’intention profonde distingue cette marche de toute vengeance.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l83_q1",
+      question: "Quelle est la nature de la décision prise ?",
+      options: [
+        "Une vengeance immédiate",
+        "Une marche réfléchie vers La Mecque",
+        "Une retraite",
+        "Une nouvelle négociation",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La décision est une marche assumée et réfléchie vers La Mecque, prise dans le calme.",
+    },
+    {
+      id: "l83_boss_q1",
+      question: "Quelle intention domine cette décision ?",
+      options: [
+        "La colère",
+        "Le rétablissement d’un ordre juste",
+        "La domination",
+        "La peur",
+      ],
+      correctIndex: 1,
+      explanation:
+        "L’objectif principal est de réparer une injustice et de restaurer un cadre juste, non de se venger.",
+      difficulty: "boss",
+    },
+  ],
+},
+l84: {
+  title: "Une marche sans triomphe affiché",
+  illustration: world21_l84,
+  storyBlocks: [
+    { type: "subtitle", text: "🚶‍♂️ Une armée silencieuse" },
+    {
+      type: "p",
+      text:
+        "La marche commence. Les récits rapportent un nombre impressionnant : environ dix mille hommes avancent ensemble vers La Mecque. Mais ce qui frappe immédiatement n’est pas la masse, ni l’organisation, ni même la certitude d’une victoire devenue presque inévitable. Ce qui marque les esprits, c’est le silence. Un silence lourd, maîtrisé, presque solennel. Une armée de cette ampleur aurait pu annoncer sa venue par des cris, des chants, des démonstrations de puissance. Ici, rien de tel.",
+    },
+    {
+      type: "p",
+      text:
+        "Pas de slogans scandés. Pas de clameurs de triomphe. Pas d’exaltation collective. Chaque pas est posé, mesuré. La discipline est frappante, presque déroutante pour ceux qui observent de loin. Cette retenue n’est pas le fruit de la peur, mais d’un choix conscient. Le message est clair : cette marche n’est pas un défilé de vainqueurs venus humilier une ville vaincue. Elle est l’exécution d’une décision mûrie, contrôlée, assumée jusqu’au bout.",
+    },
+    {
+      type: "p",
+      text:
+        "Dans cette avancée silencieuse, chacun semble conscient de la gravité du moment. L’Histoire est en train de s’écrire, et elle exige une tenue à la hauteur de son enjeu. Le silence devient alors un langage en soi. Il dit la maîtrise, la retenue, la responsabilité. Il dit aussi que la victoire, ici, ne sera pas célébrée par le bruit, mais par la transformation durable de la situation.",
+    },
+
+    { type: "subtitle", text: "🕊️ Une intention maîtrisée" },
+    {
+      type: "p",
+      text:
+        "Tout au long de la marche, une intention domine et oriente chaque consigne : éviter l’effusion de sang. Rien n’est laissé au hasard. Les instructions sont claires, répétées, comprises. Il ne s’agit pas d’entrer dans La Mecque pour régler des comptes anciens ou pour satisfaire une revanche longtemps contenue. Il s’agit de clore un cycle. De mettre un terme définitif à des années de tensions, de violations, de ruptures successives.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette intention transforme la nature même de l’avancée. Là où beaucoup s’attendaient à une explosion de violence, ils découvrent une retenue méthodique. Là où l’on redoutait un bain de sang, on voit une volonté ferme de l’éviter. Cette maîtrise est en elle-même une démonstration de force, mais d’une force d’un autre ordre : la capacité à gagner sans écraser, à entrer sans détruire, à conclure sans humilier.",
+    },
+    {
+      type: "p",
+      text:
+        "À mesure que La Mecque se rapproche, le poids symbolique du moment grandit. Cette ville n’est pas une cité quelconque. Elle porte les souvenirs de l’exil, de la persécution, du rejet. Y entrer ainsi, sans cris ni triomphe affiché, est un choix lourd de sens. Il annonce que ce qui va suivre ne sera pas une répétition des erreurs du passé, mais l’ouverture d’une page nouvelle.",
+    },
+
+    { type: "subtitle", text: "📜 Une page prête à être tournée" },
+    {
+      type: "p",
+      text:
+        "Chaque pas rapproche non seulement géographiquement, mais historiquement. La marche devient un seuil. Derrière, des années de conflits, de blessures et de ruptures. Devant, une possibilité inédite : celle d’une entrée sans bataille, d’une victoire sans vengeance, d’un changement sans chaos.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette absence de triomphe affiché prépare le terrain pour ce qui va suivre. Elle désamorce les peurs, elle réduit les résistances, elle surprend ceux qui s’attendaient à un affrontement total. Et dans cette surprise se cache déjà une transformation profonde. Car parfois, ce n’est pas la force brute qui fait basculer l’Histoire, mais la manière dont cette force est retenue.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi, la marche continue. Silencieuse. Disciplinée. Résolue. La Mecque est désormais toute proche. Et avec elle, un dénouement que peu auraient osé imaginer quelques années plus tôt. Car au prochain monde, ce ne sera pas le fracas des armes qui marquera les esprits, mais l’ouverture d’une ville sans la bataille que tous redoutaient.",
+    },
+  ],
+  cliffhanger:
+    "Car au prochain monde… La Mecque va s’ouvrir sans la bataille que tous redoutaient.",
+  keyPoints: [
+    "La marche vers La Mecque rassemble environ dix mille hommes.",
+    "Le silence et la discipline caractérisent cette avancée.",
+    "L’intention dominante est d’éviter l’effusion de sang.",
+    "La marche vise à clore un cycle, non à se venger.",
+    "La Conquête de La Mecque devient imminente.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l84_q1",
+      question: "Quelle est la caractéristique majeure de cette marche ?",
+      options: [
+        "La colère",
+        "Le chaos",
+        "Le silence et la discipline",
+        "La vengeance",
+      ],
+      correctIndex: 2,
+      explanation:
+        "Ce qui frappe le plus n’est pas la force brute, mais le silence et la discipline de l’armée.",
+    },
+    {
+      id: "l84_boss_q1",
+      question: "Pourquoi cette marche est-elle historique ?",
+      options: [
+        "Parce qu’elle annonce une conquête violente",
+        "Parce qu’elle vise à éviter l’effusion de sang",
+        "Parce qu’elle est improvisée",
+        "Parce qu’elle est secrète",
+      ],
+      correctIndex: 1,
+      explanation:
+        "L’objectif central est d’entrer à La Mecque sans vengeance ni bain de sang.",
+      difficulty: "boss",
+    },
+  ],
+},
+l85: {
+  title: "L’entrée dans La Mecque",
+  illustration: world22_l85,
+  storyBlocks: [
+    { type: "subtitle", text: "🚪 Une ville qui attend son destin" },
+    {
+      type: "p",
+      text:
+        "En 8 H (630), l’armée approche de La Mecque. Les récits concordent sur un chiffre impressionnant : environ dix mille hommes avancent vers la ville. Une force telle que La Mecque, malgré son histoire et ses alliances passées, ne peut ni repousser ni contenir. Cette fois, il n’y aura pas de siège prolongé, pas de calcul militaire complexe. Le rapport de force est clair, évident, sans ambiguïté.",
+    },
+    {
+      type: "p",
+      text:
+        "Pourtant, ce qui marque les esprits n’est pas cette supériorité numérique. Ce n’est pas la peur qu’elle inspire, ni la certitude d’une victoire acquise. Ce qui frappe, profondément, c’est la manière. La ville s’attend à un fracas, à une revanche bruyante, à une entrée écrasante. Mais rien de cela ne se produit. Aucun cri de triomphe ne retentit. Aucun slogan ne déchire l’air. L’entrée se fait avec une maîtrise totale, presque déconcertante pour ceux qui observent.",
+    },
+    {
+      type: "p",
+      text:
+        "La Mecque retient son souffle. Cette ville, qui a été le centre du rejet, de la persécution, de l’exil forcé, se trouve désormais face à son propre passé. Elle attend son destin. Et ce destin ne se présente pas sous la forme qu’elle redoutait. Il arrive dans le silence, la retenue et une discipline qui désamorce d’emblée toute logique de vengeance.",
+    },
+
+    { type: "subtitle", text: "🕊️ Une victoire humble" },
+    {
+      type: "p",
+      text:
+        "Au moment d’entrer, la posture surprend encore davantage. La tête est baissée. Le regard n’est pas celui d’un conquérant qui savoure sa revanche, mais celui d’un homme conscient du poids de l’instant. Les lèvres murmurent des paroles de gratitude. Là où l’orgueil aurait été humainement compréhensible, c’est l’humilité qui domine. Comme si la victoire, au lieu d’exalter l’ego, rappelait au contraire la fragilité humaine et la responsabilité immense qui accompagne la force.",
+    },
+    {
+      type: "p",
+      text:
+        "Cet instant aurait pu devenir un moment d’exaltation personnelle. Après des années d’exil, de persécutions, de combats et de pertes, tout semblait justifier une célébration éclatante. Mais l’instant se transforme en leçon. Une leçon silencieuse, mais puissante : la victoire véritable ne réside pas dans l’écrasement de l’autre, mais dans la maîtrise de soi au moment où tout permettrait de se venger.",
+    },
+    {
+      type: "p",
+      text:
+        "La ville qui a expulsé, humilié, combattu, voit entrer celui qu’elle a rejeté. Et cette entrée ne se fait ni dans la colère ni dans la revanche. Elle se fait dans une retenue qui bouleverse les attentes. Car ce qui pénètre La Mecque ce jour-là n’est pas seulement une armée victorieuse. C’est une manière nouvelle d’exercer la puissance, une manière qui rompt avec les codes habituels de la conquête.",
+    },
+
+    { type: "subtitle", text: "⚖️ Le poids d’un instant historique" },
+    {
+      type: "p",
+      text:
+        "L’entrée dans La Mecque marque un basculement que peu auraient cru possible quelques années plus tôt. Cette ville, autrefois inaccessible, hostile, fermée, s’ouvre sans bataille majeure. Et cette ouverture pose une question silencieuse mais fondamentale : que va-t-il se passer maintenant ? Car entrer dans une ville est une chose. Décider de ce que l’on en fait en est une autre.",
+    },
+    {
+      type: "p",
+      text:
+        "Chaque pas dans les rues de La Mecque porte le poids de l’Histoire. Les murs sont témoins des blessures passées. Les ruelles rappellent les humiliations, les complots, les exclusions. Et pourtant, aucun règlement de comptes immédiat ne s’installe. Cette retenue n’efface pas le passé, mais elle refuse d’en être prisonnière. Elle annonce que quelque chose de radicalement différent est en train de se jouer.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi, cette entrée devient bien plus qu’un succès militaire. Elle devient un message. Un message adressé à la ville, aux tribus, et à l’Histoire elle-même : la force peut choisir l’humilité, la victoire peut choisir la clémence, et le pouvoir peut se manifester sans écraser. Mais entrer dans La Mecque n’est qu’un commencement. Car le cœur de la ville, son centre spirituel et symbolique, doit encore être libéré.",
+    },
+  ],
+  cliffhanger:
+    "Mais entrer dans la ville n’est qu’un début… le cœur de La Mecque doit encore être libéré.",
+  keyPoints: [
+    "La Conquête de La Mecque a lieu en 8 H / 630.",
+    "L’armée est estimée à environ dix mille hommes.",
+    "La supériorité militaire est évidente, mais non exhibée.",
+    "L’entrée se fait sans cris ni triomphalisme.",
+    "L’humilité et la maîtrise de soi marquent ce moment historique.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l85_q1",
+      question: "Quelle attitude marque l’entrée dans La Mecque ?",
+      options: [
+        "La vengeance",
+        "L’arrogance",
+        "L’humilité",
+        "La peur",
+      ],
+      correctIndex: 2,
+      explanation:
+        "Malgré la victoire totale, l’entrée se fait avec humilité et retenue.",
+    },
+    {
+      id: "l85_boss_q1",
+      question: "Pourquoi cette entrée est-elle unique dans l’Histoire ?",
+      options: [
+        "Par sa violence",
+        "Par son absence de triomphe orgueilleux",
+        "Par sa durée",
+        "Par sa discrétion totale",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La force victorieuse choisit l’humilité et la retenue au moment où la vengeance semblait possible.",
+      difficulty: "boss",
+    },
+  ],
+},
+l86: {
+  title: "La chute des idoles",
+  illustration: world22_l86,
+  storyBlocks: [
+    { type: "subtitle", text: "🕋 Le cœur spirituel de La Mecque" },
+    {
+      type: "p",
+      text:
+        "Au centre de La Mecque se dresse la Kaʿba, cœur spirituel de la péninsule arabe depuis des générations. Autour d’elle, les idoles sont encore présentes. Elles ne sont pas de simples statues. Elles incarnent des décennies, parfois des siècles de pratiques enracinées, de récits transmis, de croyances devenues habitudes. Pour beaucoup, elles représentent une continuité culturelle, un héritage reçu sans être questionné. Elles occupent l’espace, mais surtout les esprits.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce jour-là, pourtant, quelque chose a changé. La ville est entrée dans une nouvelle phase. Les idoles ne tombent pas sous un accès de colère ni sous l’élan d’une foule déchaînée. Elles ne sont pas arrachées dans le chaos. Elles tombent parce qu’elles n’ont plus de place. Leur présence devient incohérente face à la réalité qui s’impose. Le centre spirituel de La Mecque ne peut plus porter des symboles qui contredisent sa vocation première.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce moment est silencieux et grave. Il ne s’agit pas de faire table rase de l’Histoire, mais de rétablir un sens. La Kaʿba n’est pas un monument comme les autres. Elle est un point d’orientation. Et lorsqu’un centre est dévié, tout ce qui gravite autour finit par perdre sa raison d’être. Les idoles ne sont plus détruites par la force, mais par l’évidence de leur inutilité spirituelle.",
+    },
+
+    { type: "subtitle", text: "⚖️ La vérité face au mensonge" },
+    {
+      type: "p",
+      text:
+        "Une à une, les idoles sont renversées. Le geste est clair, précis, maîtrisé. Il n’y a pas de pillage, pas de débordement, pas de vengeance collective. Ce n’est pas une scène de chaos, mais une restauration. Le monothéisme reprend sa place au centre du sanctuaire. Non comme une idéologie imposée par la violence, mais comme une vérité qui retrouve son espace légitime.",
+    },
+    {
+      type: "p",
+      text:
+        "La confrontation n’est pas entre des hommes, mais entre deux visions du monde. D’un côté, des pratiques héritées, figées, maintenues parfois par habitude plus que par conviction. De l’autre, une affirmation claire : l’adoration ne se partage pas. Ce moment marque une rupture nette, mais sereine. Il ne nie pas l’existence du passé, il en révèle simplement les limites.",
+    },
+    {
+      type: "p",
+      text:
+        "Qualifier cet acte de destruction serait une erreur. Il ne s’agit pas d’effacer une culture par la force, mais de libérer un espace spirituel. La libération n’est pas politique, elle est intérieure. Elle consiste à rendre au cœur de La Mecque sa cohérence, à aligner le lieu avec le message qu’il est censé porter. En cela, la chute des idoles n’est pas une fin, mais un commencement.",
+    },
+
+    { type: "subtitle", text: "🧭 Un centre réorienté" },
+    {
+      type: "p",
+      text:
+        "Lorsque les idoles tombent, ce n’est pas seulement un décor qui change. C’est une orientation entière qui se réajuste. La Kaʿba redevient un point de convergence spirituelle, dégagé des intermédiaires matériels. Ce recentrage a un impact profond : il redonne un axe clair, une direction nette, là où régnait la confusion.",
+    },
+    {
+      type: "p",
+      text:
+        "Mais si renverser des statues est visible, le plus difficile reste à venir. Car il est toujours plus simple de retirer des objets que de transformer des cœurs. Les pierres tombent en un instant. Les habitudes, elles, résistent. Et la véritable épreuve ne se joue pas dans les gestes matériels, mais dans la manière dont les êtres humains vont être traités après ce bouleversement.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi, la chute des idoles marque une étape essentielle, mais elle ouvre surtout une question bien plus délicate. Une question humaine, morale, profonde. Car libérer un lieu est une chose. Libérer les cœurs sans les briser en est une autre.",
+    },
+  ],
+  cliffhanger:
+    "Mais le geste le plus difficile n’est pas matériel… il est humain.",
+  keyPoints: [
+    "Les idoles autour de la Kaʿba sont retirées.",
+    "L’acte se déroule sans chaos, violence ni pillage.",
+    "Le monothéisme est réaffirmé au centre du sanctuaire.",
+    "Il s’agit d’un rétablissement spirituel, non d’une vengeance.",
+    "La transformation matérielle ouvre une épreuve humaine plus profonde.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l86_q1",
+      question: "Que symbolise la chute des idoles ?",
+      options: [
+        "Une vengeance",
+        "Un pillage",
+        "Le rétablissement du monothéisme",
+        "Un changement politique uniquement",
+      ],
+      correctIndex: 2,
+      explanation:
+        "La chute des idoles marque le retour du monothéisme au cœur de la Kaʿba.",
+    },
+    {
+      id: "l86_boss_q1",
+      question: "Pourquoi cet acte est-il qualifié de libération spirituelle ?",
+      options: [
+        "Parce qu’il enrichit la ville",
+        "Parce qu’il met fin à une oppression religieuse",
+        "Parce qu’il détruit l’Histoire",
+        "Parce qu’il impose la peur",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Il libère le sanctuaire de pratiques contraires au monothéisme et redonne un sens spirituel au lieu.",
+      difficulty: "boss",
+    },
+  ],
+},
+l87: {
+  title: "Le pardon proclamé",
+  illustration: world22_l87,
+  storyBlocks: [
+    { type: "subtitle", text: "⚖️ Le moment que personne n’attendait" },
+    {
+      type: "p",
+      text:
+        "Les habitants de La Mecque sont rassemblés. Les regards sont fuyants, les visages tendus. Beaucoup tremblent intérieurement. Ils savent ce qu’ils ont fait, et ils s’en souviennent parfaitement : les insultes répétées, les persécutions prolongées, les moqueries publiques, les complots dissimulés, les tentatives d’assassinat, l’expulsion forcée de ceux qui ne partageaient pas leur foi. Rien de tout cela n’a été oublié. Et maintenant, la balance du pouvoir a changé de camp.",
+    },
+    {
+      type: "p",
+      text:
+        "Dans toutes les logiques humaines connues, ce moment est celui de la revanche. Celui où l’on règle les comptes, où l’on rend coup pour coup, où l’on justifie la dureté par les blessures du passé. Beaucoup s’attendent à des sanctions. Certains se préparent à l’humiliation. D’autres craignent pour leur vie. Car ils savent que tout pourrait être justifié aux yeux du monde : après tout, ils ont persécuté quand ils étaient forts. Et maintenant, ils sont faibles.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce silence lourd, cette attente angoissée, disent une chose essentielle : personne n’imagine ce qui va suivre. Personne ne s’attend à une rupture aussi radicale avec la logique de la vengeance. Car tout, absolument tout, semble autoriser la punition. Et c’est précisément pour cela que l’instant qui arrive va bouleverser l’Histoire.",
+    },
+
+    { type: "subtitle", text: "🕊️ Une parole qui désarme" },
+    {
+      type: "p",
+      text:
+        "La parole tombe. Simple. Claire. Sans colère. Sans emphase. Et pourtant, elle frappe plus fort que n’importe quelle armée. Le pardon est proclamé. Pas un pardon conditionnel. Pas un pardon réservé à quelques-uns. Un pardon large, assumé, offert là où la sanction semblait inévitable.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette déclaration désarme immédiatement la logique de la vengeance. Elle enlève toute justification à la haine, toute excuse à la peur. Là où les habitants s’attendaient à être écrasés, ils sont relevés. Là où ils anticipaient l’humiliation, ils rencontrent la clémence. Ce jour-là, la victoire ne s’exprime pas par la domination, mais par une retenue absolue. Une retenue qui surprend, qui choque même certains esprits habitués à une autre définition du pouvoir.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce pardon n’efface pas le passé. Il ne nie ni les souffrances ni les injustices subies. Mais il refuse de les transformer en moteur de destruction. Il ferme une porte que l’Histoire humaine laisse trop souvent ouverte : celle de la vengeance sans fin. En une phrase, un cycle entier est brisé.",
+    },
+
+    { type: "subtitle", text: "💔 Une leçon éternelle" },
+    {
+      type: "p",
+      text:
+        "Par ce choix, la notion même de pouvoir est redéfinie. Le vrai pouvoir n’est pas de punir quand on en a la capacité. Ce n’est pas d’écraser quand on est en position de force. Le vrai pouvoir, ici, est de pardonner quand rien n’oblige à le faire. Quand tout autorise la sanction, choisir la miséricorde devient un acte de force morale immense.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette décision ne transforme pas seulement une ville. Elle transforme des cœurs. Beaucoup comprennent alors que cette conquête n’est pas comme les autres. Elle n’est pas là pour humilier, ni pour effacer. Elle est là pour réconcilier, pour clore un passé douloureux sans en hériter la violence. Ce pardon ouvre un espace nouveau, où l’adhésion ne naît pas de la peur, mais du respect.",
+    },
+    {
+      type: "p",
+      text:
+        "C’est pour cela que ce moment traverse les siècles. Parce qu’il rappelle une vérité intemporelle : la force qui écrase peut soumettre des corps, mais seule la clémence transforme durablement les âmes. Et ce jour-là, La Mecque ne change pas seulement de maître apparent. Elle change de logique. Une logique fondée non sur la revanche, mais sur la miséricorde assumée.",
+    },
+  ],
+  cliffhanger:
+    "Et ce pardon va transformer La Mecque bien plus profondément qu’une conquête militaire.",
+  keyPoints: [
+    "Un pardon général est proclamé lors de l’entrée à La Mecque.",
+    "Les habitants craignaient des représailles pour les persécutions passées.",
+    "Le pardon brise la logique de la vengeance.",
+    "La victoire se manifeste par la clémence, non par l’écrasement.",
+    "Ce choix redéfinit profondément la notion de pouvoir.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l87_q1",
+      question: "Quelle décision marque le moment central de la Conquête ?",
+      options: [
+        "La punition collective",
+        "Le pardon général",
+        "L’exil des habitants",
+        "La confiscation des biens",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Malgré les persécutions subies, un pardon général est proclamé.",
+    },
+    {
+      id: "l87_boss_q1",
+      question: "Pourquoi ce pardon est-il historiquement majeur ?",
+      options: [
+        "Parce qu’il évite une guerre",
+        "Parce qu’il montre une nouvelle définition du pouvoir",
+        "Parce qu’il est imposé",
+        "Parce qu’il est stratégique uniquement",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Il redéfinit le pouvoir non comme capacité à punir, mais comme capacité à pardonner.",
+      difficulty: "boss",
+    },
+  ],
+},
+l88: {
+  title: "Une ville transformée",
+  illustration: world22_l88,
+  storyBlocks: [
+    { type: "subtitle", text: "🌆 La Mecque après la tempête" },
+    {
+      type: "p",
+      text:
+        "La ville est la même… et pourtant tout a changé. Les rues sont toujours là. Les maisons n’ont pas disparu. Les collines encerclent toujours La Mecque comme avant. Et pourtant, quelque chose d’essentiel a basculé. L’atmosphère n’est plus celle de la crainte permanente, de l’attente d’une revanche, de la méfiance généralisée. Un calme nouveau s’installe, dense, presque palpable. Comme après une tempête qui n’a finalement pas éclaté.",
+    },
+    {
+      type: "p",
+      text:
+        "Les habitants observent. Ils regardent autour d’eux, presque incrédules. Ils s’attendaient à des règlements de comptes, à des humiliations publiques, à des ruptures violentes. Mais rien de cela ne se produit. La peur, lentement, recule. Elle laisse place à la surprise. Puis, chez beaucoup, à une interrogation profonde : comment une victoire aussi totale peut-elle produire autant de retenue ? Cette question ouvre une brèche dans les certitudes anciennes.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce changement d’atmosphère n’est pas imposé par des décrets ou par la force. Il naît de l’exemple vécu. La sécurité remplace la terreur. La stabilité remplace la tension. La Mecque ne se sent plus menacée dans son existence. Et dans cet espace nouveau, les cœurs commencent à respirer autrement.",
+    },
+
+    { type: "subtitle", text: "🔄 Une transformation intérieure" },
+    {
+      type: "p",
+      text:
+        "La conquête la plus profonde n’est pas territoriale. Elle ne se mesure ni en kilomètres ni en murs pris. Elle se joue ailleurs : dans les consciences. Dans les regards qui changent. Dans les postures qui se relâchent. Beaucoup de ceux qui combattaient hier, qui ridiculisaient, qui complotaient, découvrent une réalité inattendue. Ils ne sont ni écrasés ni effacés. Ils sont intégrés dans un ordre nouveau.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce basculement intérieur est lent, mais réel. Il ne vient pas de la contrainte, mais de la cohérence. Ce qui avait été prêché dans la faiblesse est maintenant vécu dans la force. Et cette continuité frappe les esprits. Car il est facile de parler de miséricorde quand on est faible. Il est infiniment plus difficile de la pratiquer quand on a gagné.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi, beaucoup de ceux qui étaient des adversaires deviennent, peu à peu, des porteurs du message. Non pas par opportunisme pur, mais parce qu’un verrou intérieur a sauté. La peur a disparu. Et lorsque la peur disparaît, l’écoute devient possible. La véritable conquête s’opère là : dans cette capacité à transformer des ennemis d’hier en acteurs d’un avenir commun.",
+    },
+
+    { type: "subtitle", text: "📜 Une page définitivement tournée" },
+    {
+      type: "p",
+      text:
+        "Ce monde marque la fin d’un cycle immense. Celui de la persécution répétée. De l’exil forcé. De la survie permanente. Pendant des années, chaque avancée avait été payée au prix de l’insécurité et de la perte. Désormais, cette période appartient au passé. Elle n’est pas effacée de la mémoire, mais elle n’est plus le moteur de l’action.",
+    },
+    {
+      type: "p",
+      text:
+        "Une nouvelle phase commence. Une phase où la question n’est plus “comment tenir ?” mais “comment transmettre ?”. La Mecque, autrefois symbole du rejet, devient désormais un point d’ancrage. Non pas seulement politique ou militaire, mais moral et spirituel. Ce retournement est l’un des plus puissants de la Sîra : la ville qui combattait devient le cœur du message qu’elle rejetait.",
+    },
+    {
+      type: "p",
+      text:
+        "Mais cette transformation, aussi profonde soit-elle, n’est pas un point final. Elle est un point de départ. Car si La Mecque est désormais apaisée, l’horizon s’élargit. La mission ne s’arrête pas à ses murs. Elle va maintenant se projeter bien au-delà, vers l’ensemble de l’Arabie. Et ce qui a été vécu ici servira de modèle pour ce qui vient.",
+    },
+  ],
+  cliffhanger:
+    "Mais la mission n’est pas terminée… elle va maintenant s’étendre à toute l’Arabie.",
+  keyPoints: [
+    "La Mecque est transformée sans destruction ni représailles.",
+    "L’atmosphère change plus profondément que les structures.",
+    "La conquête essentielle est intérieure et morale.",
+    "D’anciens adversaires deviennent porteurs du message.",
+    "Un cycle historique se ferme, une nouvelle phase commence.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l88_q1",
+      question: "Quelle est la transformation la plus profonde de La Mecque ?",
+      options: [
+        "Architecturale",
+        "Économique",
+        "Spirituelle et morale",
+        "Militaire",
+      ],
+      correctIndex: 2,
+      explanation:
+        "La transformation essentielle touche les cœurs et les consciences, pas les bâtiments.",
+    },
+    {
+      id: "l88_boss_q1",
+      question: "Pourquoi ce monde est-il central dans la Sîra ?",
+      options: [
+        "Parce qu’il marque une fin définitive",
+        "Parce qu’il montre l’aboutissement moral du message",
+        "Parce qu’il supprime tous les conflits",
+        "Parce qu’il est spectaculaire",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Il montre que le message atteint son aboutissement moral au moment de la victoire.",
+      difficulty: "boss",
+    },
+  ],
+},
+l89: {
+  title: "L’Arabie face à une nouvelle réalité",
+  illustration: world23_l89,
+  storyBlocks: [
+    { type: "subtitle", text: "🌍 Après La Mecque, plus rien n’est comme avant" },
+    {
+      type: "p",
+      text:
+        "Après la Conquête de La Mecque en 8 H (630), l’Arabie entre dans une ère entièrement nouvelle. Ce n’est pas seulement une ville qui a changé de statut, mais tout un système qui se réorganise. La Mecque, longtemps centre religieux mais aussi bastion de résistance, a changé de visage. Et lorsque le cœur change, tout le corps suit. Les anciens équilibres tribaux, fondés sur la rivalité permanente, l’honneur clanique et la loi du plus fort, commencent à perdre leur emprise.",
+    },
+    {
+      type: "p",
+      text:
+        "Pendant des décennies, l’Arabie fonctionnait par fragments. Chaque tribu défendait son territoire, ses alliances, ses intérêts immédiats. Les conflits étaient locaux, répétés, souvent sans fin. Désormais, cette logique atteint ses limites. Beaucoup de tribus comprennent que l’époque des confrontations dispersées est terminée. La conquête de La Mecque agit comme un signal clair : résister par réflexe ou par orgueil n’est plus une option viable.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce basculement ne se fait pas dans la violence généralisée, mais dans une prise de conscience progressive. Les tribus observent, évaluent, comparent. Elles voient une autorité qui aurait pu écraser, mais qui a choisi la clémence. Elles voient une victoire qui n’a pas détruit, mais réorganisé. Et cette observation change profondément les calculs politiques et moraux de l’Arabie entière.",
+    },
+
+    { type: "subtitle", text: "⚖️ Une autorité désormais claire" },
+    {
+      type: "p",
+      text:
+        "Jusqu’ici, l’autorité en Arabie était diffuse, instable, souvent contestée. Elle reposait sur la peur, la domination temporaire ou l’équilibre fragile des alliances. Après La Mecque, cette configuration disparaît progressivement. Une autorité centrale émerge, non pas comme une tyrannie imposée, mais comme un cadre structurant. Elle s’appuie sur des principes moraux, des règles juridiques et une vision spirituelle cohérente.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette autorité nouvelle ne se contente pas de contrôler. Elle organise, arbitre, sécurise. Elle offre un cadre dans lequel les tribus peuvent exister sans s’entre-déchirer. Mais cette clarté apporte aussi un poids immense. Car unifier sans écraser est bien plus difficile que vaincre. Gouverner sans humilier demande une vigilance constante, une justice équitable et une cohérence irréprochable.",
+    },
+    {
+      type: "p",
+      text:
+        "Le défi n’est donc plus militaire. Il est humain, social et moral. Comment faire adhérer des tribus historiquement indépendantes sans les contraindre par la force ? Comment transformer une victoire ponctuelle en stabilité durable ? Comment faire comprendre que cette autorité n’est pas là pour effacer les identités, mais pour leur offrir un cadre commun ?",
+    },
+
+    { type: "subtitle", text: "🧭 Une responsabilité plus lourde que la victoire" },
+    {
+      type: "p",
+      text:
+        "Cette phase est, paradoxalement, plus lourde que la conquête elle-même. Conquérir peut être rapide. Unifier demande du temps. Maintenir la justice exige une constance que la victoire seule ne garantit pas. Chaque décision devient un précédent. Chaque injustice potentielle peut fragiliser l’ensemble. L’autorité acquise doit désormais se prouver chaque jour par l’équité et la sagesse.",
+    },
+    {
+      type: "p",
+      text:
+        "L’Arabie fait face à une réalité nouvelle : un centre existe, mais il ne peut survivre que s’il est accepté. La contrainte pourrait soumettre temporairement, mais elle ne construirait rien de durable. L’enjeu devient alors clair : faire adhérer sans contraindre, rassembler sans écraser, guider sans dominer.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette transformation marque l’entrée dans une phase décisive de la Sîra. Une phase où l’autorité n’est plus mesurée à la capacité de vaincre, mais à la capacité d’unir. Et c’est précisément ce défi — immense, délicat, historique — qui va désormais façonner l’avenir de toute l’Arabie.",
+    },
+  ],
+  cliffhanger:
+    "Mais comment faire adhérer sans contraindre ?",
+  keyPoints: [
+    "Après 8 H, l’Arabie entre dans une nouvelle phase historique.",
+    "Les anciens équilibres tribaux fondés sur la rivalité se transforment.",
+    "Une autorité centrale claire émerge.",
+    "Cette autorité repose sur des principes moraux et juridiques.",
+    "La responsabilité d’unifier devient plus lourde que la conquête elle-même.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l89_q1",
+      question: "Quel changement majeur survient après la Conquête de La Mecque ?",
+      options: [
+        "La fin de toute autorité",
+        "La centralisation de l’autorité en Arabie",
+        "Une nouvelle guerre généralisée",
+        "La disparition des tribus",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Après la Conquête, l’autorité devient centrale, structurée et reconnue.",
+    },
+    {
+      id: "l89_boss_q1",
+      question: "Pourquoi cette phase est-elle plus lourde que la conquête ?",
+      options: [
+        "Parce qu’elle demande une armée plus grande",
+        "Parce qu’elle impose une responsabilité morale durable",
+        "Parce qu’elle est plus violente",
+        "Parce qu’elle est temporaire",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Unifier et gouverner durablement implique une responsabilité morale constante, bien au-delà de la victoire militaire.",
+      difficulty: "boss",
+    },
+  ],
+},
+l90: {
+  title: "Les délégations : l’adhésion sans contrainte",
+  illustration: world23_l90,
+  storyBlocks: [
+    { type: "subtitle", text: "🚶‍♂️ Une année pas comme les autres (9 H)" },
+    {
+      type: "p",
+      text:
+        "L’année 9 H n’est pas marquée par une grande bataille, ni par une conquête spectaculaire. Elle est marquée par quelque chose de plus rare dans l’Histoire : des peuples qui viennent d’eux-mêmes. Cette période sera connue sous le nom de “l’année des délégations”. Des tribus de toute l’Arabie prennent la route de Médine, parfois après des jours ou des semaines de voyage, pour rencontrer, écouter et comprendre.",
+    },
+    {
+      type: "p",
+      text:
+        "Ces délégations ne sont pas escortées par des armées ennemies. Elles ne viennent pas sous la contrainte. Elles arrivent dans un climat nouveau, presque inédit : celui d’une autorité qui n’impose pas par la peur. Les chefs tribaux, les notables, parfois accompagnés de leurs proches, veulent voir de leurs propres yeux ce qui se construit à Médine.",
+    },
+    {
+      type: "p",
+      text:
+        "Pendant des années, ces tribus ont observé à distance. Elles ont vu une communauté survivre à l’exil, résister aux coalitions, puis entrer à La Mecque sans vengeance. L’année 9 H est le moment où l’observation devient démarche concrète. Ce n’est plus une rumeur. C’est une réalité qu’on vient vérifier sur place.",
+    },
+
+    { type: "subtitle", text: "🕊️ Un choix assumé" },
+    {
+      type: "p",
+      text:
+        "L’adhésion qui se joue durant cette année n’est pas arrachée par l’épée. Elle est le fruit d’un long processus. Les tribus ont comparé. Elles ont mesuré la cohérence entre le discours et les actes. Elles ont vu une stabilité durable là où régnaient autrefois l’instabilité et la peur.",
+    },
+    {
+      type: "p",
+      text:
+        "À Médine, elles découvrent une société organisée, une justice appliquée, une autorité qui ne se nourrit pas de l’humiliation des vaincus. Cette cohérence impressionne plus que n’importe quelle démonstration militaire. Elle inspire confiance. Et la confiance est une force bien plus durable que la contrainte.",
+    },
+    {
+      type: "p",
+      text:
+        "Certaines délégations posent des questions, discutent, négocient des modalités. Rien n’est précipité. L’adhésion est réfléchie, assumée, parfois progressive. C’est précisément ce qui lui donne sa solidité. L’Arabie commence à se transformer non pas sous la menace… mais par conviction profonde.",
+    },
+
+    { type: "subtitle", text: "⚖️ Une victoire silencieuse mais décisive" },
+    {
+      type: "p",
+      text:
+        "Cette année révèle une vérité essentielle : la force la plus puissante n’est pas celle qui soumet, mais celle qui attire. Là où la contrainte crée une obéissance fragile, la conviction crée une adhésion durable. Les délégations ne viennent pas pour éviter un danger immédiat, mais pour rejoindre un ordre qu’elles estiment juste.",
+    },
+    {
+      type: "p",
+      text:
+        "L’Arabie change alors de visage. Les rivalités tribales ne disparaissent pas du jour au lendemain, mais elles s’inscrivent désormais dans un cadre commun. Une unité commence à se dessiner, non pas imposée par la peur, mais portée par un choix collectif. Et cette unité, parce qu’elle est volontaire, possède une profondeur historique exceptionnelle.",
+    },
+    {
+      type: "p",
+      text:
+        "L’année des délégations marque ainsi l’aboutissement d’un long chemin : après la survie, après la résistance, après la victoire morale, vient le temps de l’adhésion libre. Un moment rare où l’autorité est acceptée parce qu’elle a fait ses preuves.",
+    },
+  ],
+  cliffhanger:
+    "Mais toute autorité naissante est aussi testée à ses frontières.",
+  keyPoints: [
+    "L’année 9 H est connue comme l’année des délégations.",
+    "De nombreuses tribus viennent volontairement à Médine.",
+    "L’adhésion ne se fait pas par contrainte militaire.",
+    "La cohérence, la justice et la stabilité attirent les tribus.",
+    "La transformation de l’Arabie se fait par conviction durable.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l90_q1",
+      question: "Pourquoi parle-t-on de “l’année des délégations” ?",
+      options: [
+        "À cause des guerres",
+        "Parce que de nombreuses tribus viennent à Médine",
+        "À cause d’une famine",
+        "À cause d’une migration",
+      ],
+      correctIndex: 1,
+      explanation:
+        "En 9 H, de nombreuses tribus se rendent volontairement à Médine.",
+    },
+    {
+      id: "l90_boss_q1",
+      question: "Quel facteur principal motive ces adhésions ?",
+      options: [
+        "La peur",
+        "La contrainte",
+        "La cohérence et la stabilité du message",
+        "L’obligation",
+      ],
+      correctIndex: 2,
+      explanation:
+        "Les tribus adhèrent par conviction, après observation de la cohérence et de la stabilité.",
+      difficulty: "boss",
+    },
+  ],
+},
+l91: {
+  title: "Tabūk : la force sans combat (630 / 9 H)",
+  illustration: world23_l91,
+  storyBlocks: [
+    { type: "subtitle", text: "☀️ Une épreuve extrême" },
+    {
+      type: "p",
+      text:
+        "En 9 H (630), l’expédition de Tabūk s’annonce comme l’une des plus éprouvantes jamais connues par la communauté. La chaleur est accablante, le désert étendu, les ressources limitées. Le voyage se fait en pleine saison difficile, au moment où les récoltes attirent naturellement les hommes à rester chez eux. Partir dans ces conditions n’a rien d’évident. Ce n’est pas une expédition qui promet un butin ou une victoire rapide. C’est une marche longue, incertaine, exigeante.",
+    },
+    {
+      type: "p",
+      text:
+        "La distance elle-même est un défi. Tabūk se situe loin au nord, bien au-delà des expéditions habituelles. Chaque pas met à l’épreuve les corps et les intentions. Qui part réellement par conviction ? Qui hésite lorsque l’effort devient trop lourd ? Cette expédition agit comme un révélateur intérieur : elle distingue ceux qui répondent à l’appel malgré la difficulté de ceux que le confort retient.",
+    },
+    {
+      type: "p",
+      text:
+        "Malgré ces conditions extrêmes, la mobilisation a lieu. La communauté démontre une capacité nouvelle : se rassembler à grande échelle, s’organiser, prévoir, avancer ensemble sur une longue distance. Ce simple fait marque une rupture historique. Quelques années plus tôt, survivre à Médine était déjà un défi. Désormais, la communauté est capable de se projeter loin, sans être acculée par l’urgence ou la peur.",
+    },
+
+    { type: "subtitle", text: "⚔️ Une démonstration sans bataille" },
+    {
+      type: "p",
+      text:
+        "À Tabūk, aucun affrontement majeur ne se produit. Les armées ennemies attendues ne s’engagent pas. Pourtant, l’expédition n’est pas vaine. Bien au contraire. La simple présence, la capacité de mobilisation et la détermination affichée suffisent à clarifier le rapport de force. Les adversaires comprennent qu’une confrontation directe ne leur serait pas favorable.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette absence de combat n’est pas un échec. Elle est un signe de maturité stratégique. La force ne se mesure plus uniquement à l’épée dégainée, mais à la capacité d’imposer une stabilité sans verser le sang. À Tabūk, la communauté montre qu’elle peut dissuader sans frapper, imposer le respect sans destruction.",
+    },
+    {
+      type: "p",
+      text:
+        "Le message envoyé est clair : la communauté n’est plus réactive, acculée à répondre aux attaques. Elle est devenue une force établie, capable d’anticiper, de se projeter et de sécuriser ses frontières par sa seule présence. Cette transformation marque une nouvelle étape : la stabilité ne repose plus sur la réaction permanente, mais sur la dissuasion assumée.",
+    },
+
+    { type: "subtitle", text: "🧭 Une force arrivée à maturité" },
+    {
+      type: "p",
+      text:
+        "Tabūk révèle une communauté arrivée à maturité. Non seulement elle peut supporter l’épreuve physique, mais elle comprend désormais que la véritable puissance réside dans la prévention du conflit plutôt que dans sa multiplication. Chaque bataille évitée est une vie préservée, une société protégée, un avenir consolidé.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette expédition montre aussi que l’objectif n’est plus simplement de survivre ou de s’imposer localement. Il s’agit de garantir un espace de stabilité durable, où la transmission du message peut se faire sans être constamment interrompue par la menace militaire. La force devient un moyen de protéger la paix, non de l’écraser.",
+    },
+    {
+      type: "p",
+      text:
+        "Tabūk n’est donc pas mémorable par le bruit des armes, mais par le silence qu’il impose aux adversaires. Une force qui n’a pas besoin de combattre pour être reconnue est une force qui a atteint un nouveau seuil historique. Et ce seuil ouvre désormais une autre phase : celle où l’attention se tourne vers l’essentiel — transmettre, enseigner, consolider.",
+    },
+  ],
+  cliffhanger:
+    "Et quand la force est établie… commence le temps de la transmission.",
+  keyPoints: [
+    "Tabūk a lieu en 9 H (630).",
+    "L’expédition se déroule dans des conditions extrêmement difficiles.",
+    "Aucune bataille majeure n’a lieu.",
+    "La mobilisation démontre une force arrivée à maturité.",
+    "La stabilité repose désormais sur la dissuasion plutôt que sur la réaction.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l91_q1",
+      question: "Pourquoi Tabūk est-elle significative ?",
+      options: [
+        "Par une grande bataille",
+        "Par une démonstration de force sans combat",
+        "Par une défaite",
+        "Par une conquête territoriale",
+      ],
+      correctIndex: 1,
+      explanation:
+        "À Tabūk, la simple mobilisation suffit à établir le rapport de force sans affrontement.",
+    },
+    {
+      id: "l91_boss_q1",
+      question: "Quel changement stratégique illustre Tabūk ?",
+      options: [
+        "La dépendance au combat",
+        "La dissuasion comme fondement de la stabilité",
+        "La faiblesse militaire",
+        "L’isolement",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La force devient dissuasive : elle empêche le conflit avant qu’il n’éclate.",
+      difficulty: "boss",
+    },
+  ],
+},
+l92: {
+  title: "Un pouvoir qui se stabilise",
+  illustration: world23_l92,
+  storyBlocks: [
+    { type: "subtitle", text: "🏛️ Gouverner après la victoire" },
+    {
+      type: "p",
+      text:
+        "Après les grandes épreuves, les mobilisations lointaines et les victoires décisives, la situation change profondément. L’autorité n’est plus contestée à grande échelle. Les menaces extérieures sont dissuadées. Les résistances majeures se sont éteintes. Mais paradoxalement, c’est ici que commence l’un des défis les plus exigeants : gouverner après la victoire.",
+    },
+    {
+      type: "p",
+      text:
+        "Imposer une autorité peut se faire par la force. La maintenir demande autre chose. Il ne s’agit plus de convaincre par l’urgence ni de fédérer face à un danger commun. Il s’agit désormais d’organiser le quotidien, de trancher avec équité, d’arbitrer des conflits internes, et de faire vivre les principes dans la durée. La communauté entre dans une phase de maturité où chaque décision compte davantage que les démonstrations spectaculaires du passé.",
+    },
+    {
+      type: "p",
+      text:
+        "Cette stabilité nouvelle met en lumière un fait essentiel : le pouvoir n’est plus un enjeu à conquérir, mais une responsabilité à assumer. Gouverner devient un exercice constant de justice, de pédagogie et de retenue. Les erreurs ne sont plus excusées par l’urgence de la survie. Elles ont désormais un impact direct sur une société entière en construction.",
+    },
+
+    { type: "subtitle", text: "⚖️ Maintenir la justice dans la durée" },
+    {
+      type: "p",
+      text:
+        "Dans cette phase, la priorité absolue devient la justice. Non pas une justice théorique, mais une justice appliquée, visible, ressentie. Car c’est elle qui garantit la cohésion d’un ensemble désormais vaste et diversifié. Les tribus, les nouveaux adhérents, les anciens compagnons : tous doivent se reconnaître dans un cadre commun.",
+    },
+    {
+      type: "p",
+      text:
+        "Maintenir cette justice demande une vigilance permanente. Les privilèges, les abus de pouvoir, les décisions arbitraires sont les dangers silencieux des périodes de stabilité. Un pouvoir établi peut facilement se durcir s’il oublie sa raison d’être. C’est pourquoi cette phase exige plus de sagesse que les périodes de conflit : il faut savoir dire non, corriger, expliquer, parfois patienter.",
+    },
+    {
+      type: "p",
+      text:
+        "La force n’est plus dans la capacité à vaincre un ennemi extérieur, mais dans la capacité à rester fidèle aux principes quand plus rien ne contraint à l’être. C’est ici que se joue la crédibilité durable de l’autorité : dans la constance, la cohérence et l’exemplarité.",
+    },
+
+    { type: "subtitle", text: "📜 Un héritage en construction" },
+    {
+      type: "p",
+      text:
+        "Cette période est aussi celle de la consolidation. Les règles s’affinent. Les principes se précisent. Les valeurs ne sont plus seulement proclamées, elles sont intégrées dans la vie collective. Ce qui a été vécu dans l’épreuve doit maintenant être transmis comme référence.",
+    },
+    {
+      type: "p",
+      text:
+        "La communauté comprend que tout ne repose plus sur une présence physique ou un leadership immédiat. Un héritage se prépare. Un cadre doit survivre aux événements, aux générations, aux changements. Chaque enseignement, chaque rappel, chaque règle transmise participe à cette construction silencieuse mais décisive.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce monde agit comme un seuil. Il ne raconte pas une bataille ni un déplacement. Il raconte une stabilisation intérieure et collective. Tout est en place. Les fondations sont solides. Et c’est précisément pour cela que l’horizon change : quand l’ordre est établi, quand la mission est transmise, vient inévitablement le temps de la séparation.",
+    },
+  ],
+  cliffhanger:
+    "Car lorsque tout semble enfin stable… vient le temps de l’adieu.",
+  keyPoints: [
+    "Le pouvoir n’est plus contesté à grande échelle.",
+    "La priorité devient l’organisation et la justice durable.",
+    "La communauté entre dans une phase de maturité.",
+    "Les principes et règles se consolident.",
+    "La transmission prépare la phase finale.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l92_q1",
+      question: "Quel est le principal défi de cette phase ?",
+      options: [
+        "Conquérir",
+        "Survivre",
+        "Gouverner avec justice",
+        "Combattre",
+      ],
+      correctIndex: 2,
+      explanation:
+        "Le défi central devient la gouvernance juste et durable.",
+    },
+    {
+      id: "l92_boss_q1",
+      question: "Pourquoi ce monde prépare-t-il la fin du parcours ?",
+      options: [
+        "Parce que tout est terminé",
+        "Parce qu’il ouvre le temps de la transmission",
+        "Parce qu’il supprime les épreuves",
+        "Parce qu’il n’y a plus de défis",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La stabilisation ouvre la phase finale : celle de la transmission et de l’héritage.",
+      difficulty: "boss",
+    },
+  ],
+},
+l93: {
+  title: "Le dernier pèlerinage (632 / 10 H)",
+  illustration: world24_l93,
+  storyBlocks: [
+    { type: "subtitle", text: "🕋 Un pèlerinage différent" },
+    {
+      type: "p",
+      text:
+        "En 10 H (632), le pèlerinage est accompli dans des conditions inédites. Des dizaines de milliers de personnes convergent vers La Mecque. Ce qui, autrefois, se faisait dans la crainte ou la discrétion est désormais visible, massif, assumé. Les routes sont pleines. Les visages sont nombreux. La communauté est là, rassemblée comme jamais auparavant. Ce n’est plus un simple rite individuel : c’est un événement historique.",
+    },
+    {
+      type: "p",
+      text:
+        "Pourtant, malgré l’ampleur du rassemblement, l’atmosphère est particulière. Il n’y a ni agitation inutile ni exaltation excessive. Tout semble mesuré, posé, presque solennel. Chaque étape du pèlerinage est accomplie avec une attention inhabituelle. Les gestes sont précis. Les silences sont parlants. Ceux qui observent de près sentent qu’il ne s’agit pas d’un pèlerinage ordinaire.",
+    },
+    {
+      type: "p",
+      text:
+        "Pour celui qui guide ce pèlerinage, quelque chose a changé. Les années de lutte, d’exil, de patience et de construction ont conduit à ce moment. Chaque déplacement, chaque rite, chaque arrêt semble porter un poids supplémentaire. Comme si chaque action disait implicitement : ‘Regardez bien. Retenez. Apprenez.’",
+    },
+
+    { type: "subtitle", text: "👁️ Un regard vers la communauté" },
+    {
+      type: "p",
+      text:
+        "Face à lui, la communauté est là, unifiée. Des hommes et des femmes venus de tribus différentes, de régions différentes, parfois d’horizons qui s’opposaient autrefois. Ce qui avait commencé dans l’isolement, la persécution et la marginalité est devenu une réalité collective solide. L’unité n’est plus théorique. Elle est visible, incarnée, vivante.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce regard porté sur la communauté n’est pas seulement un regard de satisfaction. Il est aussi chargé de responsabilité. Une communauté unifiée est une force, mais elle est aussi un dépôt. Elle devra porter, transmettre, protéger ce qui lui a été confié. Ce rassemblement n’est donc pas un aboutissement figé, mais un moment de bascule.",
+    },
+    {
+      type: "p",
+      text:
+        "Car ce pèlerinage n’est pas seulement l’accomplissement d’un rite sacré. Il ressemble à un passage de témoin. Ce qui a été vécu, enseigné, construit doit désormais continuer au-delà d’une présence unique. La communauté est invitée à devenir gardienne du message, non seulement par les mots, mais par les actes.",
+    },
+
+    { type: "subtitle", text: "🧭 Un moment de transmission" },
+    {
+      type: "p",
+      text:
+        "Dans cette foule immense, chacun n’entend pas seulement des consignes rituelles. Chacun ressent qu’un moment rare est en train de se produire. Les paroles prononcées ne visent pas l’instant, mais l’avenir. Elles ne s’adressent pas à une situation ponctuelle, mais à une communauté appelée à durer.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce pèlerinage devient alors un point de convergence entre le passé et le futur. Le passé de l’épreuve, de la patience et de la construction. Le futur de la responsabilité, de la transmission et de la fidélité aux principes. Tout semble indiquer que quelque chose s’achève… pour que quelque chose d’autre puisse continuer sans rupture.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi, au cœur de ce rassemblement massif, une vérité s’impose : la mission a atteint sa clarté maximale. Ce qui devait être transmis l’a été. Ce qui devait être incarné l’a été. Et désormais, la communauté est suffisamment solide pour avancer, non pas seule, mais ensemble, portée par ce legs.",
+    },
+  ],
+  cliffhanger:
+    "Car les paroles qui vont suivre ne seront pas ordinaires.",
+  keyPoints: [
+    "Le dernier pèlerinage a lieu en 10 H / 632.",
+    "Des dizaines de milliers de personnes sont rassemblées.",
+    "L’atmosphère est solennelle et chargée de sens.",
+    "Chaque geste et chaque parole visent la transmission.",
+    "Ce pèlerinage marque un passage de témoin historique.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l93_q1",
+      question: "Pourquoi ce pèlerinage est-il particulier ?",
+      options: [
+        "Parce qu’il est secret",
+        "Parce qu’il marque la fin d’une mission",
+        "Parce qu’il est le premier",
+        "Parce qu’il est militaire",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Ce pèlerinage est le dernier et marque l’achèvement de la mission et le début de la transmission.",
+    },
+    {
+      id: "l93_boss_q1",
+      question: "Que symbolise ce rassemblement massif ?",
+      options: [
+        "La domination",
+        "L’unification de la communauté",
+        "La peur",
+        "La contrainte",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Il symbolise l’unité atteinte après des années d’épreuves et de construction.",
+      difficulty: "boss",
+    },
+  ],
+},
+l94: {
+  title: "Le sermon d’adieu",
+  illustration: world24_l94,
+  storyBlocks: [
+    { type: "subtitle", text: "📜 Des paroles pour l’éternité" },
+    {
+      type: "p",
+      text:
+        "Le sermon d’adieu n’est pas un discours politique, ni une déclaration de pouvoir. Il ne cherche pas à imposer une autorité nouvelle. Il vient au contraire résumer, condenser et transmettre l’essentiel. Après des années d’épreuves, de conflits, de migrations et de constructions, ces paroles prennent la forme d’un socle. Un socle moral, juridique et profondément humain.",
+    },
+    {
+      type: "p",
+      text:
+        "Dans ce moment solennel, rien n’est accessoire. Chaque rappel vise à protéger ce qui peut être facilement détruit lorsque la force et la victoire montent à la tête des hommes. La vie humaine est déclarée sacrée. Les biens sont protégés. L’honneur est inviolable. Ces principes ne sont pas présentés comme des idéaux abstraits, mais comme des obligations concrètes, à respecter même — et surtout — lorsque l’on est en position de force.",
+    },
+    {
+      type: "p",
+      text:
+        "Le sermon agit comme une balise pour l’avenir. Il rappelle que la victoire militaire ou politique ne donne aucun droit à l’injustice. Que le pouvoir, s’il n’est pas encadré par l’éthique, devient une source de corruption. Ces paroles viennent donc fermer la porte à toute dérive future en ancrant clairement les limites à ne jamais franchir.",
+    },
+
+    { type: "subtitle", text: "⚖️ Une humanité réaffirmée" },
+    {
+      type: "p",
+      text:
+        "Au cœur de ce sermon se trouve une affirmation radicale pour son époque — et toujours percutante aujourd’hui : aucune supériorité raciale, aucune hiérarchie fondée sur l’origine, la couleur ou le statut social. Les distinctions artificielles qui divisent les sociétés sont explicitement rejetées.",
+    },
+    {
+      type: "p",
+      text:
+        "La valeur d’un être humain ne repose ni sur son ascendance, ni sur sa richesse, ni sur son influence. Elle repose sur la conscience, la droiture et la responsabilité individuelle. Ce rappel vient désarmer toute tentative de domination fondée sur l’identité ou le privilège. Il recentre l’humanité sur un critère intérieur, invisible, mais fondamental.",
+    },
+    {
+      type: "p",
+      text:
+        "Dans un monde marqué par les inégalités tribales, les abus de pouvoir et les hiérarchies rigides, ces paroles sonnent comme une libération. Elles redonnent à chaque individu une dignité pleine et entière. Elles rappellent que l’autorité n’excuse rien, et que la justice ne dépend pas du rang de celui qui parle, mais de la justesse de ce qu’il fait.",
+    },
+
+    { type: "subtitle", text: "🧭 Un message au-delà du temps" },
+    {
+      type: "p",
+      text:
+        "Ce sermon n’est pas adressé à une seule génération. Il ne répond pas uniquement aux problèmes immédiats de son époque. Il vise plus large. Il parle à toutes les sociétés confrontées à la tentation de l’injustice, de l’abus de pouvoir et de l’oubli de l’humain derrière la structure.",
+    },
+    {
+      type: "p",
+      text:
+        "C’est ce qui rend ces paroles intemporelles. Elles ne vieillissent pas, parce qu’elles traitent de réalités constantes : la vie, la dignité, l’égalité, la responsabilité. Tant que ces enjeux existeront, ce message restera pertinent.",
+    },
+    {
+      type: "p",
+      text:
+        "À cet instant précis, le sermon agit comme une synthèse finale. Tout ce qui a été vécu trouve ici son sens. La lutte, la patience, la victoire et la stabilité convergent vers un objectif unique : préserver l’humain. Et alors que ces paroles s’achèvent, une impression se répand dans les cœurs attentifs… celle d’une mission arrivée à son accomplissement.",
+    },
+  ],
+  cliffhanger:
+    "Mais une dernière indication reste à être donnée.",
+  keyPoints: [
+    "Le sermon d’adieu constitue un socle moral universel.",
+    "Il protège la vie, les biens et l’honneur humain.",
+    "Il rejette toute supériorité raciale ou sociale.",
+    "La valeur humaine repose sur la conscience et la droiture.",
+    "Le message dépasse son contexte historique et traverse le temps.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l94_q1",
+      question: "Quel est le cœur du sermon d’adieu ?",
+      options: [
+        "La guerre",
+        "La justice et la dignité humaine",
+        "La domination",
+        "La richesse",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Le sermon d’adieu pose des principes universels centrés sur la justice et la dignité humaine.",
+    },
+    {
+      id: "l94_boss_q1",
+      question: "Pourquoi ce sermon est-il intemporel ?",
+      options: [
+        "Parce qu’il est court",
+        "Parce qu’il dépasse son contexte historique",
+        "Parce qu’il est politique",
+        "Parce qu’il est local",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Il traite de valeurs humaines universelles, valables pour toutes les époques.",
+      difficulty: "boss",
+    },
+  ],
+},
+l95: {
+  title: "Les derniers rappels",
+  illustration: world24_l95,
+  storyBlocks: [
+    { type: "subtitle", text: "🕯️ Une attention aux détails" },
+    {
+      type: "p",
+      text:
+        "Après le dernier pèlerinage, quelque chose change subtilement dans le ton des paroles. Les rappels deviennent plus fréquents, mais aussi plus sobres. Ils ne cherchent plus à convaincre ni à corriger en profondeur. Ils viennent affiner, préciser, recentrer. Comme lorsqu’un long voyage touche à sa fin et que l’on vérifie une dernière fois chaque détail avant de transmettre la route à d’autres.",
+    },
+    {
+      type: "p",
+      text:
+        "Ces rappels ne sont pas longs. Ils vont droit à l’essentiel. Ils reviennent sur ce qui compte vraiment, sans détour inutile. Comme si tout avait déjà été dit — et que le rôle de ces paroles finales était simplement de s’assurer que rien d’essentiel ne se perde dans le bruit du quotidien.",
+    },
+    {
+      type: "p",
+      text:
+        "Il n’y a plus de nouvelles règles majeures à annoncer. Plus de bouleversements à introduire. Tout est en place. Le message est complet. Ce qui reste, c’est la vigilance : rappeler ce qui protège, ce qui élève, ce qui empêche la dérive lorsque l’habitude et la routine menacent de remplacer la conscience.",
+    },
+
+    { type: "subtitle", text: "📦 Un dépôt confié" },
+    {
+      type: "p",
+      text:
+        "À travers ces derniers rappels, quelque chose de fondamental est clairement établi : la mission ne repose plus sur une seule personne. Elle devient un dépôt confié à toute une communauté. Un dépôt fragile, précieux, qui ne peut survivre que s’il est préservé avec fidélité.",
+    },
+    {
+      type: "p",
+      text:
+        "Préserver, transmettre, ne pas altérer. Ces trois idées résument la responsabilité nouvelle qui pèse désormais sur chacun. Le message n’est plus à recevoir passivement, mais à porter activement. Il ne suffit plus d’avoir été témoin : il faut devenir garant.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce dépôt n’est pas seulement un ensemble de paroles ou de règles. C’est un esprit, une cohérence, une manière d’être. Il peut être affaibli par la négligence, déformé par l’orgueil, ou au contraire renforcé par la sincérité et la constance. La communauté comprend alors que l’épreuve la plus délicate commence souvent après la stabilité : rester fidèle lorsque l’urgence a disparu.",
+    },
+    {
+      type: "p",
+      text:
+        "À ce stade, la mission est pleinement collective. Chacun devient responsable à son échelle. Les erreurs ne pourront plus être attribuées à un manque de clarté. Tout a été transmis. Tout a été expliqué. Ce qui comptera désormais, ce sont les choix quotidiens, la transmission aux générations suivantes, et la capacité à préserver l’essentiel sans le trahir.",
+    },
+
+    { type: "subtitle", text: "🧭 Le temps de la continuité" },
+    {
+      type: "p",
+      text:
+        "Ces derniers rappels agissent comme un passage silencieux entre deux époques. L’époque de la construction directe s’achève. L’époque de la continuité commence. Une continuité qui ne repose pas sur des miracles ou des événements spectaculaires, mais sur la fidélité, la mémoire et l’engagement discret.",
+    },
+    {
+      type: "p",
+      text:
+        "La communauté est désormais face à elle-même. Elle possède tout ce dont elle a besoin pour avancer. Ce qui lui est demandé n’est pas d’innover sans cesse, mais de rester droite. De ne pas diluer le message. De ne pas l’instrumentaliser. De ne pas l’oublier.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi, dans ces rappels courts mais denses, se cache une vérité profonde : la mission est accomplie dans sa transmission, mais jamais terminée dans son application. Et lorsque le dépôt est confié, lorsque chacun comprend ce qui lui incombe… le temps du départ se rapproche inévitablement.",
+    },
+  ],
+  cliffhanger:
+    "Et lorsque le dépôt est confié… vient le moment du départ.",
+  keyPoints: [
+    "Les derniers rappels sont courts, précis et essentiels.",
+    "Le message est désormais complet et transmis.",
+    "La responsabilité devient collective.",
+    "La communauté reçoit un dépôt à préserver et transmettre.",
+    "La continuité repose sur la fidélité plus que sur l’urgence.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l95_q1",
+      question: "Quel est l’objectif des derniers rappels ?",
+      options: [
+        "Introduire de nouvelles règles",
+        "Consolider l’essentiel",
+        "Corriger le passé",
+        "Préparer une conquête",
+      ],
+      correctIndex: 1,
+      explanation:
+        "Les derniers rappels visent à recentrer et consolider l’essentiel déjà transmis.",
+    },
+    {
+      id: "l95_boss_q1",
+      question: "Pourquoi parle-t-on de “dépôt” confié à la communauté ?",
+      options: [
+        "Parce que tout est terminé",
+        "Parce que la responsabilité devient collective",
+        "Parce qu’il faut se retirer",
+        "Parce qu’il faut recommencer",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La mission ne repose plus sur une personne, mais sur la communauté entière.",
+      difficulty: "boss",
+    },
+  ],
+},
+l96: {
+  title: "La disparition… et l’héritage",
+  illustration: world24_l96,
+  storyBlocks: [
+    { type: "subtitle", text: "🌙 Un départ sans chaos" },
+    {
+      type: "p",
+      text:
+        "En 11 H (632), la disparition survient. Non pas dans le tumulte d’un effondrement, ni dans le chaos d’une fin brutale, mais dans un cadre profondément humain. Il n’y a pas de palais, pas de mise en scène, pas de démonstration de pouvoir. Il y a une chambre simple, des proches, des visages aimants, et une communauté qui, sans encore le comprendre pleinement, s’apprête à vivre l’instant le plus bouleversant de son histoire.",
+    },
+    {
+      type: "p",
+      text:
+        "La nouvelle se répand, lentement puis brutalement. Les cœurs vacillent. Certains refusent d’y croire. D’autres restent figés, incapables de mettre des mots sur ce qu’ils ressentent. La douleur est réelle, profonde, collective. Car ce n’est pas seulement une personne qui disparaît : c’est une présence constante, une référence vivante, une voix qui guidait, apaisait et tranchait.",
+    },
+    {
+      type: "p",
+      text:
+        "Et pourtant, malgré le choc, quelque chose d’essentiel empêche l’effondrement. La communauté est frappée, mais elle n’est pas vide. Elle est éprouvée, mais elle n’est pas perdue. Ce qui a été construit au fil des années tient encore. Les repères ne s’écroulent pas. Les principes ne disparaissent pas avec la disparition physique. Cette stabilité, silencieuse mais réelle, est déjà un signe : la mission ne reposait pas sur une présence charismatique seule, mais sur un message transmis et intégré.",
+    },
+
+    { type: "subtitle", text: "📜 Ce qui reste" },
+    {
+      type: "p",
+      text:
+        "Il ne reste pas une armée figée, ni un empire bâti sur la domination. Il ne reste pas un pouvoir héréditaire ni une structure imposée par la peur. Ce qui reste est plus discret, mais infiniment plus durable : un message, une méthode, une responsabilité. Un message clair, transmis sans ambiguïté. Une méthode fondée sur la justice, la miséricorde et la cohérence. Et une responsabilité désormais portée par une communauté entière.",
+    },
+    {
+      type: "p",
+      text:
+        "La Sîra, en tant que récit d’une vie, se termine ici. Mais ce terme n’est pas une fermeture. Il est une ouverture. Tout ce qui devait être dit l’a été. Tout ce qui devait être incarné l’a été. Les principes ne sont pas laissés à l’interprétation vague : ils ont été vécus, éprouvés, appliqués dans la paix comme dans la crise, dans la faiblesse comme dans la force.",
+    },
+    {
+      type: "p",
+      text:
+        "Ce qui reste n’est donc pas un vide à combler, mais un héritage à assumer. Un héritage qui ne se conserve pas dans des monuments, mais dans des comportements. Qui ne se protège pas par des frontières, mais par la fidélité. Qui ne se transmet pas par la contrainte, mais par l’exemple et la constance.",
+    },
+
+    { type: "subtitle", text: "🧭 Quand la mission devient universelle" },
+    {
+      type: "p",
+      text:
+        "À partir de cet instant, quelque chose change définitivement : la responsabilité devient pleinement collective. Plus personne ne peut dire “quelqu’un d’autre portera cela”. Chacun est désormais dépositaire, à son échelle, de ce qui a été transmis. La communauté n’est plus guidée par une présence visible, mais par un cadre, une boussole, une mémoire vivante.",
+    },
+    {
+      type: "p",
+      text:
+        "C’est ici que commence l’Histoire au sens large. L’histoire de l’application, de la transmission, des réussites et des épreuves futures. L’histoire des choix humains face à un message complet. La disparition n’est donc pas une fin dramatique, mais un passage décisif : celui où l’héritage est confié sans intermédiaire.",
+    },
+    {
+      type: "p",
+      text:
+        "La mission peut être dite accomplie non pas parce que tout est terminé, mais parce que tout est en place. Le message est clair. La méthode est connue. La responsabilité est assumée. Ce qui viendra ensuite dépendra des hommes, de leur fidélité, de leur conscience et de leur capacité à faire vivre cet héritage sans le trahir.",
+    },
+    {
+      type: "p",
+      text:
+        "Ainsi s’achève la Sîra. Sans bruit excessif. Sans mise en scène. Mais avec une force rare : celle d’un legs suffisamment solide pour traverser les siècles. La disparition marque la fin d’une présence… et le début d’une responsabilité qui, elle, ne s’éteindra pas.",
+    },
+  ],
+  keyPoints: [
+    "La disparition a lieu en 11 H / 632 dans un cadre humain et apaisé.",
+    "La communauté est profondément éprouvée mais préparée.",
+    "L’héritage laissé n’est pas matériel mais moral et spirituel.",
+    "Le message est complet, transmis et incarné.",
+    "La responsabilité devient pleinement collective.",
+  ],
+  reviewQuestions: [
+    {
+      id: "l96_q1",
+      question: "Que laisse principalement la disparition ?",
+      options: [
+        "Un vide total",
+        "Un héritage moral et spirituel",
+        "Une armée",
+        "Un territoire",
+      ],
+      correctIndex: 1,
+      explanation:
+        "L’héritage transmis est avant tout moral, spirituel et méthodologique.",
+    },
+    {
+      id: "l96_boss_q1",
+      question: "Pourquoi peut-on dire que la mission est accomplie ?",
+      options: [
+        "Parce que tout est fini",
+        "Parce que le message est complet et transmis",
+        "Parce qu’il n’y a plus de défis",
+        "Parce que la communauté disparaît",
+      ],
+      correctIndex: 1,
+      explanation:
+        "La mission est accomplie car le message est complet, incarné et confié à la communauté.",
+      difficulty: "boss",
+    },
+  ],
+},
+
+
+
 
 
 

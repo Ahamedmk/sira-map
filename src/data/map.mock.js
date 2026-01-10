@@ -646,7 +646,62 @@ export const WORLDS = [
     { id: "l80", type: "lesson", title: "Un nouvel équilibre en Arabie", estMin: 58, required: true },
     { id: "b20", type: "boss", title: "Boss Quiz — L’ouverture du monde", estMin: 16, required: true },
   ],
+},
+{
+  id: "world-21",
+  title: "Monde 21 — La rupture et la marche inévitable (629–630 / 8 H)",
+  description:
+    "La paix de Ḥudaybiyyah tient… jusqu’au jour où elle se fissure. Une rupture, des choix irréversibles, et une marche silencieuse qui change le destin de La Mecque.",
+  nodes: [
+    { id: "l81", type: "lesson", title: "Une paix fragile", estMin: 52, required: true },
+    { id: "l82", type: "lesson", title: "La rupture du traité", estMin: 60, required: true },
+    { id: "l83", type: "lesson", title: "La décision irréversible", estMin: 58, required: true },
+    { id: "l84", type: "lesson", title: "Une marche sans triomphe affiché", estMin: 62, required: true },
+    { id: "b21", type: "boss", title: "Boss Quiz — La rupture et la marche", estMin: 16, required: true },
+  ],
+},
+{
+  id: "world-22",
+  title: "Monde 22 — La Conquête de La Mecque : le jour où la force a pardonné (630 / 8 H)",
+  description:
+    "La ville qui a rejeté, humilié et combattu ouvre ses portes. Dix mille hommes entrent… mais ce n’est pas la vengeance qui triomphe.",
+  nodes: [
+    { id: "l85", type: "lesson", title: "L’entrée dans La Mecque", estMin: 65, required: true },
+    { id: "l86", type: "lesson", title: "La chute des idoles", estMin: 55, required: true },
+    { id: "l87", type: "lesson", title: "Le pardon proclamé", estMin: 70, required: true },
+    { id: "l88", type: "lesson", title: "Une ville transformée", estMin: 60, required: true },
+    { id: "b22", type: "boss", title: "Boss Quiz — La Conquête de La Mecque", estMin: 18, required: true },
+  ],
+},
+{
+  id: "world-23",
+  title: "Monde 23 — L’unification de l’Arabie et la responsabilité finale (630–631 / 9 H)",
+  description:
+    "Après la Conquête de La Mecque, l’Arabie entière regarde désormais dans une seule direction. Mais diriger, c’est aussi porter le poids de tous.",
+  nodes: [
+    { id: "l89", type: "lesson", title: "L’Arabie face à une nouvelle réalité", estMin: 60, required: true },
+    { id: "l90", type: "lesson", title: "Les délégations : l’adhésion sans contrainte", estMin: 62, required: true },
+    { id: "l91", type: "lesson", title: "Tabūk : la force sans combat (630)", estMin: 65, required: true },
+    { id: "l92", type: "lesson", title: "Un pouvoir qui se stabilise", estMin: 58, required: true },
+    { id: "b23", type: "boss", title: "Boss Quiz — L’unification", estMin: 16, required: true },
+  ],
+},
+{
+  id: "world-24",
+  title: "Monde 24 — Le pèlerinage d’adieu : mission accomplie (632 / 10–11 H)",
+  description:
+    "Tout est transmis. Tout est clarifié. Reste à confier le dépôt… et à partir.",
+  nodes: [
+    { id: "l93", type: "lesson", title: "Le dernier pèlerinage (632)", estMin: 65, required: true },
+    { id: "l94", type: "lesson", title: "Le sermon d’adieu", estMin: 75, required: true },
+    { id: "l95", type: "lesson", title: "Les derniers rappels", estMin: 60, required: true },
+    { id: "l96", type: "lesson", title: "La disparition… et l’héritage", estMin: 70, required: true },
+    { id: "b24", type: "boss", title: "Boss Quiz — Mission accomplie", estMin: 18, required: true },
+  ],
 }
+
+
+
 
 
 
