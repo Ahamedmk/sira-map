@@ -5979,6 +5979,7 @@ l72: {
 l73: {
   title: "Le départ pour la ʿUmrah (628 / 6 H)",
   illustration: world19_l73,
+  audio: "/audio/lessons/l73.mp3",
   storyBlocks: [
     { type: "subtitle", text: "🕋 Un départ qui n’a rien d’une guerre" },
     {
