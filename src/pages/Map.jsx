@@ -22,6 +22,7 @@ import {
   Zap,
   UserPlus,
   ShieldCheck,
+  Route, // ✅ AJOUT ICON TIMELINE
 } from "lucide-react";
 
 /* ------------------ Icons ------------------ */
@@ -31,17 +32,26 @@ function NodeIcon({ type, locked }) {
 
   if (type === "lesson") {
     return (
-      <BookOpen className={`${base} ${!locked ? "text-blue-600" : ""}`} {...iconProps} />
+      <BookOpen
+        className={`${base} ${!locked ? "text-blue-600" : ""}`}
+        {...iconProps}
+      />
     );
   }
   if (type === "review") {
     return (
-      <Brain className={`${base} ${!locked ? "text-purple-600" : ""}`} {...iconProps} />
+      <Brain
+        className={`${base} ${!locked ? "text-purple-600" : ""}`}
+        {...iconProps}
+      />
     );
   }
   if (type === "boss") {
     return (
-      <Crown className={`${base} ${!locked ? "text-amber-600" : ""}`} {...iconProps} />
+      <Crown
+        className={`${base} ${!locked ? "text-amber-600" : ""}`}
+        {...iconProps}
+      />
     );
   }
   return null;
@@ -129,7 +139,10 @@ export default function MapPage() {
 
     if (node.type === "lesson") navigate(`/lesson/${node.id}`);
     if (node.type === "review") navigate(`/bonus/${node.id}`);
-    if (node.type === "boss") navigate(`/quiz/${node.id}`);
+    if (node.type === "boss") {
+   const wid = node.worldId || activeWorldId;
+   navigate(`/quiz/${node.id}?world=${encodeURIComponent(wid)}`);
+ }
   }
 
   function isWorldCompleted(world) {
@@ -212,6 +225,15 @@ export default function MapPage() {
               <p className="text-sm text-neutral-600 mt-0.5">
                 Progresse monde par monde 🚀
               </p>
+
+              {/* ✅ AJOUT : bouton Timeline compact (header) */}
+              <button
+                onClick={() => navigate("/timeline")}
+                className="mt-3 inline-flex items-center gap-2 rounded-2xl border border-neutral-200 bg-white/80 px-3 py-2 text-xs font-bold text-neutral-800 shadow-sm hover:bg-white hover:shadow-md active:scale-[0.98] transition-all"
+              >
+                <Route size={16} className="text-neutral-700" />
+                Timeline
+              </button>
             </div>
 
             <div className="space-y-2">
@@ -262,6 +284,15 @@ export default function MapPage() {
               >
                 <Zap size={18} />
                 Continuer l'aventure
+              </button>
+
+              {/* ✅ AJOUT : Bouton Timeline “grand” (card) */}
+              <button
+                onClick={() => navigate("/timeline")}
+                className="mt-3 w-full rounded-2xl border-2 border-neutral-200 bg-white py-3.5 font-bold hover:bg-neutral-50 active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2"
+              >
+                <Route size={18} className="text-neutral-800" />
+                Voir la Timeline
               </button>
 
               {/* 🔒 CTA Premium (accessible à tout moment) */}

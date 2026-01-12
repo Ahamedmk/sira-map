@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import {
   ChevronLeft,
   Crown,
@@ -21,8 +21,9 @@ import { syncCardsToSupabase } from "../lib/syncCards";
 import { loadProgress, isNodeCompleted } from "../lib/progressStore.js";
 
 import CardUnlockModal from "../components/CardUnlockModal.jsx";
+import TimelineUnlockModal from "../components/TimelineUnlockModal.jsx";
+import { SIRA_TIMELINE } from "../data/siraTimeline.js";
 
-// ✅ AJOUT : auth + supabase (adapte le chemin si besoin)
 import { useAuth } from "../lib/context/AuthContext.jsx";
 import { supabase } from "../lib/supabase.js";
 
@@ -107,10 +108,8 @@ function shuffleQuestionOptions(question, seedBase) {
     return question;
   }
 
-  // Seed stable par quiz + question
   const rng = makeSeededRng(`${seedBase}::${question.id}::${question.question}`);
 
-  // On tag chaque option avec son index original
   const tagged = question.options.map((text, originalIndex) => ({
     text,
     originalIndex,
@@ -130,10 +129,8 @@ function shuffleQuestionOptions(question, seedBase) {
   };
 }
 
-/* ✅ Dots boss : on garde ton effet, mais on évite Math.random dans le render */
+/* ✅ Dots boss : générés en effect (Math.random ok ici) */
 function makeBossDots(count = 20) {
-  // Seed basé sur time, juste esthétique (pas un problème car pas dans le render).
-  // Si tu veux 100% déterministe => seedBase
   return Array.from({ length: count }, (_, id) => ({
     id,
     top: `${Math.random() * 100}%`,
@@ -146,24 +143,18 @@ function makeBossDots(count = 20) {
    ✅ Helpers leaderboard (dates, week start, etc.)
 ========================================================= */
 function toISODate(d = new Date()) {
-  // YYYY-MM-DD (UTC safe)
   const x = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
   return x.toISOString().slice(0, 10);
 }
 
-// Week start Monday (date string YYYY-MM-DD)
 function getWeekStartMondayISO(d = new Date()) {
   const date = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
-  const day = date.getUTCDay(); // 0=Sun,1=Mon,...6=Sat
-  const diff = (day === 0 ? 6 : day - 1); // days since Monday
+  const day = date.getUTCDay(); // 0=Sun..6=Sat
+  const diff = day === 0 ? 6 : day - 1; // since Monday
   date.setUTCDate(date.getUTCDate() - diff);
   return date.toISOString().slice(0, 10);
 }
 
-/**
- * Détermine si c’est la première activité du jour (pour global days_active).
- * (simple, localStorage) — tu peux remplacer par une table "daily_activity" plus tard.
- */
 function getAndSetFirstActivityToday(userId, isoDay) {
   if (!userId) return false;
   const key = `global_first_activity_${userId}_${isoDay}`;
@@ -183,10 +174,8 @@ function getLocalStreak(userId) {
   const lastDay = localStorage.getItem(keyLast);
   const current = Number(localStorage.getItem(keyStreak) || 0);
 
-  // déjà compté aujourd'hui
   if (lastDay === today) return current;
 
-  // calc hier
   const d = new Date(today + "T00:00:00Z");
   d.setUTCDate(d.getUTCDate() - 1);
   const yesterday = d.toISOString().slice(0, 10);
@@ -197,6 +186,43 @@ function getLocalStreak(userId) {
   localStorage.setItem(keyLast, today);
   localStorage.setItem(keyStreak, String(next));
   return next;
+}
+
+/* =========================================================
+   ✅ Helpers Timeline unlock via user_progress.data
+========================================================= */
+function parseWorldNumber(worldId) {
+  const m = String(worldId || "").match(/^world-(\d+)$/);
+  return m ? Number(m[1]) : null;
+}
+
+function computeNewTimelineUnlocks(prevWorld, nextWorld) {
+  const prevIds = new Set(
+    SIRA_TIMELINE.filter((e) => e.unlockAtWorld <= prevWorld).map((e) => e.id)
+  );
+
+  return SIRA_TIMELINE.filter(
+    (e) => e.unlockAtWorld <= nextWorld && !prevIds.has(e.id)
+  );
+}
+
+async function getUserProgressData(userId) {
+  const { data, error } = await supabase
+    .from("user_progress")
+    .select("data")
+    .eq("user_id", userId)
+    .single();
+
+  if (error) throw error;
+  return data?.data || {};
+}
+
+async function upsertUserProgressData(userId, nextData) {
+  const { error } = await supabase
+    .from("user_progress")
+    .upsert({ user_id: userId, data: nextData }, { onConflict: "user_id" });
+
+  if (error) throw error;
 }
 
 export default function Quiz() {
@@ -213,10 +239,22 @@ export default function Quiz() {
   // ✅ timer quiz total
   const quizStartMsRef = useRef(null);
 
-  // ✅ popup unlock
+  // ✅ popup unlock cartes
   const [unlockOpen, setUnlockOpen] = useState(false);
   const [unlockQueue, setUnlockQueue] = useState([]);
   const pendingNavRef = useRef(null); // { type:"success"|"fail", lessonId }
+
+  // ✅ Timeline unlock modal
+  const [timelineOpen, setTimelineOpen] = useState(false);
+  const [timelineUnlocked, setTimelineUnlocked] = useState([]);
+  const [timelineFocusId, setTimelineFocusId] = useState(null);
+
+  // ✅ pour enchaîner : cartes -> timeline -> navigation
+  const pendingTimelineRef = useRef(null); // { unlockedEvents, focusId }
+
+  const [searchParams] = useSearchParams();
+const worldFromQuery = searchParams.get("world"); // ex: "world-19"
+
 
   const isBossId = useMemo(() => /^b\d+$/.test(String(lessonId)), [lessonId]);
 
@@ -240,11 +278,14 @@ export default function Quiz() {
   // 1) Base quiz (pur, sans random)
   const baseQuiz = useMemo(() => {
     if (isBossId) {
-      // On laisse ton engine générer le quiz boss
       return buildBossQuiz(lessonId, LESSONS_CONTENT, {
         count: 8,
         passPct: 80,
-      });
+       }).then ? null : {
+   ...buildBossQuiz(lessonId, LESSONS_CONTENT, { count: 8, passPct: 80 }),
+   worldId: worldFromQuery || null,
+   worldKey: worldIdToWorldKey(worldFromQuery),
+ };
     }
 
     const lesson = getLessonById(lessonId);
@@ -277,14 +318,12 @@ export default function Quiz() {
   const [quiz, setQuiz] = useState(null);
 
   useEffect(() => {
-    // reset UI state à chaque quiz
     setI(0);
     setSelected(null);
     setShowFeedback(false);
     correctRef.current = 0;
     setCorrectCount(0);
 
-    // ✅ reset timer
     quizStartMsRef.current = Date.now();
 
     if (!baseQuiz) {
@@ -324,23 +363,45 @@ export default function Quiz() {
     setBossDots(makeBossDots(20));
   }, [bossMode, lessonId]);
 
-  // Si déjà fait : on ne montre rien (useEffect redirect)
   if (alreadyDone) return null;
 
   function handleCloseUnlock() {
     const rest = unlockQueue.slice(1);
 
-    // ✅ si plusieurs cartes débloquées -> on enchaîne
     if (rest.length) {
       setUnlockQueue(rest);
       return;
     }
 
-    // ✅ fin de queue
     setUnlockOpen(false);
     setUnlockQueue([]);
 
-    // ✅ navigation après fermeture
+    // ✅ Après les cartes, si une timeline est prévue, on l’affiche AVANT de naviguer
+    if (pendingTimelineRef.current) {
+      const t = pendingTimelineRef.current;
+      pendingTimelineRef.current = null;
+
+      setTimelineUnlocked(t.unlockedEvents || []);
+      setTimelineFocusId(t.focusId || null);
+      setTimelineOpen(true);
+      return; // ⛔️ pas de nav maintenant
+    }
+
+    const pending = pendingNavRef.current;
+    pendingNavRef.current = null;
+
+    if (pending?.type === "success") {
+      navigate(`/result/success/${pending.lessonId}`, { replace: true });
+    } else if (pending?.type === "fail") {
+      navigate(`/result/fail/${pending.lessonId}`, { replace: true });
+    }
+  }
+
+  function handleCloseTimeline() {
+    setTimelineOpen(false);
+    setTimelineUnlocked([]);
+    setTimelineFocusId(null);
+
     const pending = pendingNavRef.current;
     pendingNavRef.current = null;
 
@@ -384,6 +445,13 @@ export default function Quiz() {
           card={unlockQueue[0]}
           onClose={handleCloseUnlock}
         />
+
+        <TimelineUnlockModal
+          open={timelineOpen}
+          unlockedEvents={timelineUnlocked}
+          focusId={timelineFocusId}
+          onClose={handleCloseTimeline}
+        />
       </div>
     );
   }
@@ -403,21 +471,20 @@ export default function Quiz() {
     setShowFeedback(true);
   }
 
-  // ✅ NEW: push score to Supabase leaderboards
   async function submitLeaderboard({ passed }) {
-    // On ne bloque pas le user si supabase down -> try/catch au caller
     if (!user?.id) return;
 
     const todayISO = toISODate(new Date());
     const weekStartISO = getWeekStartMondayISO(new Date());
-    const timeMs = Math.max(0, Date.now() - (quizStartMsRef.current || Date.now()));
+    const timeMs = Math.max(
+      0,
+      Date.now() - (quizStartMsRef.current || Date.now())
+    );
 
     const correct = correctRef.current;
     const totalQ = total;
 
-    // ⚠️ streak : si tu as déjà une logique streak ailleurs, branche-la ici.
-    // Pour l’instant on met 0 (safe). Tu peux aussi stocker un streak dans progressStore.
-    const streak = getLocalStreak(user.id);;
+    const streak = getLocalStreak(user.id);
 
     // 1) Boss -> weekly boss (même si raté)
     if (isBossId && quiz?.isWeeklyBoss === true) {
@@ -429,7 +496,6 @@ export default function Quiz() {
         p_time_ms: timeMs,
       });
 
-      // Optionnel: marquer "seen" (badge bottomnav)
       localStorage.setItem("lb_seen_v1", "1");
     }
 
@@ -451,7 +517,6 @@ export default function Quiz() {
     try {
       const isFirst = getAndSetFirstActivityToday(user.id, todayISO);
 
-      // ⚠️ Si tu gères streak ailleurs, mets les vraies valeurs
       const newStreakCurrent = streak;
       const newStreakMax = streak;
 
@@ -463,8 +528,7 @@ export default function Quiz() {
         p_new_streak_max: newStreakMax,
       });
     } catch (e) {
-      // On ignore si la function n’existe pas encore ou si tu ne l’as pas déployée
-      // console.warn("bump_global_after_quiz skipped:", e);
+      // ignore
     }
   }
 
@@ -473,21 +537,17 @@ export default function Quiz() {
     const passPct = quiz?.passPct ?? 80;
     const passed = pct >= passPct;
 
-    // ✅ ENVOI SCORE (avant nav)
     try {
       await submitLeaderboard({ passed });
     } catch (e) {
       console.error("submitLeaderboard failed:", e);
-      // on continue quand même
     }
 
-    // si échec: on peut naviguer direct (pas de carte)
     if (!passed) {
       navigate(`/result/fail/${lessonId}`, { replace: true });
       return;
     }
 
-    // ✅ succès: on déclenche le moteur de cartes
     try {
       const p = loadProgress();
 
@@ -502,6 +562,38 @@ export default function Quiz() {
 
       saveProgress(p2);
 
+      // ✅ TIMELINE UNLOCK (seulement boss de monde, pas weekly boss)
+      let timelinePayload = null;
+
+      try {
+        const isWorldBoss = isBossId && quiz?.isWeeklyBoss !== true;
+        const worldNumber = isWorldBoss ? parseWorldNumber(quiz?.worldId) : null;
+
+        if (isWorldBoss && user?.id && worldNumber) {
+          const currentData = await getUserProgressData(user.id);
+          const prevWorld = Number(currentData.timelineWorldCompleted || 0);
+
+          if (worldNumber > prevWorld) {
+            const nextWorld = worldNumber;
+
+            const unlockedEvents = computeNewTimelineUnlocks(prevWorld, nextWorld);
+            const focusId = unlockedEvents.at(-1)?.id || null;
+
+            const nextData = {
+              ...currentData,
+              timelineWorldCompleted: nextWorld,
+            };
+
+            await upsertUserProgressData(user.id, nextData);
+
+            timelinePayload = { unlockedEvents, focusId };
+          }
+        }
+      } catch (e) {
+        console.error("Timeline unlock failed:", e);
+      }
+
+      // ✅ cartes débloquées
       if (newlyUnlocked?.length) {
         await syncCardsToSupabase(newlyUnlocked, {
           source: "quiz",
@@ -511,10 +603,24 @@ export default function Quiz() {
           isBoss: isBossId,
         });
 
+        // ✅ si on a aussi une timeline à montrer, on la réserve APRES les cartes
+        if (timelinePayload) {
+          pendingTimelineRef.current = timelinePayload;
+        }
+
         pendingNavRef.current = { type: "success", lessonId };
         setUnlockQueue(newlyUnlocked);
         setUnlockOpen(true);
-        return; // ⛔️ on navigate pas maintenant
+        return; // ⛔️ pas de nav maintenant
+      }
+
+      // ✅ pas de cartes, mais timeline à montrer
+      if (timelinePayload) {
+        pendingNavRef.current = { type: "success", lessonId };
+        setTimelineUnlocked(timelinePayload.unlockedEvents || []);
+        setTimelineFocusId(timelinePayload.focusId || null);
+        setTimelineOpen(true);
+        return;
       }
 
       navigate(`/result/success/${lessonId}`, { replace: true });
@@ -540,11 +646,19 @@ export default function Quiz() {
           : "bg-gradient-to-br from-neutral-50 via-blue-50/20 to-purple-50/20",
       ].join(" ")}
     >
-      {/* ✅ popup unlock (réel) */}
+      {/* ✅ popup unlock (cartes) */}
       <CardUnlockModal
         open={unlockOpen}
         card={unlockQueue[0]}
         onClose={handleCloseUnlock}
+      />
+
+      {/* ✅ popup unlock (timeline) */}
+      <TimelineUnlockModal
+        open={timelineOpen}
+        unlockedEvents={timelineUnlocked}
+        focusId={timelineFocusId}
+        onClose={handleCloseTimeline}
       />
 
       {/* Fond animé */}
@@ -555,7 +669,6 @@ export default function Quiz() {
             <div className="absolute bottom-20 left-10 w-80 h-80 bg-amber-600/10 rounded-full blur-3xl animate-pulse delay-1000" />
           </div>
 
-          {/* ✅ dots boss: plus de Math.random ici */}
           <div className="fixed inset-0 pointer-events-none">
             {bossDots.map((d) => (
               <div
@@ -583,7 +696,7 @@ export default function Quiz() {
           className={[
             "inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm font-medium shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200",
             bossMode
-              ? "bg-neutral-800/80 backdrop-blur-sm border border-neutral-700/50 text-black"
+              ? "bg-neutral-800/80 backdrop-blur-sm border border-neutral-700/50 text-white"
               : "bg-white/90 backdrop-blur-sm border border-neutral-200/50 text-neutral-900",
           ].join(" ")}
         >
@@ -663,6 +776,7 @@ export default function Quiz() {
               {progressPct}%
             </span>
           </div>
+
           <div
             className={[
               "h-3 w-full rounded-full overflow-hidden shadow-inner",
@@ -727,8 +841,8 @@ export default function Quiz() {
                     className={[
                       "w-full text-left rounded-2xl border-2 px-5 py-4 text-sm font-medium transition-all duration-200 relative overflow-hidden group",
                       bossMode
-                        ? "bg-neutral-800/50 border-neutral-700"
-                        : "bg-white border-neutral-200",
+                        ? "bg-neutral-800/50 border-neutral-700 text-white"
+                        : "bg-white border-neutral-200 text-neutral-900",
                       active && !locked
                         ? bossMode
                           ? "border-yellow-400 bg-yellow-600/10"
@@ -739,7 +853,7 @@ export default function Quiz() {
                           ? "hover:border-neutral-600 hover:bg-neutral-800"
                           : "hover:border-neutral-300 hover:shadow-md hover:scale-[1.01]"
                         : "",
-                      showAsWrong && "border-red-500 bg-red-50",
+                      showAsWrong && "border-red-500 bg-red-50 text-neutral-900",
                       showAsCorrect &&
                         (bossMode
                           ? "border-emerald-400 bg-emerald-900/20"
@@ -768,9 +882,7 @@ export default function Quiz() {
                         ) : null}
                       </div>
 
-                      <span className={bossMode ? "text-neutral-800" : "text-neutral-900"}>
-                        {opt}
-                      </span>
+                      <span>{opt}</span>
                     </div>
                   </button>
                 );
@@ -840,11 +952,7 @@ export default function Quiz() {
                 >
                   {isCorrect ? "Excellent !" : "Pas tout à fait..."}
                 </p>
-                <p
-                  className={`text-xs ${
-                    bossMode ? "text-neutral-400" : "text-neutral-600"
-                  }`}
-                >
+                <p className={`text-xs ${bossMode ? "text-neutral-400" : "text-neutral-600"}`}>
                   {isCorrect ? "Continue comme ça" : "Lis l'explication"}
                 </p>
               </div>
