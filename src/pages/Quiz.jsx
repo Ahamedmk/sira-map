@@ -690,13 +690,13 @@ const worldFromQuery = searchParams.get("world"); // ex: "world-19"
         </div>
       )}
 
-      <div className="relative z-10 mx-auto max-w-md px-5 pt-6">
+      <div className="relative z-10 mx-auto max-w-md px-5   pt-6">
         <button
           onClick={() => navigate(-1)}
           className={[
-            "inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm font-medium shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200",
+            "inline-flex items-center  gap-2 px-4 py-2.5 rounded-2xl text-sm font-medium shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200",
             bossMode
-              ? "bg-neutral-800/80 backdrop-blur-sm border border-neutral-700/50 text-white"
+              ? "bg-neutral-800/80 backdrop-blur-sm border border-neutral-700/50 text-black"
               : "bg-white/90 backdrop-blur-sm border border-neutral-200/50 text-neutral-900",
           ].join(" ")}
         >
@@ -862,7 +862,7 @@ const worldFromQuery = searchParams.get("world"); // ex: "world-19"
                     ].join(" ")}
                     onClick={() => !locked && setSelected(idx)}
                   >
-                    <div className="relative z-10 flex items-center gap-3">
+                    <div className="relative z-10 flex items-center text-black gap-3">
                       <div
                         className={[
                           "w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all",

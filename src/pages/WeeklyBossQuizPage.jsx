@@ -301,7 +301,7 @@ export default function WeeklyBossQuizPage() {
   function renderQuestionBody() {
     if (q.type === "mcq") {
       return (
-        <div className="mt-5 space-y-3">
+        <div className="mt-5 text-black space-y-3">
           {q.options.map((opt, i) => {
             const active = selected === i;
             const locked = showFeedback;
@@ -465,7 +465,7 @@ export default function WeeklyBossQuizPage() {
       <div className="mx-auto max-w-md px-5 pt-8 text-white">
         <button
           onClick={() => navigate("/weekly-boss")}
-          className="inline-flex items-center gap-2 rounded-2xl border border-neutral-700 bg-neutral-900/70 px-4 py-2.5 text-sm font-bold text-white shadow"
+          className="inline-flex items-center gap-2 rounded-2xl border border-neutral-700 bg-neutral-900/70 px-4 py-2.5 text-sm font-bold text-black shadow"
         >
           <ArrowLeft size={16} /> Quitter
         </button>
@@ -490,7 +490,7 @@ export default function WeeklyBossQuizPage() {
         </div>
 
         <div className="mt-5 rounded-3xl border border-neutral-700 bg-neutral-900/70 p-6 shadow-xl">
-          <h2 className="text-lg font-extrabold leading-snug">{q.question}</h2>
+          <h2 className="text-lg  font-extrabold leading-snug">{q.question}</h2>
 
           {renderQuestionBody()}
 
