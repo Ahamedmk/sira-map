@@ -283,8 +283,17 @@ export default function Timeline() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // ✅ si tu veux venir ici après un unlock: navigate("/timeline", { state: { highlightIds: [...], focusId }})
-  const highlightIds = useMemo(() => {
+ // 1) Lire le dernier unlock stocké (fallback)
+const persisted = useMemo(() => {
+  try {
+    return JSON.parse(localStorage.getItem("timeline_last_unlock_v1") || "null");
+  } catch {
+    return null;
+  }
+}, []);
+
+// 2) highlightIds (state > localStorage)
+const highlightIds = useMemo(() => {
   const idsFromState = location?.state?.highlightIds;
   const idsFromLS = persisted?.highlightIds;
 
@@ -297,16 +306,9 @@ export default function Timeline() {
   return new Set(ids);
 }, [location?.state, persisted]);
 
-
-  const persisted = useMemo(() => {
-  try {
-    return JSON.parse(localStorage.getItem("timeline_last_unlock_v1") || "null");
-  } catch {
-    return null;
-  }
-}, []);
-
+// 3) focusId (state > localStorage)
 const focusId = location?.state?.focusId || persisted?.focusId || null;
+
 
 
   const [completedWorld, setCompletedWorld] = useState(null);

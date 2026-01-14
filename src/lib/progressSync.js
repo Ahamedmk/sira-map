@@ -56,23 +56,23 @@ export async function fetchRemoteProgress(userId) {
 export async function upsertRemoteProgress(userId, progress) {
   if (!userId) return null;
 
+  // 👇 récupère la valeur remote actuelle pour ne pas la perdre
+  const remote = await fetchRemoteProgress(userId);
+  const remoteT = Number(remote?.timelineWorldCompleted || 0);
+
   const safe = withUpdatedAt(progress);
 
-  // ✅ LOG AU BON ENDROIT (juste avant l'UPSERT)
-  console.log("☁️ upsertRemoteProgress() -> pushing:", {
-    userId,
-    timelineWorldCompleted: safe?.timelineWorldCompleted,
-    updatedAt: safe?.updatedAt,
-  });
+  // ✅ si le progress local ne contient pas timelineWorldCompleted,
+  // on conserve la valeur remote (ou on prend le max)
+  const localT = Number(safe?.timelineWorldCompleted || 0);
+  safe.timelineWorldCompleted = Math.max(remoteT, localT);
+
+  console.log("PUSH timelineWorldCompleted:", safe.timelineWorldCompleted);
 
   const { data, error } = await supabase
     .from("user_progress")
     .upsert(
-      {
-        user_id: userId,
-        data: safe,
-        updated_at: new Date().toISOString(),
-      },
+      { user_id: userId, data: safe, updated_at: new Date().toISOString() },
       { onConflict: "user_id" }
     )
     .select();
@@ -80,6 +80,7 @@ export async function upsertRemoteProgress(userId, progress) {
   if (error) throw error;
   return data || null;
 }
+
 
 /* =========================================
    Login sync (merge)
