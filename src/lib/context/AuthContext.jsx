@@ -1,3 +1,4 @@
+// src/lib/context/AuthContext.jsx
 import {
   createContext,
   useContext,
@@ -7,13 +8,18 @@ import {
   useState,
 } from "react";
 import { supabase } from "../supabase";
+
 import {
   syncProgressOnLogin,
   queueRemoteProgress,
   flushRemoteProgressNow,
 } from "../progressSync";
-import { setProgressCloudSync } from "../progressStore";
-import { resetProgress } from "../progressStore"; // adapte le chemin
+
+import {
+  setProgressCloudSync,
+  setProgressUser, // ✅ IMPORTANT: progress par user/guest
+  resetProgress,
+} from "../progressStore";
 
 const AuthContext = createContext(null);
 
@@ -64,7 +70,15 @@ export function AuthProvider({ children }) {
     };
   }, []);
 
-  // ✅ Sync progression au login (pull remote + merge + push remote)
+  // ✅ 1) Choisir la bonne "key" de progress store dès que user change
+  //    - user null => guest
+  //    - user id => sira_progress_v1::user::<id>
+  useEffect(() => {
+    const userId = session?.user?.id ?? null;
+    setProgressUser(userId);
+  }, [session?.user?.id]);
+
+  // ✅ 2) Sync progression au login (pull remote + merge + push remote)
   useEffect(() => {
     const userId = session?.user?.id;
     if (!userId) return;
@@ -89,7 +103,7 @@ export function AuthProvider({ children }) {
     })();
   }, [session?.user?.id]);
 
-  // ✅ Brancher le push auto: chaque saveProgress() déclenche queueRemoteProgress()
+  // ✅ 3) Brancher le push auto: chaque saveProgress() déclenche queueRemoteProgress()
   useEffect(() => {
     const userId = session?.user?.id;
 
@@ -112,28 +126,33 @@ export function AuthProvider({ children }) {
       session,
       user: session?.user ?? null,
       loading,
+
       signOut: async () => {
-  try {
-    // 1) push final si tu as une sauvegarde en attente
-    await flushRemoteProgressNow?.();
+        try {
+          // 1) push final si tu as une sauvegarde en attente
+          await flushRemoteProgressNow?.();
 
-    // 2) logout supabase
-    await supabase.auth.signOut();
+          // 2) logout supabase
+          await supabase.auth.signOut();
 
-    // 3) reset progression locale (retour monde 1)
-    resetProgress();
+          // 3) ✅ IMPORTANT: repasse sur guest AVANT de reset
+          // (sinon tu risques de reset la clé user::<id>)
+          setProgressUser(null);
 
-    // 4) optionnel : reset flags UI
-    localStorage.removeItem("signup_prompt_seen");
-    localStorage.removeItem("post_boss_prompt");
-    localStorage.removeItem("progress_migrated_to_supabase_v1");
+          // 4) reset progression locale (retour monde 1 mais côté guest)
+          resetProgress();
 
-    // 5) refresh pour que Map relise le localStorage clean
-    window.location.href = "/map";
-  } catch (e) {
-    console.warn("signOut failed:", e?.message || e);
-  }
-},
+          // 5) optionnel : reset flags UI
+          localStorage.removeItem("signup_prompt_seen");
+          localStorage.removeItem("post_boss_prompt");
+          localStorage.removeItem("progress_migrated_to_supabase_v1");
+
+          // 6) refresh pour que Map relise le localStorage clean
+          window.location.href = "/map";
+        } catch (e) {
+          console.warn("signOut failed:", e?.message || e);
+        }
+      },
     };
   }, [session, loading]);
 

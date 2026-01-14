@@ -176,7 +176,7 @@ export const SIRA_TIMELINE = [
     dateLabel: "Ramadan 8 AH",
     title: "Conquête de La Mecque",
     phase: "madinah",
-    unlockAtWorld: 22,
+    unlockAtWorld: 21,
     summary: "Puissance sans vengeance. Le pardon comme sommet du triomphe.",
   },
   {

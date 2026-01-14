@@ -1,3 +1,4 @@
+// src/pages/Map.jsx (ou MapPage.jsx selon ton projet)
 import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -22,7 +23,7 @@ import {
   Zap,
   UserPlus,
   ShieldCheck,
-  Route, // ✅ AJOUT ICON TIMELINE
+  Route,
 } from "lucide-react";
 
 /* ------------------ Icons ------------------ */
@@ -59,7 +60,7 @@ function NodeIcon({ type, locked }) {
 
 /* ------------------ Helpers ------------------ */
 function worldNumberFromId(worldId) {
-  // world-1 => 1, world6 => 6, "6" => 6
+  // "world-1" => 1, "world6" => 6, "6" => 6
   const m = String(worldId || "").match(/(\d+)/);
   return m ? Number(m[1]) : 1;
 }
@@ -77,7 +78,10 @@ export default function MapPage() {
   const navigate = useNavigate();
   const { user, loading: authLoading } = useAuth();
 
+  // ✅ IMPORTANT : si tu veux reset à monde1 quand logout,
+  // charge progress en fonction de user (voir useEffect plus bas).
   const [progress, setProgress] = useState(() => loadProgress());
+
   const [sheetOpen, setSheetOpen] = useState(false);
   const [selectedNode, setSelectedNode] = useState(null);
   const [pulseNode, setPulseNode] = useState(null);
@@ -88,9 +92,12 @@ export default function MapPage() {
   // ✅ Premium (à brancher plus tard)
   const isPro = true;
 
+  // ✅ Recharge progress :
+  // - au mount
+  // - ET quand l'utilisateur change (login/logout) pour éviter les états “collés”
   useEffect(() => {
     setProgress(loadProgress());
-  }, []);
+  }, [user?.id]);
 
   const { worldsUI, activeWorldId, nextPack } = useMemo(
     () => computeMapUI(progress),
@@ -106,11 +113,10 @@ export default function MapPage() {
 
   // Pulse effect sur le prochain nœud
   useEffect(() => {
-    if (next) {
-      setPulseNode(next.id);
-      const timer = setTimeout(() => setPulseNode(null), 3000);
-      return () => clearTimeout(timer);
-    }
+    if (!next) return;
+    setPulseNode(next.id);
+    const timer = setTimeout(() => setPulseNode(null), 3000);
+    return () => clearTimeout(timer);
   }, [next]);
 
   /* ------------------ Signup Prompt Trigger ------------------ */
@@ -139,12 +145,14 @@ export default function MapPage() {
 
     if (node.type === "lesson") navigate(`/lesson/${node.id}`);
     if (node.type === "review") navigate(`/bonus/${node.id}`);
+
+    // ✅ FIX: passe worldId en query + state (robuste pour Quiz.jsx)
     if (node.type === "boss") {
-  const wid = node.worldId || activeWorldId;
-  navigate(`/quiz/${node.id}?world=${encodeURIComponent(wid)}`, {
-    state: { worldId: wid },
-  });
-}
+      const wid = node.worldId || activeWorldId;
+      navigate(`/quiz/${node.id}?world=${encodeURIComponent(wid)}`, {
+        state: { worldId: wid },
+      });
+    }
   }
 
   function isWorldCompleted(world) {
@@ -164,12 +172,11 @@ export default function MapPage() {
   function openNode(rawNode) {
     if (!rawNode || rawNode.status === "locked") return;
 
-    // On récupère le monde du node (injecté plus bas au rendu)
     const worldN = worldNumberFromId(rawNode.worldId || activeWorldId);
-    const lockedByPaywall = false;
-    // isWorldLockedByPaywall(worldN, isPro);
 
-    // 🔒 Paywall : si non Pro et monde verrouillé
+    // ✅ Maintenant on branche vraiment le paywall (au lieu de lockedByPaywall=false)
+    const lockedByPaywall = isWorldLockedByPaywall(worldN, isPro);
+
     if (lockedByPaywall) {
       setSelectedNode({
         ...rawNode,
@@ -180,13 +187,12 @@ export default function MapPage() {
       return;
     }
 
-    // ✅ si déjà terminé : leçon relisible, quiz non rejouable
+    // ✅ si déjà terminé : leçon relisible, review/boss non rejouable
     if (rawNode.status === "done") {
       if (rawNode.type === "lesson") {
         navigate(`/lesson/${rawNode.id}`);
         return;
       }
-      // boss/review/quiz => non rejouable
       return;
     }
 
@@ -198,7 +204,6 @@ export default function MapPage() {
     if (!selectedNode) return;
     setSheetOpen(false);
 
-    // Paywall => vers page d’achat
     if (selectedNode._paywall) {
       navigate("/paywall");
       return;
@@ -228,7 +233,7 @@ export default function MapPage() {
                 Progresse monde par monde 🚀
               </p>
 
-              {/* ✅ AJOUT : bouton Timeline compact (header) */}
+              {/* ✅ bouton Timeline compact (header) */}
               <button
                 onClick={() => navigate("/timeline")}
                 className="mt-3 inline-flex items-center gap-2 rounded-2xl border border-neutral-200 bg-white/80 px-3 py-2 text-xs font-bold text-neutral-800 shadow-sm hover:bg-white hover:shadow-md active:scale-[0.98] transition-all"
@@ -285,10 +290,10 @@ export default function MapPage() {
                 onClick={() => openNode({ ...next, worldId: activeWorldId })}
               >
                 <Zap size={18} />
-                Continuer l'aventure
+                Continuer l&apos;aventure
               </button>
 
-              {/* ✅ AJOUT : Bouton Timeline “grand” (card) */}
+              {/* Bouton Timeline “grand” (card) */}
               <button
                 onClick={() => navigate("/timeline")}
                 className="mt-3 w-full rounded-2xl border-2 border-neutral-200 bg-white py-3.5 font-bold hover:bg-neutral-50 active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2"
@@ -332,6 +337,7 @@ export default function MapPage() {
                     )}
                     {w.title}
                   </h2>
+
                   <span
                     className={`text-xs font-semibold px-3 py-1 rounded-full ${
                       w.unlocked
@@ -577,7 +583,9 @@ export default function MapPage() {
                 <ShieldCheck size={18} className="text-emerald-700" />
               </div>
               <div className="space-y-1">
-                <p className="font-semibold text-neutral-900">Pourquoi créer un compte ?</p>
+                <p className="font-semibold text-neutral-900">
+                  Pourquoi créer un compte ?
+                </p>
                 <ul className="list-disc pl-5 text-sm text-neutral-700 space-y-1">
                   <li>Récupère ta progression sur n’importe quel appareil</li>
                   <li>Ne perds pas tes XP, badges et séries</li>

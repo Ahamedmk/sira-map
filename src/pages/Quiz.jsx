@@ -346,13 +346,7 @@ export default function Quiz() {
       passPct: 80,
       sourceLessonIds: [lessonId],
     };
-  }, [
-    isBossId,
-    lessonId,
-    worldFromQuery,
-    worldIdFromNav,
-    worldFallbackFromBoss,
-  ]);
+  }, [isBossId, lessonId, worldFromQuery, worldIdFromNav, worldFallbackFromBoss]);
 
   // 2) Quiz “préparé” : shuffle options (sans Math.random)
   const [quiz, setQuiz] = useState(null);
@@ -437,20 +431,31 @@ export default function Quiz() {
     }
   }
 
+  /**
+   * ✅ FIX CRITIQUE:
+   * - ton ancien code faisait navigate("/timeline") puis navigate("/result/...") juste après
+   *   => le second navigate écrasait le premier, ou inversement selon le timing
+   *
+   * Ici on choisit un seul flux:
+   * - on ferme le modal
+   * - on va sur /timeline avec le payload (focus + highlights)
+   * - Timeline fera le reste (l'utilisateur revient ensuite, ou tu peux y mettre un bouton "Continuer")
+   */
   function handleCloseTimeline() {
-    setTimelineOpen(false);
-    setTimelineUnlocked([]);
-    setTimelineFocusId(null);
+  const payload = {
+    focusId: timelineFocusId,
+    highlightIds: (timelineUnlocked || []).map((e) => e.id),
+  };
 
-    const pending = pendingNavRef.current;
-    pendingNavRef.current = null;
+  setTimelineOpen(false);
+  setTimelineUnlocked([]);
+  setTimelineFocusId(null);
 
-    if (pending?.type === "success") {
-      navigate(`/result/success/${pending.lessonId}`, { replace: true });
-    } else if (pending?.type === "fail") {
-      navigate(`/result/fail/${pending.lessonId}`, { replace: true });
-    }
-  }
+  // ✅ aller à la timeline et STOP
+  pendingNavRef.current = null;
+  navigate("/timeline", { state: payload });
+}
+
 
   if (!quiz || !total) {
     return (
@@ -516,10 +521,7 @@ export default function Quiz() {
 
     const todayISO = toISODate(new Date());
     const weekStartISO = getWeekStartMondayISO(new Date());
-    const timeMs = Math.max(
-      0,
-      Date.now() - (quizStartMsRef.current || Date.now())
-    );
+    const timeMs = Math.max(0, Date.now() - (quizStartMsRef.current || Date.now()));
 
     const correct = correctRef.current;
     const totalQ = total;
@@ -603,20 +605,10 @@ export default function Quiz() {
 
       // ✅ TIMELINE UNLOCK (seulement boss de monde, pas weekly boss)
       let timelinePayload = null;
-      localStorage.setItem(
-  "timeline_last_unlock_v1",
-  JSON.stringify({
-    focusId,
-    highlightIds: unlockedEvents.map((e) => e.id),
-    at: Date.now(),
-  })
-);
-
 
       try {
         const isWorldBoss = isBossId && quiz?.isWeeklyBoss !== true;
 
-        // ✅ résolution robuste du numéro de monde
         const worldNumber = isWorldBoss
           ? parseWorldNumberFromWorldId(quiz?.worldId) ||
             parseWorldNumberFromWorldId(worldIdFromNav) ||
@@ -629,22 +621,28 @@ export default function Quiz() {
           const currentData = await getUserProgressData(user.id);
           const prevWorld = Number(currentData.timelineWorldCompleted || 0);
 
-          if (worldNumber > prevWorld) {
-            const nextWorld = worldNumber;
+          const nextWorld = maxWorld(prevWorld, worldNumber);
 
+          if (nextWorld > prevWorld) {
             const unlockedEvents = computeNewTimelineUnlocks(prevWorld, nextWorld);
             const focusId = unlockedEvents.at(-1)?.id || null;
 
             const nextData = {
               ...currentData,
-              // ✅ ne jamais “downgrade”
-              timelineWorldCompleted: maxWorld(
-                currentData.timelineWorldCompleted,
-                nextWorld
-              ),
+              timelineWorldCompleted: nextWorld,
             };
 
             await upsertUserProgressData(user.id, nextData);
+
+            // ✅ Persist fallback (Timeline.jsx peut le relire)
+            localStorage.setItem(
+              "timeline_last_unlock_v1",
+              JSON.stringify({
+                focusId,
+                highlightIds: unlockedEvents.map((e) => e.id),
+                at: Date.now(),
+              })
+            );
 
             timelinePayload = { unlockedEvents, focusId };
           }
@@ -676,7 +674,8 @@ export default function Quiz() {
 
       // ✅ pas de cartes, mais timeline à montrer
       if (timelinePayload) {
-        pendingNavRef.current = { type: "success", lessonId };
+        // ⚠️ IMPORTANT: on NE navigate PAS vers /result ici
+        // car handleCloseTimeline navigue vers /timeline.
         setTimelineUnlocked(timelinePayload.unlockedEvents || []);
         setTimelineFocusId(timelinePayload.focusId || null);
         setTimelineOpen(true);

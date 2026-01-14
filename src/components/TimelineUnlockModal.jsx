@@ -1,89 +1,79 @@
+// src/components/TimelineUnlockModal.jsx
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function TimelineUnlockModal({
   open,
-  onClose,
   unlockedEvents = [],
-  focusId,
+  focusId = null,
+  onClose,
+  onGoTimeline,
 }) {
-  const navigate = useNavigate();
   if (!open) return null;
 
-  const has = unlockedEvents.length > 0;
-
-  function goTimeline() {
-    const url = focusId
-      ? `/timeline?focus=${encodeURIComponent(focusId)}`
-      : "/timeline";
-    navigate(url);
-    onClose?.();
-  }
+  const count = unlockedEvents.length;
 
   return (
     <div className="fixed inset-0 z-50">
       <button
-        className="absolute inset-0 bg-black/50"
         onClick={onClose}
+        className="absolute inset-0 bg-black/50"
         aria-label="Fermer"
       />
 
-      <div className="absolute bottom-0 left-0 right-0">
-        <div className="mx-auto max-w-md rounded-t-3xl bg-white p-5 shadow-2xl dark:bg-neutral-950">
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <div className="text-xs uppercase tracking-wide text-neutral-500">
-                Monde terminé
-              </div>
-              <h2 className="mt-1 text-xl font-bold text-neutral-900 dark:text-white">
-                Nouvelles étapes révélées
-              </h2>
-            </div>
-            <button
-              onClick={onClose}
-              className="rounded-xl px-3 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-800"
-            >
-              Fermer
-            </button>
-          </div>
-
-          <div className="mt-4 rounded-2xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
-            {has ? (
-              <div className="space-y-3">
-                {unlockedEvents.map((e) => (
-                  <div
-                    key={e.id}
-                    className="rounded-xl bg-white p-3 dark:bg-neutral-950"
-                  >
-                    <div className="text-xs text-neutral-500">{e.dateLabel}</div>
-                    <div className="text-sm font-semibold text-neutral-900 dark:text-white">
-                      {e.title}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="text-sm text-neutral-600 dark:text-neutral-300">
-                Aucun nouvel événement cette fois. Le prochain arrive bientôt.
-              </div>
-            )}
-          </div>
-
-          <div className="mt-5 flex gap-2">
-            <button
-              onClick={goTimeline}
-              className="flex-1 rounded-2xl bg-neutral-900 px-4 py-3 text-sm font-bold text-white hover:opacity-90 dark:bg-white dark:text-neutral-900"
-            >
-              Voir sur le Chemin
-            </button>
-            <button
-              onClick={onClose}
-              className="rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-sm hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-800"
-            >
-              Continuer
-            </button>
-          </div>
+      <div className="absolute left-1/2 top-1/2 w-[92%] max-w-md -translate-x-1/2 -translate-y-1/2 rounded-3xl bg-white p-5 shadow-2xl dark:bg-slate-950">
+        <div className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+          Timeline
         </div>
+
+        <div className="mt-1 text-xl font-extrabold text-slate-900 dark:text-slate-100">
+          Nouveaux événements débloqués
+        </div>
+
+        <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+          Tu viens de débloquer{" "}
+          <span className="font-semibold">{count}</span>{" "}
+          {count > 1 ? "événements" : "événement"} dans la timeline.
+        </p>
+
+        {count > 0 && (
+          <div className="mt-4 max-h-44 overflow-auto rounded-2xl border border-slate-200 bg-slate-50 p-3 text-sm dark:border-slate-800 dark:bg-slate-900">
+            <ul className="space-y-2">
+              {unlockedEvents.slice(0, 6).map((e) => (
+                <li key={e.id} className="text-slate-700 dark:text-slate-200">
+                  • {e.title}
+                </li>
+              ))}
+              {unlockedEvents.length > 6 && (
+                <li className="text-slate-500 dark:text-slate-400">
+                  … +{unlockedEvents.length - 6} autres
+                </li>
+              )}
+            </ul>
+          </div>
+        )}
+
+        <div className="mt-4 flex gap-2">
+          <button
+            onClick={onClose}
+            className="flex-1 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:hover:bg-slate-900"
+          >
+            Plus tard
+          </button>
+
+          <button
+            onClick={onGoTimeline}
+            className="flex-1 rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800"
+          >
+            Voir la timeline →
+          </button>
+        </div>
+
+        {/* debug optionnel */}
+        {focusId && (
+          <div className="mt-3 text-[11px] text-slate-400">
+            Focus : {focusId}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,5 +1,39 @@
-const KEY = "sira_progress_v1";
+// src/lib/progressStore.js
+const BASE_KEY = "sira_progress_v1";
 let _cloudSync = null;
+
+// ✅ clé active (par défaut: guest)
+let _activeKey = `${BASE_KEY}::guest`;
+
+/**
+ * ✅ Appeler ça quand l'utilisateur change (login/logout)
+ * - userId null/undefined => guest
+ * - userId => stockage séparé par user
+ */
+export function setProgressUser(userId) {
+  _activeKey = userId ? `${BASE_KEY}::user::${userId}` : `${BASE_KEY}::guest`;
+
+  // ✅ Migration automatique depuis l'ancien KEY unique (1 fois)
+  // Objectif: ne pas "perdre" la progression historique de ton MVP
+  // et éviter que les comptes se partagent la même progression.
+  try {
+    const legacyRaw = localStorage.getItem(BASE_KEY);
+    if (!legacyRaw) return;
+
+    const migratedFlag = localStorage.getItem(`${_activeKey}::migrated_v1`) === "1";
+    if (migratedFlag) return;
+
+    // Si la nouvelle clé n'existe pas encore, on migre.
+    const currentRaw = localStorage.getItem(_activeKey);
+    if (!currentRaw) {
+      localStorage.setItem(_activeKey, legacyRaw);
+    }
+
+    localStorage.setItem(`${_activeKey}::migrated_v1`, "1");
+  } catch {
+    // ignore
+  }
+}
 
 /**
  * Permet de brancher un push cloud sans coupler progressStore à Supabase.
@@ -40,34 +74,35 @@ function normalizeNumber(val, fallback = 0) {
   return Number.isFinite(n) ? n : fallback;
 }
 
+function emptyProgress(t) {
+  return {
+    xp: 0,
+    streak: 0,
+    lastActiveDate: null,
+    completedNodeIds: [],
+    unlockedCards: [],
+    xpToday: 0,
+    xpTodayDate: t,
+    reviewQueue: [], // [{id, lessonId, dueDate, stage, done}]
+    unlockedBadges: [],
+  };
+}
+
 export function loadProgress() {
   const t = todayISO();
 
   try {
-    const raw = localStorage.getItem(KEY);
+    // ✅ on lit la clé active (guest OU user::<id>)
+    const raw = localStorage.getItem(_activeKey);
 
-    if (!raw) {
-      return {
-        xp: 0,
-        streak: 0,
-        lastActiveDate: null,
-        completedNodeIds: [],
-        xpToday: 0,
-        xpTodayDate: t,
-        reviewQueue: [], // [{id, lessonId, dueDate, stage, done}]
-        unlockedBadges: [], // ✅ manquant
-      };
-    }
+    if (!raw) return emptyProgress(t);
 
     const data = JSON.parse(raw);
 
     // Reset XP du jour si date changée
     const xpTodayDate = data.xpTodayDate ?? t;
     let xpToday = normalizeNumber(data.xpToday, 0);
-
-    if (xpTodayDate !== t) {
-      xpToday = 0;
-    }
+    if (xpTodayDate !== t) xpToday = 0;
 
     return {
       xp: normalizeNumber(data.xp, 0),
@@ -78,35 +113,26 @@ export function loadProgress() {
       xpToday,
       xpTodayDate: t, // on force à la date du jour
       reviewQueue: normalizeArray(data.reviewQueue),
-      unlockedBadges: normalizeArray(data.unlockedBadges), // ✅ manquant
+      unlockedBadges: normalizeArray(data.unlockedBadges),
+      updatedAt: data.updatedAt ?? null,
     };
   } catch {
-    return {
-      xp: 0,
-      streak: 0,
-      lastActiveDate: null,
-      completedNodeIds: [],
-      unlockedCards: [],
-      xpToday: 0,
-      xpTodayDate: t,
-      reviewQueue: [],
-      unlockedBadges: [], // ✅ manquant
-    };
+    return emptyProgress(t);
   }
 }
 
 export function saveProgress(p) {
-  p.updatedAt = Date.now();
-  localStorage.setItem(KEY, JSON.stringify(p));
+  const next = { ...p, updatedAt: Date.now() };
+
+  localStorage.setItem(_activeKey, JSON.stringify(next));
 
   // ✅ push cloud (si branché)
   try {
-    _cloudSync?.(p);
+    _cloudSync?.(next);
   } catch (e) {
     console.warn("cloudSync failed:", e?.message || e);
   }
 }
-
 
 export function markActiveDay(p) {
   const t = todayISO();
@@ -121,7 +147,7 @@ export function markActiveDay(p) {
 
     if (diffDays === 1) p.streak = currentStreak + 1;
     else if (diffDays > 1) p.streak = 1;
-    else p.streak = currentStreak; // cas bizarre (heure/format), on ne casse pas
+    else p.streak = currentStreak;
   } else {
     p.streak = 1;
   }
@@ -153,7 +179,6 @@ export function isNodeCompleted(p, nodeId) {
  * Planifier 2 révisions après validation d'une leçon:
  * - J+1 (stage=1)
  * - J+3 (stage=2)
- * On évite les doublons par (lessonId, stage)
  */
 export function scheduleReviewsForLesson(p, lessonId) {
   const t = todayISO();
@@ -196,12 +221,10 @@ export function markReviewDone(p, reviewId) {
 }
 
 export function removeOldReviews(p, keepDays = 30) {
-  // optionnel : on garde simple pour MVP
   return p;
 }
 
 /* ---------- Badges helpers ---------- */
-
 export function countCompletedLessons(p) {
   return normalizeArray(p.completedNodeIds).filter((id) =>
     String(id).startsWith("l")
@@ -218,22 +241,14 @@ export function unlockBadge(p, badgeId) {
   return p;
 }
 
+/**
+ * ✅ reset uniquement la clé active (guest ou user::<id>)
+ * (Donc reset guest ne touche pas le user, et inversement)
+ */
 export function resetProgress() {
   const t = todayISO();
-
-  const fresh = {
-    xp: 0,
-    streak: 0,
-    lastActiveDate: null,
-    completedNodeIds: [],
-    xpToday: 0,
-    xpTodayDate: t,
-    reviewQueue: [],
-    unlockedBadges: [],
-    unlockedCards: [],
-  };
-
-  localStorage.setItem(KEY, JSON.stringify(fresh));
+  const fresh = emptyProgress(t);
+  localStorage.setItem(_activeKey, JSON.stringify({ ...fresh, updatedAt: Date.now() }));
   return fresh;
 }
 
@@ -252,21 +267,17 @@ export function resetBadgesOnly() {
 }
 
 export function isWorld1Completed(p) {
-  // MVP: monde 1 boss = b1
   return (p.completedNodeIds || []).includes("b1");
 }
 
 /* ---------- Cards helpers ---------- */
-
 export function isCardUnlocked(p, slug) {
   return normalizeArray(p.unlockedCards).includes(slug);
 }
 
 export function unlockCardLocal(p, slug) {
   p.unlockedCards = normalizeArray(p.unlockedCards);
-  if (!p.unlockedCards.includes(slug)) {
-    p.unlockedCards.push(slug);
-  }
+  if (!p.unlockedCards.includes(slug)) p.unlockedCards.push(slug);
   return p;
 }
 
@@ -276,5 +287,3 @@ export function resetCardsOnly() {
   saveProgress(p);
   return p;
 }
-
-
