@@ -175,7 +175,8 @@ export default function MapPage() {
     const worldN = worldNumberFromId(rawNode.worldId || activeWorldId);
 
     // ✅ Maintenant on branche vraiment le paywall (au lieu de lockedByPaywall=false)
-    const lockedByPaywall = isWorldLockedByPaywall(worldN, isPro);
+    const lockedByPaywall =false;
+     //isWorldLockedByPaywall(worldN, isPro);
 
     if (lockedByPaywall) {
       setSelectedNode({

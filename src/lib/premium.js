@@ -8,7 +8,22 @@ export function worldNumberFromId(worldId) {
   return m ? Number(m[1]) : 1;
 }
 
-export function isWorldLockedByPaywall(worldId, freeWorlds = 3) {
-  const n = worldNumberFromId(worldId);
-  return n > freeWorlds && !isPremium();
+// export function isWorldLockedByPaywall(worldId, freeWorlds = 3) {
+//   const n = worldNumberFromId(worldId);
+//   return n > freeWorlds && !isPremium();
+// }
+
+
+
+// src/lib/premium.js
+
+// FULL OPEN: rien n'est payant pour l'instant
+export function isWorldLockedByPaywall(worldNumber, isPro) {
+  return false;
 }
+
+// optionnel si tu as d'autres helpers premium
+export function isPremiumEnabled() {
+  return false;
+}
+
