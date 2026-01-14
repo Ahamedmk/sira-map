@@ -1,5 +1,11 @@
+// src/pages/Quiz.jsx
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import {
+  useNavigate,
+  useParams,
+  useSearchParams,
+  useLocation,
+} from "react-router-dom";
 import {
   ChevronLeft,
   Crown,
@@ -49,17 +55,14 @@ const WORLD_ID_TO_KEY = {
 function worldIdToWorldKey(worldId) {
   if (!worldId) return null;
   if (WORLD_ID_TO_KEY[worldId]) return WORLD_ID_TO_KEY[worldId];
-
   const m = String(worldId).match(/^world-(\d+)$/);
   if (m) return `world${m[1]}`;
-
   return null;
 }
 
 /* =========================================================
    ✅ RNG déterministe (pas de Math.random dans le render)
 ========================================================= */
-// hash string -> seed (xmur3)
 function xmur3(str) {
   let h = 1779033703 ^ str.length;
   for (let i = 0; i < str.length; i++) {
@@ -74,7 +77,6 @@ function xmur3(str) {
   };
 }
 
-// seed -> rng (mulberry32)
 function mulberry32(seed) {
   return function () {
     let t = (seed += 0x6d2b79f5);
@@ -98,11 +100,6 @@ function shuffleArray(arr, rng) {
   return a;
 }
 
-/**
- * Mélange les options d'une question et recalcule correctIndex.
- * Déterministe (même question => même shuffle) pour éviter les bugs,
- * et surtout: pas de Math.random() dans le render.
- */
 function shuffleQuestionOptions(question, seedBase) {
   if (!question?.options?.length || typeof question.correctIndex !== "number") {
     return question;
@@ -191,8 +188,13 @@ function getLocalStreak(userId) {
 /* =========================================================
    ✅ Helpers Timeline unlock via user_progress.data
 ========================================================= */
-function parseWorldNumber(worldId) {
+function parseWorldNumberFromWorldId(worldId) {
   const m = String(worldId || "").match(/^world-(\d+)$/);
+  return m ? Number(m[1]) : null;
+}
+
+function parseWorldNumberFromBossId(bossId) {
+  const m = String(bossId || "").match(/^b(\d+)$/i);
   return m ? Number(m[1]) : null;
 }
 
@@ -225,10 +227,34 @@ async function upsertUserProgressData(userId, nextData) {
   if (error) throw error;
 }
 
+function maxWorld(a, b) {
+  const na = Number(a || 0);
+  const nb = Number(b || 0);
+  const A = Number.isFinite(na) ? na : 0;
+  const B = Number.isFinite(nb) ? nb : 0;
+  return Math.max(A, B);
+}
+
+/* =========================================================
+   ✅ FIX CRITIQUE: BossId -> WorldId fallback
+========================================================= */
+function bossIdToWorldId(bossId) {
+  const m = String(bossId || "").match(/^b(\d+)$/i);
+  return m ? `world-${m[1]}` : null;
+}
+
 export default function Quiz() {
   const { lessonId } = useParams();
   const navigate = useNavigate();
   const { user } = useAuth();
+
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+
+  // ✅ sources possibles pour le worldId du boss (par ordre de priorité)
+  const worldIdFromNav = location.state?.worldId || null; // depuis Map.jsx navigate(`/quiz/${id}`, { state: { worldId } })
+  const worldFromQuery = searchParams.get("world"); // /quiz/b22?world=world-22
+  const worldFallbackFromBoss = bossIdToWorldId(lessonId); // b22 -> world-22
 
   const [i, setI] = useState(0);
   const [selected, setSelected] = useState(null);
@@ -252,10 +278,6 @@ export default function Quiz() {
   // ✅ pour enchaîner : cartes -> timeline -> navigation
   const pendingTimelineRef = useRef(null); // { unlockedEvents, focusId }
 
-  const [searchParams] = useSearchParams();
-const worldFromQuery = searchParams.get("world"); // ex: "world-19"
-
-
   const isBossId = useMemo(() => /^b\d+$/.test(String(lessonId)), [lessonId]);
 
   // ✅ Verrou : si déjà complété -> redirige (anti farm)
@@ -278,14 +300,26 @@ const worldFromQuery = searchParams.get("world"); // ex: "world-19"
   // 1) Base quiz (pur, sans random)
   const baseQuiz = useMemo(() => {
     if (isBossId) {
-      return buildBossQuiz(lessonId, LESSONS_CONTENT, {
+      const bossQuiz = buildBossQuiz(lessonId, LESSONS_CONTENT, {
         count: 8,
         passPct: 80,
-       }).then ? null : {
-   ...buildBossQuiz(lessonId, LESSONS_CONTENT, { count: 8, passPct: 80 }),
-   worldId: worldFromQuery || null,
-   worldKey: worldIdToWorldKey(worldFromQuery),
- };
+      });
+
+      // ✅ FIX: worldId robuste (nav -> query -> bossQuiz -> fallback(bXX))
+      const resolvedWorldId =
+        worldIdFromNav ||
+        worldFromQuery ||
+        bossQuiz?.worldId ||
+        worldFallbackFromBoss ||
+        null;
+
+      const resolvedWorldKey = worldIdToWorldKey(resolvedWorldId);
+
+      return {
+        ...bossQuiz,
+        worldId: resolvedWorldId,
+        worldKey: resolvedWorldKey,
+      };
     }
 
     const lesson = getLessonById(lessonId);
@@ -312,7 +346,13 @@ const worldFromQuery = searchParams.get("world"); // ex: "world-19"
       passPct: 80,
       sourceLessonIds: [lessonId],
     };
-  }, [isBossId, lessonId]);
+  }, [
+    isBossId,
+    lessonId,
+    worldFromQuery,
+    worldIdFromNav,
+    worldFallbackFromBoss,
+  ]);
 
   // 2) Quiz “préparé” : shuffle options (sans Math.random)
   const [quiz, setQuiz] = useState(null);
@@ -384,7 +424,7 @@ const worldFromQuery = searchParams.get("world"); // ex: "world-19"
       setTimelineUnlocked(t.unlockedEvents || []);
       setTimelineFocusId(t.focusId || null);
       setTimelineOpen(true);
-      return; // ⛔️ pas de nav maintenant
+      return;
     }
 
     const pending = pendingNavRef.current;
@@ -516,7 +556,6 @@ const worldFromQuery = searchParams.get("world"); // ex: "world-19"
     // 3) Global (optionnel) — safe
     try {
       const isFirst = getAndSetFirstActivityToday(user.id, todayISO);
-
       const newStreakCurrent = streak;
       const newStreakMax = streak;
 
@@ -527,7 +566,7 @@ const worldFromQuery = searchParams.get("world"); // ex: "world-19"
         p_new_streak_current: newStreakCurrent,
         p_new_streak_max: newStreakMax,
       });
-    } catch (e) {
+    } catch {
       // ignore
     }
   }
@@ -564,10 +603,27 @@ const worldFromQuery = searchParams.get("world"); // ex: "world-19"
 
       // ✅ TIMELINE UNLOCK (seulement boss de monde, pas weekly boss)
       let timelinePayload = null;
+      localStorage.setItem(
+  "timeline_last_unlock_v1",
+  JSON.stringify({
+    focusId,
+    highlightIds: unlockedEvents.map((e) => e.id),
+    at: Date.now(),
+  })
+);
+
 
       try {
         const isWorldBoss = isBossId && quiz?.isWeeklyBoss !== true;
-        const worldNumber = isWorldBoss ? parseWorldNumber(quiz?.worldId) : null;
+
+        // ✅ résolution robuste du numéro de monde
+        const worldNumber = isWorldBoss
+          ? parseWorldNumberFromWorldId(quiz?.worldId) ||
+            parseWorldNumberFromWorldId(worldIdFromNav) ||
+            parseWorldNumberFromWorldId(worldFromQuery) ||
+            parseWorldNumberFromWorldId(worldFallbackFromBoss) ||
+            parseWorldNumberFromBossId(lessonId)
+          : null;
 
         if (isWorldBoss && user?.id && worldNumber) {
           const currentData = await getUserProgressData(user.id);
@@ -581,7 +637,11 @@ const worldFromQuery = searchParams.get("world"); // ex: "world-19"
 
             const nextData = {
               ...currentData,
-              timelineWorldCompleted: nextWorld,
+              // ✅ ne jamais “downgrade”
+              timelineWorldCompleted: maxWorld(
+                currentData.timelineWorldCompleted,
+                nextWorld
+              ),
             };
 
             await upsertUserProgressData(user.id, nextData);
@@ -690,7 +750,7 @@ const worldFromQuery = searchParams.get("world"); // ex: "world-19"
         </div>
       )}
 
-      <div className="relative z-10 mx-auto max-w-md px-5   pt-6">
+      <div className="relative z-10 mx-auto max-w-md px-5 pt-6">
         <button
           onClick={() => navigate(-1)}
           className={[
@@ -952,7 +1012,11 @@ const worldFromQuery = searchParams.get("world"); // ex: "world-19"
                 >
                   {isCorrect ? "Excellent !" : "Pas tout à fait..."}
                 </p>
-                <p className={`text-xs ${bossMode ? "text-neutral-400" : "text-neutral-600"}`}>
+                <p
+                  className={`text-xs ${
+                    bossMode ? "text-neutral-400" : "text-neutral-600"
+                  }`}
+                >
                   {isCorrect ? "Continue comme ça" : "Lis l'explication"}
                 </p>
               </div>

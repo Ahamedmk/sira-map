@@ -140,9 +140,11 @@ export default function MapPage() {
     if (node.type === "lesson") navigate(`/lesson/${node.id}`);
     if (node.type === "review") navigate(`/bonus/${node.id}`);
     if (node.type === "boss") {
-   const wid = node.worldId || activeWorldId;
-   navigate(`/quiz/${node.id}?world=${encodeURIComponent(wid)}`);
- }
+  const wid = node.worldId || activeWorldId;
+  navigate(`/quiz/${node.id}?world=${encodeURIComponent(wid)}`, {
+    state: { worldId: wid },
+  });
+}
   }
 
   function isWorldCompleted(world) {

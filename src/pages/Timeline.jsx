@@ -285,13 +285,31 @@ export default function Timeline() {
 
   // ✅ si tu veux venir ici après un unlock: navigate("/timeline", { state: { highlightIds: [...], focusId }})
   const highlightIds = useMemo(() => {
-    const ids = location?.state?.highlightIds;
-    return Array.isArray(ids) ? new Set(ids) : new Set();
-  }, [location?.state]);
+  const idsFromState = location?.state?.highlightIds;
+  const idsFromLS = persisted?.highlightIds;
 
-  const focusId = location?.state?.focusId || null;
+  const ids = Array.isArray(idsFromState)
+    ? idsFromState
+    : Array.isArray(idsFromLS)
+    ? idsFromLS
+    : [];
 
-  const [completedWorld, setCompletedWorld] = useState(1);
+  return new Set(ids);
+}, [location?.state, persisted]);
+
+
+  const persisted = useMemo(() => {
+  try {
+    return JSON.parse(localStorage.getItem("timeline_last_unlock_v1") || "null");
+  } catch {
+    return null;
+  }
+}, []);
+
+const focusId = location?.state?.focusId || persisted?.focusId || null;
+
+
+  const [completedWorld, setCompletedWorld] = useState(null);
   const [loading, setLoading] = useState(true);
   const [activeItem, setActiveItem] = useState(null);
   
@@ -304,7 +322,7 @@ export default function Timeline() {
       // fallback si non connecté
       if (!user?.id) {
         if (!alive) return;
-        setCompletedWorld(1);
+        setCompletedWorld(null);
         setLoading(false);
         return;
       }
@@ -314,11 +332,11 @@ export default function Timeline() {
         if (!alive) return;
         // ton unlock logic côté quiz met worldNumber (ex: 10, 11, etc.)
         // si 0 => on garde 1
-        setCompletedWorld(Math.max(1, w || 1));
+        setCompletedWorld(Number.isFinite(w) && w > 0 ? w : 1);
       } catch (e) {
         // si table/fonction pas prête -> fallback
         if (!alive) return;
-        setCompletedWorld(1);
+        setCompletedWorld(null);
       } finally {
         if (!alive) return;
         setLoading(false);
@@ -341,7 +359,9 @@ export default function Timeline() {
     return map;
   }, []);
 
-  const isUnlocked = (item) => completedWorld >= item.unlockAtWorld;
+  const isUnlocked = (item) =>
+  Number.isFinite(completedWorld) && completedWorld >= item.unlockAtWorld;
+
 
   function openItem(item) {
     if (!isUnlocked(item)) return;
