@@ -403,71 +403,190 @@ export const SIRA_TIMELINE = [
   },
 
   {
-    id: "khaybar",
-    dateLabel: "Muḥarram 7 AH",
-    title: "Khaybar",
-    phase: "madinah",
-    unlockAtWorld: 20,
-    summary: "Une étape militaire et politique. La région change d’équilibre.",
-  },
-  {
-    id: "letters_kings",
-    dateLabel: "7 AH",
-    title: "Lettres aux rois et dirigeants",
-    phase: "madinah",
-    unlockAtWorld: 20,
-    summary: "Le message dépasse les frontières. L’appel devient universel.",
-  },
-  {
-    id: "umrah_qada",
-    dateLabel: "Dhū al-Qaʿdah 7 AH",
-    title: "ʿUmrah al-Qaḍā’",
-    phase: "madinah",
-    unlockAtWorld: 20,
-    summary: "Retour à La Mecque, avec dignité. Un signe fort.",
-  },
+  id: "khaybar",
+  dateLabel: "Muḥarram 7 AH",
+  title: "Khaybar",
+  phase: "madinah",
+  unlockAtWorld: 20,
+  summary: "Une étape militaire et politique. La région change d’équilibre.",
+  story: [
+    "Khaybar marque une étape où la communauté ne fait plus que survivre : elle s’organise, se stabilise, et doit gérer des menaces qui dépassent la simple rivalité locale.",
+    "Ce moment est souvent perçu uniquement comme un événement militaire. Mais en profondeur, c’est une leçon de lucidité : comprendre les rapports de force, sécuriser l’avenir, et agir avec stratégie plutôt qu’avec émotion.",
+    "Dans la Sîra, certaines étapes ne sont pas là pour “faire spectaculaire”. Elles sont là pour montrer comment une communauté grandit : par la discipline, la préparation, et la capacité à décider au bon moment.",
+  ],
+  keyMoments: [
+    "Une étape qui renforce la stabilité et la sécurité de la communauté.",
+    "La stratégie et la lucidité priment sur l’impulsivité.",
+    "La communauté apprend à gérer l’équilibre politique de la région.",
+  ],
+  after:
+    "L’horizon s’élargit : le message n’est plus seulement local, il commence à franchir les frontières.",
+  reflectionQuestion:
+    "Dans ta vie, est-ce que tu subis les événements… ou est-ce que tu apprends à te structurer pour ne plus subir ?",
+},
+
+{
+  id: "letters_kings",
+  dateLabel: "7 AH",
+  title: "Lettres aux rois et dirigeants",
+  phase: "madinah",
+  unlockAtWorld: 20,
+  summary: "Le message dépasse les frontières. L’appel devient universel.",
+  story: [
+    "Il y a un moment où une cause cesse d’être “une affaire interne”. Elle devient un appel au monde.",
+    "Les lettres envoyées aux rois et dirigeants traduisent une confiance : le message n’est pas un produit d’une culture. Il vise le cœur humain, où qu’il soit.",
+    "Et c’est une leçon forte : quand une vérité est universelle, tu ne la gardes pas enfermée dans ton coin. Tu la portes avec respect… mais sans complexe.",
+  ],
+  keyMoments: [
+    "Le message s’adresse désormais au-delà de l’Arabie.",
+    "Une posture d’assurance : ni arrogance, ni honte.",
+    "Un appel qui vise l’humain, pas une tribu.",
+  ],
+  after:
+    "À mesure que l’appel s’étend, les réactions deviennent plus variées : certains s’ouvrent, d’autres se crispent.",
+  reflectionQuestion:
+    "Quand tu crois en quelque chose de vrai, est-ce que tu l’assumes avec calme… ou tu le caches par peur du regard ?",
+},
+
+{
+  id: "umrah_qada",
+  dateLabel: "Dhū al-Qaʿdah 7 AH",
+  title: "ʿUmrah al-Qaḍā’",
+  phase: "madinah",
+  unlockAtWorld: 20,
+  summary: "Retour à La Mecque, avec dignité. Un signe fort.",
+  story: [
+    "Revenir à La Mecque après des années de tension, ce n’est pas “juste” un voyage. C’est un message vivant : la dignité ne se mendie pas, elle se construit.",
+    "Cette ʿUmrah montre une force silencieuse : pas celle qui crie, mais celle qui reste stable. Un retour organisé, respecté, encadré — comme un signe que les équilibres changent.",
+    "Parfois, la victoire commence par le fait de pouvoir revenir… sans peur et sans humiliation. Et ce genre de victoire prépare les grandes ouvertures.",
+  ],
+  keyMoments: [
+    "Retour symbolique à La Mecque, sans agressivité.",
+    "Dignité, stabilité, et force tranquille.",
+    "Un signe clair que l’histoire bascule.",
+  ],
+  after:
+    "Cette étape prépare psychologiquement et politiquement la conquête de La Mecque : la porte est déjà en train de s’ouvrir.",
+  reflectionQuestion:
+    "As-tu déjà confondu “force” et “bruit” ? Et si la vraie force était la stabilité ?",
+},
+
+{
+  id: "fath_makkah",
+  dateLabel: "Ramadan 8 AH",
+  title: "Conquête de La Mecque",
+  phase: "madinah",
+  unlockAtWorld: 22,
+  summary: "Puissance sans vengeance. Le pardon comme sommet du triomphe.",
+  story: [
+    "La conquête de La Mecque est l’un des moments les plus révélateurs de la Sîra : pas parce que la ville tombe… mais parce que le cœur ne tombe pas dans la vengeance.",
+    "Après des années de persécution, d’exil, de blessures, l’instant du “retour” pourrait devenir un instant d’humiliation infligée. Mais la Sîra montre l’inverse : la maîtrise, le pardon, la hauteur.",
+    "C’est là que tu comprends un principe : le sommet de la force, ce n’est pas d’écraser l’ennemi. C’est de contrôler ton âme quand tu pourrais te lâcher.",
+  ],
+  keyMoments: [
+    "Victoire majeure sans dérive orgueilleuse.",
+    "Pardon et maîtrise au moment où la vengeance est possible.",
+    "Le triomphe moral dépasse le triomphe militaire.",
+  ],
+  after:
+    "Après ce tournant, l’islam se consolide rapidement : l’équilibre de l’Arabie change, et les tribus observent une nouvelle réalité.",
+  reflectionQuestion:
+    "Quand tu as le pouvoir (même petit), est-ce que tu l’utilises pour te venger… ou pour te grandir ?",
+},
+
+{
+  id: "tabuk",
+  dateLabel: "Rajab 9 AH",
+  title: "Tabūk",
+  phase: "madinah",
+  unlockAtWorld: 23,
+  summary: "Une expédition éprouvante, un test de sincérité et d’endurance.",
+  story: [
+    "Tabūk est moins un combat qu’un miroir. Un miroir qui révèle qui est là par habitude… et qui est là par conviction.",
+    "C’est une expédition difficile : chaleur, distance, fatigue, ressources limitées. Et dans ce genre de contexte, les excuses deviennent faciles, et la sincérité devient rare.",
+    "Certains moments ne sont pas faits pour “briller”. Ils sont faits pour trier les cœurs : qui suit quand c’est confortable, et qui suit quand ça coûte ?",
+  ],
+  keyMoments: [
+    "Épreuve d’endurance : conditions difficiles, long trajet, chaleur.",
+    "Test de sincérité : la facilité des excuses révèle les cœurs.",
+    "La foi se prouve dans les moments où personne ne te regarde.",
+  ],
+  after:
+    "La communauté se renforce intérieurement : la stabilité ne dépend plus seulement des victoires, mais de la qualité des intentions.",
+  reflectionQuestion:
+    "Est-ce que ta constance dépend de ton énergie du moment… ou de ta décision profonde ?",
+},
+
+{
+  id: "year_of_delegations",
+  dateLabel: "9 AH",
+  title: "ʿĀm al-Wufūd (Année des délégations)",
+  phase: "madinah",
+  unlockAtWorld: 23,
+  summary: "Les tribus viennent. L’islam s’étend et s’organise.",
+  story: [
+    "Quand une vérité s’installe, les gens commencent à venir. Pas seulement par émotion, mais parce qu’ils voient une réalité stable.",
+    "L’année des délégations, c’est l’image d’une nouvelle Arabie : des tribus arrivent, discutent, observent, s’engagent. On n’est plus dans une petite communauté isolée, mais dans une organisation qui structure la foi, la société et les liens.",
+    "Et cette étape enseigne : la réussite durable n’est pas un pic. C’est une stabilité. Quand tu deviens stable, les portes s’ouvrent d’elles-mêmes.",
+  ],
+  keyMoments: [
+    "Afflux de tribus : reconnaissance d’une nouvelle réalité.",
+    "Organisation et structuration de la communauté.",
+    "Expansion par stabilité, pas par agitation.",
+  ],
+  after:
+    "Le parcours arrive à sa maturité : l’enseignement se transmet, les derniers rappels se préparent.",
+  reflectionQuestion:
+    "Est-ce que tu cherches la “hype”… ou tu construis une stabilité qui attire naturellement ?",
+},
+
 
   {
-    id: "fath_makkah",
-    dateLabel: "Ramadan 8 AH",
-    title: "Conquête de La Mecque",
-    phase: "madinah",
-    unlockAtWorld: 22,
-    summary: "Puissance sans vengeance. Le pardon comme sommet du triomphe.",
-  },
-  {
-    id: "tabuk",
-    dateLabel: "Rajab 9 AH",
-    title: "Tabūk",
-    phase: "madinah",
-    unlockAtWorld: 23,
-    summary: "Une expédition éprouvante, un test de sincérité et d’endurance.",
-  },
-  {
-    id: "year_of_delegations",
-    dateLabel: "9 AH",
-    title: "ʿĀm al-Wufūd (Année des délégations)",
-    phase: "madinah",
-    unlockAtWorld: 23,
-    summary: "Les tribus viennent. L’islam s’étend et s’organise.",
-  },
+  id: "farewell_hajj",
+  dateLabel: "10 AH",
+  title: "Ḥajj d’adieu",
+  phase: "ending",
+  unlockAtWorld: 24,
+  summary: "Les paroles finales, la transmission, l’héritage.",
+  story: [
+    "Il y a des moments où tu sens que l’histoire se rassemble. Comme si tout ce qui était dispersé se met en ligne, une dernière fois, pour être transmis.",
+    "Le Ḥajj d’adieu n’est pas seulement un rite : c’est une scène de transmission. Les mots deviennent héritage. Les gestes deviennent méthode. Les priorités deviennent claires.",
+    "Et au fond, c’est une leçon humaine : les plus grands ne partent pas en laissant du flou. Ils partent en laissant un chemin.",
+  ],
+  keyMoments: [
+    "Un moment de transmission et de clarification.",
+    "La communauté reçoit un héritage de principes et de méthode.",
+    "La fin approche, mais le message s’ancre.",
+  ],
+  after:
+    "Après cette étape, la communauté est invitée à tenir : non pas par la présence physique, mais par la fidélité au message.",
+  reflectionQuestion:
+    "Si tu devais laisser un message à ceux que tu aimes, ce serait quoi : des mots… ou une méthode de vie ?",
+},
 
-  {
-    id: "farewell_hajj",
-    dateLabel: "10 AH",
-    title: "Ḥajj d’adieu",
-    phase: "ending",
-    unlockAtWorld: 24,
-    summary: "Les paroles finales, la transmission, l’héritage.",
-  },
-  {
-    id: "death",
-    dateLabel: "Rabīʿ I 11 AH / ≈ 632",
-    title: "Décès du Prophète ﷺ",
-    phase: "ending",
-    unlockAtWorld: 24,
-    summary: "Fin d’une vie… mais pas fin du message. Une Umma continue.",
-  },
+{
+  id: "death",
+  dateLabel: "Rabīʿ I 11 AH / ≈ 632",
+  title: "Décès du Prophète ﷺ",
+  phase: "ending",
+  unlockAtWorld: 24,
+  summary: "Fin d’une vie… mais pas fin du message. Une Umma continue.",
+  story: [
+    "La disparition est un choc, parce qu’elle rappelle une vérité que l’on oublie souvent : même les plus aimés ne restent pas.",
+    "Mais la Sîra ne s’arrête pas sur la tristesse pour la tristesse. Elle te ramène à l’essentiel : le Prophète ﷺ a transmis. Le message reste. La responsabilité commence.",
+    "C’est peut-être la dernière leçon : ne pas attacher sa foi uniquement à une présence, mais à Allah. Ne pas vivre la religion comme une émotion, mais comme une fidélité.",
+  ],
+  keyMoments: [
+    "Choc émotionnel immense pour la communauté.",
+    "Rappel : les personnes partent, mais la guidance reste.",
+    "Passage de l’admiration à la responsabilité : continuer le chemin.",
+  ],
+  after:
+    "L’Histoire continue avec la communauté : ce n’est plus “regarder”, c’est “porter”. Le message devient un dépôt.",
+  reflectionQuestion:
+    "Ta foi est-elle liée à une émotion… ou à une responsabilité qui tient même quand le monde tremble ?",
+},
+
 ];
 
 export const PHASES = [
