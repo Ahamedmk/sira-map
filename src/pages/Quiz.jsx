@@ -22,7 +22,7 @@ import { getLessonById } from "../data/map.mock.js";
 import { getLessonContent, LESSONS_CONTENT } from "../data/lessons.mock.js";
 import { buildBossQuiz } from "../lib/bossQuizEngine.js";
 import { evaluateCards } from "../lib/progressCardsEngine";
-import { saveProgress } from "../lib/progressStore";
+import { saveProgress, completeNode } from "../lib/progressStore";
 import { syncCardsToSupabase } from "../lib/syncCards";
 import { loadProgress, isNodeCompleted } from "../lib/progressStore.js";
 
@@ -441,7 +441,23 @@ export default function Quiz() {
    * - on va sur /timeline avec le payload (focus + highlights)
    * - Timeline fera le reste (l'utilisateur revient ensuite, ou tu peux y mettre un bouton "Continuer")
    */
-  function handleCloseTimeline() {
+function closeTimelineModalOnly() {
+  setTimelineOpen(false);
+  setTimelineUnlocked([]);
+  setTimelineFocusId(null);
+
+  // ✅ après "Plus tard", on reprend la nav normale
+  const pending = pendingNavRef.current;
+  pendingNavRef.current = null;
+
+  if (pending?.type === "success") {
+    navigate(`/result/success/${pending.lessonId}`, { replace: true });
+  } else if (pending?.type === "fail") {
+    navigate(`/result/fail/${pending.lessonId}`, { replace: true });
+  }
+}
+
+function handleGoTimeline() {
   const payload = {
     focusId: timelineFocusId,
     highlightIds: (timelineUnlocked || []).map((e) => e.id),
@@ -451,10 +467,12 @@ export default function Quiz() {
   setTimelineUnlocked([]);
   setTimelineFocusId(null);
 
-  // ✅ aller à la timeline et STOP
+  // ✅ remplace l’historique : retour depuis timeline ≠ boss
   pendingNavRef.current = null;
-  navigate("/timeline", { state: payload });
+  navigate("/timeline", { replace: true, state: payload });
 }
+
+
 
 
   if (!quiz || !total) {
@@ -495,7 +513,8 @@ export default function Quiz() {
           open={timelineOpen}
           unlockedEvents={timelineUnlocked}
           focusId={timelineFocusId}
-          onClose={handleCloseTimeline}
+          onClose={closeTimelineModalOnly}
+          onGoTimeline={handleGoTimeline}
         />
       </div>
     );
@@ -591,6 +610,8 @@ export default function Quiz() {
 
     try {
       const p = loadProgress();
+      // ✅ IMPORTANT : marquer le quiz (boss ou leçon) comme complété
+       completeNode(p, lessonId);
 
       const { progress: p2, newlyUnlocked } = evaluateCards(p, {
         event: "quiz_end",
@@ -717,7 +738,8 @@ export default function Quiz() {
         open={timelineOpen}
         unlockedEvents={timelineUnlocked}
         focusId={timelineFocusId}
-        onClose={handleCloseTimeline}
+        onClose={closeTimelineModalOnly}
+        onGoTimeline={handleGoTimeline}
       />
 
       {/* Fond animé */}
