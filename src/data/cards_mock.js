@@ -183,7 +183,7 @@ export const CARDS = [
     ],
     tags: ["badr", "leadership", "engagement"],
     art: {
-      imageLocked: "/cards/locked/silhouette-6.png",
+      imageLocked: "/cards/locked/saad-ibn-muadh.png",
       imageUnlocked: "/cards/unlocked/saad-ibn-muadh.png",
     },
     unlock: {

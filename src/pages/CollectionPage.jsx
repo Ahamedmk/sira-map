@@ -88,21 +88,54 @@ function CardArt({ card, unlocked }) {
       </div>
 
       <div className="h-44 w-full relative overflow-hidden">
-        {unlocked ? (
-          <div className={`h-full w-full bg-gradient-to-br ${rarity.gradient} relative`}>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-6xl opacity-90">{category.icon}</div>
-            </div>
+  {/* fallback si art manquant */}
+  {(() => {
+    const src =
+      (unlocked ? card?.art?.imageUnlocked : card?.art?.imageLocked) || "";
+
+    if (!src) {
+      // fallback = ton ancien design
+      return unlocked ? (
+        <div className={`h-full w-full bg-gradient-to-br ${rarity.gradient} relative`}>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-6xl opacity-90">{category.icon}</div>
           </div>
-        ) : (
-          <div className="h-full w-full bg-neutral-200 flex items-center justify-center">
-            <div className="h-20 w-20 rounded-3xl bg-neutral-300 flex items-center justify-center">
-              <Lock size={32} className="text-neutral-500" />
-            </div>
+        </div>
+      ) : (
+        <div className="h-full w-full bg-neutral-200 flex items-center justify-center">
+          <div className="h-20 w-20 rounded-3xl bg-neutral-300 flex items-center justify-center">
+            <Lock size={32} className="text-neutral-500" />
+          </div>
+        </div>
+      );
+    }
+
+    // ✅ image réelle
+    return (
+      <div className="h-full w-full relative">
+        <img
+          src={src}
+          alt={unlocked ? card.name_fr : "Carte verrouillée"}
+          className={` w-full object-cover ${unlocked ? "" : "grayscale opacity-70"}`}
+          loading="lazy"
+          onError={(e) => {
+            console.error("IMG ERROR:", src);
+            // si l'image 404 → fallback visuel (évite un bloc cassé)
+            e.currentTarget.style.display = "none";
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
+        {unlocked && (
+          <div className="absolute left-4 bottom-3 text-xs font-bold text-white/90 drop-shadow">
+            {category.label}
           </div>
         )}
       </div>
+    );
+  })()}
+</div>
+
 
       {!unlocked && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/40">
