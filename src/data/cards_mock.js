@@ -21,8 +21,8 @@ export const CARDS = [
     ],
     tags: ["makkah", "humilité", "valeur"],
     art: {
-      imageLocked: "/cards/locked/silhouette-1.png",
-      imageUnlocked: "/cards/unlocked/abdullah-umm-maktum.png",
+      imageLocked: "/cards/locked/abdullah-ibn-umm-maktum.png",
+      imageUnlocked: "/cards/unlocked/abdullah-ibn-umm-maktum2.png",
     },
     unlock: {
       type: "finish_world",
@@ -52,8 +52,8 @@ export const CARDS = [
     ],
     tags: ["boycott", "patience", "dignité"],
     art: {
-      imageLocked: "/cards/locked/silhouette-2.png",
-      imageUnlocked: "/cards/unlocked/bilal.png",
+      imageLocked: "/cards/locked/bilal-ibn-rabah.png",
+      imageUnlocked: "/cards/unlocked/bilal-ibn-rabah2.png",
     },
     unlock: {
       type: "finish_world",
