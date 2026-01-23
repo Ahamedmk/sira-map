@@ -84,8 +84,8 @@ export const CARDS = [
     ],
     tags: ["revelation", "foyer", "soutien"],
     art: {
-      imageLocked: "/cards/locked/silhouette-3.png",
-      imageUnlocked: "/cards/unlocked/khadijah.png",
+      imageLocked: "/cards/locked/khadijah.png",
+      imageUnlocked: "/cards/unlocked/khadijah2.png",
     },
     unlock: {
       type: "quiz_score",
@@ -115,8 +115,8 @@ export const CARDS = [
     ],
     tags: ["hijrah", "loyauté", "confiance"],
     art: {
-      imageLocked: "/cards/locked/silhouette-4.png",
-      imageUnlocked: "/cards/unlocked/abu-bakr.png",
+      imageLocked: "/cards/locked/abu-bakr.png",
+      imageUnlocked: "/cards/unlocked/abu-bakr2.png",
     },
     unlock: {
       type: "quiz_score",
@@ -147,8 +147,8 @@ export const CARDS = [
     ],
     tags: ["hijrah", "courage", "sacrifice"],
     art: {
-      imageLocked: "/cards/locked/silhouette-5.png",
-      imageUnlocked: "/cards/unlocked/ali.png",
+      imageLocked: "/cards/locked/ali.png",
+      imageUnlocked: "/cards/unlocked/ali2.png",
     },
     unlock: {
       type: "quiz_perfect_plus",
@@ -183,7 +183,7 @@ export const CARDS = [
     ],
     tags: ["badr", "leadership", "engagement"],
     art: {
-      imageLocked: "/cards/locked/saad-ibn-muadh.png",
+      imageLocked: "/cards/locked/saad-ibn-muadh2.png",
       imageUnlocked: "/cards/unlocked/saad-ibn-muadh.png",
     },
     unlock: {
@@ -219,8 +219,8 @@ export const CARDS = [
     ],
     tags: ["madinah", "justice", "constance"],
     art: {
-      imageLocked: "/cards/locked/silhouette-7.png",
-      imageUnlocked: "/cards/unlocked/umar.png",
+      imageLocked: "/cards/locked/umar.png",
+      imageUnlocked: "/cards/unlocked/umar2.png",
     },
     unlock: {
       type: "streak",
@@ -250,7 +250,7 @@ export const CARDS = [
     ],
     tags: ["final", "héritage", "transformation"],
     art: {
-      imageLocked: "/cards/locked/silhouette-8.png",
+      imageLocked: "/cards/locked/heritage.png",
       imageUnlocked: "/cards/unlocked/heritage.png",
     },
     unlock: {
