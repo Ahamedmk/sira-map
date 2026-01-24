@@ -14,9 +14,11 @@ import {
   Lock,
   LogIn,
   LogOut,
+  AlertCircle,
+  Trash2,
 } from "lucide-react";
 import { useAuth } from "../lib/context/AuthContext.jsx";
-import { flushRemoteProgressNow } from "../lib/progressSync.js";
+import { flushRemoteProgressNow, queueRemoteProgress } from "../lib/progressSync.js";
 
 export default function ProfilePage() {
   const navigate = useNavigate();
@@ -46,6 +48,44 @@ export default function ProfilePage() {
     navigate("/", { replace: true });
   }
 
+  async function handleResetAll() {
+    const ok1 = confirm(
+      "⚠️ Réinitialiser TOUTES tes données ? (XP, streak, badges, progression, cartes, timeline…)\n\nCette action est irréversible."
+    );
+    if (!ok1) return;
+
+    const ok2 = confirm("Dernière confirmation : tu es sûr à 100% ?");
+    if (!ok2) return;
+
+    try {
+      // ✅ reset local
+      resetProgress();
+
+      // ✅ refresh state immédiatement
+      const fresh = loadProgress();
+      setProgress(fresh);
+
+      // ✅ si connecté : tenter de pousser le reset au cloud
+      if (user) {
+        try {
+          if (typeof queueRemoteProgress === "function") {
+            queueRemoteProgress(fresh);
+          }
+          await flushRemoteProgressNow();
+        } catch (e) {
+          // Si jamais le cloud échoue, au moins le local est reset
+          console.warn("Cloud reset failed (local reset ok):", e);
+        }
+      }
+
+      // ✅ recharge propre
+      window.location.reload();
+    } catch (e) {
+      console.error(e);
+      alert("❌ Une erreur est survenue pendant le reset.");
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-blue-50/20 to-purple-50/20 pb-32">
       {/* Fond animé */}
@@ -71,19 +111,16 @@ export default function ProfilePage() {
               <>
                 {user ? (
                   <button
-      onClick={async () => {
-        await signOut(); // ✅ ne reset pas (Option A)
-        navigate("/map");
-      }}
-      className="w-full rounded-2xl border-2 border-neutral-200 bg-white py-4 font-bold hover:bg-neutral-50"
-    >
+                    onClick={handleLogout}
+                    className="inline-flex items-center gap-2 rounded-2xl border-2 border-neutral-200 bg-white px-3 py-2 text-xs font-semibold hover:bg-neutral-50 transition"
+                  >
                     <LogOut size={16} />
                     Se déconnecter
                   </button>
                 ) : (
                   <button
                     onClick={() => navigate("/login")}
-                    className="inline-flex items-center gap-2 rounded-2xl bg-neutral-900 px-3 py-2 text-xs font-semibold text-black shadow-sm hover:shadow-md transition"
+                    className="inline-flex items-center gap-2 rounded-2xl bg-neutral-900 px-3 py-2 text-xs font-semibold text-white shadow-sm hover:shadow-md transition"
                   >
                     <LogIn size={16} />
                     Se connecter
@@ -105,7 +142,7 @@ export default function ProfilePage() {
           )}
         </div>
 
-        {/* Stats principales avec effet glassmorphism */}
+        {/* Stats principales */}
         <div className="grid grid-cols-2 gap-4 mb-6">
           {/* Streak Card */}
           <div className="relative rounded-3xl bg-gradient-to-br from-orange-50 via-red-50 to-orange-50 border border-orange-200/50 p-5 shadow-lg shadow-orange-200/30 overflow-hidden group hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
@@ -172,7 +209,6 @@ export default function ProfilePage() {
             </div>
           </div>
 
-          {/* Barre de progression */}
           <div className="mt-4 h-2 w-full bg-neutral-100 rounded-full overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-700 ease-out relative overflow-hidden"
@@ -183,6 +219,7 @@ export default function ProfilePage() {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shimmer" />
             </div>
           </div>
+
           <p className="mt-2 text-xs text-neutral-500 text-center">
             {progress.xpToday >= 50
               ? "🎉 Objectif quotidien atteint !"
@@ -199,14 +236,11 @@ export default function ProfilePage() {
               </div>
               <div>
                 <p className="text-lg font-bold text-neutral-900">Tes Badges</p>
-                <p className="text-xs text-neutral-600">
-                  Collection de réussites
-                </p>
+                <p className="text-xs text-neutral-600">Collection de réussites</p>
               </div>
             </div>
           </div>
 
-          {/* Progression des badges */}
           <div className="mb-6 p-4 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200/50">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm font-semibold text-purple-900">
@@ -226,7 +260,6 @@ export default function ProfilePage() {
             </div>
           </div>
 
-          {/* Grille de badges */}
           <div className="grid grid-cols-1 gap-4">
             {BADGES.map((b) => {
               const unlocked = unlockedSet.has(b.id);
@@ -240,13 +273,11 @@ export default function ProfilePage() {
                       : "bg-neutral-50 border-neutral-200/50 opacity-60",
                   ].join(" ")}
                 >
-                  {/* Effet de brillance pour badges débloqués */}
                   {unlocked && (
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                   )}
 
                   <div className="relative z-10 flex items-start gap-4">
-                    {/* Icône du badge */}
                     <div
                       className={[
                         "h-16 w-16 rounded-2xl border-2 flex items-center justify-center text-3xl transition-all duration-300 relative",
@@ -267,7 +298,6 @@ export default function ProfilePage() {
                       )}
                     </div>
 
-                    {/* Info du badge */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-2 mb-1">
                         <p
@@ -304,7 +334,31 @@ export default function ProfilePage() {
           </div>
         </div>
 
-        {/* DEV ONLY */}
+        {/* ✅ ZONE DANGER (visible pour tout le monde) */}
+        <div className="mt-6 rounded-3xl border border-red-200/70 bg-gradient-to-br from-red-50 to-orange-50 p-5 shadow-lg shadow-red-200/30">
+          <div className="flex items-start gap-3 mb-4">
+            <div className="h-10 w-10 rounded-xl bg-red-100 flex items-center justify-center">
+              <AlertCircle size={20} className="text-red-700" />
+            </div>
+            <div className="flex-1">
+              <p className="text-sm font-bold text-red-900">Zone Danger</p>
+              <p className="text-xs text-red-700 mt-1">
+                Réinitialise <b>toutes</b> tes données (progression, XP, badges, cartes, timeline…)
+                {user ? " — y compris la sauvegarde cloud (si active)." : " — en local (mode invité)."}
+              </p>
+            </div>
+          </div>
+
+          <button
+            onClick={handleResetAll}
+            className="w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-red-600 to-red-700 text-white py-3.5 font-bold shadow-lg shadow-red-600/30 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+          >
+            <Trash2 size={18} />
+            Reset toutes les données
+          </button>
+        </div>
+
+        {/* DEV ONLY (optionnel : tu peux le supprimer si tu veux) */}
         {import.meta.env.DEV && (
           <div className="mt-6 rounded-3xl border-2 border-red-300/50 bg-gradient-to-br from-red-50 to-orange-50 p-5 shadow-lg">
             <div className="flex items-start gap-3 mb-4">
@@ -312,9 +366,7 @@ export default function ProfilePage() {
                 <span className="text-xl">⚠️</span>
               </div>
               <div>
-                <p className="text-sm font-bold text-red-800">
-                  Mode Développeur
-                </p>
+                <p className="text-sm font-bold text-red-800">Mode Développeur</p>
                 <p className="text-xs text-red-600 mt-1">
                   Réinitialise toute ta progression locale
                 </p>
@@ -334,7 +386,7 @@ export default function ProfilePage() {
               }}
               className="w-full rounded-2xl bg-gradient-to-r from-red-600 to-red-700 text-white py-3.5 font-bold shadow-lg shadow-red-600/30 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
             >
-              🔄 Reset Progression
+              🔄 Reset Progression (DEV)
             </button>
           </div>
         )}
@@ -347,12 +399,8 @@ export default function ProfilePage() {
           0% { transform: translateX(-100%); }
           100% { transform: translateX(200%); }
         }
-        .animate-shimmer {
-          animation: shimmer 3s infinite;
-        }
-        .delay-1000 {
-          animation-delay: 1s;
-        }
+        .animate-shimmer { animation: shimmer 3s infinite; }
+        .delay-1000 { animation-delay: 1s; }
         .line-clamp-2 {
           display: -webkit-box;
           -webkit-line-clamp: 2;
