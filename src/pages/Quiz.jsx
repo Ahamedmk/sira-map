@@ -22,9 +22,8 @@ import { getLessonById } from "../data/map.mock.js";
 import { getLessonContent, LESSONS_CONTENT } from "../data/lessons.mock.js";
 import { buildBossQuiz } from "../lib/bossQuizEngine.js";
 import { evaluateCards } from "../lib/progressCardsEngine";
-import { saveProgress, completeNode } from "../lib/progressStore";
+import { loadProgress, saveProgress, completeNode, isNodeCompleted } from "../lib/progressStore";
 import { syncCardsToSupabase } from "../lib/syncCards";
-import { loadProgress, isNodeCompleted } from "../lib/progressStore.js";
 
 import CardUnlockModal from "../components/CardUnlockModal.jsx";
 import TimelineUnlockModal from "../components/TimelineUnlockModal.jsx";
@@ -236,7 +235,7 @@ function maxWorld(a, b) {
 }
 
 /* =========================================================
-   ✅ FIX CRITIQUE: BossId -> WorldId fallback
+   ✅ BossId -> WorldId fallback
 ========================================================= */
 function bossIdToWorldId(bossId) {
   const m = String(bossId || "").match(/^b(\d+)$/i);
@@ -252,7 +251,7 @@ export default function Quiz() {
   const [searchParams] = useSearchParams();
 
   // ✅ sources possibles pour le worldId du boss (par ordre de priorité)
-  const worldIdFromNav = location.state?.worldId || null; // depuis Map.jsx navigate(`/quiz/${id}`, { state: { worldId } })
+  const worldIdFromNav = location.state?.worldId || null; // navigate(`/quiz/${id}`, { state: { worldId } })
   const worldFromQuery = searchParams.get("world"); // /quiz/b22?world=world-22
   const worldFallbackFromBoss = bossIdToWorldId(lessonId); // b22 -> world-22
 
@@ -288,12 +287,10 @@ export default function Quiz() {
 
   useEffect(() => {
     if (!alreadyDone) return;
-
     if (isBossId) {
       navigate("/map", { replace: true });
       return;
     }
-
     navigate(`/lesson/${lessonId}`, { replace: true });
   }, [alreadyDone, isBossId, lessonId, navigate]);
 
@@ -305,7 +302,6 @@ export default function Quiz() {
         passPct: 80,
       });
 
-      // ✅ FIX: worldId robuste (nav -> query -> bossQuiz -> fallback(bXX))
       const resolvedWorldId =
         worldIdFromNav ||
         worldFromQuery ||
@@ -357,7 +353,6 @@ export default function Quiz() {
     setShowFeedback(false);
     correctRef.current = 0;
     setCorrectCount(0);
-
     quizStartMsRef.current = Date.now();
 
     if (!baseQuiz) {
@@ -431,49 +426,34 @@ export default function Quiz() {
     }
   }
 
-  /**
-   * ✅ FIX CRITIQUE:
-   * - ton ancien code faisait navigate("/timeline") puis navigate("/result/...") juste après
-   *   => le second navigate écrasait le premier, ou inversement selon le timing
-   *
-   * Ici on choisit un seul flux:
-   * - on ferme le modal
-   * - on va sur /timeline avec le payload (focus + highlights)
-   * - Timeline fera le reste (l'utilisateur revient ensuite, ou tu peux y mettre un bouton "Continuer")
-   */
-function closeTimelineModalOnly() {
-  setTimelineOpen(false);
-  setTimelineUnlocked([]);
-  setTimelineFocusId(null);
+  function closeTimelineModalOnly() {
+    setTimelineOpen(false);
+    setTimelineUnlocked([]);
+    setTimelineFocusId(null);
 
-  // ✅ après "Plus tard", on reprend la nav normale
-  const pending = pendingNavRef.current;
-  pendingNavRef.current = null;
+    const pending = pendingNavRef.current;
+    pendingNavRef.current = null;
 
-  if (pending?.type === "success") {
-    navigate(`/result/success/${pending.lessonId}`, { replace: true });
-  } else if (pending?.type === "fail") {
-    navigate(`/result/fail/${pending.lessonId}`, { replace: true });
+    if (pending?.type === "success") {
+      navigate(`/result/success/${pending.lessonId}`, { replace: true });
+    } else if (pending?.type === "fail") {
+      navigate(`/result/fail/${pending.lessonId}`, { replace: true });
+    }
   }
-}
 
-function handleGoTimeline() {
-  const payload = {
-    focusId: timelineFocusId,
-    highlightIds: (timelineUnlocked || []).map((e) => e.id),
-  };
+  function handleGoTimeline() {
+    const payload = {
+      focusId: timelineFocusId,
+      highlightIds: (timelineUnlocked || []).map((e) => e.id),
+    };
 
-  setTimelineOpen(false);
-  setTimelineUnlocked([]);
-  setTimelineFocusId(null);
+    setTimelineOpen(false);
+    setTimelineUnlocked([]);
+    setTimelineFocusId(null);
 
-  // ✅ remplace l’historique : retour depuis timeline ≠ boss
-  pendingNavRef.current = null;
-  navigate("/timeline", { replace: true, state: payload });
-}
-
-
-
+    pendingNavRef.current = null;
+    navigate("/timeline", { replace: true, state: payload });
+  }
 
   if (!quiz || !total) {
     return (
@@ -540,7 +520,10 @@ function handleGoTimeline() {
 
     const todayISO = toISODate(new Date());
     const weekStartISO = getWeekStartMondayISO(new Date());
-    const timeMs = Math.max(0, Date.now() - (quizStartMsRef.current || Date.now()));
+    const timeMs = Math.max(
+      0,
+      Date.now() - (quizStartMsRef.current || Date.now())
+    );
 
     const correct = correctRef.current;
     const totalQ = total;
@@ -610,10 +593,12 @@ function handleGoTimeline() {
 
     try {
       const p = loadProgress();
-      // ✅ IMPORTANT : marquer le quiz (boss ou leçon) comme complété
-       completeNode(p, lessonId);
 
-      const { progress: p2, newlyUnlocked } = evaluateCards(p, {
+      // ✅ IMPORTANT : marquer le quiz comme complété
+      completeNode(p, lessonId);
+
+      // ✅ 1) Unlocks liés au quiz (score / perfect / etc.)
+      const rQuiz = evaluateCards(p, {
         event: "quiz_end",
         worldKey: quiz?.worldKey,
         score: pct,
@@ -622,14 +607,30 @@ function handleGoTimeline() {
         lessonReplayed: false,
       });
 
+      // ✅ 2) Unlocks liés à la fin du monde (cards unlock.type="finish_world")
+      // ⚠️ progressCardsEngine attend ctx.event="world_complete" (pas "finish_world")
+      const isWorldBoss = isBossId && quiz?.isWeeklyBoss !== true;
+
+      const rWorld = isWorldBoss
+        ? evaluateCards(rQuiz.progress, {
+            event: "world_complete",
+            worldKey: quiz?.worldKey, // ex: "world1_intro"
+          })
+        : { progress: rQuiz.progress, newlyUnlocked: [] };
+
+      // ✅ merge + dédoublonnage
+      const p2 = rWorld.progress;
+      const mergedNewlyUnlocked = [
+        ...(rQuiz.newlyUnlocked || []),
+        ...(rWorld.newlyUnlocked || []),
+      ].filter((c, idx, arr) => arr.findIndex((x) => x.id === c.id) === idx);
+
       saveProgress(p2);
 
       // ✅ TIMELINE UNLOCK (seulement boss de monde, pas weekly boss)
       let timelinePayload = null;
 
       try {
-        const isWorldBoss = isBossId && quiz?.isWeeklyBoss !== true;
-
         const worldNumber = isWorldBoss
           ? parseWorldNumberFromWorldId(quiz?.worldId) ||
             parseWorldNumberFromWorldId(worldIdFromNav) ||
@@ -655,7 +656,6 @@ function handleGoTimeline() {
 
             await upsertUserProgressData(user.id, nextData);
 
-            // ✅ Persist fallback (Timeline.jsx peut le relire)
             localStorage.setItem(
               "timeline_last_unlock_v1",
               JSON.stringify({
@@ -673,8 +673,8 @@ function handleGoTimeline() {
       }
 
       // ✅ cartes débloquées
-      if (newlyUnlocked?.length) {
-        await syncCardsToSupabase(newlyUnlocked, {
+      if (mergedNewlyUnlocked?.length) {
+        await syncCardsToSupabase(mergedNewlyUnlocked, {
           source: "quiz",
           event: "quiz_end",
           worldKey: quiz?.worldKey,
@@ -688,15 +688,13 @@ function handleGoTimeline() {
         }
 
         pendingNavRef.current = { type: "success", lessonId };
-        setUnlockQueue(newlyUnlocked);
+        setUnlockQueue(mergedNewlyUnlocked);
         setUnlockOpen(true);
         return; // ⛔️ pas de nav maintenant
       }
 
       // ✅ pas de cartes, mais timeline à montrer
       if (timelinePayload) {
-        // ⚠️ IMPORTANT: on NE navigate PAS vers /result ici
-        // car handleCloseTimeline navigue vers /timeline.
         setTimelineUnlocked(timelinePayload.unlockedEvents || []);
         setTimelineFocusId(timelinePayload.focusId || null);
         setTimelineOpen(true);
@@ -775,7 +773,7 @@ function handleGoTimeline() {
         <button
           onClick={() => navigate(-1)}
           className={[
-            "inline-flex items-center  gap-2 px-4 py-2.5 rounded-2xl text-sm font-medium shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200",
+            "inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm font-medium shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200",
             bossMode
               ? "bg-neutral-800/80 backdrop-blur-sm border border-neutral-700/50 text-black"
               : "bg-white/90 backdrop-blur-sm border border-neutral-200/50 text-neutral-900",

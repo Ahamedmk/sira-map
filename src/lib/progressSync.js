@@ -1,5 +1,5 @@
 import { supabase } from "./supabase";
-import { loadProgress, saveProgress } from "./progressStore";
+import { loadProgress, saveProgress, resetProgress } from "./progressStore";
 import { mergeProgress } from "./progressMerge";
 
 const LS_KEY_MIGRATED = "progress_migrated_to_supabase_v1";
@@ -7,6 +7,7 @@ const LS_KEY_MIGRATED = "progress_migrated_to_supabase_v1";
 /* =========================================
    Helpers
 ========================================= */
+
 function withUpdatedAt(progress) {
   return {
     ...(progress || {}),
@@ -15,9 +16,9 @@ function withUpdatedAt(progress) {
 }
 
 function stableStringify(obj) {
-  // stringify stable minimal pour comparer sans libs
   try {
-    return JSON.stringify(obj, Object.keys(obj).sort());
+    const keys = obj ? Object.keys(obj).sort() : [];
+    return JSON.stringify(obj, keys);
   } catch {
     return JSON.stringify(obj);
   }
@@ -29,6 +30,29 @@ function normalizeTimeline(local, remote, merged) {
   const r = Number(remote?.timelineWorldCompleted || 0);
   const m = Number(merged?.timelineWorldCompleted || 0);
   return { ...(merged || {}), timelineWorldCompleted: Math.max(l, r, m) };
+}
+
+/**
+ * ✅ Progress “fresh” aligné sur ton progressStore (emptyProgress)
+ * + timelineWorldCompleted (car ton app en dépend)
+ */
+function defaultProgressAligned() {
+  // On part de resetProgress() mais ATTENTION: resetProgress() écrit en storage
+  // Donc ici on construit un objet fresh sans side effect.
+  const base = withUpdatedAt({
+    xp: 0,
+    streak: 0,
+    lastActiveDate: null,
+    completedNodeIds: [],
+    unlockedCards: [],
+    xpToday: 0,
+    xpTodayDate: null, // progressStore forcera la date du jour au load
+    reviewQueue: [],
+    unlockedBadges: [],
+    timelineWorldCompleted: 1,
+  });
+
+  return base;
 }
 
 /* =========================================
@@ -53,21 +77,19 @@ export async function fetchRemoteProgress(userId) {
   };
 }
 
-export async function upsertRemoteProgress(userId, progress) {
+/**
+ * ✅ upsert sans refetch
+ * - remoteHint permet de protéger timelineWorldCompleted sans re-query
+ */
+export async function upsertRemoteProgress(userId, progress, { remoteHint } = {}) {
   if (!userId) return null;
-
-  // 👇 récupère la valeur remote actuelle pour ne pas la perdre
-  const remote = await fetchRemoteProgress(userId);
-  const remoteT = Number(remote?.timelineWorldCompleted || 0);
 
   const safe = withUpdatedAt(progress);
 
-  // ✅ si le progress local ne contient pas timelineWorldCompleted,
-  // on conserve la valeur remote (ou on prend le max)
+  // ✅ protège timeline (max) sans refetch
+  const hintT = Number(remoteHint?.timelineWorldCompleted || 0);
   const localT = Number(safe?.timelineWorldCompleted || 0);
-  safe.timelineWorldCompleted = Math.max(remoteT, localT);
-
-  console.log("PUSH timelineWorldCompleted:", safe.timelineWorldCompleted);
+  safe.timelineWorldCompleted = Math.max(hintT, localT);
 
   const { data, error } = await supabase
     .from("user_progress")
@@ -75,42 +97,65 @@ export async function upsertRemoteProgress(userId, progress) {
       { user_id: userId, data: safe, updated_at: new Date().toISOString() },
       { onConflict: "user_id" }
     )
-    .select();
+    .select()
+    .maybeSingle();
 
   if (error) throw error;
   return data || null;
 }
 
-
 /* =========================================
    Login sync (merge)
 ========================================= */
+
+/**
+ * ✅ Règle:
+ * - Si remote est vide => on wipe local (sinon mobile réinjecte)
+ * - Sinon merge normal
+ */
 export async function syncProgressOnLogin(userId) {
   if (!userId) return loadProgress();
 
   const local = withUpdatedAt(loadProgress());
   const remote = await fetchRemoteProgress(userId);
 
-  // ✅ LOG POUR VOIR QUI GAGNE
   console.log("🔎 syncProgressOnLogin() snapshots:", {
+    hasRemote: !!remote,
     localTimeline: local?.timelineWorldCompleted,
     remoteTimeline: remote?.timelineWorldCompleted,
   });
 
+  // ✅ CAS CRITIQUE : remote vide (après reset cloud)
+  if (!remote) {
+    // 1) wipe local (sur la clé active user::<id>)
+    // ⚠️ resetProgress() déclenche saveProgress et peut push cloud si _cloudSync est branché.
+    // Donc on fait un saveProgress "fresh" mais on doit éviter le push auto :
+    // -> La méthode safe: on écrit via localStorage direct serait mieux,
+    // mais tu n'as pas d'API dédiée. Donc on fait simple:
+    // on sauve fresh, puis on upsert fresh. (fresh = clean)
+    const fresh = defaultProgressAligned();
+
+    saveProgress(fresh);
+    await upsertRemoteProgress(userId, fresh);
+
+    localStorage.setItem(LS_KEY_MIGRATED, "1");
+    console.log("🧼 Remote empty => local wiped + remote initialized (fresh).");
+    return fresh;
+  }
+
+  // ✅ CAS NORMAL : remote existe → merge
   const merged = mergeProgress(local, remote);
 
-  // ✅ empêche le reset (11 -> 1)
   const mergedNormalized = normalizeTimeline(local, remote, merged);
   const mergedSafe = withUpdatedAt(mergedNormalized);
 
-  // ✅ LOG FINAL AVANT SAVE + UPSERT
   console.log("🧩 syncProgressOnLogin() merged:", {
     mergedTimeline: merged?.timelineWorldCompleted,
     finalTimeline: mergedSafe?.timelineWorldCompleted,
   });
 
   saveProgress(mergedSafe);
-  await upsertRemoteProgress(userId, mergedSafe);
+  await upsertRemoteProgress(userId, mergedSafe, { remoteHint: remote });
 
   localStorage.setItem(LS_KEY_MIGRATED, "1");
   return mergedSafe;
@@ -123,7 +168,6 @@ export async function refreshProgressFromCloud(userId) {
   const remote = await fetchRemoteProgress(userId);
   if (!remote) return local;
 
-  // ✅ LOG
   console.log("🔄 refreshProgressFromCloud() snapshots:", {
     localTimeline: local?.timelineWorldCompleted,
     remoteTimeline: remote?.timelineWorldCompleted,
@@ -131,7 +175,6 @@ export async function refreshProgressFromCloud(userId) {
 
   const merged = mergeProgress(local, remote);
 
-  // ✅ empêche le downgrade en local
   const mergedNormalized = normalizeTimeline(local, remote, merged);
   const mergedSafe = withUpdatedAt(mergedNormalized);
 
@@ -147,27 +190,23 @@ export async function refreshProgressFromCloud(userId) {
 /* =========================================
    ✅ Push automatique (debounce)
 ========================================= */
+
 let _timer = null;
 let _pending = null;
 let _lastPushedHash = null;
 let _lastKnownProgress = null;
 
-/**
- * Met en file une sauvegarde remote (debounce).
- * Appelée automatiquement via saveProgress() -> setProgressCloudSync()
- */
 export function queueRemoteProgress(userId, progress, { delay = 800 } = {}) {
   if (!userId) return;
 
   const safe = withUpdatedAt(progress);
 
-  // ✅ si progress incomplet (ex: timeline absente), protège un minimum en gardant la valeur connue
+  // ✅ protège un minimum la timeline en gardant la meilleure valeur connue (local)
   const last = _lastKnownProgress || {};
   const safeWithTimeline = normalizeTimeline(last, last, safe);
 
   _lastKnownProgress = safeWithTimeline;
 
-  // anti-spam : si rien n’a changé depuis le dernier push, on ignore
   const hash = stableStringify(safeWithTimeline);
   if (_lastPushedHash && hash === _lastPushedHash) return;
 
@@ -194,37 +233,18 @@ export function queueRemoteProgress(userId, progress, { delay = 800 } = {}) {
       console.log("✅ queueRemoteProgress -> ok");
     } catch (e) {
       console.warn("❌ queueRemoteProgress -> failed:", e?.message || e);
-      // ✅ on garde en pending pour un futur flush / prochain save
       _pending = payload;
     }
   }, delay);
 }
 
-/**
- * Flush immédiat (utile avant logout ou fermeture).
- * - push le pending si présent
- * - sinon push le dernier progress connu (si dispo)
- */
 export async function flushRemoteProgressNow() {
-  const payload =
-    _pending ||
-    (_lastKnownProgress
-      ? {
-          userId: null,
-          progress: _lastKnownProgress,
-          hash: stableStringify(_lastKnownProgress),
-        }
-      : null);
-
   if (_timer) clearTimeout(_timer);
   _timer = null;
 
-  if (!_pending && payload && payload.userId == null) {
-    // si on n'a pas userId, on ne peut pas flush
-    return;
-  }
+  if (!_pending?.userId) return;
 
-  if (!payload?.userId) return;
+  const payload = _pending;
 
   try {
     console.log("⚡ flushRemoteProgressNow() -> pushing:", {
@@ -237,6 +257,5 @@ export async function flushRemoteProgressNow() {
     _pending = null;
   } catch (e) {
     console.warn("❌ flushRemoteProgressNow -> failed:", e?.message || e);
-    // on ne détruit pas _pending si c'était pending
   }
 }

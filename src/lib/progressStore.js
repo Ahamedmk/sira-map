@@ -1,3 +1,6 @@
+let _muteCloud = false;
+export function setCloudSyncMuted(v) { _muteCloud = !!v; }
+
 // src/lib/progressStore.js
 const BASE_KEY = "sira_progress_v1";
 let _cloudSync = null;
@@ -125,7 +128,9 @@ export function saveProgress(p) {
   const next = { ...p, updatedAt: Date.now() };
 
   localStorage.setItem(_activeKey, JSON.stringify(next));
-
+  if (!_muteCloud) {
+  _cloudSync?.(next);
+}
   // ✅ push cloud (si branché)
   try {
     _cloudSync?.(next);

@@ -83,7 +83,7 @@ export default function ProfilePage() {
                 ) : (
                   <button
                     onClick={() => navigate("/login")}
-                    className="inline-flex items-center gap-2 rounded-2xl bg-neutral-900 px-3 py-2 text-xs font-semibold text-white shadow-sm hover:shadow-md transition"
+                    className="inline-flex items-center gap-2 rounded-2xl bg-neutral-900 px-3 py-2 text-xs font-semibold text-black shadow-sm hover:shadow-md transition"
                   >
                     <LogIn size={16} />
                     Se connecter
