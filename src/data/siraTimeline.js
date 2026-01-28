@@ -7,7 +7,7 @@ export const SIRA_TIMELINE = [
     dateLabel: "12 Rabīʿ al-Awwal (≈ 570)",
     title: "Naissance du Prophète ﷺ",
     phase: "before",
-    unlockAtWorld: 1,
+    unlockAtWorld: 3,
     summary:
       "Un enfant naît dans une Arabie tribale. Rien, en apparence, n’annonce ce qui va suivre.",
     story: [
