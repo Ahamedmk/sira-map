@@ -4,24 +4,76 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { SIRA_TIMELINE, PHASES } from "../data/siraTimeline.js";
 import { useAuth } from "../lib/context/AuthContext.jsx";
 import { supabase } from "../lib/supabase.js";
-import { Lock, ChevronRight, Sparkles, MapPin, Calendar, X, ArrowLeft, Map as MapIcon } from "lucide-react";
+import { loadProgress } from "../lib/progressStore.js";
+import {
+  Lock,
+  ChevronRight,
+  Sparkles,
+  MapPin,
+  Calendar,
+  X,
+  ArrowLeft,
+  Map as MapIcon,
+} from "lucide-react";
 
 function phaseMeta(phase) {
   switch (phase) {
     case "before":
-      return { badge: "Avant la Révélation", accent: "from-slate-400 via-slate-300 to-slate-200", accentBg: "from-slate-100 to-slate-50", dot: "bg-gradient-to-br from-slate-400 to-slate-500", icon: "🌙" };
+      return {
+        badge: "Avant la Révélation",
+        accent: "from-slate-400 via-slate-300 to-slate-200",
+        accentBg: "from-slate-100 to-slate-50",
+        dot: "bg-gradient-to-br from-slate-400 to-slate-500",
+        icon: "🌙",
+      };
     case "revelation":
-      return { badge: "Révélation & Appel", accent: "from-amber-500 via-amber-400 to-amber-300", accentBg: "from-amber-100 to-amber-50", dot: "bg-gradient-to-br from-amber-400 to-amber-600", icon: "✨" };
+      return {
+        badge: "Révélation & Appel",
+        accent: "from-amber-500 via-amber-400 to-amber-300",
+        accentBg: "from-amber-100 to-amber-50",
+        dot: "bg-gradient-to-br from-amber-400 to-amber-600",
+        icon: "✨",
+      };
     case "trial":
-      return { badge: "Épreuves & Consolation", accent: "from-orange-500 via-orange-400 to-orange-300", accentBg: "from-orange-100 to-orange-50", dot: "bg-gradient-to-br from-orange-400 to-orange-600", icon: "🔥" };
+      return {
+        badge: "Épreuves & Consolation",
+        accent: "from-orange-500 via-orange-400 to-orange-300",
+        accentBg: "from-orange-100 to-orange-50",
+        dot: "bg-gradient-to-br from-orange-400 to-orange-600",
+        icon: "🔥",
+      };
     case "hijra":
-      return { badge: "Aqabah & Hijra", accent: "from-emerald-500 via-emerald-400 to-emerald-300", accentBg: "from-emerald-100 to-emerald-50", dot: "bg-gradient-to-br from-emerald-400 to-emerald-600", icon: "🕌" };
+      return {
+        badge: "Aqabah & Hijra",
+        accent: "from-emerald-500 via-emerald-400 to-emerald-300",
+        accentBg: "from-emerald-100 to-emerald-50",
+        dot: "bg-gradient-to-br from-emerald-400 to-emerald-600",
+        icon: "🕌",
+      };
     case "madinah":
-      return { badge: "Construction à Médine", accent: "from-sky-500 via-sky-400 to-sky-300", accentBg: "from-sky-100 to-sky-50", dot: "bg-gradient-to-br from-sky-400 to-sky-600", icon: "🏛️" };
+      return {
+        badge: "Construction à Médine",
+        accent: "from-sky-500 via-sky-400 to-sky-300",
+        accentBg: "from-sky-100 to-sky-50",
+        dot: "bg-gradient-to-br from-sky-400 to-sky-600",
+        icon: "🏛️",
+      };
     case "ending":
-      return { badge: "Derniers moments", accent: "from-violet-500 via-violet-400 to-violet-300", accentBg: "from-violet-100 to-violet-50", dot: "bg-gradient-to-br from-violet-400 to-violet-600", icon: "🌟" };
+      return {
+        badge: "Derniers moments",
+        accent: "from-violet-500 via-violet-400 to-violet-300",
+        accentBg: "from-violet-100 to-violet-50",
+        dot: "bg-gradient-to-br from-violet-400 to-violet-600",
+        icon: "🌟",
+      };
     default:
-      return { badge: "Étape", accent: "from-slate-400 via-slate-300 to-slate-200", accentBg: "from-slate-100 to-slate-50", dot: "bg-gradient-to-br from-slate-400 to-slate-500", icon: "📍" };
+      return {
+        badge: "Étape",
+        accent: "from-slate-400 via-slate-300 to-slate-200",
+        accentBg: "from-slate-100 to-slate-50",
+        dot: "bg-gradient-to-br from-slate-400 to-slate-500",
+        icon: "📍",
+      };
   }
 }
 
@@ -57,7 +109,9 @@ function TimelineModal({ open, onClose, item }) {
   const meta = phaseMeta(item.phase);
   const story = Array.isArray(item.story) ? item.story : [];
   const keyMoments = Array.isArray(item.keyMoments) ? item.keyMoments : [];
-  const question = item.reflectionQuestion || "Qu'est-ce que cette étape t'apprend sur la constance et le courage ?";
+  const question =
+    item.reflectionQuestion ||
+    "Qu'est-ce que cette étape t'apprend sur la constance et le courage ?";
 
   return (
     <div className="fixed inset-0 z-50 animate-fadeIn">
@@ -68,10 +122,14 @@ function TimelineModal({ open, onClose, item }) {
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-2">
                 <Calendar size={14} className="text-amber-600" />
-                <span className="text-xs font-bold uppercase tracking-wide text-amber-700">{item.dateLabel}</span>
+                <span className="text-xs font-bold uppercase tracking-wide text-amber-700">
+                  {item.dateLabel}
+                </span>
               </div>
               <h2 className="text-2xl font-bold text-neutral-900 mb-3">{item.title}</h2>
-              <div className={`inline-flex items-center gap-2 rounded-full border-2 px-3 py-1.5 text-xs font-bold bg-gradient-to-r ${meta.accentBg} border-amber-200`}>
+              <div
+                className={`inline-flex items-center gap-2 rounded-full border-2 px-3 py-1.5 text-xs font-bold bg-gradient-to-r ${meta.accentBg} border-amber-200`}
+              >
                 <span className="text-lg">{meta.icon}</span>
                 {meta.badge}
               </div>
@@ -101,7 +159,9 @@ function TimelineModal({ open, onClose, item }) {
               <h3 className="text-sm font-bold text-neutral-900 mb-3">Contexte & récit</h3>
               <div className="space-y-3">
                 {(story.length ? story : [item.summary]).map((p, idx) => (
-                  <p key={idx} className="text-sm leading-relaxed text-neutral-700">{p}</p>
+                  <p key={idx} className="text-sm leading-relaxed text-neutral-700">
+                    {p}
+                  </p>
                 ))}
               </div>
             </div>
@@ -145,7 +205,11 @@ function StepTotem({ unlocked, phase, highlight }) {
   const meta = phaseMeta(phase);
   return (
     <div className="relative flex h-14 w-14 items-center justify-center">
-      <div className={`absolute h-14 w-14 rounded-2xl border-2 transition-all duration-300 shadow-lg ${unlocked ? "border-amber-300 bg-white scale-100" : "border-neutral-200 bg-neutral-50 scale-90 opacity-60"} ${highlight ? "ring-4 ring-amber-400/60 ring-offset-2" : ""}`} />
+      <div
+        className={`absolute h-14 w-14 rounded-2xl border-2 transition-all duration-300 shadow-lg ${
+          unlocked ? "border-amber-300 bg-white scale-100" : "border-neutral-200 bg-neutral-50 scale-90 opacity-60"
+        } ${highlight ? "ring-4 ring-amber-400/60 ring-offset-2" : ""}`}
+      />
       <div className={`relative h-7 w-7 rounded-full transition-all duration-300 shadow-md ${unlocked ? meta.dot : "bg-neutral-300"}`} />
       {unlocked && (
         <>
@@ -164,10 +228,14 @@ function StepCard({ item, unlocked, side, onOpen, highlight }) {
     <button
       onClick={onOpen}
       disabled={!unlocked}
-      className={`group w-full rounded-3xl border-2 text-left transition-all duration-300 overflow-hidden relative ${unlocked ? "border-amber-200 bg-white hover:bg-amber-50/50 hover:border-amber-300 shadow-lg hover:shadow-xl hover:scale-[1.02] cursor-pointer" : "border-neutral-200 bg-neutral-50 opacity-60 cursor-not-allowed"} ${highlight ? "ring-4 ring-amber-400/60 ring-offset-2 animate-pulse-ring" : ""}`}
+      className={`group w-full rounded-3xl border-2 text-left transition-all duration-300 overflow-hidden relative ${
+        unlocked
+          ? "border-amber-200 bg-white hover:bg-amber-50/50 hover:border-amber-300 shadow-lg hover:shadow-xl hover:scale-[1.02] cursor-pointer"
+          : "border-neutral-200 bg-neutral-50 opacity-60 cursor-not-allowed"
+      } ${highlight ? "ring-4 ring-amber-400/60 ring-offset-2 animate-pulse-ring" : ""}`}
     >
       <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${meta.accent}`} />
-      
+
       {unlocked && (
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
       )}
@@ -175,8 +243,8 @@ function StepCard({ item, unlocked, side, onOpen, highlight }) {
       <div className="relative z-10 p-5 md:p-6">
         <div className="flex items-start justify-between gap-4 mb-3">
           <div className="flex items-center gap-3">
-            <div className={`text-3xl ${unlocked ? 'animate-bounce-slow' : 'opacity-50'}`}>
-              {unlocked ? meta.icon : '🔒'}
+            <div className={`text-3xl ${unlocked ? "animate-bounce-slow" : "opacity-50"}`}>
+              {unlocked ? meta.icon : "🔒"}
             </div>
             <div>
               <div className="flex items-center gap-2 mb-1">
@@ -185,9 +253,7 @@ function StepCard({ item, unlocked, side, onOpen, highlight }) {
                   {item.dateLabel}
                 </span>
               </div>
-              <div className="text-lg font-bold text-neutral-900">
-                {unlocked ? item.title : "Événement à venir…"}
-              </div>
+              <div className="text-lg font-bold text-neutral-900">{unlocked ? item.title : "Événement à venir…"}</div>
             </div>
           </div>
 
@@ -229,12 +295,27 @@ function StepCard({ item, unlocked, side, onOpen, highlight }) {
   );
 }
 
-async function fetchTimelineWorldCompleted(userId) {
-  const { data, error } = await supabase.from("user_progress").select("data").eq("user_id", userId).single();
+async function fetchTimelineWorldCompletedFromSupabase(userId) {
+  const { data, error } = await supabase
+    .from("user_progress")
+    .select("data")
+    .eq("user_id", userId)
+    .single();
+
   if (error) throw error;
   const d = data?.data || {};
   const v = Number(d.timelineWorldCompleted || 0);
   return Number.isFinite(v) ? v : 0;
+}
+
+function getTimelineWorldCompletedFromLocal() {
+  try {
+    const p = loadProgress();
+    const v = Number(p?.timelineWorldCompleted || 0);
+    return Number.isFinite(v) ? v : 0;
+  } catch {
+    return 0;
+  }
 }
 
 export default function Timeline() {
@@ -269,20 +350,24 @@ export default function Timeline() {
     async function run() {
       setLoading(true);
 
+      // ✅ Guest: on lit la progression locale
       if (!user?.id) {
+        const localW = getTimelineWorldCompletedFromLocal();
         if (!alive) return;
-        setCompletedWorld(null);
+        setCompletedWorld(localW);
         setLoading(false);
         return;
       }
 
+      // ✅ Connecté: on lit Supabase
       try {
-        const w = await fetchTimelineWorldCompleted(user.id);
+        const w = await fetchTimelineWorldCompletedFromSupabase(user.id);
         if (!alive) return;
-        setCompletedWorld(Number.isFinite(w) && w > 0 ? w : 1);
-      } catch (e) {
+        setCompletedWorld(Number.isFinite(w) ? w : 0);
+      } catch {
         if (!alive) return;
-        setCompletedWorld(null);
+        // fallback local si Supabase KO
+        setCompletedWorld(getTimelineWorldCompletedFromLocal());
       } finally {
         if (!alive) return;
         setLoading(false);
@@ -290,7 +375,9 @@ export default function Timeline() {
     }
 
     run();
-    return () => { alive = false; };
+    return () => {
+      alive = false;
+    };
   }, [user?.id]);
 
   const grouped = useMemo(() => {
@@ -343,7 +430,7 @@ export default function Timeline() {
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-neutral-700 mb-6">
             Les dates sont visibles… mais chaque événement se dévoile au fur et à mesure de ta progression.
-            L'objectif : ressentir le parcours, pas seulement le lire. ✨
+            L&apos;objectif : ressentir le parcours, pas seulement le lire. ✨
           </p>
 
           <div className="inline-flex items-center gap-3 rounded-2xl border-2 border-amber-200 bg-gradient-to-br from-amber-50 to-orange-50 px-5 py-3 shadow-md">
