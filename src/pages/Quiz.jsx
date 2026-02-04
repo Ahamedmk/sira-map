@@ -7,6 +7,13 @@ import {
   useLocation,
 } from "react-router-dom";
 import {
+  loadProgress,
+  saveProgress,
+  completeNode,
+  isNodeCompleted,
+  markTimelineWorldCompleted,
+} from "../lib/progressStore";
+import {
   ChevronLeft,
   Crown,
   Sparkles,
@@ -22,7 +29,7 @@ import { getLessonById } from "../data/map.mock.js";
 import { getLessonContent, LESSONS_CONTENT } from "../data/lessons.mock.js";
 import { buildBossQuiz } from "../lib/bossQuizEngine.js";
 import { evaluateCards } from "../lib/progressCardsEngine";
-import { loadProgress, saveProgress, completeNode, isNodeCompleted } from "../lib/progressStore";
+
 import { syncCardsToSupabase } from "../lib/syncCards";
 
 import CardUnlockModal from "../components/CardUnlockModal.jsx";
@@ -646,6 +653,7 @@ export default function Quiz() {
           const nextWorld = maxWorld(prevWorld, worldNumber);
 
           if (nextWorld > prevWorld) {
+            markTimelineWorldCompleted(nextWorld);
             const unlockedEvents = computeNewTimelineUnlocks(prevWorld, nextWorld);
             const focusId = unlockedEvents.at(-1)?.id || null;
 

@@ -1,7 +1,10 @@
-let _muteCloud = false;
-export function setCloudSyncMuted(v) { _muteCloud = !!v; }
-
 // src/lib/progressStore.js
+
+let _muteCloud = false;
+export function setCloudSyncMuted(v) {
+  _muteCloud = !!v;
+}
+
 const BASE_KEY = "sira_progress_v1";
 let _cloudSync = null;
 
@@ -17,16 +20,14 @@ export function setProgressUser(userId) {
   _activeKey = userId ? `${BASE_KEY}::user::${userId}` : `${BASE_KEY}::guest`;
 
   // ✅ Migration automatique depuis l'ancien KEY unique (1 fois)
-  // Objectif: ne pas "perdre" la progression historique de ton MVP
-  // et éviter que les comptes se partagent la même progression.
   try {
     const legacyRaw = localStorage.getItem(BASE_KEY);
     if (!legacyRaw) return;
 
-    const migratedFlag = localStorage.getItem(`${_activeKey}::migrated_v1`) === "1";
+    const migratedFlag =
+      localStorage.getItem(`${_activeKey}::migrated_v1`) === "1";
     if (migratedFlag) return;
 
-    // Si la nouvelle clé n'existe pas encore, on migre.
     const currentRaw = localStorage.getItem(_activeKey);
     if (!currentRaw) {
       localStorage.setItem(_activeKey, legacyRaw);
@@ -63,7 +64,6 @@ function addDaysISO(dateISO, days) {
   return `${y}-${m}-${day}`;
 }
 
-// (optionnel mais pratique)
 export function getTodayISO() {
   return todayISO();
 }
@@ -77,17 +77,24 @@ function normalizeNumber(val, fallback = 0) {
   return Number.isFinite(n) ? n : fallback;
 }
 
+/** ✅ Ajout timelineWorldCompleted */
 function emptyProgress(t) {
   return {
     xp: 0,
     streak: 0,
     lastActiveDate: null,
+
     completedNodeIds: [],
     unlockedCards: [],
+    unlockedBadges: [],
+
     xpToday: 0,
     xpTodayDate: t,
+
     reviewQueue: [], // [{id, lessonId, dueDate, stage, done}]
-    unlockedBadges: [],
+
+    // ✅ IMPORTANT : progression de la timeline (monde max terminé)
+    timelineWorldCompleted: 0,
   };
 }
 
@@ -95,9 +102,7 @@ export function loadProgress() {
   const t = todayISO();
 
   try {
-    // ✅ on lit la clé active (guest OU user::<id>)
     const raw = localStorage.getItem(_activeKey);
-
     if (!raw) return emptyProgress(t);
 
     const data = JSON.parse(raw);
@@ -110,13 +115,20 @@ export function loadProgress() {
     return {
       xp: normalizeNumber(data.xp, 0),
       streak: normalizeNumber(data.streak, 0),
-      unlockedCards: normalizeArray(data.unlockedCards),
       lastActiveDate: data.lastActiveDate ?? null,
+
       completedNodeIds: normalizeArray(data.completedNodeIds),
-      xpToday,
-      xpTodayDate: t, // on force à la date du jour
-      reviewQueue: normalizeArray(data.reviewQueue),
+      unlockedCards: normalizeArray(data.unlockedCards),
       unlockedBadges: normalizeArray(data.unlockedBadges),
+
+      xpToday,
+      xpTodayDate: t,
+
+      reviewQueue: normalizeArray(data.reviewQueue),
+
+      // ✅ IMPORTANT : si absent, fallback à 0
+      timelineWorldCompleted: normalizeNumber(data.timelineWorldCompleted, 0),
+
       updatedAt: data.updatedAt ?? null,
     };
   } catch {
@@ -128,15 +140,29 @@ export function saveProgress(p) {
   const next = { ...p, updatedAt: Date.now() };
 
   localStorage.setItem(_activeKey, JSON.stringify(next));
-  if (!_muteCloud) {
-  _cloudSync?.(next);
-}
-  // ✅ push cloud (si branché)
-  try {
-    _cloudSync?.(next);
-  } catch (e) {
-    console.warn("cloudSync failed:", e?.message || e);
+
+  // ✅ push cloud UNE seule fois + respect du mute
+  if (!_muteCloud && _cloudSync) {
+    try {
+      _cloudSync(next);
+    } catch (e) {
+      console.warn("cloudSync failed:", e?.message || e);
+    }
   }
+}
+
+/** ✅ Helper : ne baisse jamais la timeline */
+export function markTimelineWorldCompleted(worldNumber) {
+  const p = loadProgress();
+  const n = normalizeNumber(worldNumber, 0);
+  const current = normalizeNumber(p.timelineWorldCompleted, 0);
+
+  const next = Math.max(current, n);
+  if (next !== current) {
+    p.timelineWorldCompleted = next;
+    saveProgress(p);
+  }
+  return p;
 }
 
 export function markActiveDay(p) {
@@ -248,12 +274,14 @@ export function unlockBadge(p, badgeId) {
 
 /**
  * ✅ reset uniquement la clé active (guest ou user::<id>)
- * (Donc reset guest ne touche pas le user, et inversement)
  */
 export function resetProgress() {
   const t = todayISO();
   const fresh = emptyProgress(t);
-  localStorage.setItem(_activeKey, JSON.stringify({ ...fresh, updatedAt: Date.now() }));
+  localStorage.setItem(
+    _activeKey,
+    JSON.stringify({ ...fresh, updatedAt: Date.now() })
+  );
   return fresh;
 }
 

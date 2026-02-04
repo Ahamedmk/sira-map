@@ -16,6 +16,21 @@ import {
   Map as MapIcon,
 } from "lucide-react";
 
+/* =========================================================
+   Helpers robustes
+========================================================= */
+
+function toFiniteNumber(x, fallback = 0) {
+  const n = Number(x);
+  return Number.isFinite(n) ? n : fallback;
+}
+
+function getUnlockReqWorld(item) {
+  // si unlockAtWorld est absent => jamais unlock
+  const req = toFiniteNumber(item?.unlockAtWorld, null);
+  return req === null ? Number.POSITIVE_INFINITY : req;
+}
+
 function phaseMeta(phase) {
   switch (phase) {
     case "before":
@@ -221,7 +236,7 @@ function StepTotem({ unlocked, phase, highlight }) {
   );
 }
 
-function StepCard({ item, unlocked, side, onOpen, highlight }) {
+function StepCard({ item, unlocked, side, onOpen, highlight, debugInfo }) {
   const meta = phaseMeta(item.phase);
 
   return (
@@ -253,7 +268,9 @@ function StepCard({ item, unlocked, side, onOpen, highlight }) {
                   {item.dateLabel}
                 </span>
               </div>
-              <div className="text-lg font-bold text-neutral-900">{unlocked ? item.title : "Événement à venir…"}</div>
+              <div className="text-lg font-bold text-neutral-900">
+                {unlocked ? item.title : "Événement à venir…"}
+              </div>
             </div>
           </div>
 
@@ -261,7 +278,7 @@ function StepCard({ item, unlocked, side, onOpen, highlight }) {
             {unlocked ? (
               <div className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[10px] font-bold border-2 bg-gradient-to-r ${meta.accentBg} border-amber-200`}>
                 <span className={`h-2 w-2 rounded-full ${meta.dot}`} />
-                {meta.badge}
+                Déverrouillé
               </div>
             ) : (
               <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[10px] font-bold border-2 bg-neutral-100 border-neutral-200">
@@ -275,6 +292,13 @@ function StepCard({ item, unlocked, side, onOpen, highlight }) {
         <div className={`text-sm leading-relaxed ${unlocked ? "text-neutral-700" : "text-neutral-500"} mb-4`}>
           {unlocked ? item.summary : "La date est visible… mais le sens se révèle quand tu progresses dans ton apprentissage."}
         </div>
+
+        {/* DEBUG */}
+        {!unlocked && debugInfo ? (
+          <div className="rounded-xl border border-neutral-200 bg-white/70 px-3 py-2 text-[11px] text-neutral-700 font-mono">
+            req={debugInfo.req} • local={debugInfo.local} • supabase={debugInfo.remote} • used={debugInfo.used}
+          </div>
+        ) : null}
 
         {unlocked && (
           <div className="flex items-center gap-2 text-xs font-bold text-amber-700 opacity-75 group-hover:opacity-100 transition-opacity">
@@ -295,6 +319,15 @@ function StepCard({ item, unlocked, side, onOpen, highlight }) {
   );
 }
 
+function getTimelineWorldCompletedFromLocal() {
+  try {
+    const p = loadProgress();
+    return toFiniteNumber(p?.timelineWorldCompleted, 0);
+  } catch {
+    return 0;
+  }
+}
+
 async function fetchTimelineWorldCompletedFromSupabase(userId) {
   const { data, error } = await supabase
     .from("user_progress")
@@ -304,19 +337,37 @@ async function fetchTimelineWorldCompletedFromSupabase(userId) {
 
   if (error) throw error;
   const d = data?.data || {};
-  const v = Number(d.timelineWorldCompleted || 0);
-  return Number.isFinite(v) ? v : 0;
+  return toFiniteNumber(d.timelineWorldCompleted, 0);
 }
 
-function getTimelineWorldCompletedFromLocal() {
-  try {
-    const p = loadProgress();
-    const v = Number(p?.timelineWorldCompleted || 0);
-    return Number.isFinite(v) ? v : 0;
-  } catch {
-    return 0;
-  }
+async function bumpTimelineWorldCompletedInSupabase(userId, newValue) {
+  // ⚠️ On ne veut jamais downgrader
+  const { data, error } = await supabase
+    .from("user_progress")
+    .select("data")
+    .eq("user_id", userId)
+    .single();
+
+  if (error) throw error;
+
+  const current = data?.data || {};
+  const currentVal = toFiniteNumber(current.timelineWorldCompleted, 0);
+
+  if (newValue <= currentVal) return;
+
+  const next = { ...current, timelineWorldCompleted: newValue };
+
+  const { error: upErr } = await supabase
+    .from("user_progress")
+    .update({ data: next })
+    .eq("user_id", userId);
+
+  if (upErr) throw upErr;
 }
+
+/* =========================================================
+   Page
+========================================================= */
 
 export default function Timeline() {
   const { user } = useAuth();
@@ -331,43 +382,65 @@ export default function Timeline() {
     }
   }, []);
 
-  const highlightIds = useMemo(() => {
+  const [highlightSet, setHighlightSet] = useState(() => {
     const idsFromState = location?.state?.highlightIds;
     const idsFromLS = persisted?.highlightIds;
-    const ids = Array.isArray(idsFromState) ? idsFromState : Array.isArray(idsFromLS) ? idsFromLS : [];
+    const ids = Array.isArray(idsFromState)
+      ? idsFromState
+      : Array.isArray(idsFromLS)
+      ? idsFromLS
+      : [];
     return new Set(ids);
-  }, [location?.state, persisted]);
+  });
 
   const focusId = location?.state?.focusId || persisted?.focusId || null;
 
-  const [completedWorld, setCompletedWorld] = useState(null);
+  const [completedWorld, setCompletedWorld] = useState(0);
+  const [debugNums, setDebugNums] = useState({ local: 0, remote: 0, used: 0 });
   const [loading, setLoading] = useState(true);
   const [activeItem, setActiveItem] = useState(null);
 
+  // ✅ Charge + merge local/supabase (prend le max)
   useEffect(() => {
     let alive = true;
 
     async function run() {
       setLoading(true);
 
-      // ✅ Guest: on lit la progression locale
+      const localW = getTimelineWorldCompletedFromLocal();
+
+      // guest => local only
       if (!user?.id) {
-        const localW = getTimelineWorldCompletedFromLocal();
         if (!alive) return;
         setCompletedWorld(localW);
+        setDebugNums({ local: localW, remote: 0, used: localW });
         setLoading(false);
         return;
       }
 
-      // ✅ Connecté: on lit Supabase
+      // connecté => max(local, supabase) + auto repair supabase
       try {
-        const w = await fetchTimelineWorldCompletedFromSupabase(user.id);
+        const remoteW = await fetchTimelineWorldCompletedFromSupabase(user.id);
+        const used = Math.max(localW, remoteW);
+
         if (!alive) return;
-        setCompletedWorld(Number.isFinite(w) ? w : 0);
-      } catch {
+        setCompletedWorld(used);
+        setDebugNums({ local: localW, remote: remoteW, used });
+
+        // si supabase est en retard => on le remonte
+        if (localW > remoteW) {
+          try {
+            await bumpTimelineWorldCompletedInSupabase(user.id, localW);
+          } catch (e) {
+            // on ne bloque pas l'UI si l'update échoue
+            console.warn("Timeline supabase bump failed:", e);
+          }
+        }
+      } catch (e) {
+        // si supabase KO => fallback local
         if (!alive) return;
-        // fallback local si Supabase KO
-        setCompletedWorld(getTimelineWorldCompletedFromLocal());
+        setCompletedWorld(localW);
+        setDebugNums({ local: localW, remote: -1, used: localW });
       } finally {
         if (!alive) return;
         setLoading(false);
@@ -380,6 +453,16 @@ export default function Timeline() {
     };
   }, [user?.id]);
 
+  // ✅ highlight temporaire + purge LS pour éviter le “clignote à vie”
+  useEffect(() => {
+    if (!highlightSet || highlightSet.size === 0) return;
+
+    localStorage.removeItem("timeline_last_unlock_v1");
+
+    const t = setTimeout(() => setHighlightSet(new Set()), 4500);
+    return () => clearTimeout(t);
+  }, [highlightSet]);
+
   const grouped = useMemo(() => {
     const map = new Map();
     for (const p of PHASES) map.set(p.key, []);
@@ -390,11 +473,15 @@ export default function Timeline() {
     return map;
   }, []);
 
-  const isUnlocked = (item) => Number.isFinite(completedWorld) && completedWorld >= item.unlockAtWorld;
+  const isUnlocked = (item) => {
+    const req = getUnlockReqWorld(item);
+    return toFiniteNumber(completedWorld, 0) >= req;
+  };
 
   function openItem(item) {
     if (!isUnlocked(item)) return;
     setActiveItem(item);
+    if (highlightSet?.size) setHighlightSet(new Set());
   }
 
   useEffect(() => {
@@ -402,6 +489,8 @@ export default function Timeline() {
     const el = document.getElementById(`tl-${focusId}`);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
   }, [focusId, loading]);
+
+  const DEBUG_UNLOCK = true; // mets false quand ok
 
   let globalIndex = 0;
 
@@ -428,6 +517,7 @@ export default function Timeline() {
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-amber-900 via-orange-800 to-amber-900 bg-clip-text text-transparent">
             Une vie. Des étapes. Un sens qui se révèle.
           </h1>
+
           <p className="max-w-2xl text-base leading-relaxed text-neutral-700 mb-6">
             Les dates sont visibles… mais chaque événement se dévoile au fur et à mesure de ta progression.
             L&apos;objectif : ressentir le parcours, pas seulement le lire. ✨
@@ -474,23 +564,28 @@ export default function Timeline() {
                   <div className="space-y-8 md:space-y-10">
                     {items.map((item) => {
                       const unlocked = isUnlocked(item);
+                      const req = getUnlockReqWorld(item);
                       const side = globalIndex % 2 === 0 ? "left" : "right";
-                      const highlight = highlightIds.has(item.id);
+                      const highlight = highlightSet.has(item.id);
                       globalIndex += 1;
+
+                      const debugInfo = DEBUG_UNLOCK
+                        ? { req, local: debugNums.local, remote: debugNums.remote, used: debugNums.used }
+                        : null;
 
                       return (
                         <div key={item.id} id={`tl-${item.id}`} className="relative animate-fadeIn">
                           <div className="hidden md:grid md:grid-cols-2 md:items-start md:gap-12">
                             <div className={side === "left" ? "block" : "invisible"}>
-                              <StepCard item={item} unlocked={unlocked} side="left" onOpen={() => openItem(item)} highlight={highlight} />
+                              <StepCard item={item} unlocked={unlocked} side="left" onOpen={() => openItem(item)} highlight={highlight} debugInfo={debugInfo} />
                             </div>
                             <div className={side === "right" ? "block" : "invisible"}>
-                              <StepCard item={item} unlocked={unlocked} side="right" onOpen={() => openItem(item)} highlight={highlight} />
+                              <StepCard item={item} unlocked={unlocked} side="right" onOpen={() => openItem(item)} highlight={highlight} debugInfo={debugInfo} />
                             </div>
                           </div>
 
                           <div className="md:hidden">
-                            <StepCard item={item} unlocked={unlocked} side="left" onOpen={() => openItem(item)} highlight={highlight} />
+                            <StepCard item={item} unlocked={unlocked} side="left" onOpen={() => openItem(item)} highlight={highlight} debugInfo={debugInfo} />
                           </div>
 
                           <div className="absolute left-1/2 top-8 hidden -translate-x-1/2 md:block">
